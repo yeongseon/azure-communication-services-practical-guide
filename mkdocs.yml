@@ -1,0 +1,272 @@
+site_name: Azure Communication Services Practical Guide
+site_url: https://yeongseon.github.io/azure-communication-services-practical-guide/
+site_description: Comprehensive guide for Azure Communication Services — SMS, Voice, Email, Chat, Video Calling, and Teams Interop
+site_author: yeongseon
+
+repo_name: yeongseon/azure-communication-services-practical-guide
+repo_url: https://github.com/yeongseon/azure-communication-services-practical-guide
+
+theme:
+  name: material
+  language: en
+  favicon: assets/images/favicon.svg
+  logo: assets/images/favicon.svg
+  palette:
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+  custom_dir: docs
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/document-graph.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+  - javascripts/mermaid-zoom.js
+  - https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js
+  - javascripts/document-graph.js
+  - javascripts/troubleshooting-map.js
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.mark
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - toc:
+      permalink: true
+
+validation:
+  nav:
+    omitted_files: warn
+  links:
+    not_found: warn
+    anchors: warn
+    absolute_links: warn
+    unrecognized_links: warn
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yeongseon/azure-communication-services-practical-guide
+
+nav:
+  - Home: index.md
+  - Start Here:
+    - start-here/overview.md
+    - start-here/learning-paths.md
+    - start-here/repository-map.md
+    - About: about.md
+  - Platform:
+    - platform/index.md
+    - platform/how-acs-works.md
+    - platform/resource-types.md
+    - platform/messaging-channels.md
+    - platform/authentication.md
+    - platform/networking.md
+    - platform/sdks-and-apis.md
+    - platform/event-handling.md
+    - platform/security-architecture.md
+  - Best Practices:
+    - best-practices/index.md
+    - best-practices/production-baseline.md
+    - best-practices/security.md
+    - best-practices/networking.md
+    - best-practices/reliability.md
+    - best-practices/scaling.md
+    - best-practices/cost-optimization.md
+    - best-practices/common-anti-patterns.md
+  - SDK Guides:
+    - sdk-guides/index.md
+    - Python:
+      - sdk-guides/python/index.md
+      - Tutorial:
+        - sdk-guides/python/tutorial/index.md
+        - 1. Local Setup: sdk-guides/python/tutorial/01-local-setup.md
+        - 2. Send SMS: sdk-guides/python/tutorial/02-send-sms.md
+        - 3. Send Email: sdk-guides/python/tutorial/03-send-email.md
+        - 4. Chat: sdk-guides/python/tutorial/04-chat.md
+        - 5. Voice Calling: sdk-guides/python/tutorial/05-voice-calling.md
+        - 6. Logging & Monitoring: sdk-guides/python/tutorial/06-logging-monitoring.md
+        - 7. Infrastructure as Code: sdk-guides/python/tutorial/07-infrastructure-as-code.md
+      - Python Recipes:
+        - sdk-guides/python/recipes/index.md
+        - sdk-guides/python/recipes/managed-identity.md
+        - sdk-guides/python/recipes/key-vault-reference.md
+        - sdk-guides/python/recipes/event-grid-webhooks.md
+        - sdk-guides/python/recipes/phone-number-management.md
+        - sdk-guides/python/recipes/email-with-attachments.md
+        - sdk-guides/python/recipes/chat-with-file-sharing.md
+        - sdk-guides/python/recipes/teams-interop.md
+    - JavaScript:
+      - sdk-guides/javascript/index.md
+      - Tutorial:
+        - sdk-guides/javascript/tutorial/index.md
+        - 1. Local Setup: sdk-guides/javascript/tutorial/01-local-setup.md
+        - 2. Send SMS: sdk-guides/javascript/tutorial/02-send-sms.md
+        - 3. Send Email: sdk-guides/javascript/tutorial/03-send-email.md
+        - 4. Chat: sdk-guides/javascript/tutorial/04-chat.md
+        - 5. Video Calling: sdk-guides/javascript/tutorial/05-video-calling.md
+        - 6. Logging & Monitoring: sdk-guides/javascript/tutorial/06-logging-monitoring.md
+        - 7. Infrastructure as Code: sdk-guides/javascript/tutorial/07-infrastructure-as-code.md
+      - JavaScript Recipes:
+        - sdk-guides/javascript/recipes/index.md
+        - sdk-guides/javascript/recipes/managed-identity.md
+        - sdk-guides/javascript/recipes/key-vault-reference.md
+        - sdk-guides/javascript/recipes/event-grid-webhooks.md
+        - sdk-guides/javascript/recipes/phone-number-management.md
+        - sdk-guides/javascript/recipes/email-with-attachments.md
+        - sdk-guides/javascript/recipes/calling-ui-composite.md
+        - sdk-guides/javascript/recipes/teams-interop.md
+    - Java:
+      - sdk-guides/java/index.md
+      - Tutorial:
+        - sdk-guides/java/tutorial/index.md
+        - 1. Local Setup: sdk-guides/java/tutorial/01-local-setup.md
+        - 2. Send SMS: sdk-guides/java/tutorial/02-send-sms.md
+        - 3. Send Email: sdk-guides/java/tutorial/03-send-email.md
+        - 4. Chat: sdk-guides/java/tutorial/04-chat.md
+        - 5. Voice Calling: sdk-guides/java/tutorial/05-voice-calling.md
+        - 6. Logging & Monitoring: sdk-guides/java/tutorial/06-logging-monitoring.md
+        - 7. Infrastructure as Code: sdk-guides/java/tutorial/07-infrastructure-as-code.md
+      - Java Recipes:
+        - sdk-guides/java/recipes/index.md
+        - sdk-guides/java/recipes/managed-identity.md
+        - sdk-guides/java/recipes/key-vault-reference.md
+        - sdk-guides/java/recipes/event-grid-webhooks.md
+        - sdk-guides/java/recipes/phone-number-management.md
+        - sdk-guides/java/recipes/email-with-attachments.md
+        - sdk-guides/java/recipes/teams-interop.md
+    - .NET:
+      - sdk-guides/dotnet/index.md
+      - Tutorial:
+        - sdk-guides/dotnet/tutorial/index.md
+        - 1. Local Setup: sdk-guides/dotnet/tutorial/01-local-setup.md
+        - 2. Send SMS: sdk-guides/dotnet/tutorial/02-send-sms.md
+        - 3. Send Email: sdk-guides/dotnet/tutorial/03-send-email.md
+        - 4. Chat: sdk-guides/dotnet/tutorial/04-chat.md
+        - 5. Voice Calling: sdk-guides/dotnet/tutorial/05-voice-calling.md
+        - 6. Logging & Monitoring: sdk-guides/dotnet/tutorial/06-logging-monitoring.md
+        - 7. Infrastructure as Code: sdk-guides/dotnet/tutorial/07-infrastructure-as-code.md
+      - .NET Recipes:
+        - sdk-guides/dotnet/recipes/index.md
+        - sdk-guides/dotnet/recipes/managed-identity.md
+        - sdk-guides/dotnet/recipes/key-vault-reference.md
+        - sdk-guides/dotnet/recipes/event-grid-webhooks.md
+        - sdk-guides/dotnet/recipes/phone-number-management.md
+        - sdk-guides/dotnet/recipes/email-with-attachments.md
+        - sdk-guides/dotnet/recipes/teams-interop.md
+  - Operations:
+    - operations/index.md
+    - operations/provisioning.md
+    - operations/monitoring.md
+    - operations/security.md
+    - operations/cost-optimization.md
+    - operations/health-recovery.md
+    - Deployment:
+      - operations/deployment/index.md
+      - operations/deployment/bicep-terraform.md
+      - operations/deployment/github-actions.md
+  - Troubleshooting:
+    - troubleshooting/index.md
+    - troubleshooting/decision-tree.md
+    - troubleshooting/evidence-map.md
+    - troubleshooting/mental-model.md
+    - First 10 Minutes:
+      - troubleshooting/first-10-minutes/index.md
+      - troubleshooting/first-10-minutes/sms-delivery.md
+      - troubleshooting/first-10-minutes/email-delivery.md
+      - troubleshooting/first-10-minutes/chat-connectivity.md
+      - troubleshooting/first-10-minutes/calling-quality.md
+    - Playbooks:
+      - troubleshooting/playbooks/index.md
+      - SMS:
+        - troubleshooting/playbooks/sms/delivery-failures.md
+        - troubleshooting/playbooks/sms/opt-out-handling.md
+        - troubleshooting/playbooks/sms/rate-limiting.md
+      - Email:
+        - troubleshooting/playbooks/email/delivery-failures.md
+        - troubleshooting/playbooks/email/domain-verification.md
+        - troubleshooting/playbooks/email/spam-filtering.md
+      - Chat:
+        - troubleshooting/playbooks/chat/message-delivery.md
+        - troubleshooting/playbooks/chat/thread-management.md
+        - troubleshooting/playbooks/chat/real-time-notifications.md
+      - Voice & Video:
+        - troubleshooting/playbooks/voice-video/call-quality.md
+        - troubleshooting/playbooks/voice-video/call-drops.md
+        - troubleshooting/playbooks/voice-video/oode-quality.md
+      - Teams Interop:
+        - troubleshooting/playbooks/teams-interop/join-failures.md
+        - troubleshooting/playbooks/teams-interop/permission-issues.md
+    - Methodology:
+      - troubleshooting/methodology/troubleshooting-method.md
+      - troubleshooting/methodology/detector-map.md
+    - KQL Queries:
+      - troubleshooting/kql/index.md
+      - SMS:
+        - troubleshooting/kql/sms/index.md
+        - troubleshooting/kql/sms/delivery-status.md
+      - Email:
+        - troubleshooting/kql/email/index.md
+        - troubleshooting/kql/email/delivery-status.md
+      - Chat:
+        - troubleshooting/kql/chat/index.md
+        - troubleshooting/kql/chat/message-latency.md
+      - Voice & Video:
+        - troubleshooting/kql/voice-video/index.md
+        - troubleshooting/kql/voice-video/call-quality-metrics.md
+  - Reference:
+    - reference/index.md
+    - reference/cli-cheatsheet.md
+    - reference/platform-limits.md
+    - reference/kql-queries.md
+    - reference/sdk-reference.md
+  - Visualization:
+    - visualization/index.md
+    - visualization/core-knowledge-graph.md
+    - visualization/troubleshooting-map.md
+    - visualization/learning-paths.md
+  - Meta:
+    - meta/taxonomy.md
