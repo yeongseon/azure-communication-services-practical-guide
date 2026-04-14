@@ -20,12 +20,12 @@ Comprehensive guide for Azure Communication Services — SMS, Voice, Email, Chat
 
 ## SDK Coverage
 
-- **Python** — SMS, email, chat, voice calling, monitoring, IaC, and recipes
+- **Python** — SMS, email, chat, call automation, monitoring, IaC, and recipes
 - **JavaScript** — SMS, email, chat, video calling, monitoring, IaC, and UI recipes
-- **Java** — SMS, email, chat, voice calling, monitoring, IaC, and production recipes
-- **.NET** — SMS, email, chat, voice calling, monitoring, IaC, and production recipes
+- **Java** — SMS, email, chat, call automation, monitoring, IaC, and production recipes
+- **.NET** — SMS, email, chat, voice calling (Windows), monitoring, IaC, and production recipes
 
-Each SDK track includes a tutorial path plus focused recipes for managed identity, Key Vault references, Event Grid webhooks, phone number management, email attachments, and Teams interop.
+Each SDK track includes a tutorial path plus focused recipes for managed identity, Event Grid webhooks, phone number management, and email attachments. Calling and Teams interop capabilities vary by SDK platform.
 
 ## Quick Start
 
@@ -56,7 +56,7 @@ Visit `http://127.0.0.1:8000` to browse the documentation locally.
 
 - **Messaging** — SMS delivery, opt-out handling, throughput, and observability
 - **Email** — domain verification, delivery troubleshooting, spam filtering, and attachments
-- **Chat** — thread management, message delivery, notifications, and file-sharing patterns
+- **Chat** — thread management, message delivery, notifications, and real-time messaging patterns
 - **Voice & Video** — call quality, drops, diagnostics, and operational baselines
 - **Teams Interop** — join flows, permissions, interoperability patterns, and failure isolation
 
