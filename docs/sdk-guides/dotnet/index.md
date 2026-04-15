@@ -55,7 +55,7 @@ The .NET SDK is designed for modern C# development, featuring `Async` methods an
 
 <!-- diagram-id: dotnet-sdk-workflow -->
 ```mermaid
-graph LR
+graph TD
     Config[User Secrets / AppSettings] --> ClientInit[Initialize Client]
     ClientInit --> Operation[Await Client.OperationAsync]
     Operation --> Response[Handle Response / Exception]

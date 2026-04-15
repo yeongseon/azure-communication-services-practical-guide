@@ -9,7 +9,7 @@ Automating the deployment of Azure Communication Services using Bicep or Terrafo
 
 <!-- diagram-id: iac-workflow -->
 ```mermaid
-graph LR
+graph TD
     Plan[Plan IaC] --> Define[Define Resources]
     Define --> Deploy[Deploy to Azure]
     Deploy --> Verify[Verify Deployment]

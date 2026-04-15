@@ -46,7 +46,7 @@ The following diagram shows how events flow from ACS to your application via Eve
 
 <!-- diagram-id: acs-event-flow -->
 ```mermaid
-graph LR
+graph TD
     ACS[Azure Communication Services] -- "1. Trigger Event" --> EG[Azure Event Grid]
     
     subgraph "Subscription Options"

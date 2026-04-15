@@ -13,7 +13,7 @@ Use GitHub Actions to deploy ACS-related infrastructure, configure secrets, and 
 
 <!-- diagram-id: acs-github-actions-cicd -->
 ```mermaid
-flowchart LR
+flowchart TD
   A[Push to main] --> B[GitHub Actions]
   B --> C[az login with AZURE_CREDENTIALS]
   C --> D[Bicep deployment]

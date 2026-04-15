@@ -54,7 +54,7 @@ The general workflow for ACS Python SDKs involves initializing a client and perf
 
 <!-- diagram-id: python-sdk-workflow -->
 ```mermaid
-graph LR
+graph TD
     Config[Config / Env Vars] --> ClientInit[Initialize Client]
     ClientInit --> Operation[Perform Operation]
     Operation --> Response[Handle Response / Exceptions]

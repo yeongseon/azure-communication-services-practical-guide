@@ -38,7 +38,7 @@ A production resource must have a monitoring baseline to ensure visibility into 
 
 <!-- diagram-id: monitoring-baseline-flow -->
 ```mermaid
-graph LR
+graph TD
     ACS[ACS Resource] --> DM[Diagnostic Metrics]
     ACS --> DL[Diagnostic Logs]
     DM --> AM[Azure Monitor]

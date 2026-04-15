@@ -18,7 +18,7 @@ SMS throughput is restricted by the type of phone number used and the destinatio
 
 <!-- diagram-id: scaling-sms-queuing -->
 ```mermaid
-graph LR
+graph TD
     App[Application] --> Queue[Message Queue]
     Queue --> Sender[Sender Service]
     Sender --> ACS[ACS SMS Service]

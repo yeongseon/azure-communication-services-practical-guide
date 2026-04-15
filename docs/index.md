@@ -42,7 +42,7 @@ Welcome to the Azure Communication Services Practical Guide. This is a comprehen
 
 <!-- diagram-id: learning-flow -->
 ```mermaid
-graph LR
+graph TD
     A[Start Here] --> B[Platform]
     B --> C[Best Practices]
     C --> D[SDK Guides]

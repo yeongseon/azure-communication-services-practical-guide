@@ -32,7 +32,7 @@ The Developer path focuses on implementation details, SDK usage, and core platfo
 
 <!-- diagram-id: dev-path -->
 ```mermaid
-graph LR
+graph TD
     A[Platform Overview] --> B[Identity & Tokens]
     B --> C[Choose SDK Guide]
     C --> D[Implementation Recipes]
@@ -54,7 +54,7 @@ The Operator path is designed for SREs and DevOps professionals who manage the A
 
 <!-- diagram-id: ops-path -->
 ```mermaid
-graph LR
+graph TD
     A[Platform Deep-Dive] --> B[Resource Management]
     B --> C[Monitoring & Alerting]
     C --> D[Best Practices: Scalability]
@@ -76,7 +76,7 @@ The Troubleshooter path is for rapid response. It starts with diagnostic entry p
 
 <!-- diagram-id: trouble-path -->
 ```mermaid
-graph LR
+graph TD
     A[Troubleshooting Methodology] --> B[Diagnostic Decision Tree]
     B --> C[Log Analysis with KQL]
     C --> D[Service Playbooks]

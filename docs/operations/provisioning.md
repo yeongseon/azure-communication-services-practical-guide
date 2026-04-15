@@ -10,7 +10,7 @@ Provisioning Azure Communication Services (ACS) involves creating the core resou
 
 <!-- diagram-id: provisioning-workflow -->
 ```mermaid
-graph LR
+graph TD
     Start[New Project] --> Core[Create ACS Resource]
     Core --> Data[Configure Data Residency]
     Data --> SMS[Phone Number Acquisition]

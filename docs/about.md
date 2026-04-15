@@ -20,7 +20,7 @@ This guide is designed to provide clear, actionable advice that complements the 
 
 <!-- diagram-id: guide-sections-overview -->
 ```mermaid
-graph LR
+graph TD
     Start[Start Here] --> Platform[Platform]
     Platform --> BestPractices[Best Practices]
     Platform --> SDKs[SDK Guides]

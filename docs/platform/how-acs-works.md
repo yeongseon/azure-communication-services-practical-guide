@@ -25,7 +25,7 @@ The ACS architecture is centered around the **Communication Resource**, which se
 
 <!-- diagram-id: acs-architecture-overview -->
 ```mermaid
-graph LR
+graph TD
     UserApp[User Application / Client] -- "SDKs / REST" --> ACS[Azure Communication Services]
     ACS --- Identity[Identity Service]
     ACS --- Media[Media & Signaling Gateway]

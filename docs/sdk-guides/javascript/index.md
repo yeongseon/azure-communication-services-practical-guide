@@ -67,7 +67,7 @@ The general workflow for ACS JavaScript SDKs involves initializing a client and 
 
 <!-- diagram-id: javascript-sdk-workflow -->
 ```mermaid
-graph LR
+graph TD
     Config[Config / Env Vars] --> ClientInit[Initialize Client]
     ClientInit --> Operation[Perform Operation]
     Operation --> Response[Handle Response / Exceptions]

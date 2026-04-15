@@ -9,7 +9,7 @@ Ongoing cost management is vital to ensure communication services stay within bu
 
 <!-- diagram-id: cost-optimization-workflow -->
 ```mermaid
-graph LR
+graph TD
     Analyze[Analyze Usage] --> Budget[Set Budgets]
     Budget --> Optimize[Optimize Channels]
     Optimize --> Alert[Set Alerts]
