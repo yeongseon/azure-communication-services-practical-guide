@@ -40,6 +40,7 @@ graph LR
 ```
 
 **Recommended Reading Order:**
+
 1. [Platform: Core Concepts](../platform/index.md)
 2. [Platform: Authentication](../platform/authentication.md)
 3. [SDK Guides](../sdk-guides/index.md) (Choose your preferred language)
@@ -61,6 +62,7 @@ graph LR
 ```
 
 **Recommended Reading Order:**
+
 1. [Platform: How ACS Works](../platform/how-acs-works.md)
 2. [Operations: Monitoring](../operations/monitoring.md)
 3. [Best Practices: Scaling](../best-practices/scaling.md)
@@ -82,6 +84,7 @@ graph LR
 ```
 
 **Recommended Reading Order:**
+
 1. [Troubleshooting: Methodology](../troubleshooting/methodology/troubleshooting-method.md)
 2. [Troubleshooting: KQL for ACS](../troubleshooting/kql/index.md)
 3. [Troubleshooting: Playbooks](../troubleshooting/playbooks/index.md)
