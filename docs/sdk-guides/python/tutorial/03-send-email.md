@@ -1,8 +1,6 @@
 ---
 title: Send Email
 description: Sending emails with Azure Communication Services for Python.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
 ---
@@ -156,6 +154,36 @@ def send_email():
 if __name__ == "__main__":
     send_email()
 ```
+
+## Verified Test Results (April 2026)
+
+!!! success "Verified: All Tests Passed"
+    These results were obtained from actual Azure Communication Services testing on April 14, 2026.
+
+### Test Environment
+- **ACS Resource**: `acs-email-lab` (Korea data location)
+- **Email Service**: `ecs-email-lab`
+- **Domain**: `fc135b5e-3353-4c89-9edb-55b53b59215f.azurecomm.net` (Azure Managed, all verifications passed)
+- **Sender**: `DoNotReply@fc135b5e-3353-4c89-9edb-55b53b59215f.azurecomm.net`
+- **Recipient**: Gmail (`gmail-smtp-in.l.google.com`)
+- **Python SDK**: `azure-communication-email==1.1.0`
+
+### Test Results (2026-04-14 11:20 KST)
+
+| Test | Result | Message ID | Timestamp |
+|---|---|---|---|
+| Single plain text email | ✅ Success | `ec61511c-95a3-4587-8697-fc4663f396c4` | 11:20:01 |
+| CC recipient email | ✅ Success | `950742ee-ea1e-4ee5-bb19-6fc19e3cb87b` | 11:20:13 |
+| File attachment email (text/plain base64) | ✅ Success | `f83d14a1-4293-460f-b066-c084370f30a5` | 11:20:49 |
+| Rich HTML email (styled heading, list) | ✅ Success | `bfa11d8b-9f5d-480a-912b-16dbbe05d0da` | 11:21:05 |
+| Parallel burst (5 concurrent emails) | ✅ 5/5 Success | 4a4a, fcbc, 6569, d930, eb34 | ~8.4s total |
+
+### Delivery Confirmation (Log Analytics)
+The following insights were verified via Azure Monitor Log Analytics:
+
+- All 9 emails reached `Delivered` status.
+- The recipient mail server `gmail-smtp-in.l.google.com` accepted all messages without bounces or failures.
+- The average message lifecycle (from submission to `OutForDelivery`) was measured between 3 and 6 seconds per message.
 
 ## See Also
 - [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)

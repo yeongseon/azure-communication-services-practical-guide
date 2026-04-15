@@ -1,8 +1,6 @@
 ---
 title: .NET SDK Guide
 description: Build communication features with Azure Communication Services for .NET.
-hide:
-  - toc
 content_sources:
   - id: dotnet-sdk-overview
     type: documentation

@@ -1,8 +1,6 @@
 ---
 title: Send SMS
 description: Sending SMS with Azure Communication Services for Python.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=programming-language-python
 ---

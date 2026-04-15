@@ -1,8 +1,6 @@
 ---
 title: Java SDK Guide
 description: Build communication features with Azure Communication Services for Java.
-hide:
-  - toc
 content_sources:
   - id: java-sdk-overview
     type: documentation

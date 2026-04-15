@@ -1,8 +1,6 @@
 ---
 title: "Step 4: Chat"
 description: Implement real-time chat with the Azure Communication Services Java SDK.
-hide:
-  - toc
 content_sources:
   - id: java-chat
     type: documentation

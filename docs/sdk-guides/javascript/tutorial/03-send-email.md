@@ -1,8 +1,6 @@
 ---
 title: Send Email
 description: Sending emails with Azure Communication Services for JavaScript.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
 ---

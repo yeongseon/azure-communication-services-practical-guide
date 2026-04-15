@@ -1,8 +1,6 @@
 ---
 title: JavaScript SDK Guide
 description: Build communication features with Azure Communication Services for JavaScript.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-identity-readme
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-sms-readme

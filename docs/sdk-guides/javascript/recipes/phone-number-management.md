@@ -1,8 +1,6 @@
 ---
 title: Phone Number Management
 description: Managing ACS phone numbers with JavaScript.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-javascript
 ---

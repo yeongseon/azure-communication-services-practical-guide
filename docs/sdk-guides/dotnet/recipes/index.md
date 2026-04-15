@@ -1,8 +1,6 @@
 ---
 title: .NET Recipes
 description: Practical code snippets for Azure Communication Services with .NET.
-hide:
-  - toc
 ---
 
 # .NET Recipes

@@ -1,8 +1,6 @@
 ---
 title: Real-time Chat
 description: Building real-time chat features with Azure Communication Services for JavaScript.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-javascript
 ---

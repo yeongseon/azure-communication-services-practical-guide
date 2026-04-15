@@ -29,6 +29,7 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.top
+    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -98,6 +99,7 @@ nav:
     - start-here/learning-paths.md
     - start-here/repository-map.md
     - About: about.md
+    - Email Test Report: email-test-report.md
   - Platform:
     - platform/index.md
     - platform/how-acs-works.md

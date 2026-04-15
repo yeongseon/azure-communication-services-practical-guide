@@ -1,5 +1,4 @@
 ---
-hide: [toc]
 content_sources:
   - communication-services-sdk
   - chat-notifications-guide

@@ -1,8 +1,6 @@
 ---
 title: "Step 5: Voice Calling"
 description: Build telephony applications with Call Automation and the .NET SDK.
-hide:
-  - toc
 content_sources:
   - id: dotnet-voice-calling
     type: documentation

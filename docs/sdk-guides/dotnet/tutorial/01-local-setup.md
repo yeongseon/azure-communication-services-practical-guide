@@ -1,8 +1,6 @@
 ---
 title: "Step 1: Local Setup"
 description: Configure your .NET environment for Azure Communication Services.
-hide:
-  - toc
 content_sources:
   - id: dotnet-local-setup
     type: documentation

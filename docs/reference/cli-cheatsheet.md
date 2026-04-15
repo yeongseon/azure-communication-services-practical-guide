@@ -1,5 +1,4 @@
 ---
-hide: [toc]
 content_sources:
   - https://learn.microsoft.com/cli/azure/communication
 ---

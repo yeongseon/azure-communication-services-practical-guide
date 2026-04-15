@@ -1,8 +1,6 @@
 ---
 title: "Step 7: Infrastructure as Code"
 description: Automate the deployment of your .NET ACS application with Bicep and GitHub Actions.
-hide:
-  - toc
 content_sources:
   - id: dotnet-iac
     type: documentation

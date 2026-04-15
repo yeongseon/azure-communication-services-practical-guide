@@ -1,8 +1,6 @@
 ---
 title: "Step 6: Logging & Monitoring"
 description: Monitor your Java communication application with Azure Monitor and Application Insights.
-hide:
-  - toc
 content_sources:
   - id: java-logging-monitoring
     type: documentation

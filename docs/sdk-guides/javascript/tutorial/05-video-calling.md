@@ -1,8 +1,6 @@
 ---
 title: Video Calling
 description: Building browser-based video calling with Azure Communication Services for JavaScript.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=programming-language-javascript
 ---

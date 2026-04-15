@@ -1,8 +1,6 @@
 ---
 title: Managed Identity Authentication
 description: Authenticating Azure Communication Services with JavaScript using Managed Identities.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/authentication?pivots=programming-language-javascript
 ---

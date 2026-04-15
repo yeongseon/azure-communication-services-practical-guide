@@ -1,8 +1,6 @@
 ---
 title: JavaScript SDK Recipes
 description: Focused code recipes for Azure Communication Services with JavaScript.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-services
 ---

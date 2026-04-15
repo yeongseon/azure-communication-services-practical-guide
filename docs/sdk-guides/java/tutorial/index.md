@@ -1,8 +1,6 @@
 ---
 title: Java SDK Tutorial
 description: Step-by-step guide to building communication features with Java.
-hide:
-  - toc
 content_sources:
   - id: java-tutorial-overview
     type: documentation

@@ -1,5 +1,4 @@
 ---
-hide: [toc]
 content_sources:
   - azure-docs
   - calling-log-analytics

@@ -1,8 +1,6 @@
 ---
 title: .NET SDK Tutorial
 description: Step-by-step guide to building communication features with .NET.
-hide:
-  - toc
 content_sources:
   - id: dotnet-tutorial-overview
     type: documentation

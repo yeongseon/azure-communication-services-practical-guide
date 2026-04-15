@@ -1,6 +1,4 @@
 ---
-hide:
-  - toc
 content_sources:
   diagrams:
     - id: acs-networking-architecture

@@ -1,8 +1,6 @@
 ---
 title: Managed Identity with Java
 description: Use DefaultAzureCredential to authenticate the Azure Communication Services Java SDK.
-hide:
-  - toc
 ---
 
 # Managed Identity with Java

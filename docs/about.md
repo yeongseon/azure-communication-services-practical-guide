@@ -1,6 +1,4 @@
 ---
-hide:
-  - toc
 content_sources:
   diagrams:
     - id: guide-sections-overview
@@ -41,6 +39,12 @@ graph LR
 ## Acknowledgment
 
 This guide is built upon the collective experience of developers and engineers working with Azure Communication Services. Special thanks to the community for sharing their insights and troubleshooting tips.
+
+## Verified Test Reports
+
+The following tests were performed with real Azure resources to validate the guidance in this project:
+
+- [Email Communication Service Test Report](email-test-report.md) — End-to-end email sending, delivery confirmation, and monitoring with Python SDK (April 2026)
 
 ## See Also
 

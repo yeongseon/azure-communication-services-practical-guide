@@ -1,8 +1,6 @@
 ---
 title: "Step 7: Infrastructure as Code"
 description: Automate the deployment of your Java ACS application with Bicep and GitHub Actions.
-hide:
-  - toc
 content_sources:
   - id: java-iac
     type: documentation

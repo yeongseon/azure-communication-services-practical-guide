@@ -1,6 +1,4 @@
 ---
-hide:
-  - toc
 content_sources:
   - source: mslearn-adapted
     mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices

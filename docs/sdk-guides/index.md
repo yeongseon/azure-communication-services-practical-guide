@@ -1,8 +1,6 @@
 ---
 title: SDK Guides Overview
 description: Comprehensive documentation for Azure Communication Services SDKs across multiple languages.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/overview
 ---

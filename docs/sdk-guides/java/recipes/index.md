@@ -1,8 +1,6 @@
 ---
 title: Java Recipes
 description: Practical code snippets for Azure Communication Services with Java.
-hide:
-  - toc
 ---
 
 # Java Recipes

@@ -1,8 +1,6 @@
 ---
 title: "Step 6: Logging & Monitoring"
 description: Monitor your .NET communication application with Azure Monitor and Application Insights.
-hide:
-  - toc
 content_sources:
   - id: dotnet-logging-monitoring
     type: documentation

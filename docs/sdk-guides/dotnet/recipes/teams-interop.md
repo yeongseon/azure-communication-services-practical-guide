@@ -1,8 +1,6 @@
 ---
 title: Teams Interop (.NET)
 description: Join Microsoft Teams meetings from a .NET app using Azure Communication Services.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens
   - https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/meeting-interop

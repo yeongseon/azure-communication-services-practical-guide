@@ -1,5 +1,4 @@
 ---
-hide: [toc]
 content_sources:
   - azure-monitor
   - acs-diagnostics

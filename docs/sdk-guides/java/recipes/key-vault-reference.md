@@ -1,8 +1,6 @@
 ---
 title: Key Vault Reference with Java
 description: Securely retrieve Azure Communication Services connection strings using Azure Key Vault.
-hide:
-  - toc
 ---
 
 # Key Vault Reference with Java

@@ -1,8 +1,6 @@
 ---
 title: Chat with File Sharing
 description: Implementing file sharing in Azure Communication Services chat with Python.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
 ---

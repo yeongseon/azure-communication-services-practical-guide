@@ -1,8 +1,6 @@
 ---
 title: Teams Interop
 description: Joining Microsoft Teams meetings with ACS and Python.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
 ---

@@ -1,8 +1,6 @@
 ---
 title: "Step 1: Local Setup"
 description: Configure your Java environment for Azure Communication Services.
-hide:
-  - toc
 content_sources:
   - id: java-local-setup
     type: documentation

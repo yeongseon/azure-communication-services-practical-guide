@@ -1,8 +1,6 @@
 ---
 title: "Step 3: Send Email"
 description: Learn how to send emails with the Azure Communication Services Java SDK.
-hide:
-  - toc
 content_sources:
   - id: java-send-email
     type: documentation

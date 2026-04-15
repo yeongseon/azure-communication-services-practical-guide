@@ -1,8 +1,6 @@
 ---
 title: Local Setup
 description: Setting up your Python environment for Azure Communication Services.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-python
 ---

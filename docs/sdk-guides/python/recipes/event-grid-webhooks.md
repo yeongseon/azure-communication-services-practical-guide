@@ -1,8 +1,6 @@
 ---
 title: Event Grid Webhooks
 description: Handling Azure Communication Services events with Python webhooks.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/event-grid/receive-events?pivots=programming-language-python
 ---

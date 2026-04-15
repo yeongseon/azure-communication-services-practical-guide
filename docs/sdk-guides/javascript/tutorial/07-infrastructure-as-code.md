@@ -1,8 +1,6 @@
 ---
 title: Infrastructure as Code
 description: Deploying Azure Communication Services with Bicep and Node.js.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
 ---

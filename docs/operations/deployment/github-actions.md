@@ -1,8 +1,6 @@
 ---
 title: GitHub Actions Deployment
 description: Deploy Azure Communication Services infrastructure and validate it with GitHub Actions.
-hide:
-  - toc
 content_sources:
   - https://docs.github.com/actions
   - https://learn.microsoft.com/azure/azure-resource-manager/bicep/

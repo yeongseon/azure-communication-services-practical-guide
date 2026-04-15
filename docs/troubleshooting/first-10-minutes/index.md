@@ -1,5 +1,4 @@
 ---
-hide: [toc]
 content_sources:
   - azure-docs
   - emergency-response

@@ -1,8 +1,6 @@
 ---
 title: Phone Number Management (.NET)
 description: Search, purchase, list, and release Azure Communication Services phone numbers from .NET.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/phone-number-management
 ---

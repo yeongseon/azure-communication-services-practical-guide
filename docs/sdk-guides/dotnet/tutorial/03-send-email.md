@@ -1,8 +1,6 @@
 ---
 title: "Step 3: Send Email"
 description: Learn how to send emails with the Azure Communication Services .NET SDK.
-hide:
-  - toc
 content_sources:
   - id: dotnet-send-email
     type: documentation

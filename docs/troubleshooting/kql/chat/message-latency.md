@@ -1,5 +1,4 @@
 ---
-hide: [toc]
 content_sources:
   - azure-docs
   - chat-log-analytics

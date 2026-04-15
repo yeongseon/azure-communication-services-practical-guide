@@ -1,8 +1,6 @@
 ---
 title: Logging and Monitoring
 description: Configuring logging and monitoring for Azure Communication Services with JavaScript.
-hide:
-  - toc
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
 ---

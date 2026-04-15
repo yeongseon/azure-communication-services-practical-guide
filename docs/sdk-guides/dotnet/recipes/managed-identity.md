@@ -1,8 +1,6 @@
 ---
 title: Managed Identity with .NET
 description: Use DefaultAzureCredential to authenticate the Azure Communication Services .NET SDK.
-hide:
-  - toc
 ---
 
 # Managed Identity with .NET

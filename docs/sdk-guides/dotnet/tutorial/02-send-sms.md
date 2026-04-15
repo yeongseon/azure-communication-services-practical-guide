@@ -1,8 +1,6 @@
 ---
 title: "Step 2: Send SMS"
 description: Learn how to send SMS messages using the Azure Communication Services .NET SDK.
-hide:
-  - toc
 content_sources:
   - id: dotnet-send-sms
     type: documentation

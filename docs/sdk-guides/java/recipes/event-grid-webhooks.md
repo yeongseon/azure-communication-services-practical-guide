@@ -1,8 +1,6 @@
 ---
 title: Event Grid Webhooks with Spring Boot
 description: Handle Azure Communication Services events using a Spring Boot webhook.
-hide:
-  - toc
 ---
 
 # Event Grid Webhooks with Spring Boot
