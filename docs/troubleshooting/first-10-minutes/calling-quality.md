@@ -3,6 +3,11 @@ content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Calling Quality Checklist (First 10 Minutes)

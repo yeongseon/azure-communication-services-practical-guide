@@ -4,6 +4,11 @@ content_sources:
     - id: acs-security-layers
       type: self-generated
       justification: Security layers of ACS from identity to network
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Security Architecture

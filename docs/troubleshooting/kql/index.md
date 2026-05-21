@@ -2,6 +2,11 @@
 content_sources:
   - https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # KQL Query Library

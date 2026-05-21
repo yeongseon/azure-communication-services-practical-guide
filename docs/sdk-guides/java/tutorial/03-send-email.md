@@ -7,6 +7,13 @@ content_sources:
     source: self
     justification: Explains email sending capabilities in Java.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Step 3: Send Email

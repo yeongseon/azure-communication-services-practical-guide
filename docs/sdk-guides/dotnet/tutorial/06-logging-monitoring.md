@@ -7,6 +7,13 @@ content_sources:
     source: self
     justification: Explains observability for .NET ACS apps.
     based_on: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Step 6: Logging & Monitoring

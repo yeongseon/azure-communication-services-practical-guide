@@ -2,6 +2,11 @@
 content_sources:
   - source: mslearn-adapted
     mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Security Best Practices

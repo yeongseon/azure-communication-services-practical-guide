@@ -3,6 +3,11 @@ title: Phone Number Management (.NET)
 description: Search, purchase, list, and release Azure Communication Services phone numbers from .NET.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/phone-number-management
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Phone Number Management (.NET)

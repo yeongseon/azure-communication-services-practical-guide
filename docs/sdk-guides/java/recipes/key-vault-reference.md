@@ -1,6 +1,11 @@
 ---
 title: Key Vault Reference with Java
 description: Securely retrieve Azure Communication Services connection strings using Azure Key Vault.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Key Vault Reference with Java

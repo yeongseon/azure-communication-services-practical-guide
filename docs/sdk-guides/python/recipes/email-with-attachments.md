@@ -3,6 +3,11 @@ title: Email with Attachments
 description: Sending emails with multiple file attachments using ACS and Python.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Email with Attachments

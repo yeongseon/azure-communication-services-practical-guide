@@ -1,6 +1,11 @@
 ---
 title: Teams Interoperability with Java
 description: Integrate Azure Communication Services users into Microsoft Teams meetings using Java.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Teams Interoperability with Java

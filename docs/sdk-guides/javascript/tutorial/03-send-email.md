@@ -3,6 +3,13 @@ title: Send Email
 description: Sending emails with Azure Communication Services for JavaScript.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Send Email

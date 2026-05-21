@@ -7,6 +7,13 @@ content_sources:
     source: self
     justification: Explains Call Automation features in Java.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Step 5: Voice Calling

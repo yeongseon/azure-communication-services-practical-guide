@@ -3,6 +3,11 @@ content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # SMS Rate Limiting Playbook

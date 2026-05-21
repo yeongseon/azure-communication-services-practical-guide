@@ -3,6 +3,11 @@ title: Phone Number Management
 description: Managing ACS phone numbers with Python.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Phone Number Management

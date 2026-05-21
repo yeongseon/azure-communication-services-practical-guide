@@ -3,6 +3,11 @@ title: Key Vault Reference
 description: Securing Azure Communication Services connection strings with Key Vault and JavaScript.
 content_sources:
   - https://learn.microsoft.com/azure/key-vault/general/quick-create-node?tabs=azure-cli
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Key Vault Reference

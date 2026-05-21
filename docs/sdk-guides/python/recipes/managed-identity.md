@@ -3,6 +3,11 @@ title: Managed Identity Authentication
 description: Authenticating Azure Communication Services with Python using Managed Identities.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/authentication?pivots=programming-language-python
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Managed Identity Authentication

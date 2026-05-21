@@ -3,6 +3,13 @@ title: JavaScript SDK Tutorial
 description: Learn to build communication features with Azure Communication Services for JavaScript.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # JavaScript SDK Tutorial

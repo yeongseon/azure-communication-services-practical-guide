@@ -2,6 +2,11 @@
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/authentication
   - https://learn.microsoft.com/azure/communication-services/concepts/managed-identity
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Security Operations for ACS

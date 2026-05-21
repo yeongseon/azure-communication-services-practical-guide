@@ -3,6 +3,13 @@ title: Send Email
 description: Sending emails with Azure Communication Services for Python.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Send Email

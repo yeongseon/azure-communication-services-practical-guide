@@ -2,6 +2,11 @@
 content_sources:
   - azure-docs
   - communication-services-playbooks
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Playbook Catalog

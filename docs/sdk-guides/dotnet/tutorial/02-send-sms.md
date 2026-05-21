@@ -7,6 +7,13 @@ content_sources:
     source: self
     justification: Code examples for sending SMS with .NET.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Step 2: Send SMS

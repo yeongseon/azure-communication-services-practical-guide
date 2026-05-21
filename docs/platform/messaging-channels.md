@@ -4,6 +4,11 @@ content_sources:
     - id: messaging-channels-architecture
       type: self-generated
       justification: Messaging channels architecture overview
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Messaging Channels Overview

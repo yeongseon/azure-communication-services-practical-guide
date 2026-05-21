@@ -4,6 +4,11 @@ content_sources:
     - id: section-relationships
       type: Mermaid
       source: self-generated
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Repository Map

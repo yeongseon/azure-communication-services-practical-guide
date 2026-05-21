@@ -4,6 +4,11 @@ content_sources:
     - id: acs-networking-architecture
       type: self-generated
       justification: Networking and infrastructure requirements for ACS calling
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Networking

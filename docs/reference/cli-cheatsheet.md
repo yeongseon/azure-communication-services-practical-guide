@@ -1,6 +1,11 @@
 ---
 content_sources:
   - https://learn.microsoft.com/cli/azure/communication
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # ACS CLI Cheatsheet

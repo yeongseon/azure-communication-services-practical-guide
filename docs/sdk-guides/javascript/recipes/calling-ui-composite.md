@@ -3,6 +3,11 @@ title: Calling UI Composite
 description: Adding video calling UI with ACS UI Library composite components.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Calling UI Composite

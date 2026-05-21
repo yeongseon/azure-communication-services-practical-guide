@@ -1,6 +1,11 @@
 ---
 title: Java Recipes
 description: Practical code snippets for Azure Communication Services with Java.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Java Recipes

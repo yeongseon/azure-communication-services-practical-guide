@@ -3,6 +3,11 @@ content_sources:
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailuserengagementoperational
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Email KQL Overview

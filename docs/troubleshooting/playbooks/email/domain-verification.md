@@ -2,6 +2,11 @@
 content_sources:
   - azure-docs
   - email-domain-verification
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Domain Verification Playbook

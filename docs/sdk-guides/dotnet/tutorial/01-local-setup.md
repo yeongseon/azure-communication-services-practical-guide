@@ -7,6 +7,13 @@ content_sources:
     source: self
     justification: Explains how to set up a .NET project with ACS dependencies.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Step 1: Local Setup

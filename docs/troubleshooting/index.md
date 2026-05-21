@@ -2,6 +2,11 @@
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging
   - https://learn.microsoft.com/azure/communication-services/concepts/metrics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Troubleshooting Overview

@@ -5,6 +5,11 @@ content_sources:
       type: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
       based_on: Generic ACS architecture
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # How Azure Communication Services Works

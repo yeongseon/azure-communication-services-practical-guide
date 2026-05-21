@@ -6,6 +6,11 @@ content_sources:
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-sms-readme
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-email-readme
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-chat-readme
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # JavaScript SDK Guide

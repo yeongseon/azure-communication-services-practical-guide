@@ -7,6 +7,13 @@ content_sources:
     source: self
     justification: Explains IaC and CI/CD for Java ACS projects.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/resource-manager-template
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Step 7: Infrastructure as Code

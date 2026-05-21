@@ -1,6 +1,11 @@
 ---
 title: .NET Recipes
 description: Practical code snippets for Azure Communication Services with .NET.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # .NET Recipes

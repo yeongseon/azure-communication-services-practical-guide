@@ -7,6 +7,13 @@ content_sources:
     source: self
     justification: Overview of the Java tutorial path.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Java SDK Tutorial

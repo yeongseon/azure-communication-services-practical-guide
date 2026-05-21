@@ -1,6 +1,11 @@
 ---
 title: Phone Number Management with Java
 description: Programmatically search and purchase phone numbers using the Java SDK.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Phone Number Management with Java

@@ -4,6 +4,11 @@ description: Join Microsoft Teams meetings from a .NET app using Azure Communica
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens
   - https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/meeting-interop
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Teams Interop (.NET)

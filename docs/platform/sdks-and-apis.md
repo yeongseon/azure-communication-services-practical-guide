@@ -4,6 +4,11 @@ content_sources:
     - id: acs-sdk-architecture
       type: self-generated
       justification: Overview of ACS SDK and API architecture
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # SDKs and REST APIs

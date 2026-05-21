@@ -1,4 +1,12 @@
 ---
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
+---
+
+---
 ---
 
 # Email Communication Service Test Report

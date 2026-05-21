@@ -4,6 +4,11 @@ content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Email Delivery Failures Playbook

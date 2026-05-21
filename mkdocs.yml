@@ -265,6 +265,8 @@ nav:
     - reference/platform-limits.md
     - reference/kql-queries.md
     - reference/sdk-reference.md
+    - reference/validation-status.md
+    - reference/content-validation-status.md
   - Visualization:
     - visualization/index.md
     - visualization/core-knowledge-graph.md

@@ -7,6 +7,11 @@ content_sources:
     source: self
     justification: Provides an overview of .NET SDK packages and prerequisites.
     based_on: https://learn.microsoft.com/dotnet/api/overview/azure/communication-services
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # .NET SDK Guide

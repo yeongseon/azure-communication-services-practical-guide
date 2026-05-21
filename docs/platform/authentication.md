@@ -5,6 +5,11 @@ content_sources:
       type: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
       based_on: Typical token-based client auth flow
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Authentication and Identity

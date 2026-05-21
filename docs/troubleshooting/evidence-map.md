@@ -4,6 +4,11 @@ content_sources:
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Evidence Map

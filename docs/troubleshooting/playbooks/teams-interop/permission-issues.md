@@ -2,6 +2,11 @@
 content_sources:
   - communication-services-sdk
   - teams-interop-permissions
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Teams Permission Issues Playbook

@@ -3,6 +3,13 @@ title: Voice Calling
 description: Automating voice calls with Azure Communication Services for Python.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-call-automation?pivots=programming-language-python
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Voice Calling

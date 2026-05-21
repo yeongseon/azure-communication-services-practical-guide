@@ -3,6 +3,11 @@ title: Teams Interop
 description: Joining Microsoft Teams meetings from a browser with ACS.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/teams-interop?pivots=programming-language-javascript
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Teams Interop

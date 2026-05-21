@@ -4,6 +4,11 @@ content_sources:
     - id: platform-concept-relationships
       type: self-generated
       justification: Overview of platform documentation structure and relationships
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Platform Concepts

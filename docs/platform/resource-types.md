@@ -4,6 +4,11 @@ content_sources:
     - id: acs-resource-relationships
       type: self-generated
       justification: Relationship overview of ACS resource components
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Resource Types and Relationships

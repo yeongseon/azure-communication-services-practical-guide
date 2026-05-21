@@ -2,6 +2,11 @@
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
   - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Real-time Notifications Playbook

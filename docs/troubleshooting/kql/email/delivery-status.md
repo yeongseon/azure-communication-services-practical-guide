@@ -2,6 +2,11 @@
 content_sources:
   - azure-docs
   - email-log-analytics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Email Delivery Status KQL

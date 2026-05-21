@@ -1,6 +1,11 @@
 ---
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/high-availability
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Health and Recovery for ACS

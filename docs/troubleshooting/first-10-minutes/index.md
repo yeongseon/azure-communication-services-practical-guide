@@ -2,6 +2,11 @@
 content_sources:
   - azure-docs
   - emergency-response
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # First 10 Minutes

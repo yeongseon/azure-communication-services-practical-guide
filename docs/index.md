@@ -6,6 +6,11 @@ content_sources:
       source: self-generated
       justification: "https://learn.microsoft.com/azure/communication-services/overview"
       based_on: "https://learn.microsoft.com/azure/communication-services/overview"
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Azure Communication Services Practical Guide

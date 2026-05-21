@@ -2,6 +2,11 @@
 content_sources:
   - source: mslearn-adapted
     mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Networking Best Practices
