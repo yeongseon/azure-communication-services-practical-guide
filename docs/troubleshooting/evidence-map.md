@@ -1,7 +1,9 @@
 ---
 content_sources:
-  - azure-monitor
-  - acs-diagnostics
+  - https://learn.microsoft.com/azure/communication-services/concepts/metrics
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
 ---
 
 # Evidence Map
@@ -10,18 +12,18 @@ This guide maps failure types to the specific metrics, logs, and configurations 
 
 ## Evidence Collection by Failure Type
 
-| Failure Type | Metrics | Log Analytics Tables | Event Grid Events |
+| Failure Type | Azure Monitor Metric Signal | Log Analytics Tables | Event Grid Events |
 | --- | --- | --- | --- |
-| **SMS Delivery** | `SmsMessagesSent`, `SmsMessagesDelivered` | `ACSIncomingSMSEvents`, `ACSSMSDeliveryReportEvents` | `Microsoft.Communication.SMSReceived`, `Microsoft.Communication.SMSDeliveryReportReceived` |
-| **Email Delivery** | `EmailMessagesSent`, `EmailMessagesDelivered` | `ACSEmailDeliveryReportEvents` | `Microsoft.Communication.EmailDeliveryReportReceived` |
-| **Chat Latency** | `ChatMessageReceived`, `ChatMessageSent` | `ACSChatMessageReceivedEvents`, `ACSChatMessageSentEvents` | `Microsoft.Communication.ChatMessageReceived` |
-| **Call Quality** | `CallMediaStreamQuality`, `CallMediaSetup` | `ACSCallSummaryEvents`, `ACSCallDiagnosticsEvents` | `Microsoft.Communication.CallStarted`, `Microsoft.Communication.CallEnded` |
-| **Teams Interop** | `TeamsInteroperabilityEvents` | `ACSTeamsInteroperabilityEvents` | `Microsoft.Communication.TeamsMeetingParticipantAdded` |
+| **SMS Delivery** | ACS API request metrics filtered by SMS `Operation`, `Status Code`, and `StatusSubClass` | `ACSSMSIncomingOperations` | `Microsoft.Communication.SMSReceived`, `Microsoft.Communication.SMSDeliveryReportReceived` |
+| **Email Delivery** | ACS API request metrics filtered by email send/status operations and status dimensions | `ACSEmailSendMailOperational`, `ACSEmailStatusUpdateOperational` | Email delivery report events when Event Grid is configured |
+| **Chat Latency** | ACS API request metrics filtered by chat operations plus `DurationMs` from logs | `ACSChatIncomingOperations` | `Microsoft.Communication.ChatMessageReceived` |
+| **Call Quality** | Derived from call diagnostic logs, not from a documented `CallQuality` metric name | `ACSCallSummary`, `ACSCallDiagnostics`, `ACSCallClientMediaStatsTimeSeries` | Call events when Event Grid is configured for the scenario |
+| **Teams Interop** | ACS API request metrics filtered to Teams interop-related operations where applicable | `ACSCallSummary`, `ACSCallDiagnostics` | Teams interop events where configured |
 
 ## Evidence Types
 
 ### 1. Azure Monitor Metrics
-Provide real-time visibility into service health, error rates, and throughput. Essential for alerting.
+Provide near-real-time visibility into ACS API request volume and status. Use documented dimensions rather than invented channel delivery-rate metric names.
 
 ### 2. Log Analytics
 Provide granular transaction-level details, error codes, and request/response metadata. Best for retrospective root cause analysis.
@@ -49,5 +51,5 @@ graph TD
 * [KQL Query Library Overview](kql/index.md)
 
 ## Sources
-* [ACS Diagnostic Logs Documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/diagnostic-logging)
-* Azure SDK Network Logging Guide
+* [Enable logging with Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging)
+* [ACS Log Analytics tables](https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices)

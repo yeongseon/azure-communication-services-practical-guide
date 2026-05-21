@@ -1,7 +1,7 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-log-analytics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
 ---
 
 # SMS Delivery Status KQL
@@ -15,14 +15,14 @@ This query retrieves recent SMS delivery reports, filters for failures, and summ
 ## KQL Query
 
 ```kusto
-ACSSMSDeliveryReportEvents
+ACSSMSIncomingOperations
 | where TimeGenerated > ago(1h)
-| where DeliveryStatus == "Failed"
-| summarize 
-    FailureCount = count(), 
-    SampleTo = take_any(To), 
-    SampleMessageId = take_any(MessageId) 
-    by DeliveryStatusDetails
+| where ResultType != "Succeeded"
+| summarize
+    FailureCount = count(),
+    SamplePhoneNumber = take_any(PhoneNumber),
+    SampleMessageId = take_any(MessageId)
+    by ResultSignature, ResultDescription
 | order by FailureCount desc
 ```
 
@@ -31,15 +31,15 @@ ACSSMSDeliveryReportEvents
 | Field | Description |
 | --- | --- |
 | `TimeGenerated > ago(1h)` | Filters results to the last hour to focus on current issues and improve performance. |
-| `DeliveryStatus == "Failed"` | Selects only messages that were not successfully delivered. |
+| `ResultType != "Succeeded"` | Selects operations that did not complete successfully. |
 | `summarize FailureCount = count()` | Counts the number of occurrences for each failure reason. |
-| `by DeliveryStatusDetails` | Groups the results by the specific error message provided by the carrier. |
-| `SampleTo, SampleMessageId` | Provides representative examples to help with further investigation and reproduction. |
+| `by ResultSignature, ResultDescription` | Groups by the operation status code and status text. |
+| `SamplePhoneNumber, SampleMessageId` | Provides representative examples to help with further investigation and reproduction. |
 
 ## Insights
 
-* **Observed Errors**: Look for codes like `400`, `429`, or carrier-specific messages like `OptedOut`.
-* **Carrier Filtering**: If the `DeliveryStatusDetails` mentions `Spam` or `Filter`, the message content may need to be adjusted.
+* **Observed Errors**: Look for codes like `400`, `429`, or carrier-specific messages.
+* **Carrier Filtering**: If `ResultDescription` mentions filtering or blocked content, adjust the message and sender pattern.
 * **Volume Analysis**: A high count of `Throttled` errors suggests that the MPS limit for the sender number has been exceeded.
 
 ## See Also
@@ -47,4 +47,5 @@ ACSSMSDeliveryReportEvents
 * [SMS Delivery Failures Playbook](../../playbooks/sms/delivery-failures.md)
 
 ## Sources
-* Azure SMS Delivery Status Codes Reference
+* [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)

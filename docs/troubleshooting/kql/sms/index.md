@@ -1,7 +1,7 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-log-analytics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
 ---
 
 # SMS KQL Overview
@@ -10,8 +10,7 @@ Analyze SMS delivery performance, error patterns, and throughput.
 
 ## Log Analytics Tables
 
-* **ACSSMSDeliveryReportEvents**: Detailed logs for each outbound SMS, including its status and any error details.
-* **ACSIncomingSMSEvents**: Detailed logs for each inbound SMS, including its content and the recipient number.
+* **ACSSMSIncomingOperations**: SMS operation logs, including result type, result signature, result description, message ID, phone number, number type, and request duration.
 
 ## Key Scenarios
 
@@ -27,9 +26,9 @@ Analyze SMS delivery performance, error patterns, and throughput.
 Track the volume of incoming SMS messages grouped by time.
 
 ```kusto
-ACSIncomingSMSEvents
+ACSSMSIncomingOperations
 | where TimeGenerated > ago(24h)
-| summarize MessageCount = count() by bin(TimeGenerated, 1h)
+| summarize MessageCount = count() by OperationName, bin(TimeGenerated, 1h)
 | render timechart
 ```
 
@@ -37,10 +36,10 @@ ACSIncomingSMSEvents
 Identify if any sender numbers are hitting rate limits.
 
 ```kusto
-ACSSMSDeliveryReportEvents
+ACSSMSIncomingOperations
 | where TimeGenerated > ago(1h)
-| where DeliveryStatusDetails has "Throttled" or DeliveryStatusDetails has "429"
-| summarize ThrottledCount = count() by From
+| where ResultSignature == "429" or ResultDescription has "Throttled"
+| summarize ThrottledCount = count() by PhoneNumber, NumberType
 | order by ThrottledCount desc
 ```
 
@@ -49,4 +48,5 @@ ACSSMSDeliveryReportEvents
 * [SMS Delivery Failures Playbook](../../playbooks/sms/delivery-failures.md)
 
 ## Sources
-* Azure Monitor SMS Diagnostic Log Reference
+* [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)

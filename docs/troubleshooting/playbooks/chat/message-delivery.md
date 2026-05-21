@@ -1,7 +1,7 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-troubleshooting
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
 ---
 
 # Chat Message Delivery Playbook
@@ -24,7 +24,7 @@ content_sources:
 Look for `401 Unauthorized`, `403 Forbidden`, or `404 Not Found` errors in the developer tools.
 
 ### 2. Log Analytics
-Query the `ACSChatMessageSentEvents` and `ACSChatMessageReceivedEvents` tables.
+Query `ACSChatIncomingOperations` for failed chat operations, result signatures, operation names, and thread IDs.
 
 ### 3. Identity Verification
 Confirm the user's communication identity still exists.
@@ -56,5 +56,5 @@ If the client can send messages but cannot receive them, check if the WebSocket 
 * [Real-time Notifications](real-time-notifications.md)
 
 ## Sources
-* Azure Communication Services Chat SDK Troubleshooting
-* Real-time Messaging Network Requirements
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)

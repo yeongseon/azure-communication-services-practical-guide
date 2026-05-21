@@ -1,7 +1,7 @@
 ---
 content_sources:
-  - azure-docs
-  - chat-log-analytics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
 ---
 
 # Chat Message Latency KQL
@@ -10,20 +10,19 @@ Analyze chat message delivery times and identify common performance bottlenecks.
 
 ## Query Description
 
-This query retrieves recent chat message sent events, filters for those with latency, and summarizes the average and maximum latency for each thread and sender.
+This query retrieves recent chat operations and summarizes the average and maximum server-side duration for each thread and operation.
 
 ## KQL Query
 
 ```kusto
-ACSChatMessageSentEvents
+ACSChatIncomingOperations
 | where TimeGenerated > ago(1h)
 | where ResultType == "Succeeded"
-| extend Latency = datetime_diff('millisecond', TimeGenerated, StartTime)
-| summarize 
-    AverageLatency = avg(Latency), 
-    MaxLatency = max(Latency) 
-    by ThreadId, From
-| order by MaxLatency desc
+| summarize
+    AverageDurationMs = avg(DurationMs),
+    MaxDurationMs = max(DurationMs)
+    by ChatThreadId, OperationName
+| order by MaxDurationMs desc
 ```
 
 ## Explanation
@@ -31,10 +30,9 @@ ACSChatMessageSentEvents
 | Field | Description |
 | --- | --- |
 | `TimeGenerated > ago(1h)` | Filters results to the last hour to focus on current issues and improve performance. |
-| `ResultType == "Succeeded"` | Selects only messages that were successfully sent. |
-| `datetime_diff('millisecond', TimeGenerated, StartTime)` | Calculates the latency in milliseconds between the message start and completion times. |
-| `summarize AverageLatency = avg(Latency)` | Groups the results and calculates the average and maximum latency for each thread and sender. |
-| `by ThreadId, From` | Groups the results by thread ID and sender identity. |
+| `ResultType == "Succeeded"` | Selects only successful chat operations. |
+| `summarize AverageDurationMs = avg(DurationMs)` | Calculates average and maximum server-side operation duration. |
+| `by ChatThreadId, OperationName` | Groups results by thread and operation. |
 
 ## Insights
 
@@ -47,4 +45,5 @@ ACSChatMessageSentEvents
 * [Chat Message Delivery Playbook](../../playbooks/chat/message-delivery.md)
 
 ## Sources
-* Azure Chat Diagnostic Log Reference
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)

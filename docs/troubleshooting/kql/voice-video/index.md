@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-docs
-  - calling-log-analytics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
 ---
 
 # Voice/Video KQL Overview
@@ -10,8 +11,8 @@ Analyze call quality, media performance, and call drops.
 
 ## Log Analytics Tables
 
-* **ACSCallSummaryEvents**: Detailed logs for each call's start and end, including the reason for completion.
-* **ACSCallDiagnosticsEvents**: Detailed logs for each call's real-time media diagnostics, including jitter, latency, and packet loss.
+* **ACSCallSummary**: Participant-level call summaries, including duration, participant end reason, endpoint type, SDK version, and call type.
+* **ACSCallDiagnostics**: Media stream diagnostics, including jitter, round-trip time, packet loss, codec, media type, and stream direction.
 
 ## Key Scenarios
 
@@ -27,9 +28,9 @@ Analyze call quality, media performance, and call drops.
 Track the reasons for call completion grouped by time.
 
 ```kusto
-ACSCallSummaryEvents
+ACSCallSummary
 | where TimeGenerated > ago(24h)
-| summarize CallCount = count() by CallEndReason, bin(TimeGenerated, 1h)
+| summarize CallCount = count() by ParticipantEndReason, ResultCategory, bin(TimeGenerated, 1h)
 | render barchart
 ```
 
@@ -37,9 +38,13 @@ ACSCallSummaryEvents
 Track the percentage of calls with good, fair, or poor quality over time.
 
 ```kusto
-ACSCallDiagnosticsEvents
+ACSCallDiagnostics
 | where TimeGenerated > ago(24h)
-| summarize QualityCount = count() by MediaPathQuality, bin(TimeGenerated, 1h)
+| summarize
+    AvgRoundTripTimeMs = avg(RoundTripTimeAvg),
+    AvgJitterMs = avg(JitterAvg),
+    AvgPacketLoss = avg(PacketLossRateAvg)
+    by MediaType, StreamDirection, bin(TimeGenerated, 1h)
 | render stackedareachart
 ```
 
@@ -48,4 +53,6 @@ ACSCallDiagnosticsEvents
 * [Call Quality Playbook](../../playbooks/voice-video/call-quality.md)
 
 ## Sources
-* Azure Monitor Calling Diagnostic Log Reference
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallSummary table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)

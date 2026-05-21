@@ -1,7 +1,7 @@
 ---
 content_sources:
-  - azure-log-analytics
-  - acs-kql-library
+  - https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices
 ---
 
 # KQL Query Library
@@ -28,7 +28,7 @@ A collection of pre-built KQL queries for analyzing and troubleshooting ACS acti
 ## Best Practices
 
 * **Filter by Time**: Always include `TimeGenerated > ago(1h)` to limit the query scope and improve performance.
-* **Join Tables Carefully**: Use `join` sparingly, especially on large tables like `ACSCallDiagnosticsEvents`.
+* **Join Tables Carefully**: Use `join` sparingly, especially on large tables like `ACSCallDiagnostics`.
 * **Use Summarize**: Group data by relevant fields (e.g., `ResultSignature`, `Status`) to identify common failure patterns.
 * **Visualize Results**: Use `render barchart` or `render timechart` to visualize trends and anomalies.
 
@@ -37,5 +37,5 @@ A collection of pre-built KQL queries for analyzing and troubleshooting ACS acti
 * [Detector Map](../methodology/detector-map.md)
 
 ## Sources
-* Azure Monitor Kusto Query Language (KQL) Documentation
-* [ACS Log Analytics Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/diagnostic-logging)
+* [Log Analytics tutorial](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial)
+* [ACS Log Analytics tables](https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices)

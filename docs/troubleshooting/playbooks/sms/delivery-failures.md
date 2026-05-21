@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-troubleshooting
+  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
 ---
 
 # SMS Delivery Failures Playbook
@@ -21,10 +22,10 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Check the `ACSSMSDeliveryReportEvents` table in Log Analytics.
+Check `ACSSMSIncomingOperations` in Log Analytics for SMS operation outcomes, result codes, and message IDs.
 
 ### 2. Monitor Metrics
-Review the `SmsMessagesSent` vs `SmsMessagesDelivered` metrics in Azure Monitor.
+Review ACS API request metrics filtered to SMS operations and status dimensions. Do not rely on undocumented metric names such as `SmsMessagesDelivered`.
 
 ### 3. CLI Check
 Use the CLI to get the status of a specific message ID.
@@ -56,5 +57,6 @@ Check for `429 Too Many Requests` in your app logs. Azure Monitor will show spik
 * [SMS Rate Limiting](rate-limiting.md)
 
 ## Sources
-* Azure SMS Delivery Report Status Codes
-* CTIA Messaging Principles and Best Practices
+* [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
+* [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)

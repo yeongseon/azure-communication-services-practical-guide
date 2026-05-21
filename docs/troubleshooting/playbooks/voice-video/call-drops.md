@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-drops-guide
+  - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary
 ---
 
 # Call Drops Playbook
@@ -24,7 +25,7 @@ content_sources:
 Look for `no-network`, `call-ended`, or `network-disconnected` events.
 
 ### 2. Log Analytics
-Query the `ACSCallSummaryEvents` table for `CallEndReason`.
+Query `ACSCallSummary` for `ParticipantEndReason`, `ParticipantEndSubCode`, and `ResultCategory`.
 
 ### 3. App Logs
 Look for `401 Unauthorized` or `403 Forbidden` errors around the time of the call drop.
@@ -53,5 +54,6 @@ Check for specific error codes like `SignalingConnectionLost` or `MediaConnectio
 * [Connection Failures](oode-quality.md)
 
 ## Sources
-* Azure Communication Services Call Summary Events
-* Handling Call Drops and Reconnection in the ACS SDK
+* [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallSummary table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary)

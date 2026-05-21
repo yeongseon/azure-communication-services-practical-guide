@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-opt-out-guide
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsoptoutmanagementoperations
 ---
 
 # SMS Opt-out Handling Playbook
@@ -20,7 +21,7 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Look for `DeliveryStatusDetails` in `ACSSMSDeliveryReportEvents` indicating opt-out or blocked.
+Look for failed SMS operation results in `ACSSMSIncomingOperations` and opt-out activity in `ACSOptOutManagementOperations`.
 
 ### 2. Event Grid Reports
 Check `Microsoft.Communication.SMSReceived` for incoming `STOP`, `UNSUBSCRIBE`, or `START` keywords.
@@ -51,5 +52,6 @@ Match the user's last received `STOP` keyword with subsequent delivery failures 
 * [SMS Rate Limiting](rate-limiting.md)
 
 ## Sources
-* Azure SMS Opt-out and Keywords Documentation
-* Carrier Requirements for SMS Marketing
+* [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)
+* [ACSOptOutManagementOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsoptoutmanagementoperations)

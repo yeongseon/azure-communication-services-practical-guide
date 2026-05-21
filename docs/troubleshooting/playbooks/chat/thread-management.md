@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-thread-guide
+  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
 ---
 
 # Thread Management Playbook
@@ -26,7 +27,7 @@ Look for `400 Bad Request` or `403 Forbidden` errors with a specific error code.
 Review the [ACS Chat Service Limits](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits#chat).
 
 ### 3. Log Analytics
-Query the `ACSChatThreadCreatedEvents` table.
+Query `ACSChatIncomingOperations` and filter `OperationName` to create, update, participant, and thread access operations.
 
 ## Validation
 
@@ -51,5 +52,6 @@ If you're creating thousands of threads per second, you may hit the service-leve
 * [Real-time Notifications](real-time-notifications.md)
 
 ## Sources
-* Azure Communication Services Chat Service Limits
-* Chat Architecture and Best Practices
+* [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits#chat)
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)

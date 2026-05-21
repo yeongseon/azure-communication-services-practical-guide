@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-connectivity-guide
+  - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
 ---
 
 # Connection Failures Playbook
@@ -27,7 +28,7 @@ Look for `call-start-failed`, `media-connection-failed`, or `ice-negotiation-fai
 Look for `401 Unauthorized` or `403 Forbidden` errors on call start.
 
 ### 3. Log Analytics
-Query the `ACSCallDiagnosticsEvents` table for `MediaType` and `MediaPathQuality`.
+Query `ACSCallDiagnostics` for `MediaType`, `TransportType`, `RoundTripTimeAvg`, `JitterAvg`, and `PacketLossRateAvg`.
 
 ## Validation
 
@@ -38,7 +39,7 @@ Use a network diagnostic tool (e.g., `test-acs-connectivity`) to verify that UDP
 Ensure the identity token was generated with the `voip` scope. Without it, call initiation will fail.
 
 ### [Correlated] Identify ICE Failure
-Check the `MediaPathQuality` in `ACSCallDiagnosticsEvents`. If it's `None`, no media path could be established.
+Check `TransportType`, `RoundTripTimeAvg`, and packet-loss fields in `ACSCallDiagnostics` alongside client User Facing Diagnostics. A missing diagnostic row can also mean diagnostics were not enabled before the call.
 
 ## Mitigation
 
@@ -53,5 +54,6 @@ Check the `MediaPathQuality` in `ACSCallDiagnosticsEvents`. If it's `None`, no m
 * [Call Drops](call-drops.md)
 
 ## Sources
-* Azure Communication Services Network Requirements
-* Troubleshooting Calling and Video Quality
+* [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)

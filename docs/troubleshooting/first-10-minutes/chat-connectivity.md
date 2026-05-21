@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-troubleshooting
+  - https://learn.microsoft.com/azure/communication-services/concepts/metrics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
 ---
 
 # Chat Connectivity Checklist (First 10 Minutes)
@@ -37,10 +38,10 @@ Look for failed requests to `*.communication.azure.com`. If WebSockets are block
 Run this to see chat message failures:
 
 ```kusto
-ACSChatMessageSentEvents
+ACSChatIncomingOperations
 | where TimeGenerated > ago(1h)
 | where ResultType == "Failed"
-| summarize Count=count() by ResultSignature, ThreadId
+| summarize Count=count() by ResultSignature, ResultDescription, OperationName, ChatThreadId
 | order by Count desc
 ```
 
@@ -49,5 +50,6 @@ ACSChatMessageSentEvents
 * [Real-time Notifications Playbook](../playbooks/chat/real-time-notifications.md)
 
 ## Sources
-* Azure Communication Services Chat SDK Troubleshooting
-* Real-time Messaging Network Requirements
+* [ACS metrics](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)

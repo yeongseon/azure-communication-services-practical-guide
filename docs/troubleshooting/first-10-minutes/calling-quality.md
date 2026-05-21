@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-quality-guide
+  - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
 ---
 
 # Calling Quality Checklist (First 10 Minutes)
@@ -39,11 +40,15 @@ Review the logs for `bad-network` or `no-network` signals from the SDK.
 Run this to see call setup and media quality issues:
 
 ```kusto
-ACSCallDiagnosticsEvents
+ACSCallDiagnostics
 | where TimeGenerated > ago(1h)
-| where MediaPathQuality != "Good"
-| summarize Count=count() by MediaPathQuality, CodecName, CallId
-| order by Count desc
+| summarize
+    AvgRoundTripTimeMs = avg(RoundTripTimeAvg),
+    AvgJitterMs = avg(JitterAvg),
+    AvgPacketLoss = avg(PacketLossRateAvg),
+    Samples = count()
+    by Identifier, CodecName, MediaType, StreamDirection
+| order by AvgPacketLoss desc
 ```
 
 ## See Also
@@ -51,5 +56,6 @@ ACSCallDiagnosticsEvents
 * [Call Drops Playbook](../playbooks/voice-video/call-drops.md)
 
 ## Sources
-* [ACS Calling SDK Troubleshooting Documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
-* Microsoft Teams Media Optimization Guide
+* [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)

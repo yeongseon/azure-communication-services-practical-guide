@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-delivery-guide
+  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
 ---
 
 # SMS Delivery Checklist (First 10 Minutes)
@@ -32,10 +33,10 @@ az communication sms get-delivery-report --message-id "<message_id>" --connectio
 Run this in Log Analytics to see recent delivery failures and their reasons:
 
 ```kusto
-ACSSMSDeliveryReportEvents
+ACSSMSIncomingOperations
 | where TimeGenerated > ago(1h)
-| where DeliveryStatus == "Failed"
-| summarize Count=count() by DeliveryStatusDetails, To
+| where ResultType != "Succeeded"
+| summarize Count=count() by ResultSignature, ResultDescription, PhoneNumber
 | order by Count desc
 ```
 
@@ -50,5 +51,6 @@ ACSSMSDeliveryReportEvents
 * [SMS Rate Limiting Playbook](../playbooks/sms/rate-limiting.md)
 
 ## Sources
-* Azure Communication Services SMS Troubleshooting Documentation
-* Global SMS Carrier Best Practices
+* [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
+* [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)

@@ -1,7 +1,7 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-notifications-guide
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
 ---
 
 # Real-time Notifications Playbook
@@ -26,7 +26,7 @@ Check for `WebSocket` connection failures or `401 Unauthorized` errors.
 Monitor the `Microsoft.Communication.ChatMessageReceived` events in Event Grid.
 
 ### 3. Log Analytics
-Query the `ACSChatMessageReceivedEvents` table.
+Query `ACSChatIncomingOperations` and filter by chat message operation names and result status.
 
 ## Validation
 
@@ -51,5 +51,5 @@ If using push notifications (e.g., via FCM or APNs), verify the ACS resource is 
 * [Thread Management](thread-management.md)
 
 ## Sources
-* Azure Communication Services Real-time Notifications Documentation
-* WebSocket Connectivity for Real-time Media
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)
