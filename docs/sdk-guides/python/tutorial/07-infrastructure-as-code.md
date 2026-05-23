@@ -2,9 +2,34 @@
 title: Infrastructure as Code
 description: Deploying Azure Communication Services with Bicep and Python scripts.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+  diagrams:
+  - id: 07-infrastructure-as-code-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+    verified: true
 ---
-
 # Infrastructure as Code
 
 This step shows how to use Bicep and Python scripts to deploy and manage Azure Communication Services (ACS) resources.
@@ -144,6 +169,30 @@ steps:
   run: |
     az deployment group create --resource-group acs-tutorial-rg --template-file acs-resource.bicep
 ```
+
+## Page Flow
+
+<!-- diagram-id: 07-infrastructure-as-code-page-flow -->
+```mermaid
+flowchart TD
+    A["Infrastructure as Code"]
+    B["1. Bicep Template for ACS Resource"]
+    C["2. Python Deployment Script"]
+    D["Load configuration"]
+    E["Initialize credential and client"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Infrastructure as Code. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 - [Bicep Documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview)

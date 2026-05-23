@@ -1,9 +1,26 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-quality-guide
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: calling-quality-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Calling Quality Checklist (First 10 Minutes)
 
 When audio or video quality suffers or calls drop, follow this initial checklist.
@@ -39,17 +56,46 @@ Review the logs for `bad-network` or `no-network` signals from the SDK.
 Run this to see call setup and media quality issues:
 
 ```kusto
-ACSCallDiagnosticsEvents
+ACSCallDiagnostics
 | where TimeGenerated > ago(1h)
-| where MediaPathQuality != "Good"
-| summarize Count=count() by MediaPathQuality, CodecName, CallId
-| order by Count desc
+| summarize
+    AvgRoundTripTimeMs = avg(RoundTripTimeAvg),
+    AvgJitterMs = avg(JitterAvg),
+    AvgPacketLoss = avg(PacketLossRateAvg),
+    Samples = count()
+    by Identifier, CodecName, MediaType, StreamDirection
+| order by AvgPacketLoss desc
 ```
+
+## Page Flow
+
+<!-- diagram-id: calling-quality-page-flow -->
+```mermaid
+flowchart TD
+    A["Calling Quality Checklist (First 10 Minutes)"]
+    B["Immediate Checklist"]
+    C["Essential Diagnostic Steps"]
+    D["1. Browser Console (User Facing Diagnostics)"]
+    E["2. TURN/STUN Accessibility"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Calling Quality Checklist (First 10 Minutes). |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 * [Call Quality Playbook](../playbooks/voice-video/call-quality.md)
 * [Call Drops Playbook](../playbooks/voice-video/call-drops.md)
 
 ## Sources
-* [ACS Calling SDK Troubleshooting Documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
-* Microsoft Teams Media Optimization Guide
+* [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

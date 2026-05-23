@@ -1,9 +1,26 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-quality-guide
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: call-quality-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Call Quality Playbook
 
 **Symptom**: Poor audio/video quality during a call (jitter, lag, or distortion).
@@ -24,10 +41,10 @@ content_sources:
 Review the logs for `network-quality`, `bad-network`, or `media-stream-dropped` signals.
 
 ### 2. Azure Monitor Metrics
-Check `CallMediaStreamQuality` metrics for latency and packet loss data.
+Use ACS API request metrics for request success/error status. Derive media quality from `ACSCallDiagnostics`; do not use undocumented metric names such as `CallMediaStreamQuality`.
 
 ### 3. Log Analytics
-Query the `ACSCallDiagnosticsEvents` table.
+Query the `ACSCallDiagnostics` table.
 
 ## Validation
 
@@ -38,7 +55,7 @@ Check if the average packet loss exceeds 1-2% or if the latency is greater than 
 Verify that the client can establish a UDP connection for media. If blocked, the SDK will attempt a TCP relay, which is more prone to lag and jitter.
 
 ### [Correlated] Identify Codec Mismatch
-Check the `CodecName` in `ACSCallDiagnosticsEvents`. If the browser or device does not support H.264, it may fallback to an older, lower-quality codec.
+Check the `CodecName` in `ACSCallDiagnostics`. If the browser or device does not support H.264, it may fallback to an older, lower-quality codec.
 
 ## Mitigation
 
@@ -48,10 +65,27 @@ Check the `CodecName` in `ACSCallDiagnosticsEvents`. If the browser or device do
 4. **Reduce Device Load**: Advise the user to close other high-resource applications or browsers during the call.
 5. **Lower Video Resolution**: If bandwidth is limited, the app can programmatically lower the video resolution to prioritize audio quality.
 
+## Page Flow
+
+<!-- diagram-id: call-quality-page-flow -->
+```mermaid
+flowchart TD
+    A["Call Quality Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. User Facing Diagnostics (UFD)"]
+    E["2. Azure Monitor Metrics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Call Drops](call-drops.md)
 * [Connection Failures](oode-quality.md)
 
 ## Sources
-* [ACS Calling SDK Troubleshooting Documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
-* Real-time Media Optimization Guidelines
+* [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

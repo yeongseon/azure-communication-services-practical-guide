@@ -2,6 +2,11 @@
 content_sources:
   - source: mslearn-adapted
     mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Reliability Best Practices
@@ -61,6 +66,20 @@ Implement robust monitoring and alerting to identify and resolve reliability iss
 *   **Availability Monitoring**: Use Azure Monitor to track the availability of your ACS resource.
 *   **Success Rate Alerting**: Set up alerts when the success rate for SMS or email drops below your target SLA.
 *   **Latency Monitoring**: Monitor the latency of your API calls to identify potential performance bottlenecks.
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Reliability Best Practices. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../index.md)
+- [Section index](index.md)
+- [Start here](../start-here/overview.md)
 
 ## Sources
 

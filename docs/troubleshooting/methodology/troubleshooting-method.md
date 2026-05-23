@@ -2,6 +2,11 @@
 content_sources:
   - azure-paas-methodology
   - troubleshooting-framework
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Troubleshooting Methodology
@@ -61,3 +66,4 @@ Troubleshooting should proceed logically through the communication layers:
 ## Sources
 * Azure PaaS Troubleshooting Methodology
 * SRE Incident Management Best Practices
+- [Microsoft Learn overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)

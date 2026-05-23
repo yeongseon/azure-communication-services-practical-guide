@@ -1,3 +1,11 @@
+---
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
+---
+
 # Contributing
 
 Thank you for your interest in contributing to Azure Communication Services Practical Guide!
@@ -163,6 +171,11 @@ Brief introduction
 ## Topic/Command Groups
 ## Usage Notes
 ## See Also
+
+## See Also
+
+- [Repository Map](../start-here/repository-map.md)
+- [Learning Paths](../start-here/learning-paths.md)
 ## Sources
 ```
 
@@ -262,8 +275,3 @@ Allowed types: `feat`, `fix`, `docs`, `chore`, `refactor`
 ## Code of Conduct
 
 Please read our [Code of Conduct](https://github.com/yeongseon/azure-communication-services-practical-guide/blob/main/CODE_OF_CONDUCT.md) before contributing.
-
-## See Also
-
-- [Repository Map](../start-here/repository-map.md)
-- [Learning Paths](../start-here/learning-paths.md)

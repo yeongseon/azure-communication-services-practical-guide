@@ -1,9 +1,24 @@
 ---
 content_sources:
-  - azure-docs
-  - email-log-analytics
+  sources:
+  - type: mslearn-adapted
+    url: azure-docs
+  - type: mslearn-adapted
+    url: email-log-analytics
+  diagrams:
+  - id: delivery-status-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/overview
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Email Delivery Status KQL
 
 Analyze email delivery performance and identify common bounce reasons using `ACSEmailStatusUpdateOperational`.
@@ -82,6 +97,22 @@ ACSEmailStatusUpdateOperational
 | Avg lifecycle (submit → Delivered) | 3-6 seconds |
 | Hard bounces | 0 |
 | Failures | 0 |
+
+## Page Flow
+
+<!-- diagram-id: delivery-status-page-flow -->
+```mermaid
+flowchart TD
+    A["Email Delivery Status KQL"]
+    B["Query Description"]
+    C["KQL Queries"]
+    D["Query 1: Delivery Status Summary"]
+    E["Query 2: Failed Deliveries Analysis"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
 
 ## See Also
 * [Email KQL Overview](index.md)

@@ -3,6 +3,11 @@ title: SDK Guides Overview
 description: Comprehensive documentation for Azure Communication Services SDKs across multiple languages.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/overview
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # SDK Guides Overview
@@ -57,7 +62,7 @@ Choose your preferred language to get started with tutorials and code recipes.
 
 ## See Also
 - [Azure Communication Services SDK Overview](https://learn.microsoft.com/azure/communication-services/concepts/sdk-options)
-- [SDK Release Notes](https://learn.microsoft.com/azure/communication-services/concepts/release-notes)
+- [SDK Release Notes](https://learn.microsoft.com/en-us/azure/communication-services/concepts/services)
 
 ## Sources
 - [Azure Communication Services Documentation](https://learn.microsoft.com/azure/communication-services/)

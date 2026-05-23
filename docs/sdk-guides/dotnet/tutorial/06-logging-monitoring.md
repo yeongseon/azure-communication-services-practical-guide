@@ -1,14 +1,39 @@
 ---
-title: "Step 6: Logging & Monitoring"
-description: Monitor your .NET communication application with Azure Monitor and Application Insights.
+title: 'Step 6: Logging & Monitoring'
+description: Monitor your .NET communication application with Azure Monitor and Application
+  Insights.
 content_sources:
+  sources:
   - id: dotnet-logging-monitoring
     type: documentation
     source: self
     justification: Explains observability for .NET ACS apps.
     based_on: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+  diagrams:
+  - id: 06-logging-monitoring-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+    verified: true
 ---
-
 # Step 6: Logging & Monitoring
 
 Track the health and performance of your .NET communication features using standard .NET logging patterns and Azure Monitor.
@@ -88,6 +113,36 @@ Ensure your ACS resource is configured to send logs to Log Analytics:
 ## Next Step
 
 Finalize your solution with [Infrastructure as Code](./07-infrastructure-as-code.md).
+
+## Page Flow
+
+<!-- diagram-id: 06-logging-monitoring-page-flow -->
+```mermaid
+flowchart TD
+    A["Step 6: Logging & Monitoring"]
+    B["1. SDK Logging with ILogger"]
+    C["2. Application Insights Integration"]
+    D["Add NuGet Package"]
+    E["Configure Startup"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Step 6: Logging & Monitoring. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Azure Communication Services Logs](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)

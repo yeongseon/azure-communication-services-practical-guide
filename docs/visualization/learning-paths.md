@@ -1,6 +1,11 @@
 ---
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/overview
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Learning Paths for ACS Roles
@@ -50,6 +55,14 @@ For architects designing communication solutions:
 1. **Architecture Patterns**: Explore common communication architectures.
 2. **Scale and High Availability**: Design for regional failover and peak loads.
 3. **Compliance and Governance**: Ensure your communication solution meets regulatory requirements.
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Learning Paths for ACS Roles. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 - [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)

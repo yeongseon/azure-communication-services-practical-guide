@@ -1,9 +1,24 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-troubleshooting
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  diagrams:
+  - id: message-delivery-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Chat Message Delivery Playbook
 
 **Symptom**: Chat messages not arriving at the recipient's device.
@@ -24,7 +39,7 @@ content_sources:
 Look for `401 Unauthorized`, `403 Forbidden`, or `404 Not Found` errors in the developer tools.
 
 ### 2. Log Analytics
-Query the `ACSChatMessageSentEvents` and `ACSChatMessageReceivedEvents` tables.
+Query `ACSChatIncomingOperations` for failed chat operations, result signatures, operation names, and thread IDs.
 
 ### 3. Identity Verification
 Confirm the user's communication identity still exists.
@@ -51,10 +66,26 @@ If the client can send messages but cannot receive them, check if the WebSocket 
 3. **Check Connection Health**: Use a heartbeat or connection state listener to detect and recover from WebSocket disconnection.
 4. **Cleanse Deleted Threads**: Update your local state when a thread is deleted to prevent sending to a non-existent resource.
 
+## Page Flow
+
+<!-- diagram-id: message-delivery-page-flow -->
+```mermaid
+flowchart TD
+    A["Chat Message Delivery Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Browser Console"]
+    E["2. Log Analytics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Thread Management](thread-management.md)
 * [Real-time Notifications](real-time-notifications.md)
 
 ## Sources
-* Azure Communication Services Chat SDK Troubleshooting
-* Real-time Messaging Network Requirements
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations)

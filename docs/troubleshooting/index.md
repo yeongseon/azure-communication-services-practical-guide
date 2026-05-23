@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - azure-docs
-  - communication-services-sdk
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging
+  - https://learn.microsoft.com/azure/communication-services/concepts/metrics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Troubleshooting Overview
@@ -74,8 +79,8 @@ graph TD
 
 ## See Also
 * [Azure Monitor Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/)
-* [ACS Diagnostic Logs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/diagnostic-logging)
+* [Enable logging with Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging)
 
 ## Sources
-* Internal Support Playbooks
-* Azure SDK Troubleshooting Guides
+* [Enable logging with Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging)
+* [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics)

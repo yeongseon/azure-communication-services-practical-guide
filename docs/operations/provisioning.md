@@ -2,6 +2,11 @@
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
   - https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Provisioning ACS Resources

@@ -4,6 +4,11 @@ content_sources:
     - id: guide-sections-overview
       type: Mermaid
       source: self-generated
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # About
@@ -45,6 +50,14 @@ This guide is built upon the collective experience of developers and engineers w
 The following tests were performed with real Azure resources to validate the guidance in this project:
 
 - [Email Communication Service Test Report](email-test-report.md) — End-to-end email sending, delivery confirmation, and monitoring with Python SDK (April 2026)
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to About. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 

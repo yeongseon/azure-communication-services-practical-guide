@@ -1,8 +1,24 @@
 ---
 title: Phone Number Management with Java
 description: Programmatically search and purchase phone numbers using the Java SDK.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
+content_sources:
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number
+  diagrams:
+  - id: phone-number-management-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number
 ---
-
 # Phone Number Management with Java
 
 Manage your ACS phone numbers directly from your Java application using the `PhoneNumbersClient`.
@@ -69,6 +85,36 @@ public void listNumbers() {
     });
 }
 ```
+
+## Page Flow
+
+<!-- diagram-id: phone-number-management-page-flow -->
+```mermaid
+flowchart TD
+    A["Phone Number Management with Java"]
+    B["1. Add Phone Numbers Dependency"]
+    C["2. Initialize PhoneNumbersClient"]
+    D["3. Search and Purchase a Number"]
+    E["4. List Purchased Numbers"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Phone Number Management with Java. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Quickstart: Search and purchase phone numbers](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number)

@@ -2,9 +2,23 @@
 title: Event Grid Webhooks
 description: Handling Azure Communication Services events with JavaScript webhooks.
 content_sources:
-  - https://learn.microsoft.com/azure/event-grid/receive-events?pivots=programming-language-javascript
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/event-grid/receive-events?pivots=programming-language-javascript
+  diagrams:
+  - id: event-grid-webhooks-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/event-grid/receive-events?pivots=programming-language-javascript
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Event Grid Webhooks
 
 This recipe demonstrates how to set up an Azure Event Grid subscription for Azure Communication Services (ACS) and handle events using a JavaScript web framework like Express.
@@ -99,9 +113,25 @@ ACS provides several event types you can subscribe to:
 | `Microsoft.Communication.EmailDeliveryReportReceived` | Triggered when a delivery report is received for an email. |
 | `Microsoft.Communication.ChatMessageReceived` | Triggered when a new message is sent to a chat thread. |
 
+## Page Flow
+
+<!-- diagram-id: event-grid-webhooks-page-flow -->
+```mermaid
+flowchart TD
+    A["Event Grid Webhooks"]
+    B["Prerequisites"]
+    C["1. Set Up Event Grid Subscription"]
+    D["Create an Event Grid subscription for ACS"]
+    E["2. Express Webhook Endpoint"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 - [ACS Event Schema](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services)
 - [Event Grid Webhook Validation](https://learn.microsoft.com/azure/event-grid/webhook-event-delivery)
 
 ## Sources
-- [Handle events in Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/event-grid/handle-events)
+- [Handle events in Azure Communication Services](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services)

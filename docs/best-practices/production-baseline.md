@@ -2,6 +2,11 @@
 content_sources:
   - source: mslearn-adapted
     mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Production Baseline
@@ -68,6 +73,12 @@ Before sending production emails:
 1.  **Domain Ownership**: Verify ownership of your custom domain via DNS records.
 2.  **Sender Authentication**: Configure SPF and DKIM to ensure high deliverability and avoid being flagged as spam.
 3.  **Volume Warm-up**: If sending large volumes of email, start with a lower volume and gradually increase to warm up your IP reputation.
+
+## See Also
+
+- [Guide home](../index.md)
+- [Section index](index.md)
+- [Start here](../start-here/overview.md)
 
 ## Sources
 

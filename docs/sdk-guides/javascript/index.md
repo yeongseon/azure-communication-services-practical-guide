@@ -6,6 +6,11 @@ content_sources:
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-sms-readme
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-email-readme
   - https://learn.microsoft.com/javascript/api/overview/azure/communication-chat-readme
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # JavaScript SDK Guide
@@ -85,5 +90,10 @@ Unlike the Python SDK, the JavaScript SDK provides a specialized library for bro
 - **[Tutorials](./tutorial/index.md)**: Step-by-step guides for common scenarios.
 - **[Recipes](./recipes/index.md)**: Focused code snippets for specific tasks.
 
+## See Also
+
+- [Guide home](../../index.md)
+- [Start here](../../start-here/overview.md)
+
 ## Sources
-- [JavaScript SDK Reference](https://learn.microsoft.com/javascript/api/overview/azure/communication-services)
+- [JavaScript SDK Reference](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication?view=azure-node-latest)

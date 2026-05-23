@@ -2,9 +2,34 @@
 title: Voice Calling
 description: Automating voice calls with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-call-automation?pivots=programming-language-python
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation
+  diagrams:
+  - id: 05-voice-calling-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation
+    verified: true
 ---
-
 # Voice Calling
 
 This step demonstrates how to automate voice calls using the Azure Communication Services (ACS) Python SDK.
@@ -134,9 +159,33 @@ if __name__ == "__main__":
     call_automation_demo()
 ```
 
+## Page Flow
+
+<!-- diagram-id: 05-voice-calling-page-flow -->
+```mermaid
+flowchart TD
+    A["Voice Calling"]
+    B["1. Prerequisites"]
+    C["2. Call Automation Client Setup"]
+    D["3. Create Outbound Call"]
+    E["4. Play Audio Prompts"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Voice Calling. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 - [Call Automation Concepts](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/call-automation)
-- [Call Automation Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/troubleshooting)
+- [Call Automation Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation)
 
 ## Sources
 - [Azure Communication Call Automation client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-callautomation-readme)

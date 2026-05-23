@@ -1,9 +1,26 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-opt-out-guide
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsoptoutmanagementoperations
+  diagrams:
+  - id: opt-out-handling-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # SMS Opt-out Handling Playbook
 
 **Symptom**: Recipients not receiving SMS after opting out or in.
@@ -20,7 +37,7 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Look for `DeliveryStatusDetails` in `ACSSMSDeliveryReportEvents` indicating opt-out or blocked.
+Look for failed SMS operation results in `ACSSMSIncomingOperations` and opt-out activity in `ACSOptOutManagementOperations`.
 
 ### 2. Event Grid Reports
 Check `Microsoft.Communication.SMSReceived` for incoming `STOP`, `UNSUBSCRIBE`, or `START` keywords.
@@ -46,10 +63,27 @@ Match the user's last received `STOP` keyword with subsequent delivery failures 
 3. **Local Suppression**: Always check your local opt-out database before attempting to send an SMS to prevent wasted requests.
 4. **Number Management**: Periodically verify number ownership if delivery failures persist for an extended period.
 
+## Page Flow
+
+<!-- diagram-id: opt-out-handling-page-flow -->
+```mermaid
+flowchart TD
+    A["SMS Opt-out Handling Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Delivery Reports"]
+    E["2. Event Grid Reports"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [SMS Delivery Failures](delivery-failures.md)
 * [SMS Rate Limiting](rate-limiting.md)
 
 ## Sources
-* Azure SMS Opt-out and Keywords Documentation
-* Carrier Requirements for SMS Marketing
+* [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations)
+* [ACSOptOutManagementOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsoptoutmanagementoperations)

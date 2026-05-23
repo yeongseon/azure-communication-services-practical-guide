@@ -5,6 +5,11 @@ content_sources:
   - https://docs.github.com/actions
   - https://learn.microsoft.com/azure/azure-resource-manager/bicep/
   - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # GitHub Actions Deployment

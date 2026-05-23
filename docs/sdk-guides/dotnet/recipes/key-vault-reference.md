@@ -1,8 +1,25 @@
 ---
 title: Key Vault Reference with .NET
-description: Securely retrieve Azure Communication Services connection strings using Azure Key Vault.
+description: Securely retrieve Azure Communication Services connection strings using
+  Azure Key Vault.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
+content_sources:
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/dotnet/api/overview/azure/security.keyvault.secrets-readme?view=azure-dotnet
+  diagrams:
+  - id: key-vault-reference-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/dotnet/api/overview/azure/security.keyvault.secrets-readme?view=azure-dotnet
 ---
-
 # Key Vault Reference with .NET
 
 Store your ACS credentials securely in Azure Key Vault and retrieve them using the .NET SDK.
@@ -51,5 +68,35 @@ Use the `@Microsoft.KeyVault` syntax in your Application Settings to automatical
 
 In C#, read it via `Environment.GetEnvironmentVariable("ACS_CONNECTION_STRING")`.
 
+## Page Flow
+
+<!-- diagram-id: key-vault-reference-page-flow -->
+```mermaid
+flowchart TD
+    A["Key Vault Reference with .NET"]
+    B["1. Add NuGet Packages"]
+    C["2. Retrieve Secret"]
+    D["3. ASP.NET Core Configuration Integration"]
+    E["4. Azure App Service / Functions Reference"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Key Vault Reference with .NET. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
+
 ## Sources
-- [Azure Key Vault Secret client library for .NET](https://learn.microsoft.com/dotnet/api/overview/azure/security-keyvault-secrets-readme)
+- [Azure Key Vault Secret client library for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/security.keyvault.secrets-readme?view=azure-dotnet)

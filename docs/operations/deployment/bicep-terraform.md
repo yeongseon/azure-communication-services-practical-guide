@@ -1,6 +1,11 @@
 ---
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Infrastructure as Code for ACS
@@ -72,6 +77,14 @@ resource "azurerm_communication_service" "acs" {
 
 ### Resource Dependencies and Ordering
 Terraform automatically handles dependencies between resources. However, you can explicitly define them using `depends_on` if necessary.
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Infrastructure as Code for ACS. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 - [Bicep documentation for ACS](https://learn.microsoft.com/azure/templates/microsoft.communication/communicationservices)

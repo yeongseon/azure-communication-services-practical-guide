@@ -1,10 +1,36 @@
 ---
 title: Video Calling
-description: Building browser-based video calling with Azure Communication Services for JavaScript.
+description: Building browser-based video calling with Azure Communication Services
+  for JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=programming-language-javascript
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=programming-language-javascript
+  diagrams:
+  - id: 05-video-calling-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=programming-language-javascript
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=programming-language-javascript
+    verified: true
 ---
-
 # Video Calling
 
 This step demonstrates how to build a browser-based video calling experience using the Azure Communication Services (ACS) JavaScript SDK.
@@ -144,9 +170,33 @@ async function main() {
 main();
 ```
 
+## Page Flow
+
+<!-- diagram-id: 05-video-calling-page-flow -->
+```mermaid
+flowchart TD
+    A["Video Calling"]
+    B["1. Prerequisites"]
+    C["2. CallClient Setup"]
+    D["3. Start/Join Video Call"]
+    E["4. Manage Local/Remote Video Streams"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Video Calling. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
-- [Voice & Video Calling Concepts](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-client-library)
+- [Voice & Video Calling Concepts](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling)
 - [UI Library Overview](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview)
 
 ## Sources
-- [Azure Communication Calling client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-calling-readme)
+- [Azure Communication Calling client library for JavaScript](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling)

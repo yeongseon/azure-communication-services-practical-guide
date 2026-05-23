@@ -2,6 +2,11 @@
 content_sources:
   - source: mslearn-adapted
     mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Networking Best Practices
@@ -66,8 +71,14 @@ For backend services communicating with ACS, you can use **Azure Private Link** 
 *   **Endpoint Support**: ACS supports Private Link for data-plane operations (e.g., sending SMS or Email).
 *   **Virtual Network (VNet) Integration**: Connect your ACS resource to your VNet to secure your backend communication.
 
+## See Also
+
+- [Guide home](../index.md)
+- [Section index](index.md)
+- [Start here](../start-here/overview.md)
+
 ## Sources
 
 *   [ACS Networking Requirements](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)
-*   [ACS Private Link Support](https://learn.microsoft.com/azure/communication-services/concepts/private-link)
+*   [ACS Private Link Support](https://learn.microsoft.com/en-us/azure/private-link/)
 *   [WebRTC Protocol Overview](https://webrtc.org/)

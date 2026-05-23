@@ -1,7 +1,15 @@
 ---
 content_sources:
-  - azure-monitor-acs
-  - log-analytics-acs
+  - https://learn.microsoft.com/azure/communication-services/concepts/metrics
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Detector Map
@@ -29,22 +37,24 @@ graph TD
 ### 1. Azure Monitor Metrics
 Metrics provide a high-level view of service health, error rates, and throughput.
 
-* **SmsMessagesSent / SmsMessagesDelivered**: Track SMS delivery success rates.
-* **EmailMessagesSent / EmailMessagesDelivered**: Track email delivery success rates.
-* **CallMediaStreamQuality**: Monitor latency, jitter, and packet loss for calls.
-* **ChatMessageReceived / ChatMessageSent**: Track chat message volume and error rates.
+* **ACS API request metrics**: Track request volume and error status by `Operation`, `Status Code`, and `StatusSubClass`.
+* **SMS operations**: Filter API request metrics to SMS operations, then use `ACSSMSIncomingOperations` for transaction details.
+* **Email operations**: Filter API request metrics to email send/status operations, then use email operational tables for delivery evidence.
+* **Chat operations**: Filter API request metrics to chat operations, then use `ACSChatIncomingOperations.DurationMs` for operation latency.
+* **Call quality**: Derive media quality from `ACSCallDiagnostics` fields such as `RoundTripTimeAvg`, `JitterAvg`, and `PacketLossRateAvg`.
 
 ### 2. Log Analytics Tables
 Log Analytics provides transaction-level details, error codes, and request/response metadata.
 
 | Table Name | Description |
 | --- | --- |
-| `ACSSMSDeliveryReportEvents` | Detailed SMS delivery status reports. |
-| `ACSEmailDeliveryReportEvents` | Detailed email delivery status reports. |
-| `ACSCallSummaryEvents` | Summary of each call, including start/end times and reasons. |
-| `ACSCallDiagnosticsEvents` | Real-time diagnostic events for voice and video quality. |
-| `ACSChatMessageReceivedEvents` | Details on each chat message received. |
-| `ACSTeamsInteroperabilityEvents` | Details on Teams meeting interop activities. |
+| `ACSSMSIncomingOperations` | SMS operation outcomes, result codes, request duration, message identifiers. |
+| `ACSEmailSendMailOperational` | Email send operations, recipient counts, message size, sender domain context. |
+| `ACSEmailStatusUpdateOperational` | Email delivery status updates, SMTP codes, failure reason, bounce classification. |
+| `ACSChatIncomingOperations` | Chat operation outcomes, duration, thread ID, user ID, status codes. |
+| `ACSCallSummary` | Participant-level call summaries, duration, end reason, SDK and endpoint context. |
+| `ACSCallDiagnostics` | Media stream diagnostics including round-trip time, jitter, packet loss, codec, and stream direction. |
+| `ACSCallClientMediaStatsTimeSeries` | Client media statistics for granular calling quality analysis. |
 
 ### 3. Event Grid Events
 Event Grid provides real-time webhooks for delivery reports, message events, and state changes.
@@ -67,5 +77,6 @@ UFD provides real-time feedback to the client app about network conditions and d
 * [KQL Query Library Overview](../kql/index.md)
 
 ## Sources
-* [ACS Diagnostic Logs Documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/diagnostic-logging)
-* Azure Monitor for Communication Services Overview
+* [Enable logging with Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging)
+* [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
+* [ACS Log Analytics tables](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices)

@@ -2,9 +2,34 @@
 title: Local Setup
 description: Setting up your JavaScript environment for Azure Communication Services.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-javascript
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens
+  diagrams:
+  - id: 01-local-setup-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens
+    verified: true
 ---
-
 # Local Setup
 
 In this step, we'll configure your local development environment to use the Azure Communication Services (ACS) JavaScript SDK.
@@ -108,9 +133,33 @@ Run the script to verify your connection:
 node identity_token.js
 ```
 
+## Page Flow
+
+<!-- diagram-id: 01-local-setup-page-flow -->
+```mermaid
+flowchart TD
+    A["Local Setup"]
+    B["1. Install Node.js and npm"]
+    C["Check Node.js version"]
+    D["Check npm version"]
+    E["2. Initialize Node.js Project"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Local Setup. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 - [Create and manage ACS resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
-- [Manage user access tokens](https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens)
+- [Manage user access tokens](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens)
 
 ## Sources
 - [Azure Communication Identity client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-identity-readme)

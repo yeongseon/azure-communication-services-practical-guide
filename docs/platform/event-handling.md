@@ -4,6 +4,11 @@ content_sources:
     - id: acs-event-flow
       type: self-generated
       justification: Event handling flow via Azure Event Grid
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Event Handling

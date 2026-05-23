@@ -1,9 +1,26 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-connectivity-guide
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: oode-quality-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Connection Failures Playbook
 
 **Symptom**: Cannot establish a call connection.
@@ -27,7 +44,7 @@ Look for `call-start-failed`, `media-connection-failed`, or `ice-negotiation-fai
 Look for `401 Unauthorized` or `403 Forbidden` errors on call start.
 
 ### 3. Log Analytics
-Query the `ACSCallDiagnosticsEvents` table for `MediaType` and `MediaPathQuality`.
+Query `ACSCallDiagnostics` for `MediaType`, `TransportType`, `RoundTripTimeAvg`, `JitterAvg`, and `PacketLossRateAvg`.
 
 ## Validation
 
@@ -38,7 +55,7 @@ Use a network diagnostic tool (e.g., `test-acs-connectivity`) to verify that UDP
 Ensure the identity token was generated with the `voip` scope. Without it, call initiation will fail.
 
 ### [Correlated] Identify ICE Failure
-Check the `MediaPathQuality` in `ACSCallDiagnosticsEvents`. If it's `None`, no media path could be established.
+Check `TransportType`, `RoundTripTimeAvg`, and packet-loss fields in `ACSCallDiagnostics` alongside client User Facing Diagnostics. A missing diagnostic row can also mean diagnostics were not enabled before the call.
 
 ## Mitigation
 
@@ -48,10 +65,27 @@ Check the `MediaPathQuality` in `ACSCallDiagnosticsEvents`. If it's `None`, no m
 4. **Enable UFD**: Use User Facing Diagnostics to inform the user when their network or firewall is preventing a call connection.
 5. **Log Start Errors**: Collect and analyze the `CallStartError` from the SDK to identify common causes of connection failures.
 
+## Page Flow
+
+<!-- diagram-id: oode-quality-page-flow -->
+```mermaid
+flowchart TD
+    A["Connection Failures Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. User Facing Diagnostics (UFD)"]
+    E["2. Browser Console"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Call Quality](call-quality.md)
 * [Call Drops](call-drops.md)
 
 ## Sources
-* Azure Communication Services Network Requirements
-* Troubleshooting Calling and Video Quality
+* [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

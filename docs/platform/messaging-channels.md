@@ -4,6 +4,11 @@ content_sources:
     - id: messaging-channels-architecture
       type: self-generated
       justification: Messaging channels architecture overview
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Messaging Channels Overview
@@ -81,6 +86,6 @@ graph TD
 
 ## Sources
 
-- [SMS Overview](https://learn.microsoft.com/azure/communication-services/concepts/sms/overview)
-- [Email Overview](https://learn.microsoft.com/azure/communication-services/concepts/email/overview)
+- [SMS Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts)
+- [Email Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/prepare-email-communication-resource)
 - [Chat Concepts](https://learn.microsoft.com/azure/communication-services/concepts/chat/concepts)

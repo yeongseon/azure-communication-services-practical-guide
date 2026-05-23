@@ -1,8 +1,24 @@
 ---
 title: Event Grid Webhooks with Spring Boot
 description: Handle Azure Communication Services events using a Spring Boot webhook.
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
+content_sources:
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/event-handling
+  diagrams:
+  - id: event-grid-webhooks-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/event-handling
 ---
-
 # Event Grid Webhooks with Spring Boot
 
 Azure Communication Services publishes events (like SMS received or call ended) to Azure Event Grid. You can handle these events using a webhhok.
@@ -60,6 +76,34 @@ ngrok http 8080
 ```
 
 Update your Event Subscription to use the ngrok URL.
+
+## Page Flow
+
+<!-- diagram-id: event-grid-webhooks-page-flow -->
+```mermaid
+flowchart TD
+    A["Event Grid Webhooks with Spring Boot"]
+    B["1. Create Spring Boot Controller"]
+    C["2. Configure Event Grid Subscription"]
+    D["3. Local Testing"]
+    A --> B
+    B --> C
+    C --> D
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Event Grid Webhooks with Spring Boot. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Handle Azure Communication Services events](https://learn.microsoft.com/azure/communication-services/concepts/event-handling)

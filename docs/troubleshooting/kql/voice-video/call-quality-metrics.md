@@ -1,9 +1,24 @@
 ---
 content_sources:
-  - azure-docs
-  - calling-log-analytics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: call-quality-metrics-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Call Quality Metrics KQL
 
 Analyze call quality and identify common media performance issues.
@@ -15,16 +30,14 @@ This query retrieves recent call diagnostic events, filters for poor quality, an
 ## KQL Query
 
 ```kusto
-ACSCallDiagnosticsEvents
+ACSCallDiagnostics
 | where TimeGenerated > ago(1h)
-| where MediaPathQuality != "Good"
-| extend Latency = PacketLatencyMs, Jitter = PacketJitterMs, Loss = PacketLossRate
-| summarize 
-    AverageLatency = avg(Latency), 
-    AverageJitter = avg(Jitter), 
-    AverageLoss = avg(Loss) 
-    by CallId, MediaPathQuality
-| order by AverageLoss desc
+| summarize
+    AverageRoundTripTimeMs = avg(RoundTripTimeAvg),
+    AverageJitterMs = avg(JitterAvg),
+    AveragePacketLoss = avg(PacketLossRateAvg)
+    by Identifier, MediaType, StreamDirection
+| order by AveragePacketLoss desc
 ```
 
 ## Explanation
@@ -32,10 +45,9 @@ ACSCallDiagnosticsEvents
 | Field | Description |
 | --- | --- |
 | `TimeGenerated > ago(1h)` | Filters results to the last hour to focus on current issues and improve performance. |
-| `MediaPathQuality != "Good"` | Selects only calls with poor quality or media drops. |
-| `extend Latency, Jitter, Loss` | Renames the diagnostic metrics to more readable names. |
-| `summarize AverageLatency, AverageJitter, AverageLoss` | Calculates the average values for each call ID and quality level. |
-| `by CallId, MediaPathQuality` | Groups the results by call ID and media path quality. |
+| `RoundTripTimeAvg`, `JitterAvg`, `PacketLossRateAvg` | Documented media diagnostic fields in `ACSCallDiagnostics`. |
+| `summarize AverageRoundTripTimeMs, AverageJitterMs, AveragePacketLoss` | Calculates average values for each media stream group. |
+| `by Identifier, MediaType, StreamDirection` | Groups results by call identifier and media stream. |
 
 ## Insights
 
@@ -43,9 +55,26 @@ ACSCallDiagnosticsEvents
 * **Network Performance**: High jitter or packet loss for a specific call ID suggests a network issue.
 * **Volume Analysis**: A high count of calls with poor quality may suggest a service-level issue or heavy load.
 
+## Page Flow
+
+<!-- diagram-id: call-quality-metrics-page-flow -->
+```mermaid
+flowchart TD
+    A["Call Quality Metrics KQL"]
+    B["Query Description"]
+    C["KQL Query"]
+    D["Explanation"]
+    E["Insights"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Voice/Video KQL Overview](index.md)
 * [Call Quality Playbook](../../playbooks/voice-video/call-quality.md)
 
 ## Sources
-* Azure Call Diagnostic Log Reference
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

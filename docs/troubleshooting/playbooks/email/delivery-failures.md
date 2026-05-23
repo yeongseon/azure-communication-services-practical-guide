@@ -1,9 +1,28 @@
 ---
 content_sources:
-  - azure-docs
-  - email-delivery-troubleshooting
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailsendmailoperational
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
+  diagrams:
+  - id: delivery-failures-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Email Delivery Failures Playbook
 
 **Symptom**: Email not delivered or bouncing.
@@ -21,10 +40,10 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Check the `ACSEmailDeliveryReportEvents` table in Log Analytics.
+Check `ACSEmailStatusUpdateOperational` in Log Analytics for delivery status updates. Use `CorrelationId` to correlate status events with the message ID returned by send requests.
 
 ### 2. Monitor Metrics
-Review `EmailMessagesSent` vs `EmailMessagesDelivered` metrics.
+Review ACS API request metrics by email operation and status dimensions. Delivery and bounce rates should be calculated from `ACSEmailStatusUpdateOperational`, not from undocumented metric names such as `EmailMessagesDelivered`.
 
 ### 3. SMTP Status Codes
 Look for bounce messages containing standard SMTP status codes (e.g., `550`, `554`).
@@ -38,7 +57,7 @@ Confirm the domain status is `Verified` in the ACS resource. If it's `Pending`, 
 Use a third-party tool (e.g., Mail-Tester) to send a test email and verify that authentication headers are correct and pass verification.
 
 ### [Inferred] Review Spam Logs
-Identify if the `StatusDetails` field in `ACSEmailDeliveryReportEvents` mentions `Spam` or `Filter`.
+Identify whether `FailureReason`, `FailureMessage`, `SmtpStatusCode`, or `EnhancedSmtpStatusCode` in `ACSEmailStatusUpdateOperational` points to spam filtering, mailbox issues, or authentication failures.
 
 ## Mitigation
 
@@ -48,10 +67,28 @@ Identify if the `StatusDetails` field in `ACSEmailDeliveryReportEvents` mentions
 4. **Follow Best Practices**: Avoid suspicious keywords in the subject line and ensure a valid `Unsubscribe` link is present.
 5. **Request Tier Increase**: If consistently hitting rate limits, request a higher sending tier from Azure support.
 
+## Page Flow
+
+<!-- diagram-id: delivery-failures-page-flow -->
+```mermaid
+flowchart TD
+    A["Email Delivery Failures Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Delivery Reports"]
+    E["2. Monitor Metrics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Domain Verification](domain-verification.md)
 * [Spam Filtering](spam-filtering.md)
 
 ## Sources
-* Azure Communication Services Email Status Codes
-* Gmail/Outlook Sending Guidelines
+* [Email domain and sender authentication](https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication)
+* [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
+* [ACSEmailSendMailOperational table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailsendmailoperational)
+* [ACSEmailStatusUpdateOperational table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational)

@@ -1,17 +1,34 @@
 ---
 content_sources:
-  - azure-docs
-  - calling-log-analytics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Voice/Video KQL Overview
 
 Analyze call quality, media performance, and call drops.
 
 ## Log Analytics Tables
 
-* **ACSCallSummaryEvents**: Detailed logs for each call's start and end, including the reason for completion.
-* **ACSCallDiagnosticsEvents**: Detailed logs for each call's real-time media diagnostics, including jitter, latency, and packet loss.
+* **ACSCallSummary**: Participant-level call summaries, including duration, participant end reason, endpoint type, SDK version, and call type.
+* **ACSCallDiagnostics**: Media stream diagnostics, including jitter, round-trip time, packet loss, codec, media type, and stream direction.
 
 ## Key Scenarios
 
@@ -27,9 +44,9 @@ Analyze call quality, media performance, and call drops.
 Track the reasons for call completion grouped by time.
 
 ```kusto
-ACSCallSummaryEvents
+ACSCallSummary
 | where TimeGenerated > ago(24h)
-| summarize CallCount = count() by CallEndReason, bin(TimeGenerated, 1h)
+| summarize CallCount = count() by ParticipantEndReason, ResultCategory, bin(TimeGenerated, 1h)
 | render barchart
 ```
 
@@ -37,10 +54,30 @@ ACSCallSummaryEvents
 Track the percentage of calls with good, fair, or poor quality over time.
 
 ```kusto
-ACSCallDiagnosticsEvents
+ACSCallDiagnostics
 | where TimeGenerated > ago(24h)
-| summarize QualityCount = count() by MediaPathQuality, bin(TimeGenerated, 1h)
+| summarize
+    AvgRoundTripTimeMs = avg(RoundTripTimeAvg),
+    AvgJitterMs = avg(JitterAvg),
+    AvgPacketLoss = avg(PacketLossRateAvg)
+    by MediaType, StreamDirection, bin(TimeGenerated, 1h)
 | render stackedareachart
+```
+
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["Voice/Video KQL Overview"]
+    B["Log Analytics Tables"]
+    C["Key Scenarios"]
+    D["Query Examples"]
+    E["Call End Reasons"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
 ## See Also
@@ -48,4 +85,6 @@ ACSCallDiagnosticsEvents
 * [Call Quality Playbook](../../playbooks/voice-video/call-quality.md)
 
 ## Sources
-* Azure Monitor Calling Diagnostic Log Reference
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallSummary table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

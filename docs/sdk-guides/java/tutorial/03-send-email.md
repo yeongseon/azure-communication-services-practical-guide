@@ -1,14 +1,38 @@
 ---
-title: "Step 3: Send Email"
+title: 'Step 3: Send Email'
 description: Learn how to send emails with the Azure Communication Services Java SDK.
 content_sources:
+  sources:
   - id: java-send-email
     type: documentation
     source: self
     justification: Explains email sending capabilities in Java.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email
+  diagrams:
+  - id: 03-send-email-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email
+    verified: true
 ---
-
 # Step 3: Send Email
 
 This step covers sending transactional emails using the `EmailClient`.
@@ -134,6 +158,36 @@ public class EmailApp {
 ## Next Step
 
 Build real-time features with [Chat](./04-chat.md).
+
+## Page Flow
+
+<!-- diagram-id: 03-send-email-page-flow -->
+```mermaid
+flowchart TD
+    A["Step 3: Send Email"]
+    B["Prerequisites"]
+    C["1. Add Email Dependency"]
+    D["2. Initialize EmailClient"]
+    E["3. Send a Simple Email"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Step 3: Send Email. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Quickstart: How to send an email using Azure Communication Services](https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email)

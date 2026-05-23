@@ -1,9 +1,24 @@
 ---
 content_sources:
-  - azure-log-analytics
-  - acs-kql-library
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overviewlog-analytics-tutorial
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overviewlog-analytics-tutorial
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # KQL Query Library
 
 A collection of pre-built KQL queries for analyzing and troubleshooting ACS activities in Log Analytics.
@@ -28,14 +43,28 @@ A collection of pre-built KQL queries for analyzing and troubleshooting ACS acti
 ## Best Practices
 
 * **Filter by Time**: Always include `TimeGenerated > ago(1h)` to limit the query scope and improve performance.
-* **Join Tables Carefully**: Use `join` sparingly, especially on large tables like `ACSCallDiagnosticsEvents`.
+* **Join Tables Carefully**: Use `join` sparingly, especially on large tables like `ACSCallDiagnostics`.
 * **Use Summarize**: Group data by relevant fields (e.g., `ResultSignature`, `Status`) to identify common failure patterns.
 * **Visualize Results**: Use `render barchart` or `render timechart` to visualize trends and anomalies.
+
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["KQL Query Library"]
+    B["Categories"]
+    C["Quick Queries"]
+    D["Best Practices"]
+    A --> B
+    B --> C
+    C --> D
+```
 
 ## See Also
 * [Evidence Map](../evidence-map.md)
 * [Detector Map](../methodology/detector-map.md)
 
 ## Sources
-* Azure Monitor Kusto Query Language (KQL) Documentation
-* [ACS Log Analytics Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/diagnostic-logging)
+* [Log Analytics tutorial](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overviewlog-analytics-tutorial)
+* [ACS Log Analytics tables](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices)

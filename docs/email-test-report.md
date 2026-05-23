@@ -1,4 +1,14 @@
 ---
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
+content_sources:
+- type: mslearn-adapted
+  url: https://learn.microsoft.com/en-us/azure/communication-services/overview
+---
+---
 ---
 
 # Email Communication Service Test Report
@@ -181,3 +191,13 @@ ACSEmailStatusUpdateOperational
 - [Send Email Tutorial](sdk-guides/python/tutorial/03-send-email.md)
 - [Email Delivery Status KQL](troubleshooting/kql/email/delivery-status.md)
 - [Monitoring](operations/monitoring.md)
+
+## See Also
+
+- [Guide home](index.md)
+- [Section index](index.md)
+- [Start here](start-here/overview.md)
+
+## Sources
+
+- [Microsoft Learn source 1](https://learn.microsoft.com/en-us/azure/communication-services/overview)

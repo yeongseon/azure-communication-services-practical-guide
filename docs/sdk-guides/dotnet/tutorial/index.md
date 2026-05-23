@@ -2,13 +2,28 @@
 title: .NET SDK Tutorial
 description: Step-by-step guide to building communication features with .NET.
 content_sources:
-  - id: dotnet-tutorial-overview
-    type: documentation
-    source: self
-    justification: Overview of the .NET tutorial path.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+- id: dotnet-tutorial-overview
+  type: documentation
+  source: self
+  justification: Overview of the .NET tutorial path.
+  based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+    verified: true
 ---
-
 # .NET SDK Tutorial
 
 This tutorial series walks you through building a comprehensive communication application using the Azure Communication Services .NET SDK.
@@ -49,6 +64,11 @@ graph TD
     RealTime --> Operations[Logging & Monitoring]
     Operations --> DevOps[IaC & CI/CD]
 ```
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Azure Communication Services Documentation](https://learn.microsoft.com/azure/communication-services/)

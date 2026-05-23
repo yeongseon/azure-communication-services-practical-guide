@@ -1,9 +1,24 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-notifications-guide
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  diagrams:
+  - id: real-time-notifications-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Real-time Notifications Playbook
 
 **Symptom**: Real-time notifications not working in the chat app.
@@ -26,7 +41,7 @@ Check for `WebSocket` connection failures or `401 Unauthorized` errors.
 Monitor the `Microsoft.Communication.ChatMessageReceived` events in Event Grid.
 
 ### 3. Log Analytics
-Query the `ACSChatMessageReceivedEvents` table.
+Query `ACSChatIncomingOperations` and filter by chat message operation names and result status.
 
 ## Validation
 
@@ -46,10 +61,26 @@ If using push notifications (e.g., via FCM or APNs), verify the ACS resource is 
 3. **Register for Events**: Double-check the SDK code to ensure the `startRealtimeNotifications()` method is called and event handlers are registered correctly.
 4. **Update Push Config**: Regularly verify and update the FCM/APNs credentials in the linked Notification Hub to prevent notification delivery failures.
 
+## Page Flow
+
+<!-- diagram-id: real-time-notifications-page-flow -->
+```mermaid
+flowchart TD
+    A["Real-time Notifications Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Browser Console"]
+    E["2. Service-to-Service Events"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Message Delivery](message-delivery.md)
 * [Thread Management](thread-management.md)
 
 ## Sources
-* Azure Communication Services Real-time Notifications Documentation
-* WebSocket Connectivity for Real-time Media
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations)

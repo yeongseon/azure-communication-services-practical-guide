@@ -10,6 +10,11 @@ content_sources:
     - id: trouble-path
       type: Mermaid
       source: self-generated
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Learning Paths
@@ -100,4 +105,4 @@ graph TD
 ## Sources
 
 - [Azure Communication Services Developer Guide](https://learn.microsoft.com/azure/communication-services/concepts/sdk-options)
-- [ACS Monitoring and Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/analytics/diagnostic-logging)
+- [ACS Monitoring and Diagnostics](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging)

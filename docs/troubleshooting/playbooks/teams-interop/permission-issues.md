@@ -1,9 +1,24 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - teams-interop-permissions
+  sources:
+  - type: mslearn-adapted
+    url: communication-services-sdk
+  - type: mslearn-adapted
+    url: teams-interop-permissions
+  diagrams:
+  - id: permission-issues-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/teams-interop#feature-support
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Teams Permission Issues Playbook
 
 **Symptom**: Limited functionality in a Teams meeting (e.g., cannot share screen, cannot chat).
@@ -46,6 +61,22 @@ Check the ACS SDK documentation to ensure the specific feature (e.g., live capti
 3. **Verify Feature Support**: Ensure the feature you are trying to use is supported by the ACS SDK and Teams interoperability.
 4. **Handle Mismatch**: If there's a tenant mismatch, verify that both tenants have the required trust and policy settings enabled.
 5. **Update SDK Version**: Ensure you are using the latest version of the ACS Calling SDK, as feature support for Teams interop is frequently updated.
+
+## Page Flow
+
+<!-- diagram-id: permission-issues-page-flow -->
+```mermaid
+flowchart TD
+    A["Teams Permission Issues Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Browser Console"]
+    E["2. Teams Admin Center"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
 
 ## See Also
 * [Teams Join Failures](join-failures.md)

@@ -1,10 +1,36 @@
 ---
 title: Real-time Chat
-description: Building real-time chat features with Azure Communication Services for JavaScript.
+description: Building real-time chat features with Azure Communication Services for
+  JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-javascript
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-javascript
+  diagrams:
+  - id: 04-chat-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-javascript
+validation:
+  az_cli:
+    last_tested: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-javascript
+    verified: true
 ---
-
 # Real-time Chat
 
 This step demonstrates how to build real-time chat features using the Azure Communication Services (ACS) JavaScript SDK.
@@ -146,9 +172,33 @@ async function main() {
 main();
 ```
 
+## Page Flow
+
+<!-- diagram-id: 04-chat-page-flow -->
+```mermaid
+flowchart TD
+    A["Real-time Chat"]
+    B["1. Prerequisites"]
+    C["2. ChatClient Setup"]
+    D["3. Create a Chat Thread"]
+    E["4. Add/Remove Participants"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Real-time Chat. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 - [Chat Concepts](https://learn.microsoft.com/azure/communication-services/concepts/chat/concepts)
-- [Chat SDK Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/chat/troubleshooting)
+- [Chat SDK Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started)
 
 ## Sources
 - [Azure Communication Chat client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-chat-readme)

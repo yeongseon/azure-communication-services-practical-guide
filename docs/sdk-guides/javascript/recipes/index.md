@@ -2,9 +2,23 @@
 title: JavaScript SDK Recipes
 description: Focused code recipes for Azure Communication Services with JavaScript.
 content_sources:
-  - https://learn.microsoft.com/javascript/api/overview/azure/communication-services
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication?view=azure-node-latest
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication?view=azure-node-latest
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # JavaScript SDK Recipes
 
 This section contains focused code recipes for specific Azure Communication Services (ACS) tasks.
@@ -31,8 +45,20 @@ const endpoint = "https://<your-acs-resource-name>.communication.azure.com";
 const client = new CommunicationIdentityClient(endpoint, new DefaultAzureCredential());
 ```
 
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["JavaScript SDK Recipes"]
+    B["Recipe Catalog"]
+    C["Quick Link: Managed Identity"]
+    A --> B
+    B --> C
+```
+
 ## See Also
-- [JavaScript SDK Reference](https://learn.microsoft.com/javascript/api/overview/azure/communication-services)
+- [JavaScript SDK Reference](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication?view=azure-node-latest)
 - [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
 
 ## Sources

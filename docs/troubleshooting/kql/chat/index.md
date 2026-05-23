@@ -1,18 +1,31 @@
 ---
 content_sources:
-  - azure-docs
-  - chat-log-analytics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Chat KQL Overview
 
 Analyze chat message delivery performance, error patterns, and latency.
 
 ## Log Analytics Tables
 
-* **ACSChatMessageReceivedEvents**: Detailed logs for each chat message received by a user.
-* **ACSChatMessageSentEvents**: Detailed logs for each chat message sent by a user.
-* **ACSChatThreadCreatedEvents**: Detailed logs for each chat thread created.
+* **ACSChatIncomingOperations**: Chat operation logs, including operation name, result type, duration, chat thread ID, and user ID.
 
 ## Key Scenarios
 
@@ -28,9 +41,9 @@ Analyze chat message delivery performance, error patterns, and latency.
 Track the volume of chat messages grouped by time.
 
 ```kusto
-ACSChatMessageSentEvents
+ACSChatIncomingOperations
 | where TimeGenerated > ago(24h)
-| summarize MessageCount = count() by bin(TimeGenerated, 1h)
+| summarize MessageCount = count() by OperationName, bin(TimeGenerated, 1h)
 | render timechart
 ```
 
@@ -38,10 +51,27 @@ ACSChatMessageSentEvents
 Track the number of chat threads created per resource.
 
 ```kusto
-ACSChatThreadCreatedEvents
+ACSChatIncomingOperations
 | where TimeGenerated > ago(24h)
+| where OperationName has "CreateChatThread"
 | summarize ThreadCount = count() by bin(TimeGenerated, 1h)
 | render timechart
+```
+
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["Chat KQL Overview"]
+    B["Log Analytics Tables"]
+    C["Key Scenarios"]
+    D["Query Examples"]
+    E["Delivery Trends"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
 ```
 
 ## See Also
@@ -49,4 +79,5 @@ ACSChatThreadCreatedEvents
 * [Chat Message Delivery Playbook](../../playbooks/chat/message-delivery.md)
 
 ## Sources
-* Azure Monitor Chat Diagnostic Log Reference
+* [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations)

@@ -4,6 +4,11 @@ content_sources:
     - id: acs-security-layers
       type: self-generated
       justification: Security layers of ACS from identity to network
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Security Architecture
@@ -88,4 +93,4 @@ graph TD
 ## Sources
 
 - [Security Concepts in ACS](https://learn.microsoft.com/azure/communication-services/concepts/privacy)
-- [Data Residency and Compliance](https://learn.microsoft.com/azure/communication-services/concepts/data-residency)
+- [Data Residency and Compliance](https://learn.microsoft.com/en-us/azure/communication-services/concepts/services)

@@ -2,6 +2,11 @@
 content_sources:
   - source: mslearn-adapted
     mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Common Anti-Patterns
@@ -66,6 +71,20 @@ Hardcoding phone numbers in your application code or configuration files can mak
 
 *   **Risk**: Changing a phone number requires a code deployment, and managing multiple numbers for different campaigns becomes cumbersome.
 *   **Fix**: Store and manage phone numbers in a database or external configuration service, allowing your application to dynamically retrieve the correct number based on the use case.
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Common Anti-Patterns. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../index.md)
+- [Section index](index.md)
+- [Start here](../start-here/overview.md)
 
 ## Sources
 

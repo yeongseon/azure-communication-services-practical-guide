@@ -6,6 +6,11 @@ content_sources:
       source: self-generated
       justification: "https://learn.microsoft.com/azure/communication-services/overview"
       based_on: "https://learn.microsoft.com/azure/communication-services/overview"
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Azure Communication Services Practical Guide
@@ -56,6 +61,10 @@ graph TD
 This guide is designed for developers, architects, and SREs who need to go beyond the basics. It focuses on practical implementation, operational stability, and rapid troubleshooting. 
 
 This is not an official Microsoft product. While based on official documentation and real-world experience, always verify critical architecture decisions with the [Official Microsoft Documentation](https://learn.microsoft.com/azure/communication-services/).
+
+## See Also
+
+- [Start here](start-here/overview.md)
 
 ## Sources
 

@@ -5,6 +5,11 @@ content_sources:
       type: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
       based_on: Generic ACS architecture
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # How Azure Communication Services Works
@@ -61,6 +66,14 @@ Used for real-time interactions like sending a chat message or joining a video c
 
 ### Real-Time Eventing
 For asynchronous tasks (like receiving an SMS), ACS publishes events to Azure Event Grid. Your application can subscribe to these events via webhooks or Azure Functions to trigger business logic.
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to How Azure Communication Services Works. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 

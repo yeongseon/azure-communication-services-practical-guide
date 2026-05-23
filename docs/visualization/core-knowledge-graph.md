@@ -1,6 +1,11 @@
 ---
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/overview
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Core Knowledge Graph for ACS
@@ -37,6 +42,14 @@ The following section will host an interactive Cytoscape graph for a more granul
 <div id="cytoscape-graph" style="height: 600px; border: 1px solid #ccc;">
   <!-- Placeholder for interactive Cytoscape graph div -->
 </div>
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Core Knowledge Graph for ACS. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 - [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)

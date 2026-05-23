@@ -4,6 +4,11 @@ content_sources:
     - id: section-relationships
       type: Mermaid
       source: self-generated
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
 
 # Repository Map
@@ -72,6 +77,14 @@ graph TD
 2. **Standard Headers**: Each section should start with a clear Title and Intro.
 3. **Consistent Front Matter**: All files must include the standard front matter block.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Repository Map. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 
 - [Guide Overview](overview.md)
@@ -80,3 +93,4 @@ graph TD
 ## Sources
 
 - [ACS Documentation Repository Structure](https://github.com/MicrosoftDocs/azure-docs/tree/main/articles/communication-services)
+- [Microsoft Learn overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)

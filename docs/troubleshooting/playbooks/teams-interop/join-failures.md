@@ -1,9 +1,24 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - teams-interop-guide
+  sources:
+  - type: mslearn-adapted
+    url: communication-services-sdk
+  - type: mslearn-adapted
+    url: teams-interop-guide
+  diagrams:
+  - id: join-failures-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Teams Join Failures Playbook
 
 **Symptom**: Cannot join a Teams meeting from an ACS application.
@@ -47,6 +62,22 @@ If the ACS and Teams resources are in different tenants, verify that the require
 3. **Assign Correct Scopes**: Ensure the identity token was generated with the `voip` and `teams` (if applicable) scopes.
 4. **Handle Lobby State**: Use the SDK to monitor the lobby state and inform the user if they are waiting for admission.
 5. **Check Meeting State**: Ensure the meeting is currently active and hasn't been cancelled or finished.
+
+## Page Flow
+
+<!-- diagram-id: join-failures-page-flow -->
+```mermaid
+flowchart TD
+    A["Teams Join Failures Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Browser Console"]
+    E["2. Log Analytics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
 
 ## See Also
 * [Teams Permission Issues](permission-issues.md)

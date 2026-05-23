@@ -2,9 +2,23 @@
 title: Phone Number Management
 description: Managing ACS phone numbers with Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
+  diagrams:
+  - id: phone-number-management-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Phone Number Management
 
 This recipe shows how to search, purchase, and release Azure Communication Services (ACS) phone numbers using the Python SDK.
@@ -96,8 +110,32 @@ for number in purchased_numbers:
     print(f"Phone number: {number.phone_number}, Type: {number.phone_number_type}")
 ```
 
+## Page Flow
+
+<!-- diagram-id: phone-number-management-page-flow -->
+```mermaid
+flowchart TD
+    A["Phone Number Management"]
+    B["Prerequisites"]
+    C["SDK Installation"]
+    D["Search Available Phone Numbers"]
+    E["Initialize client"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Phone Number Management. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
-- [ACS Phone Number Concepts](https://learn.microsoft.com/azure/communication-services/concepts/telephony/phone-number-types)
+- [ACS Phone Number Concepts](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number)
 - [ACS Telephony Pricing](https://azure.microsoft.com/pricing/details/communication-services/)
 
 ## Sources

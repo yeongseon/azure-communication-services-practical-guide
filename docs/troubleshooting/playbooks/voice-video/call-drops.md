@@ -1,9 +1,26 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-drops-guide
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary
+  diagrams:
+  - id: call-drops-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+content_validation:
+  status: pending_review
+  last_reviewed: null
+  reviewer: agent
+  core_claims: []
 ---
-
 # Call Drops Playbook
 
 **Symptom**: Calls disconnecting unexpectedly.
@@ -24,7 +41,7 @@ content_sources:
 Look for `no-network`, `call-ended`, or `network-disconnected` events.
 
 ### 2. Log Analytics
-Query the `ACSCallSummaryEvents` table for `CallEndReason`.
+Query `ACSCallSummary` for `ParticipantEndReason`, `ParticipantEndSubCode`, and `ResultCategory`.
 
 ### 3. App Logs
 Look for `401 Unauthorized` or `403 Forbidden` errors around the time of the call drop.
@@ -48,10 +65,27 @@ Check for specific error codes like `SignalingConnectionLost` or `MediaConnectio
 4. **Log End Reasons**: Collect and analyze the `CallEndReason` from the SDK to identify patterns of drops across users and regions.
 5. **Optimize Network**: Advise users to use a stable Wi-Fi connection and avoid switching between networks during a call.
 
+## Page Flow
+
+<!-- diagram-id: call-drops-page-flow -->
+```mermaid
+flowchart TD
+    A["Call Drops Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. User Facing Diagnostics (UFD)"]
+    E["2. Log Analytics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Call Quality](call-quality.md)
 * [Connection Failures](oode-quality.md)
 
 ## Sources
-* Azure Communication Services Call Summary Events
-* Handling Call Drops and Reconnection in the ACS SDK
+* [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
+* [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
+* [ACSCallSummary table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary)
