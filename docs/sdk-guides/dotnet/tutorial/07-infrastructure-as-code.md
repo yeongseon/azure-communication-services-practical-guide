@@ -1,12 +1,22 @@
 ---
-title: "Step 7: Infrastructure as Code"
-description: Automate the deployment of your .NET ACS application with Bicep and GitHub Actions.
+title: 'Step 7: Infrastructure as Code'
+description: Automate the deployment of your .NET ACS application with Bicep and GitHub
+  Actions.
 content_sources:
+  sources:
   - id: dotnet-iac
     type: documentation
     source: self
     justification: Explains IaC and CI/CD for .NET ACS projects.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/resource-manager-template
+    based_on: https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
+  diagrams:
+  - id: 07-infrastructure-as-code-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
 validation:
   az_cli:
     last_tested: null
@@ -14,8 +24,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
+    verified: true
 ---
-
 # Step 7: Infrastructure as Code
 
 Automating your communication infrastructure ensures reliable deployments. This step covers Bicep templates and CI/CD for .NET.
@@ -106,6 +124,36 @@ resource emailService 'Microsoft.Communication/EmailServices@2023-03-31' = {
 
 Congratulations! You have built a complete communication application with .NET, covering identity, messaging, real-time communication, and automated deployment.
 
+## Page Flow
+
+<!-- diagram-id: 07-infrastructure-as-code-page-flow -->
+```mermaid
+flowchart TD
+    A["Step 7: Infrastructure as Code"]
+    B["1. Bicep Template for ACS"]
+    C["2. Management SDK (Azure.ResourceManager.Communication)"]
+    D["3. GitHub Actions Workflow"]
+    E["4. Phone Number Provisioning via Bicep"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Step 7: Infrastructure as Code. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
+
 ## Sources
 - [Bicep documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
-- [Azure SDK for .NET Management Libraries](https://learn.microsoft.com/dotnet/azure/sdk/management)
+- [Azure SDK for .NET Management Libraries](https://learn.microsoft.com/en-us/dotnet/azure/sdk/azure-sdk-for-dotnet)

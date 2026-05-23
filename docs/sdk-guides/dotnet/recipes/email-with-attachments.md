@@ -1,15 +1,25 @@
 ---
 title: Email with Attachments (.NET)
-description: Send Azure Communication Services email messages with file attachments using the .NET SDK.
+description: Send Azure Communication Services email messages with file attachments
+  using the .NET SDK.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  diagrams:
+  - id: email-with-attachments-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Email with Attachments (.NET)
 
 Use ACS Email when you need to send reports, invoices, or diagnostic bundles from an app or worker.
@@ -109,6 +119,22 @@ message.Attachments.AddRange(attachments);
 await client.SendAsync(WaitUntil.Completed, message);
 ```
 
+## Page Flow
+
+<!-- diagram-id: email-with-attachments-page-flow -->
+```mermaid
+flowchart TD
+    A["Email with Attachments (.NET)"]
+    B["Setup"]
+    C["Create attachments from file bytes"]
+    D["Send the message"]
+    E["Base64 and BinaryData"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 
 - [Email quickstart](../index.md)
@@ -117,4 +143,4 @@ await client.SendAsync(WaitUntil.Completed, message);
 ## Sources
 
 - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
-- https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments

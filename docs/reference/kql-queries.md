@@ -1,10 +1,10 @@
 ---
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
 content_validation:
   status: pending_review
   last_reviewed: null
@@ -125,7 +125,7 @@ ACSBillingUsage
 | `Records` | Count of billing usage records for the operation and day. |
 
 ## See Also
-- [Log Analytics and Kusto queries](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial)
+- [Log Analytics and Kusto queries](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overviewlog-analytics-tutorial)
 - [Enable logging with Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging)
 
 ## Sources

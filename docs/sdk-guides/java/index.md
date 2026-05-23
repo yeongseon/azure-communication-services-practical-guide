@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Provides an overview of Java SDK packages and prerequisites.
-    based_on: https://learn.microsoft.com/java/api/overview/azure/communication-services
+    based_on: https://learn.microsoft.com/en-us/java/api/overview/azure/communication
 content_validation:
   status: pending_review
   last_reviewed: null
@@ -82,6 +82,11 @@ graph TD
 - **[Tutorial](./tutorial/index.md)**: A complete guide to building a communication-enabled application.
 - **[Recipes](./recipes/index.md)**: Snippets for specific common tasks and configurations.
 
+## See Also
+
+- [Guide home](../../index.md)
+- [Start here](../../start-here/overview.md)
+
 ## Sources
-- [Azure Communication Services Java SDK Reference](https://learn.microsoft.com/java/api/overview/azure/communication-services)
+- [Azure Communication Services Java SDK Reference](https://learn.microsoft.com/en-us/java/api/overview/azure/communication)
 - [Maven Central Repository](https://search.maven.org/)

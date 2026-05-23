@@ -1,16 +1,27 @@
 ---
 title: Event Grid Webhooks (.NET)
-description: Handle Azure Communication Services events in ASP.NET Core using Event Grid webhooks.
+description: Handle Azure Communication Services events in ASP.NET Core using Event
+  Grid webhooks.
 content_sources:
-  - https://learn.microsoft.com/azure/event-grid/receive-events-webhook
-  - https://learn.microsoft.com/azure/communication-services/concepts/event-grid-events
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/event-grid/receive-events
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services
+  diagrams:
+  - id: event-grid-webhooks-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/event-grid/receive-events
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Event Grid Webhooks (.NET)
 
 Use an ASP.NET Core endpoint when ACS needs to publish SMS, email, chat, or call events to your app.
@@ -98,6 +109,22 @@ For production, place the webhook behind Azure Front Door, APIM, or an authentic
 - **Email delivery**: update status dashboards and retry tracking
 - **Chat message**: archive or trigger moderation
 
+## Page Flow
+
+<!-- diagram-id: event-grid-webhooks-page-flow -->
+```mermaid
+flowchart TD
+    A["Event Grid Webhooks (.NET)"]
+    B["What the webhook must do"]
+    C["Minimal API example"]
+    D["CloudEvent validation"]
+    E["Permissions and security"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 
 - [Event Grid Webhooks (Java)](../../java/recipes/event-grid-webhooks.md)
@@ -105,5 +132,5 @@ For production, place the webhook behind Azure Front Door, APIM, or an authentic
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/concepts/event-grid-events
-- https://learn.microsoft.com/azure/event-grid/receive-events-webhook
+- https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services
+- https://learn.microsoft.com/en-us/azure/event-grid/receive-events

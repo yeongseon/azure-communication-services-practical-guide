@@ -1,10 +1,10 @@
 ---
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/metrics
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
 content_validation:
   status: pending_review
   last_reviewed: null
@@ -79,4 +79,4 @@ UFD provides real-time feedback to the client app about network conditions and d
 ## Sources
 * [Enable logging with Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging)
 * [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
-* [ACS Log Analytics tables](https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices)
+* [ACS Log Analytics tables](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices)

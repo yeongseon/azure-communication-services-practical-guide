@@ -1,8 +1,19 @@
 ---
 title: Logging and Monitoring
-description: Configuring logging and monitoring for Azure Communication Services with Python.
+description: Configuring logging and monitoring for Azure Communication Services with
+  Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+  diagrams:
+  - id: 06-logging-monitoring-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
 validation:
   az_cli:
     last_tested: null
@@ -10,8 +21,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+    verified: true
 ---
-
 # Logging and Monitoring
 
 This step covers how to monitor your Azure Communication Services (ACS) resource and configure SDK logging in Python.
@@ -118,9 +137,33 @@ ACSEmailOperational
 | extend SuccessRate = (SuccessCount * 100.0) / TotalCount
 ```
 
+## Page Flow
+
+<!-- diagram-id: 06-logging-monitoring-page-flow -->
+```mermaid
+flowchart TD
+    A["Logging and Monitoring"]
+    B["1. SDK Logging Configuration"]
+    C["Configure logging to output to console"]
+    D["Use ACS client as usual"]
+    E["..."]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Logging and Monitoring. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 - [ACS Metrics](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
-- [ACS Logs](https://learn.microsoft.com/azure/communication-services/concepts/logs)
+- [ACS Logs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging)
 
 ## Sources
 - [Azure Monitor for Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)

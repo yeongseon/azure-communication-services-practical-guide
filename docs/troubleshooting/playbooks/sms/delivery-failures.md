@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  diagrams:
+  - id: delivery-failures-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # SMS Delivery Failures Playbook
 
 **Symptom**: SMS not delivered to recipient.
@@ -57,6 +68,22 @@ Check for `429 Too Many Requests` in your app logs. Azure Monitor will show spik
 3. **Optimize Content**: Avoid short-links and suspicious keywords. Use a consistent sender name.
 4. **Scale Throughput**: If hitting rate limits, request a higher MPS limit or use a toll-free number.
 
+## Page Flow
+
+<!-- diagram-id: delivery-failures-page-flow -->
+```mermaid
+flowchart TD
+    A["SMS Delivery Failures Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Delivery Reports"]
+    E["2. Monitor Metrics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [SMS Opt-out Handling](opt-out-handling.md)
 * [SMS Rate Limiting](rate-limiting.md)
@@ -64,4 +91,4 @@ Check for `429 Too Many Requests` in your app logs. Azure Monitor will show spik
 ## Sources
 * [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
 * [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
-* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations)

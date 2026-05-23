@@ -51,6 +51,14 @@ The following tests were performed with real Azure resources to validate the gui
 
 - [Email Communication Service Test Report](email-test-report.md) — End-to-end email sending, delivery confirmation, and monitoring with Python SDK (April 2026)
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to About. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 
 - [Start Here](start-here/overview.md)

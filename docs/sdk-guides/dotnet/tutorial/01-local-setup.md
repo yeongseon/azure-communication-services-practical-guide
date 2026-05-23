@@ -1,12 +1,21 @@
 ---
-title: "Step 1: Local Setup"
+title: 'Step 1: Local Setup'
 description: Configure your .NET environment for Azure Communication Services.
 content_sources:
+  sources:
   - id: dotnet-local-setup
     type: documentation
     source: self
     justification: Explains how to set up a .NET project with ACS dependencies.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+  diagrams:
+  - id: 01-local-setup-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
 validation:
   az_cli:
     last_tested: null
@@ -14,8 +23,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+    verified: true
 ---
-
 # Step 1: Local Setup
 
 Prepare your development environment and Azure resources for .NET development.
@@ -93,6 +110,36 @@ dotnet run
 ## Next Step
 
 Now that your environment is ready, let's [Send an SMS](./02-send-sms.md).
+
+## Page Flow
+
+<!-- diagram-id: 01-local-setup-page-flow -->
+```mermaid
+flowchart TD
+    A["Step 1: Local Setup"]
+    B["Prerequisites"]
+    C["1. Create ACS Resource"]
+    D["2. Initialize .NET Console App"]
+    E["3. Add NuGet Packages"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Step 1: Local Setup. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)

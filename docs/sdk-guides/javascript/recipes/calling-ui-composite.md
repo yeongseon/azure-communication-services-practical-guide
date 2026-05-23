@@ -2,14 +2,23 @@
 title: Calling UI Composite
 description: Adding video calling UI with ACS UI Library composite components.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview
+  diagrams:
+  - id: calling-ui-composite-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Calling UI Composite
 
 This recipe shows how to add a comprehensive video calling UI to your web application with minimal code using the Azure Communication Services (ACS) UI Library composite components.
@@ -111,9 +120,33 @@ import { LocalizationProvider, COMPONENT_LOCALE_EN_US } from "@azure/communicati
 - Use a unique `groupId` for each group call to avoid interference.
 - Monitor the adapter state to provide feedback to the user (e.g., loading, error).
 
+## Page Flow
+
+<!-- diagram-id: calling-ui-composite-page-flow -->
+```mermaid
+flowchart TD
+    A["Calling UI Composite"]
+    B["Prerequisites"]
+    C["1. SDK Installation"]
+    D["2. Using CallComposite"]
+    E["3. Customizing the UI"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Calling UI Composite. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
-- [UI Library Composite Components](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-composites)
-- [UI Library Architecture](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-architecture)
+- [UI Library Composite Components](https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-overview)
+- [UI Library Architecture](https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-overview)
 
 ## Sources
 - [Azure Communication Services UI Library](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview)

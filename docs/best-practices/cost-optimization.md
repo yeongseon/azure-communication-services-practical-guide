@@ -70,8 +70,14 @@ Use Azure Cost Management to track and analyze your ACS spending.
 *   **Tags**: Apply tags (e.g., `Environment`, `Department`, `Project`) to your ACS resources to breakdown costs by business unit or environment.
 *   **Cost Analysis**: Use the Azure Portal's cost analysis tools to identify which channels (e.g., SMS vs. Calling) are driving the most spend.
 
+## See Also
+
+- [Guide home](../index.md)
+- [Section index](index.md)
+- [Start here](../start-here/overview.md)
+
 ## Sources
 
 *   [ACS Pricing Details](https://azure.microsoft.com/en-us/pricing/details/communication-services/)
 *   [Azure Cost Management](https://learn.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
-*   [SMS Message Segmentation](https://learn.microsoft.com/azure/communication-services/concepts/telephony/sms-concepts#message-segmentation)
+*   [SMS Message Segmentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts)

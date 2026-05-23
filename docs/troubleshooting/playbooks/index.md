@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - azure-docs
-  - communication-services-playbooks
+  sources:
+  - type: mslearn-adapted
+    url: azure-docs
+  - type: mslearn-adapted
+    url: communication-services-playbooks
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/overview
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Playbook Catalog
 
 A collection of guided troubleshooting procedures for common ACS failures.
@@ -32,7 +42,21 @@ A collection of guided troubleshooting procedures for common ACS failures.
 | **Teams Interop** | Join failures | [Teams Join Failures](teams-interop/join-failures.md) |
 | **Teams Interop** | Functionality issues | [Teams Permission Issues](teams-interop/permission-issues.md) |
 
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["Playbook Catalog"]
+    B["Routing Table"]
+    A --> B
+```
+
 ## See Also
 * [First 10 Minutes](../first-10-minutes/index.md)
 * [Decision Tree](../decision-tree.md)
 * [Evidence Map](../evidence-map.md)
+
+## Sources
+
+- [Microsoft Learn source 1](https://learn.microsoft.com/en-us/azure/communication-services/overview)

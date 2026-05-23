@@ -2,14 +2,23 @@
 title: Chat with File Sharing
 description: Implementing file sharing in Azure Communication Services chat with Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+  diagrams:
+  - id: chat-with-file-sharing-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Chat with File Sharing
 
 This recipe shows how to share files in Azure Communication Services (ACS) chat threads using Python.
@@ -99,6 +108,30 @@ for message in messages:
 - Use descriptive file names.
 - Provide file previews if possible.
 - Group multiple files in a single message if relevant.
+
+## Page Flow
+
+<!-- diagram-id: chat-with-file-sharing-page-flow -->
+```mermaid
+flowchart TD
+    A["Chat with File Sharing"]
+    B["Prerequisites"]
+    C["1. SDK Installation"]
+    D["2. File Metadata Handling"]
+    E["Initialize client"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Chat with File Sharing. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 - [Azure Blob Storage Documentation](https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction)

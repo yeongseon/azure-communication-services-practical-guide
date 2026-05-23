@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - azure-docs
-  - email-domain-verification
+  sources:
+  - type: mslearn-adapted
+    url: azure-docs
+  - type: mslearn-adapted
+    url: email-domain-verification
+  diagrams:
+  - id: domain-verification-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Domain Verification Playbook
 
 **Symptom**: Domain verification failing or stuck in `Pending`.
@@ -60,10 +70,26 @@ If you're using a CNAME for the root domain (not recommended), it may conflict w
 4. **Trigger Verification**: In the Azure Portal, click **Verify** for each record.
 5. **Check Status**: Ensure all records show a green checkmark and the domain status is `Verified`.
 
+## Page Flow
+
+<!-- diagram-id: domain-verification-page-flow -->
+```mermaid
+flowchart TD
+    A["Domain Verification Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Azure Portal"]
+    E["2. DNS Lookup (dig/nslookup)"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Email Delivery Failures](delivery-failures.md)
 * [Spam Filtering](spam-filtering.md)
 
 ## Sources
-* [ACS Email Domain Verification Documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/domain-verification)
+* [ACS Email Domain Verification Documentation](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains)
 * Common DNS Troubleshooting Techniques

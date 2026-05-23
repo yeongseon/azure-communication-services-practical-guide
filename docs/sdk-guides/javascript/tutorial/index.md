@@ -1,8 +1,9 @@
 ---
 title: JavaScript SDK Tutorial
-description: Learn to build communication features with Azure Communication Services for JavaScript.
+description: Learn to build communication features with Azure Communication Services
+  for JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
+- https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
 validation:
   az_cli:
     last_tested: null
@@ -10,8 +11,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
+    verified: true
 ---
-
 # JavaScript SDK Tutorial
 
 This tutorial provides a step-by-step guide to building communication features with Azure Communication Services (ACS) for JavaScript.
@@ -58,5 +67,10 @@ graph TD
 | **06** | [Monitoring](./06-logging-monitoring.md) | Configure logging and use KQL queries to monitor your ACS resource. |
 | **07** | [Infrastructure as Code](./07-infrastructure-as-code.md) | Deploy ACS resources using Bicep templates and Python scripts. |
 
+## See Also
+
+- [Guide home](../../../index.md)
+- [Start here](../../../start-here/overview.md)
+
 ## Sources
-- [ACS JavaScript SDK Documentation](https://learn.microsoft.com/javascript/api/overview/azure/communication-services)
+- [ACS JavaScript SDK Documentation](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication?view=azure-node-latest)

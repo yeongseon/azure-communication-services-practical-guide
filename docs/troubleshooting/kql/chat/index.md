@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Chat KQL Overview
 
 Analyze chat message delivery performance, error patterns, and latency.
@@ -48,10 +58,26 @@ ACSChatIncomingOperations
 | render timechart
 ```
 
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["Chat KQL Overview"]
+    B["Log Analytics Tables"]
+    C["Key Scenarios"]
+    D["Query Examples"]
+    E["Delivery Trends"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Chat Message Latency KQL](message-latency.md)
 * [Chat Message Delivery Playbook](../../playbooks/chat/message-delivery.md)
 
 ## Sources
 * [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
-* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations)

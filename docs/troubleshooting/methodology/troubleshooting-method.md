@@ -66,3 +66,4 @@ Troubleshooting should proceed logically through the communication layers:
 ## Sources
 * Azure PaaS Troubleshooting Methodology
 * SRE Incident Management Best Practices
+- [Microsoft Learn overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)

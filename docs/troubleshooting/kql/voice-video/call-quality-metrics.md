@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: call-quality-metrics-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Call Quality Metrics KQL
 
 Analyze call quality and identify common media performance issues.
@@ -45,10 +55,26 @@ ACSCallDiagnostics
 * **Network Performance**: High jitter or packet loss for a specific call ID suggests a network issue.
 * **Volume Analysis**: A high count of calls with poor quality may suggest a service-level issue or heavy load.
 
+## Page Flow
+
+<!-- diagram-id: call-quality-metrics-page-flow -->
+```mermaid
+flowchart TD
+    A["Call Quality Metrics KQL"]
+    B["Query Description"]
+    C["KQL Query"]
+    D["Explanation"]
+    E["Insights"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Voice/Video KQL Overview](index.md)
 * [Call Quality Playbook](../../playbooks/voice-video/call-quality.md)
 
 ## Sources
 * [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
-* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

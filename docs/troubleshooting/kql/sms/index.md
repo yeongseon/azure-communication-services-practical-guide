@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # SMS KQL Overview
 
 Analyze SMS delivery performance, error patterns, and throughput.
@@ -48,10 +58,26 @@ ACSSMSIncomingOperations
 | order by ThrottledCount desc
 ```
 
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["SMS KQL Overview"]
+    B["Log Analytics Tables"]
+    C["Key Scenarios"]
+    D["Query Examples"]
+    E["Incoming Trends"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [SMS Delivery Status KQL](delivery-status.md)
 * [SMS Delivery Failures Playbook](../../playbooks/sms/delivery-failures.md)
 
 ## Sources
 * [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
-* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations)

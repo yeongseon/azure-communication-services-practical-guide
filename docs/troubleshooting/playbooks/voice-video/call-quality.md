@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: call-quality-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Call Quality Playbook
 
 **Symptom**: Poor audio/video quality during a call (jitter, lag, or distortion).
@@ -54,6 +65,22 @@ Check the `CodecName` in `ACSCallDiagnostics`. If the browser or device does not
 4. **Reduce Device Load**: Advise the user to close other high-resource applications or browsers during the call.
 5. **Lower Video Resolution**: If bandwidth is limited, the app can programmatically lower the video resolution to prioritize audio quality.
 
+## Page Flow
+
+<!-- diagram-id: call-quality-page-flow -->
+```mermaid
+flowchart TD
+    A["Call Quality Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. User Facing Diagnostics (UFD)"]
+    E["2. Azure Monitor Metrics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Call Drops](call-drops.md)
 * [Connection Failures](oode-quality.md)
@@ -61,4 +88,4 @@ Check the `CodecName` in `ACSCallDiagnostics`. If the browser or device does not
 ## Sources
 * [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
 * [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
-* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

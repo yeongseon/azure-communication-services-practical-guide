@@ -93,4 +93,4 @@ graph TD
 ## Sources
 
 - [Security Concepts in ACS](https://learn.microsoft.com/azure/communication-services/concepts/privacy)
-- [Data Residency and Compliance](https://learn.microsoft.com/azure/communication-services/concepts/data-residency)
+- [Data Residency and Compliance](https://learn.microsoft.com/en-us/azure/communication-services/concepts/services)

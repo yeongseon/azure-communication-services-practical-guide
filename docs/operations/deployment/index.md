@@ -45,7 +45,7 @@ graph TD
 
 ## See Also
 - [Deployment options for ACS](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
-- [Bicep vs Terraform for Azure deployments](https://learn.microsoft.com/azure/azure-resource-manager/bicep/compare-terraform)
+- [Bicep vs Terraform for Azure deployments](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
 
 ## Sources
 - [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)

@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: calling-quality-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Calling Quality Checklist (First 10 Minutes)
 
 When audio or video quality suffers or calls drop, follow this initial checklist.
@@ -56,6 +67,30 @@ ACSCallDiagnostics
 | order by AvgPacketLoss desc
 ```
 
+## Page Flow
+
+<!-- diagram-id: calling-quality-page-flow -->
+```mermaid
+flowchart TD
+    A["Calling Quality Checklist (First 10 Minutes)"]
+    B["Immediate Checklist"]
+    C["Essential Diagnostic Steps"]
+    D["1. Browser Console (User Facing Diagnostics)"]
+    E["2. TURN/STUN Accessibility"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Calling Quality Checklist (First 10 Minutes). |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 * [Call Quality Playbook](../playbooks/voice-video/call-quality.md)
 * [Call Drops Playbook](../playbooks/voice-video/call-drops.md)
@@ -63,4 +98,4 @@ ACSCallDiagnostics
 ## Sources
 * [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
 * [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
-* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

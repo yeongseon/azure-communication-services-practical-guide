@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  diagrams:
+  - id: delivery-status-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # SMS Delivery Status KQL
 
 Analyze SMS delivery success rates and identify common failure reasons.
@@ -47,10 +57,26 @@ ACSSMSIncomingOperations
 * **Carrier Filtering**: If `ResultDescription` mentions filtering or blocked content, adjust the message and sender pattern.
 * **Volume Analysis**: A high count of `Throttled` errors suggests that the MPS limit for the sender number has been exceeded.
 
+## Page Flow
+
+<!-- diagram-id: delivery-status-page-flow -->
+```mermaid
+flowchart TD
+    A["SMS Delivery Status KQL"]
+    B["Query Description"]
+    C["KQL Query"]
+    D["Explanation"]
+    E["Insights"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [SMS KQL Overview](index.md)
 * [SMS Delivery Failures Playbook](../../playbooks/sms/delivery-failures.md)
 
 ## Sources
 * [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
-* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations)

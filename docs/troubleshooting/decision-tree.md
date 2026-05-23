@@ -69,6 +69,14 @@ graph TD
     Stage -- Ongoing --> Quality[Call Quality]
 ```
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Troubleshooting Decision Tree. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 * [Top-level Troubleshooting Overview](index.md)
 * [Evidence Map](evidence-map.md)
@@ -76,3 +84,4 @@ graph TD
 ## Sources
 * Azure Communication Services Documentation
 * Troubleshooting Support Framework
+- [Microsoft Learn overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)

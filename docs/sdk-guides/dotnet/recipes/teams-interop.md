@@ -1,16 +1,27 @@
 ---
 title: Teams Interop (.NET)
-description: Join Microsoft Teams meetings from a .NET app using Azure Communication Services.
+description: Join Microsoft Teams meetings from a .NET app using Azure Communication
+  Services.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/meeting-interop
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation-teams-interop
+  diagrams:
+  - id: teams-interop-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Teams Interop (.NET)
 
 Teams interop lets your ACS application join a Microsoft Teams meeting as a participant.
@@ -74,6 +85,22 @@ if (!Uri.TryCreate(teamsMeetingUrl, UriKind.Absolute, out var uri) || uri.Host i
 - Correlate meeting joins with application logs
 - Handle retries when the meeting is not yet available
 
+## Page Flow
+
+<!-- diagram-id: teams-interop-page-flow -->
+```mermaid
+flowchart TD
+    A["Teams Interop (.NET)"]
+    B["Key pieces"]
+    C["Permissions"]
+    D["Full example"]
+    E["Meeting URL parsing"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 
 - [Call Automation concepts](../index.md)
@@ -81,5 +108,5 @@ if (!Uri.TryCreate(teamsMeetingUrl, UriKind.Absolute, out var uri) || uri.Host i
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/meeting-interop
+- https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation-teams-interop
 - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens

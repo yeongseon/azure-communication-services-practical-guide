@@ -1,15 +1,25 @@
 ---
 title: Managed Identity Authentication
-description: Authenticating Azure Communication Services with JavaScript using Managed Identities.
+description: Authenticating Azure Communication Services with JavaScript using Managed
+  Identities.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/authentication?pivots=programming-language-javascript
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/authentication?pivots=programming-language-javascript
+  diagrams:
+  - id: managed-identity-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/authentication?pivots=programming-language-javascript
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Managed Identity Authentication
 
 This recipe demonstrates how to authenticate with Azure Communication Services (ACS) using Azure Managed Identities with the JavaScript SDK.
@@ -85,6 +95,30 @@ const { DefaultAzureCredential } = require("@azure/identity");
 const endpoint = process.env.COMMUNICATION_SERVICES_ENDPOINT;
 const emailClient = new EmailClient(endpoint, new DefaultAzureCredential());
 ```
+
+## Page Flow
+
+<!-- diagram-id: managed-identity-page-flow -->
+```mermaid
+flowchart TD
+    A["Managed Identity Authentication"]
+    B["Prerequisites"]
+    C["DefaultAzureCredential with ACS"]
+    D["System-Assigned Managed Identity"]
+    E["User-Assigned Managed Identity"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Managed Identity Authentication. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 - [RBAC for ACS](https://learn.microsoft.com/azure/communication-services/concepts/authentication#role-based-access-control)

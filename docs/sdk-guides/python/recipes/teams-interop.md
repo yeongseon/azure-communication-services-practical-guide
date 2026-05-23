@@ -2,14 +2,23 @@
 title: Teams Interop
 description: Joining Microsoft Teams meetings with ACS and Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
+  diagrams:
+  - id: teams-interop-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Teams Interop
 
 This recipe demonstrates how to join Microsoft Teams meetings and map identities between Azure Communication Services (ACS) and Teams using Python.
@@ -17,7 +26,7 @@ This recipe demonstrates how to join Microsoft Teams meetings and map identities
 ## Prerequisites
 
 - [ACS Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- [Microsoft Teams Meeting](https://learn.microsoft.com/microsoftteams/teams-meetings).
+- [Microsoft Teams Meeting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/join-teams-meeting).
 - [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
 
 ## 1. SDK Installation
@@ -88,6 +97,30 @@ meeting_url = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MT...%40th
 - Use the latest version of the ACS SDKs.
 - Test your interop scenarios with different Teams meeting types (e.g., scheduled, ad-hoc).
 - Monitor your ACS and Teams usage for any unexpected issues.
+
+## Page Flow
+
+<!-- diagram-id: teams-interop-page-flow -->
+```mermaid
+flowchart TD
+    A["Teams Interop"]
+    B["Prerequisites"]
+    C["1. SDK Installation"]
+    D["2. Join Teams Meeting from Python App"]
+    E["Initialize client"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Teams Interop. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
 
 ## See Also
 - [Teams Interoperability Concepts](https://learn.microsoft.com/azure/communication-services/concepts/teams-interop)

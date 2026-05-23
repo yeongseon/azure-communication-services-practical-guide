@@ -83,4 +83,4 @@ Email resources are more specialized and have their own management lifecycle:
 ## Sources
 
 - [Create and Manage Communication Service Resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
-- [Email Service Domains](https://learn.microsoft.com/azure/communication-services/concepts/email/email-domains-and-sender-authentication)
+- [Email Service Domains](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains)

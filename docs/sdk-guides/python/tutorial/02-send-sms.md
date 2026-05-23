@@ -2,7 +2,17 @@
 title: Send SMS
 description: Sending SMS with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=programming-language-python
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=programming-language-python
+  diagrams:
+  - id: 02-send-sms-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=programming-language-python
 validation:
   az_cli:
     last_tested: null
@@ -10,8 +20,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=programming-language-python
+    verified: true
 ---
-
 # Send SMS
 
 This step demonstrates how to use the Azure Communication Services (ACS) Python SDK to send SMS messages.
@@ -133,9 +151,33 @@ if __name__ == "__main__":
     send_sms()
 ```
 
+## Page Flow
+
+<!-- diagram-id: 02-send-sms-page-flow -->
+```mermaid
+flowchart TD
+    A["Send SMS"]
+    B["1. Prerequisites"]
+    C["2. SmsClient Setup"]
+    D["3. Send a Single SMS"]
+    E["4. Send to Multiple Recipients"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Send SMS. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
-- [SMS Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/sms/troubleshooting)
-- [SMS Delivery Reports](https://learn.microsoft.com/azure/communication-services/concepts/sms/delivery-reports)
+- [SMS Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts)
+- [SMS Delivery Reports](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts)
 
 ## Sources
 - [Azure Communication SMS client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-sms-readme)

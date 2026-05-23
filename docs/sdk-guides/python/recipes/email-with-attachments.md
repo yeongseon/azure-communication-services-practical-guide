@@ -2,14 +2,23 @@
 title: Email with Attachments
 description: Sending emails with multiple file attachments using ACS and Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+  diagrams:
+  - id: email-with-attachments-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Email with Attachments
 
 This recipe shows how to send emails with file attachments using Azure Communication Services (ACS) and Python.
@@ -105,9 +114,33 @@ Common content types include:
 - Use meaningful attachment names.
 - Consider compression for large documents.
 
+## Page Flow
+
+<!-- diagram-id: email-with-attachments-page-flow -->
+```mermaid
+flowchart TD
+    A["Email with Attachments"]
+    B["Prerequisites"]
+    C["1. SDK Installation"]
+    D["2. Prepare Attachments"]
+    E["3. Send Email with Multiple Attachments"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Email with Attachments. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
-- [ACS Email Concepts](https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment)
-- [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
+- [ACS Email Concepts](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments)
+- [Email Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/prepare-email-communication-resource)
 
 ## Sources
 - [Azure Communication Email client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-email-readme)

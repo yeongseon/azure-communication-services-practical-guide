@@ -1,6 +1,6 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/high-availability
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/services
 content_validation:
   status: pending_review
   last_reviewed: null
@@ -59,8 +59,8 @@ To ensure high availability, consider the following strategies:
 | Calling | PSTN or Chat |
 
 ## See Also
-- [High availability and disaster recovery](https://learn.microsoft.com/azure/communication-services/concepts/high-availability)
+- [High availability and disaster recovery](https://learn.microsoft.com/en-us/azure/communication-services/concepts/services)
 - [How to: Set up Service Health alerts](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
 
 ## Sources
-- [ACS High Availability Overview](https://learn.microsoft.com/azure/communication-services/concepts/high-availability)
+- [ACS High Availability Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/services)

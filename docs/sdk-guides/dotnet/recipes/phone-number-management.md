@@ -1,15 +1,25 @@
 ---
 title: Phone Number Management (.NET)
-description: Search, purchase, list, and release Azure Communication Services phone numbers from .NET.
+description: Search, purchase, list, and release Azure Communication Services phone
+  numbers from .NET.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/phone-number-management
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number
+  diagrams:
+  - id: phone-number-management-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Phone Number Management (.NET)
 
 The Phone Numbers SDK is useful when you need to provision numbers for SMS, voice, or call automation.
@@ -96,6 +106,22 @@ await foreach (var phone in client.GetPurchasedPhoneNumbersAsync())
 !!! note "Release carefully"
     Releasing a number can be irreversible. Confirm that no live application depends on it.
 
+## Page Flow
+
+<!-- diagram-id: phone-number-management-page-flow -->
+```mermaid
+flowchart TD
+    A["Phone Number Management (.NET)"]
+    B["Setup"]
+    C["Search for available numbers"]
+    D["Purchase numbers"]
+    E["List owned numbers"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 
 - [Managed Identity for .NET](./managed-identity.md)
@@ -103,5 +129,5 @@ await foreach (var phone in client.GetPurchasedPhoneNumbersAsync())
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/phone-number-management
-- https://learn.microsoft.com/azure/communication-services/concepts/telephony/phone-numbers
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number

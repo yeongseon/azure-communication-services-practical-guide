@@ -105,4 +105,4 @@ graph TD
 ## Sources
 
 - [Azure Communication Services Developer Guide](https://learn.microsoft.com/azure/communication-services/concepts/sdk-options)
-- [ACS Monitoring and Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/analytics/diagnostic-logging)
+- [ACS Monitoring and Diagnostics](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging)

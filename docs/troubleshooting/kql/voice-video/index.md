@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Voice/Video KQL Overview
 
 Analyze call quality, media performance, and call drops.
@@ -53,11 +64,27 @@ ACSCallDiagnostics
 | render stackedareachart
 ```
 
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["Voice/Video KQL Overview"]
+    B["Log Analytics Tables"]
+    C["Key Scenarios"]
+    D["Query Examples"]
+    E["Call End Reasons"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Call Quality Metrics KQL](call-quality-metrics.md)
 * [Call Quality Playbook](../../playbooks/voice-video/call-quality.md)
 
 ## Sources
 * [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
-* [ACSCallSummary table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary)
-* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)
+* [ACSCallSummary table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

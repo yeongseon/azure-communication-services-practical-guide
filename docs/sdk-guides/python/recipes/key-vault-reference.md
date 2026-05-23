@@ -1,15 +1,25 @@
 ---
 title: Key Vault Reference
-description: Securing Azure Communication Services connection strings with Key Vault and Python.
+description: Securing Azure Communication Services connection strings with Key Vault
+  and Python.
 content_sources:
-  - https://learn.microsoft.com/azure/key-vault/general/quick-create-python?tabs=azure-cli
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-cli
+  diagrams:
+  - id: key-vault-reference-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-cli
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Key Vault Reference
 
 This recipe shows how to securely store and retrieve Azure Communication Services (ACS) connection strings from Azure Key Vault using Python.
@@ -79,9 +89,33 @@ Regularly rotating your secrets is a security best practice. ACS connection stri
 !!! info "Important"
     Key Vault supports versioning, allowing you to easily roll back if a new key fails.
 
+## Page Flow
+
+<!-- diagram-id: key-vault-reference-page-flow -->
+```mermaid
+flowchart TD
+    A["Key Vault Reference"]
+    B["Prerequisites"]
+    C["SDK Installation"]
+    D["Store Connection String in Key Vault"]
+    E["Store the connection string as a secret"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Key Vault Reference. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 - [Azure Key Vault Secrets Python Client](https://learn.microsoft.com/python/api/overview/azure/keyvault-secrets-readme)
 - [Key Vault Authentication](https://learn.microsoft.com/azure/key-vault/general/authentication)
 
 ## Sources
-- [Use Azure Key Vault from a Python application](https://learn.microsoft.com/azure/key-vault/general/quick-create-python?tabs=azure-cli)
+- [Use Azure Key Vault from a Python application](https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-cli)

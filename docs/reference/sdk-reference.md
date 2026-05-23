@@ -1,6 +1,6 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/sdk-overview
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options
 content_validation:
   status: pending_review
   last_reviewed: null
@@ -54,7 +54,7 @@ graph TD
 | Call Automation | ✅ | ✅ | ✅ | ✅ |
 
 ## See Also
-- [Azure Communication Services SDK Overview](https://learn.microsoft.com/azure/communication-services/concepts/sdk-overview)
+- [Azure Communication Services SDK Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options)
 - [How to: Install ACS SDKs](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
 
 ## Sources

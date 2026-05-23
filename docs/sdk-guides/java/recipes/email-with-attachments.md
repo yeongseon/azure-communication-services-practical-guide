@@ -1,15 +1,25 @@
 ---
 title: Email with Attachments (Java)
-description: Send Azure Communication Services email messages with one or more file attachments using the Java SDK.
+description: Send Azure Communication Services email messages with one or more file
+  attachments using the Java SDK.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  diagrams:
+  - id: email-with-attachments-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Email with Attachments (Java)
 
 Use the ACS Email SDK when you need to send receipts, reports, or screenshots.
@@ -109,6 +119,22 @@ public class EmailWithAttachmentsExample {
 
 If you need to attach generated content, write it to disk or bytes first, then wrap it with `BinaryData.fromBytes(...)`.
 
+## Page Flow
+
+<!-- diagram-id: email-with-attachments-page-flow -->
+```mermaid
+flowchart TD
+    A["Email with Attachments (Java)"]
+    B["Setup"]
+    C["Build the message"]
+    D["Multiple attachment types"]
+    E["Practical notes"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 
 - [Java email quickstart](../index.md)
@@ -117,4 +143,4 @@ If you need to attach generated content, write it to disk or bytes first, then w
 ## Sources
 
 - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
-- https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments

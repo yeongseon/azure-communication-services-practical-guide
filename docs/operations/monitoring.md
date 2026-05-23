@@ -5,9 +5,9 @@ content_sources:
   - type: mslearn
     url: https://learn.microsoft.com/azure/communication-services/concepts/metrics
   - type: mslearn
-    url: https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices
   - type: mslearn
-    url: https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
 content_validation:
   status: verified
   last_reviewed: 2026-05-21
@@ -20,7 +20,7 @@ content_validation:
       source: https://learn.microsoft.com/azure/communication-services/concepts/metrics
       verified: true
     - claim: "ACS email delivery status updates are stored in the ACSEmailStatusUpdateOperational Log Analytics table."
-      source: https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
       verified: true
 ---
 
@@ -197,8 +197,8 @@ Set up alerts for critical thresholds:
 
 ## See Also
 - [Enable logging with Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/analytics/enable-logging)
-- [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/monitor/essentials/diagnostic-settings)
+- [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings)
 
 ## Sources
 - [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
-- [ACS Log Analytics tables](https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices)
+- [ACS Log Analytics tables](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices)

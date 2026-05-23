@@ -1,12 +1,21 @@
 ---
-title: "Step 5: Voice Calling"
+title: 'Step 5: Voice Calling'
 description: Build telephony applications with Call Automation and the Java SDK.
 content_sources:
+  sources:
   - id: java-voice-calling
     type: documentation
     source: self
     justification: Explains Call Automation features in Java.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
+  diagrams:
+  - id: 05-voice-calling-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
 validation:
   az_cli:
     last_tested: null
@@ -14,8 +23,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
+    verified: true
 ---
-
 # Step 5: Voice Calling
 
 Use the `CallAutomationClient` to make outbound calls and handle telephony events.
@@ -120,6 +137,36 @@ public class VoiceApp {
 ## Next Step
 
 Implement [Logging & Monitoring](./06-logging-monitoring.md) for your application.
+
+## Page Flow
+
+<!-- diagram-id: 05-voice-calling-page-flow -->
+```mermaid
+flowchart TD
+    A["Step 5: Voice Calling"]
+    B["1. Add Call Automation Dependency"]
+    C["2. Initialize CallAutomationClient"]
+    D["3. Make an Outbound PSTN Call"]
+    E["4. Play Audio Prompts"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Step 5: Voice Calling. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Quickstart: Make an outbound call using Call Automation](https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call)

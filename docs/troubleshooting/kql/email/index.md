@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailuserengagementoperational
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailsendmailoperational
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailuserengagementoperational
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailsendmailoperational
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Email KQL Overview
 
 Analyze email delivery performance, error patterns, and throughput.
@@ -57,11 +68,27 @@ ACSEmailStatusUpdateOperational
 | order by ThrottledCount desc
 ```
 
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["Email KQL Overview"]
+    B["Log Analytics Tables"]
+    C["Key Scenarios"]
+    D["Query Examples"]
+    E["Bounce Rate Trends"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Email Delivery Status KQL](delivery-status.md)
 * [Email Delivery Failures Playbook](../../playbooks/email/delivery-failures.md)
 
 ## Sources
-* [ACSEmailSendMailOperational table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational)
-* [ACSEmailStatusUpdateOperational table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational)
-* [ACSEmailUserEngagementOperational table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailuserengagementoperational)
+* [ACSEmailSendMailOperational table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailsendmailoperational)
+* [ACSEmailStatusUpdateOperational table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational)
+* [ACSEmailUserEngagementOperational table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailuserengagementoperational)

@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  diagrams:
+  - id: rate-limiting-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # SMS Rate Limiting Playbook
 
 **Symptom**: SMS sending throttled or failing with `429 Too Many Requests`.
@@ -56,6 +67,22 @@ A local long code (10DLC) number has lower MPS than a toll-free number or a shor
 3. **Upgrade Number Type**: Move to a sender type whose documented throughput matches the workload, or request higher throughput through Azure Support where available.
 4. **Distribute Traffic**: Use multiple phone numbers (number pooling) to distribute the sending load. Note that this requires Careful coordination to avoid carrier-level filtering.
 
+## Page Flow
+
+<!-- diagram-id: rate-limiting-page-flow -->
+```mermaid
+flowchart TD
+    A["SMS Rate Limiting Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Azure Monitor Metrics"]
+    E["2. App Logs"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [SMS Delivery Failures](delivery-failures.md)
 * [SMS Opt-out Handling](opt-out-handling.md)
@@ -63,4 +90,4 @@ A local long code (10DLC) number has lower MPS than a toll-free number or a shor
 ## Sources
 * [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits#sms)
 * [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
-* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations)

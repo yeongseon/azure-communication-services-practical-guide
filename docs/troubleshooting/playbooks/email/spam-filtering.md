@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - azure-docs
-  - email-reputation-guide
+  sources:
+  - type: mslearn-adapted
+    url: azure-docs
+  - type: mslearn-adapted
+    url: email-reputation-guide
+  diagrams:
+  - id: spam-filtering-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/overview
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Spam Filtering Playbook
 
 **Symptom**: Emails landing in spam folders.
@@ -51,6 +61,22 @@ If multiple clients are reporting spam from your domain, check if the outbound A
 3. **Warm-up Domain**: Gradually increase sending volume over several weeks to build reputation.
 4. **Use Subdomains**: Use a separate subdomain (e.g., `info.yourdomain.com`) for marketing emails to protect your root domain's reputation.
 5. **Monitor Feedback Loops**: Subscribe to feedback loops from major providers to identify and remove users who flag your emails as spam.
+
+## Page Flow
+
+<!-- diagram-id: spam-filtering-page-flow -->
+```mermaid
+flowchart TD
+    A["Spam Filtering Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Delivery Reports"]
+    E["2. External Tools"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
 
 ## See Also
 * [Email Delivery Failures](delivery-failures.md)

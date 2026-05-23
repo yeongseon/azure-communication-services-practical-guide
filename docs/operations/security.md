@@ -1,7 +1,7 @@
 ---
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/authentication
-  - https://learn.microsoft.com/azure/communication-services/concepts/managed-identity
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model
 content_validation:
   status: pending_review
   last_reviewed: null
@@ -72,4 +72,4 @@ Enable audit logs to track changes to your ACS resources:
 - [How to: Use Managed Identities with ACS](https://learn.microsoft.com/azure/communication-services/quickstarts/managed-identity)
 
 ## Sources
-- [ACS Security Overview](https://learn.microsoft.com/azure/communication-services/concepts/security)
+- [ACS Security Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/services)

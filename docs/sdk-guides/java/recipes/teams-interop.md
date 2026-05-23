@@ -1,13 +1,25 @@
 ---
 title: Teams Interoperability with Java
-description: Integrate Azure Communication Services users into Microsoft Teams meetings using Java.
+description: Integrate Azure Communication Services users into Microsoft Teams meetings
+  using Java.
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
+content_sources:
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/teams-interop
+  diagrams:
+  - id: teams-interop-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/teams-interop
 ---
-
 # Teams Interoperability with Java
 
 Azure Communication Services allows your custom application users to join Microsoft Teams meetings.
@@ -59,6 +71,34 @@ public void transferToTeamsUser(String callConnectionId, String teamsUserId) {
     callConnection.transferCall(target);
 }
 ```
+
+## Page Flow
+
+<!-- diagram-id: teams-interop-page-flow -->
+```mermaid
+flowchart TD
+    A["Teams Interoperability with Java"]
+    B["1. Prerequisites"]
+    C["2. Join a Teams Meeting"]
+    D["3. Call Automation and Teams"]
+    A --> B
+    B --> C
+    C --> D
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Teams Interoperability with Java. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Teams Interoperability Guide](https://learn.microsoft.com/azure/communication-services/concepts/teams-interop)

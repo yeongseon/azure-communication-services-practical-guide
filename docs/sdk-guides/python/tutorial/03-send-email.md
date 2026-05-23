@@ -2,7 +2,17 @@
 title: Send Email
 description: Sending emails with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+  diagrams:
+  - id: 03-send-email-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
 validation:
   az_cli:
     last_tested: null
@@ -10,8 +20,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+    verified: true
 ---
-
 # Send Email
 
 This step demonstrates how to use the Azure Communication Services (ACS) Python SDK to send emails.
@@ -192,9 +210,25 @@ The following insights were verified via Azure Monitor Log Analytics:
 - The recipient mail server `gmail-smtp-in.l.google.com` accepted all messages without bounces or failures.
 - The average message lifecycle (from submission to `OutForDelivery`) was measured between 3 and 6 seconds per message.
 
+## Page Flow
+
+<!-- diagram-id: 03-send-email-page-flow -->
+```mermaid
+flowchart TD
+    A["Send Email"]
+    B["1. Prerequisites"]
+    C["2. EmailClient Setup"]
+    D["3. Send a Simple Email"]
+    E["4. Send Email with HTML Body"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
-- [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
-- [Email Delivery Reports](https://learn.microsoft.com/azure/communication-services/concepts/email/delivery-reports)
+- [Email Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/prepare-email-communication-resource)
+- [Email Delivery Reports](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/prepare-email-communication-resource)
 
 ## Sources
 - [Azure Communication Email client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-email-readme)

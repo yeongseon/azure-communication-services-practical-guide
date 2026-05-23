@@ -56,6 +56,14 @@ Primarily asynchronous. Reliability depends on carrier handoff and domain reputa
 ### Client-side Channels (Chat, Voice/Video)
 Real-time and stateful. Reliability depends on persistent connections, network stability, and client device capabilities. Focus on latency and jitter.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Mental Model. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 * [Troubleshooting Methodology](methodology/troubleshooting-method.md)
 * [Decision Tree](decision-tree.md)
@@ -63,3 +71,4 @@ Real-time and stateful. Reliability depends on persistent connections, network s
 ## Sources
 * Azure Communication Services Architecture Overview
 * Network Troubleshooting for Real-time Media
+- [Microsoft Learn overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)

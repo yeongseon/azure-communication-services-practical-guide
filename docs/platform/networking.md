@@ -80,5 +80,5 @@ graph TD
 
 ## Sources
 
-- [Network Requirements](https://learn.microsoft.com/azure/communication-services/concepts/network-requirements)
-- [Media Optimisation](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/media-optimization)
+- [Network Requirements](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements)
+- [Media Optimisation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements)

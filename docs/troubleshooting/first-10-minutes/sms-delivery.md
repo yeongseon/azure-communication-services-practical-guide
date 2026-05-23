@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations
+  diagrams:
+  - id: sms-delivery-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # SMS Delivery Checklist (First 10 Minutes)
 
 When SMS delivery failures occur, follow this checklist to quickly isolate the cause.
@@ -51,6 +62,30 @@ ACSSMSIncomingOperations
 * Are you sending international messages from a local number?
 * Is your ACS resource in a region that supports the destination?
 
+## Page Flow
+
+<!-- diagram-id: sms-delivery-page-flow -->
+```mermaid
+flowchart TD
+    A["SMS Delivery Checklist (First 10 Minutes)"]
+    B["Immediate Checklist"]
+    C["Essential CLI Commands"]
+    D["Check phone number status"]
+    E["Get the latest delivery reports for a specific message"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to SMS Delivery Checklist (First 10 Minutes). |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 * [SMS Delivery Failures Playbook](../playbooks/sms/delivery-failures.md)
 * [SMS Rate Limiting Playbook](../playbooks/sms/rate-limiting.md)
@@ -58,4 +93,4 @@ ACSSMSIncomingOperations
 ## Sources
 * [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
 * [SMS logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/sms-logs)
-* [ACSSMSIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acssmsincomingoperations)
+* [ACSSMSIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acssmsincomingoperations)

@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics
+  diagrams:
+  - id: oode-quality-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Connection Failures Playbook
 
 **Symptom**: Cannot establish a call connection.
@@ -54,6 +65,22 @@ Check `TransportType`, `RoundTripTimeAvg`, and packet-loss fields in `ACSCallDia
 4. **Enable UFD**: Use User Facing Diagnostics to inform the user when their network or firewall is preventing a call connection.
 5. **Log Start Errors**: Collect and analyze the `CallStartError` from the SDK to identify common causes of connection failures.
 
+## Page Flow
+
+<!-- diagram-id: oode-quality-page-flow -->
+```mermaid
+flowchart TD
+    A["Connection Failures Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. User Facing Diagnostics (UFD)"]
+    E["2. Browser Console"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Call Quality](call-quality.md)
 * [Call Drops](call-drops.md)
@@ -61,4 +88,4 @@ Check `TransportType`, `RoundTripTimeAvg`, and packet-loss fields in `ACSCallDia
 ## Sources
 * [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
 * [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
-* [ACSCallDiagnostics table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscalldiagnostics)
+* [ACSCallDiagnostics table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscalldiagnostics)

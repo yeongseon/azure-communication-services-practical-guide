@@ -56,6 +56,14 @@ For architects designing communication solutions:
 2. **Scale and High Availability**: Design for regional failover and peak loads.
 3. **Compliance and Governance**: Ensure your communication solution meets regulatory requirements.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Learning Paths for ACS Roles. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 - [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
 - [How to: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)

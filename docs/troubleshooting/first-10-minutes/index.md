@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - azure-docs
-  - emergency-response
+  sources:
+  - type: mslearn-adapted
+    url: azure-docs
+  - type: mslearn-adapted
+    url: emergency-response
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/communication-services/overview
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # First 10 Minutes
 
 When an incident starts, these checklists help you quickly stabilize and identify the scope of the issue.
@@ -37,6 +47,20 @@ A structured response in the first minutes prevents chaotic troubleshooting and 
 * Is the issue reproducible?
 * Are all users affected, or just a subset?
 * Is there an ongoing Azure region outage?
+
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["First 10 Minutes"]
+    B["Response Strategy"]
+    C["Quick Checklists"]
+    D["Immediate Questions to Answer"]
+    A --> B
+    B --> C
+    C --> D
+```
 
 ## See Also
 * [Troubleshooting Overview](../index.md)

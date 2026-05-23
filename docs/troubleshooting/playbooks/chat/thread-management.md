@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  diagrams:
+  - id: thread-management-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Thread Management Playbook
 
 **Symptom**: Cannot create or access chat threads.
@@ -52,6 +63,22 @@ If you're creating thousands of threads per second, you may hit the service-leve
 3. **Handle Throttling**: Implement exponential backoff for thread creation and update requests.
 4. **Use Group Chat Wisely**: Avoid creating new threads for the same group of users if an existing thread can be reused.
 
+## Page Flow
+
+<!-- diagram-id: thread-management-page-flow -->
+```mermaid
+flowchart TD
+    A["Thread Management Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Browser Console"]
+    E["2. Service Limits"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Message Delivery](message-delivery.md)
 * [Real-time Notifications](real-time-notifications.md)
@@ -59,4 +86,4 @@ If you're creating thousands of threads per second, you may hit the service-leve
 ## Sources
 * [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits#chat)
 * [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
-* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations)

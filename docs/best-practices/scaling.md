@@ -59,8 +59,22 @@ All ACS APIs have rate limits to ensure service stability.
 *   **429 Errors**: When you receive a 429 (Too Many Requests) response, use the `Retry-After` header to determine how long to wait before retrying the request.
 *   **Exponential Backoff**: If the `Retry-After` header is not present, use an exponential backoff strategy with jitter to avoid synchronized retries from multiple clients.
 
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Scaling Best Practices. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../index.md)
+- [Section index](index.md)
+- [Start here](../start-here/overview.md)
+
 ## Sources
 
 *   [ACS Service Limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
-*   [ACS SMS Concepts](https://learn.microsoft.com/azure/communication-services/concepts/telephony/sms-concepts)
-*   [ACS Email Concepts](https://learn.microsoft.com/azure/communication-services/concepts/email/email-concepts)
+*   [ACS SMS Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts)
+*   [ACS Email Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/prepare-email-communication-resource)

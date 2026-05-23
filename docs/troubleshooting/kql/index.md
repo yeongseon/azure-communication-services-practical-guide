@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overviewlog-analytics-tutorial
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices
+  diagrams:
+  - id: index-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overviewlog-analytics-tutorial
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # KQL Query Library
 
 A collection of pre-built KQL queries for analyzing and troubleshooting ACS activities in Log Analytics.
@@ -37,10 +47,24 @@ A collection of pre-built KQL queries for analyzing and troubleshooting ACS acti
 * **Use Summarize**: Group data by relevant fields (e.g., `ResultSignature`, `Status`) to identify common failure patterns.
 * **Visualize Results**: Use `render barchart` or `render timechart` to visualize trends and anomalies.
 
+## Page Flow
+
+<!-- diagram-id: index-page-flow -->
+```mermaid
+flowchart TD
+    A["KQL Query Library"]
+    B["Categories"]
+    C["Quick Queries"]
+    D["Best Practices"]
+    A --> B
+    B --> C
+    C --> D
+```
+
 ## See Also
 * [Evidence Map](../evidence-map.md)
 * [Detector Map](../methodology/detector-map.md)
 
 ## Sources
-* [Log Analytics tutorial](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial)
-* [ACS Log Analytics tables](https://learn.microsoft.com/azure/azure-monitor/reference/tables/microsoft-communication-communicationservices)
+* [Log Analytics tutorial](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overviewlog-analytics-tutorial)
+* [ACS Log Analytics tables](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/microsoft-communication-communicationservices)

@@ -70,5 +70,10 @@ graph TD
 - **[Tutorials](./tutorial/index.md)**: Step-by-step guides for common scenarios.
 - **[Recipes](./recipes/index.md)**: Focused code snippets for specific tasks.
 
+## See Also
+
+- [Guide home](../../index.md)
+- [Start here](../../start-here/overview.md)
+
 ## Sources
-- [Python SDK Reference](https://learn.microsoft.com/python/api/overview/azure/communication-services)
+- [Python SDK Reference](https://learn.microsoft.com/en-us/python/api/overview/azure/communication?view=azure-python)

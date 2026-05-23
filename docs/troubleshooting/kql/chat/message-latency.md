@@ -1,14 +1,24 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  diagrams:
+  - id: message-latency-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Chat Message Latency KQL
 
 Analyze chat message delivery times and identify common performance bottlenecks.
@@ -45,10 +55,26 @@ ACSChatIncomingOperations
 * **Performance Bottlenecks**: High latency for a specific thread or sender may suggest a network or device issue.
 * **Volume Analysis**: A high count of messages with latency may suggest a service-level issue or heavy load.
 
+## Page Flow
+
+<!-- diagram-id: message-latency-page-flow -->
+```mermaid
+flowchart TD
+    A["Chat Message Latency KQL"]
+    B["Query Description"]
+    C["KQL Query"]
+    D["Explanation"]
+    E["Insights"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Chat KQL Overview](index.md)
 * [Chat Message Delivery Playbook](../../playbooks/chat/message-delivery.md)
 
 ## Sources
 * [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
-* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations)

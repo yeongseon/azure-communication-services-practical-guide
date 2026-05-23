@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/metrics
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/metrics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations
+  diagrams:
+  - id: chat-connectivity-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/metrics
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Chat Connectivity Checklist (First 10 Minutes)
 
 When chat messages are delayed or connectivity fails, follow this initial checklist.
@@ -50,6 +61,30 @@ ACSChatIncomingOperations
 | order by Count desc
 ```
 
+## Page Flow
+
+<!-- diagram-id: chat-connectivity-page-flow -->
+```mermaid
+flowchart TD
+    A["Chat Connectivity Checklist (First 10 Minutes)"]
+    B["Immediate Checklist"]
+    C["Essential Diagnostic Steps"]
+    D["1. Check Browser Console"]
+    E["2. Verify Token Scopes"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Chat Connectivity Checklist (First 10 Minutes). |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
 ## See Also
 * [Chat Message Delivery Playbook](../playbooks/chat/message-delivery.md)
 * [Real-time Notifications Playbook](../playbooks/chat/real-time-notifications.md)
@@ -57,4 +92,4 @@ ACSChatIncomingOperations
 ## Sources
 * [ACS metrics](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
 * [Chat logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/chat-logs)
-* [ACSChatIncomingOperations table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acschatincomingoperations)
+* [ACSChatIncomingOperations table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acschatincomingoperations)

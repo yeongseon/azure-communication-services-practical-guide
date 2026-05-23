@@ -1,16 +1,28 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication
-  - https://learn.microsoft.com/azure/communication-services/concepts/service-limits
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/service-limits
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailsendmailoperational
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational
+  diagrams:
+  - id: delivery-failures-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Email Delivery Failures Playbook
 
 **Symptom**: Email not delivered or bouncing.
@@ -55,6 +67,22 @@ Identify whether `FailureReason`, `FailureMessage`, `SmtpStatusCode`, or `Enhanc
 4. **Follow Best Practices**: Avoid suspicious keywords in the subject line and ensure a valid `Unsubscribe` link is present.
 5. **Request Tier Increase**: If consistently hitting rate limits, request a higher sending tier from Azure support.
 
+## Page Flow
+
+<!-- diagram-id: delivery-failures-page-flow -->
+```mermaid
+flowchart TD
+    A["Email Delivery Failures Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. Delivery Reports"]
+    E["2. Monitor Metrics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Domain Verification](domain-verification.md)
 * [Spam Filtering](spam-filtering.md)
@@ -62,5 +90,5 @@ Identify whether `FailureReason`, `FailureMessage`, `SmtpStatusCode`, or `Enhanc
 ## Sources
 * [Email domain and sender authentication](https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication)
 * [ACS service limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
-* [ACSEmailSendMailOperational table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational)
-* [ACSEmailStatusUpdateOperational table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational)
+* [ACSEmailSendMailOperational table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailsendmailoperational)
+* [ACSEmailStatusUpdateOperational table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acsemailstatusupdateoperational)

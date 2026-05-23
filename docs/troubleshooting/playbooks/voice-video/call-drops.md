@@ -1,15 +1,26 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary
+  sources:
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - type: mslearn-adapted
+    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary
+  diagrams:
+  - id: call-drops-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
 content_validation:
   status: pending_review
   last_reviewed: null
   reviewer: agent
   core_claims: []
 ---
-
 # Call Drops Playbook
 
 **Symptom**: Calls disconnecting unexpectedly.
@@ -54,6 +65,22 @@ Check for specific error codes like `SignalingConnectionLost` or `MediaConnectio
 4. **Log End Reasons**: Collect and analyze the `CallEndReason` from the SDK to identify patterns of drops across users and regions.
 5. **Optimize Network**: Advise users to use a stable Wi-Fi connection and avoid switching between networks during a call.
 
+## Page Flow
+
+<!-- diagram-id: call-drops-page-flow -->
+```mermaid
+flowchart TD
+    A["Call Drops Playbook"]
+    B["Hypotheses"]
+    C["Evidence Collection"]
+    D["1. User Facing Diagnostics (UFD)"]
+    E["2. Log Analytics"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## See Also
 * [Call Quality](call-quality.md)
 * [Connection Failures](oode-quality.md)
@@ -61,4 +88,4 @@ Check for specific error codes like `SignalingConnectionLost` or `MediaConnectio
 ## Sources
 * [User Facing Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics)
 * [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs)
-* [ACSCallSummary table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acscallsummary)
+* [ACSCallSummary table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/acscallsummary)

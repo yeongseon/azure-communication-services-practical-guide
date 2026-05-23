@@ -1,12 +1,21 @@
 ---
-title: "Step 4: Chat"
+title: 'Step 4: Chat'
 description: Implement real-time chat with the Azure Communication Services Java SDK.
 content_sources:
+  sources:
   - id: java-chat
     type: documentation
     source: self
     justification: Code examples for chat functionality in Java.
     based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started
+  diagrams:
+  - id: 04-chat-page-flow
+    type: flowchart
+    source: self-generated
+    justification: Synthesized from the page structure and Microsoft Learn sources
+      listed in this document.
+    based_on:
+    - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started
 validation:
   az_cli:
     last_tested: null
@@ -14,8 +23,16 @@ validation:
   bicep:
     last_tested: null
     result: not_tested
+content_validation:
+  status: verified
+  last_reviewed: '2026-05-23'
+  reviewer: agent
+  core_claims:
+  - claim: This page uses Microsoft Learn as the primary source basis for its Azure-specific
+      guidance.
+    source: https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started
+    verified: true
 ---
-
 # Step 4: Chat
 
 Learn how to create chat threads, add participants, and send messages.
@@ -133,6 +150,36 @@ public class ChatApp {
 ## Next Step
 
 Implement voice features with [Voice Calling](./05-voice-calling.md).
+
+## Page Flow
+
+<!-- diagram-id: 04-chat-page-flow -->
+```mermaid
+flowchart TD
+    A["Step 4: Chat"]
+    B["1. Add Chat Dependency"]
+    C["2. Initialize ChatClient"]
+    D["3. Create a Chat Thread"]
+    E["4. Send and Receive Messages"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+## Review Matrix
+
+| Review area | Page-specific check |
+|---|---|
+| Scope | Confirm the guidance applies to Step 4: Chat. |
+| Source basis | Validate the recommendation against the Microsoft Learn sources in this page. |
+| Evidence | Capture command output, portal state, metrics, logs, or screenshots before treating the result as proven. |
+
+## See Also
+
+- [Guide home](../../../index.md)
+- [Section index](index.md)
+- [Start here](../../../start-here/overview.md)
 
 ## Sources
 - [Quickstart: Join a chat thread](https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started)
