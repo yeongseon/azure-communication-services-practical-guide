@@ -1,10 +1,21 @@
 # Email Service Capture Plan
 
-This file documents the seven Portal captures the Email Service area needs.
+This file documents the Portal captures the Email Service area needs.
 It serves as the source of truth for what should be captured, where to save
 the output, and what blades to navigate to. The orchestration is executed
 manually (or via MCP browser) — there is no fully automated runner yet
 because the Azure Portal requires interactive authentication.
+
+**Status (June 2026)**:
+
+- Captures **#1 – #7**: Complete, embedded, shipped on `main` via commits
+  `a108a94` and `987b162`.
+- Captures **#8 – #14**: Specified but **not yet captured**. The capture
+  session was blocked because the operator's PIM-eligible role on
+  `rg-acs-email-lab` expired between sessions and re-activation was
+  pending at write time. The `monitoring.md` page references them via
+  "Capture pending" admonitions so readers see the textual procedure
+  immediately and the captures slot in as they land.
 
 ## Constants
 
@@ -199,6 +210,122 @@ Split into two captures because they live on different resources.
   spike at 12 PM Fri 26 that corresponds to the 7-email test burst with its
   internal retry traffic — the same data window the 6b KQL query covers,
   visualized as a time-series instead of a row breakdown.
+
+### 8. Log Analytics workspace Overview (BLOCKED — PIM)
+
+- **Output**: `docs/assets/operations/monitoring/08-law-overview.png`
+- **Embed target**: `docs/operations/monitoring.md` — Step 1, replacing the
+  "Capture pending" admonition.
+- **Route**: `law-acs-email-lab` → Overview blade. Direct URL:
+  `https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<subscription-id>/resourceGroups/rg-acs-email-lab/providers/Microsoft.OperationalInsights/workspaces/law-acs-email-lab/Overview`
+- **What to show**: Essentials section populated (Resource group, Region,
+  Pricing tier `PerGB2018`, Retention `30 days`, Subscription, Daily cap),
+  plus the inline Usage chart for the trailing 24 hours if there is data.
+- **Wait for**: The Essentials grid renders all six rows AND the Usage chart
+  either renders or shows the "No data" placeholder (not a loading spinner).
+- **Status**: Blocked. The operator session `381bb3578ff14d358708e3eae8d4e5c7`
+  on 2026-06-26 hit "You don't have access" on this exact URL because the
+  PIM-eligible role had expired since the prior capture run. Re-activate
+  PIM on the subscription/RG and re-attempt; no Portal pivots expected.
+
+### 9. ACS Diagnostic settings — Add form (BLOCKED — PIM)
+
+- **Output**: `docs/assets/operations/monitoring/09-diagnostic-add-form.png`
+- **Embed target**: `docs/operations/monitoring.md` — Step 2, replacing the
+  "Capture pending" admonition.
+- **Route**: `acs-email-lab` → Diagnostic settings → **+ Add diagnostic
+  setting** button.
+- **What to show**: The Add form rendered with all fields visible —
+  Diagnostic setting name, **Logs** section with `allLogs` categoryGroup
+  checked, **Metrics** section with `AllMetrics` checked, **Destination
+  details** section with "Send to Log Analytics workspace" checked and
+  `law-acs-email-lab` selected in the workspace dropdown.
+- **Wait for**: The `allLogs` row, `AllMetrics` row, and the Destination
+  Log Analytics workspace dropdown all visible in one viewport.
+- **Why Add over Edit**: The 6a capture session proved that the Portal's
+  `<span role="button">Edit setting</span>` control does not respond to
+  Playwright `locator.click()` or `focus()+Enter`. The Add flow uses a
+  normal `<button>` element that does respond. Capture #9 should therefore
+  use Add against a *new* setting name (e.g., `acs-diag-capture-temp`)
+  that is deleted via CLI after the capture lands.
+- **Cleanup**:
+  ```bash
+  az monitor diagnostic-settings delete \
+    --name "acs-diag-capture-temp" \
+    --resource "/subscriptions/<subscription-id>/resourceGroups/rg-acs-email-lab/providers/Microsoft.Communication/communicationServices/acs-email-lab"
+  ```
+- **Status**: Blocked. Same RBAC failure as #8.
+
+### 10. (intentionally reserved)
+
+Reserved for a future "diagnostic settings live in the Add Edit view"
+capture if/when the Portal exposes a clickable Edit control that Playwright
+can synthesize. No work needed today.
+
+### 11. Alert rule wizard — Condition tab (BLOCKED — PIM)
+
+- **Output**: `docs/assets/operations/monitoring/11-alert-rule-condition.png`
+- **Embed target**: `docs/operations/monitoring.md` — Step 4, replacing the
+  first "Capture pending" admonition.
+- **Route**: `law-acs-email-lab` → Alerts → **+ Create → Alert rule** →
+  **Condition** tab after selecting **Custom log search**.
+- **What to show**: The Condition tab populated with the bounce-rate KQL
+  from `monitoring.md` Step 4, with **Measurement = Table rows / Count**,
+  **Aggregation granularity = 5 minutes**, **Evaluation frequency =
+  5 minutes**, and the **Threshold = Static / Greater than / 0**. The
+  preview chart at the top should render (even if empty) so readers see
+  the workflow rather than a half-loaded panel.
+- **Wait for**: The Monaco editor with the KQL query, the threshold
+  configuration block, and at least the empty preview chart all visible
+  in one viewport.
+- **Status**: Blocked. Same RBAC failure as #8.
+
+### 12. Alert rule wizard — Details + Review tab (BLOCKED — PIM)
+
+- **Output**: `docs/assets/operations/monitoring/12-alert-rule-details.png`
+- **Embed target**: `docs/operations/monitoring.md` — Step 4, replacing the
+  second "Capture pending" admonition.
+- **Route**: Same wizard as #11 → **Details** tab populated with the alert
+  rule name and severity, then advanced to **Review + create**.
+- **What to show**: The Details tab populated with **Severity = 2 Warning**,
+  **Alert rule name = `acs-email-bounce-rate-high`**, **Region** matching
+  the workspace region. Or, alternately, the Review + create summary
+  showing the full configuration the user is about to commit.
+- **Pivot rule**: If the wizard advances too quickly to be screenshotted on
+  Details cleanly, capture **Review + create** instead — the summary view
+  shows the same data plus the bound action group, which is more useful.
+- **Wait for**: All required fields green-checked and the **Create** button
+  enabled (i.e., no red banner about a missing action group).
+- **Status**: Blocked. Same RBAC failure as #8.
+
+### 13. Action group — Notifications tab (BLOCKED — PIM)
+
+- **Output**: `docs/assets/operations/monitoring/13-action-group-notifications.png`
+- **Embed target**: `docs/operations/monitoring.md` — Step 5, replacing the
+  "Capture pending" admonition.
+- **Route**: Monitor → Alerts → Action groups → **+ Create** → **Notifications**
+  tab.
+- **What to show**: The Notifications tab with one Email/SMS/Push/Voice
+  receiver row added (Name = `oncall-email`, Email checked with a sanitized
+  address like `acs-oncall@example.com`), and **Common alert schema = Yes**
+  visible in the side panel.
+- **Wait for**: The receiver row renders with the green check mark
+  indicating it validated, and the side panel showing the receiver config
+  is open.
+- **Status**: Blocked. Same RBAC failure as #8.
+
+### 14. Action group — Review + create (BLOCKED — PIM)
+
+- **Output**: `docs/assets/operations/monitoring/14-action-group-review.png`
+- **Embed target**: `docs/operations/monitoring.md` — Step 5, as a second
+  visual after #13 OR replacing #13 if the layout becomes cluttered.
+- **Route**: Same wizard as #13 → **Review + create** tab.
+- **What to show**: The full summary of the action group: Basics
+  (subscription, RG, region Global, name `ag-acs-oncall`, short name
+  `ACSOnCall`), Notifications (one Email receiver), Actions (none).
+- **Wait for**: The green "Validation succeeded" banner at the top and
+  the **Create** button enabled.
+- **Status**: Blocked. Same RBAC failure as #8.
 
 ## Operating notes
 

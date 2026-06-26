@@ -28,7 +28,7 @@ Before running KQL queries, confirm that diagnostic settings on the **ACS resour
 
 ![ACS Diagnostic settings list view showing acs-diag-all routed to law-acs-email-lab, with Email Service Send Mail Logs, Email Service Delivery Status Update Logs, and Email Service User Engagement Logs enabled](../../assets/troubleshooting/email-delivery/06a-diagnostic-settings.png){ loading=lazy }
 
-If the list view shows no diagnostic settings, or the destination is not the Log Analytics workspace you expect, see [Monitoring → Log Analytics Workspace Setup](../../operations/monitoring.md#log-analytics-workspace-setup) to provision it. Logs typically appear within 5 minutes of the next send after the setting is enabled.
+If the list view shows no diagnostic settings, or the destination is not the Log Analytics workspace you expect, see [Monitoring → Step 1. Create the Log Analytics workspace](../../operations/monitoring.md#step-1-create-the-log-analytics-workspace) to provision it. Logs typically appear within 5 minutes of the next send after the setting is enabled.
 
 ## Immediate Checklist
 
