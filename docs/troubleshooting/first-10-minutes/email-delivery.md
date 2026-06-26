@@ -39,6 +39,14 @@ If the list view shows no diagnostic settings, or the destination is not the Log
 5. **Spam Signals**: Is the email content triggering spam filters?
 6. **Rate Limits**: Are you exceeding your sending tier (e.g., 100 emails/minute)?
 
+## Custom domain DNS verification (visual reference)
+
+For checklist items 2 and 3 above: when a custom domain row in the Provision domains grid shows `Configure` instead of `Verified`, click **Configure** on the relevant status column to open the per-record verification wizard.
+
+![Custom domain DNS verification wizard for the Domain TXT record, showing the host name and TXT value the user must add to their DNS zone, plus the Done button that triggers re-verification](../../assets/operations/email-provisioning/03-custom-domain-verification.png){ loading=lazy }
+
+Add the host name and value shown to your DNS zone as the matching record type. After DNS propagation (typically 1–5 minutes for low-TTL records, longer for high-TTL), click **Done** in the wizard to re-check. The Provision domains grid status flips from `Configure` to `Verified` once Azure can resolve the record. Each record type (Domain TXT, SPF, DKIM, DKIM2) opens its own separate wizard — DMARC is not surfaced in a wizard and must be configured directly in your DNS zone per the [Email Domain and Sender Authentication](https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication) guide.
+
 ## Essential CLI Commands
 
 ```bash
