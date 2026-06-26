@@ -10,28 +10,34 @@ because the Azure Portal requires interactive authentication.
 
 - Captures **#1 – #7**: Complete, embedded, shipped on `main` via commits
   `a108a94` and `987b162`.
-- Captures **#8 – #14**: Specified but **not yet captured**. The capture
-  session was blocked because the operator's PIM-eligible role on
+- Captures **#8, #9, #11 – #14**: Specified but **not yet captured**. The
+  capture session was blocked because the operator's PIM-eligible role on
   `rg-acs-email-lab` expired between sessions and re-activation was
   pending at write time. The `monitoring.md` page references them via
   "Capture pending" admonitions so readers see the textual procedure
   immediately and the captures slot in as they land.
+- Capture **#10**: Intentionally reserved. No work required — see the
+  capture-#10 entry below for the reservation rationale.
 
 ## Constants
 
-| Value | Setting |
+This plan is committed publicly, so only the **sanitized** values appear below.
+Operators running the captures must substitute their own real subscription /
+tenant / managed-domain identifiers locally; do **not** commit those back.
+
+| Value | Setting (post-sanitization) |
 |---|---|
-| Subscription | `1375a781-21fb-430a-be54-2465c36b0ee2` (sanitized → `00000000-0000-0000-0000-000000000000`) |
-| Tenant hint | `microsoft.onmicrosoft.com` (sanitized → `contoso.onmicrosoft.com`) |
+| Subscription | `<subscription-id>` (committed images use `00000000-0000-0000-0000-000000000000`) |
+| Tenant hint | `<tenant-domain>` (committed images use `contoso.onmicrosoft.com`) |
 | Resource group | `rg-acs-email-lab` |
 | ACS resource | `acs-email-lab` |
 | Email Service | `ecs-email-lab` |
-| AzureManaged sender | `1fd6375c-ccc6-4d45-a1a7-1dfeb3657fa0.azurecomm.net` (sanitized → `<azure-managed-domain>.azurecomm.net`) |
+| AzureManaged sender | `<azure-managed-domain>.azurecomm.net` |
 | Custom domain (unverified) | `contoso-demo.example.com` |
 | Log Analytics | `law-acs-email-lab` |
 | Diagnostic setting | `acs-diag-all` |
 
-Portal base URL: `https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/`
+Portal base URL pattern: `https://ms.portal.azure.com/#@<tenant-domain>/`
 
 ## Captures
 
@@ -216,17 +222,17 @@ Split into two captures because they live on different resources.
 - **Output**: `docs/assets/operations/monitoring/08-law-overview.png`
 - **Embed target**: `docs/operations/monitoring.md` — Step 1, replacing the
   "Capture pending" admonition.
-- **Route**: `law-acs-email-lab` → Overview blade. Direct URL:
-  `https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<subscription-id>/resourceGroups/rg-acs-email-lab/providers/Microsoft.OperationalInsights/workspaces/law-acs-email-lab/Overview`
+- **Route**: `law-acs-email-lab` → Overview blade. Direct URL pattern:
+  `https://ms.portal.azure.com/#@<tenant-domain>/resource/subscriptions/<subscription-id>/resourceGroups/rg-acs-email-lab/providers/Microsoft.OperationalInsights/workspaces/law-acs-email-lab/Overview`
 - **What to show**: Essentials section populated (Resource group, Region,
   Pricing tier `PerGB2018`, Retention `30 days`, Subscription, Daily cap),
   plus the inline Usage chart for the trailing 24 hours if there is data.
 - **Wait for**: The Essentials grid renders all six rows AND the Usage chart
   either renders or shows the "No data" placeholder (not a loading spinner).
-- **Status**: Blocked. The operator session `381bb3578ff14d358708e3eae8d4e5c7`
-  on 2026-06-26 hit "You don't have access" on this exact URL because the
-  PIM-eligible role had expired since the prior capture run. Re-activate
-  PIM on the subscription/RG and re-attempt; no Portal pivots expected.
+- **Status**: Blocked on 2026-06-26 with "You don't have access" on this
+  exact URL because the PIM-eligible role had expired since the prior
+  capture run. Re-activate PIM on the subscription/RG and re-attempt; no
+  Portal pivots expected.
 
 ### 9. ACS Diagnostic settings — Add form (BLOCKED — PIM)
 
@@ -250,9 +256,12 @@ Split into two captures because they live on different resources.
   that is deleted via CLI after the capture lands.
 - **Cleanup**:
   ```bash
+  SUBSCRIPTION_ID="<subscription-id>"
+  RG="rg-acs-email-lab"
+  ACS_NAME="acs-email-lab"
   az monitor diagnostic-settings delete \
     --name "acs-diag-capture-temp" \
-    --resource "/subscriptions/<subscription-id>/resourceGroups/rg-acs-email-lab/providers/Microsoft.Communication/communicationServices/acs-email-lab"
+    --resource "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.Communication/communicationServices/$ACS_NAME"
   ```
 - **Status**: Blocked. Same RBAC failure as #8.
 
@@ -329,14 +338,33 @@ can synthesize. No work needed today.
 
 ## Operating notes
 
+### Capture parameters
+
+These apply to **every** capture in this plan. They match the
+`azure-container-apps-practical-guide` `operations/` convention and the
+[Portal Capture Workflow](../AGENTS.md) defined in `AGENTS.md` (search for
+"Portal Capture Workflow"). Per-capture sections in this plan do not repeat
+these values; assume them globally.
+
+| Setting | Value | Source of truth |
+|---|---|---|
+| Viewport (CSS pixels) | `2560 × 1236` | `AGENTS.md` → Capture parameters table |
+| Device scale factor (DPR) | `2` (CDP `Emulation.setDeviceMetricsOverride`) | same |
+| Output PNG dimensions | `5120 × 2472` device pixels | same |
+| Minimum PNG file size | > 100 KB | `AGENTS.md` → Validation per capture |
+| Portal host | `ms.portal.azure.com` (not `portal.azure.com`) | same |
+| UI language | English | same |
+| Re-navigation | `browser_navigate` between every capture | same |
+| Helper snippet | `scripts/portal-capture-helpers.md` (idempotent) | same |
+
+### Process notes
+
 - Re-navigate (`browser_navigate`) between captures. Do not rely on left-nav
   state from the previous blade.
-- Use viewport **2560 × 1236 CSS pixels with `deviceScaleFactor: 2`** before
-  the first capture; do not resize mid-run. This produces a 5120 × 2472
-  device-pixel PNG that matches the `azure-container-apps-practical-guide`
-  `operations/` convention. For MCP captures, the helper snippet applies the
-  CDP `Emulation.setDeviceMetricsOverride` per call (idempotent), so simply
-  re-using the snippet in `portal-capture-helpers.md` is sufficient.
+- Set the viewport / DPR override **before the first capture** and do not
+  resize mid-run. The helper snippet applies the CDP
+  `Emulation.setDeviceMetricsOverride` per call (idempotent), so re-using
+  it after a fresh session is sufficient to re-establish the override.
 - Wait for blade-specific text (not just `networkidle`) to confirm render is
   complete before applying PII rewrites.
 - Apply the PII script every capture, even if the blade looks clean — text
@@ -344,6 +372,23 @@ can synthesize. No work needed today.
 - If a capture fails the avatar mask check, the helper throws. Re-trigger
   the page render rather than override `requireAvatarMask` unless the blade
   legitimately has no top bar.
+
+### Validation checklist (per capture)
+
+A capture is complete only when **all** of the following pass:
+
+- [ ] File exists at the documented `Output` path, size > 100 KB, dimensions
+      exactly `5120 × 2472`.
+- [ ] PII substitution script ran on every frame (main + iframes) and
+      reported ≥ 1 replacement. Zero replacements suggests the script did
+      not see the rendered text — re-run.
+- [ ] Avatar overlay applied (Portal-blue `#0078d4` rectangle over the
+      top-right avatar rect), or `requireAvatarMask: false` set explicitly
+      for blades without a top bar.
+- [ ] Visual review confirms no real subscription IDs, tenant hints, real
+      email addresses, real phone numbers, or connection strings remain.
+- [ ] The capture is embedded in at least one markdown page with
+      descriptive alt text.
 
 ## Resource cleanup
 

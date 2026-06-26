@@ -50,7 +50,13 @@ graph TD
 
 - An ACS resource that you can write diagnostic settings to. To create one with an Email channel, see [Email Service Provisioning](email-provisioning.md). To create a resource without email, see [Provisioning ACS Resources](provisioning.md).
 - Permissions to create and modify Log Analytics workspaces, diagnostic settings, alert rules, and action groups. The built-in **Monitoring Contributor** role is sufficient; **Reader** is not.
-- Azure CLI 2.50+ (the `monitor`, `monitor log-analytics`, `monitor diagnostic-settings`, `monitor scheduled-query`, and `monitor action-group` command groups are built into the base CLI), or equivalent Portal access.
+- Azure CLI 2.50+. The `monitor`, `monitor log-analytics`, `monitor diagnostic-settings`, and `monitor action-group` command groups are built into the base CLI. The `monitor scheduled-query` command group ships in the **`scheduled-query` extension** — install it once before running Step 4's CLI flow:
+
+    ```bash
+    az extension add --name scheduled-query
+    ```
+
+    If you skip this and run `az monitor scheduled-query create` directly, the CLI auto-installs the extension on first invocation, but it prints a one-time warning and prompts on some shells; installing it explicitly avoids that detour.
 - For alert receivers: SMTP email addresses, SMS-capable phone numbers, or webhook endpoints that you control.
 
 ## When to Use
@@ -167,22 +173,25 @@ The diagnostic setting is a *contract*, not an *acknowledgement*. Until ACS actu
 **Run the sanity-check query** in the LAW Logs blade:
 
 ```kusto
-// Confirm the diagnostic pipeline is wired up end to end
+// Confirm the diagnostic pipeline is wired up end to end.
+// Columns are the documented Email Send Mail schema; see Sources.
 ACSEmailSendMailOperational
 | where TimeGenerated > ago(15m)
-| project TimeGenerated, OperationName, ResultType, CorrelationId, SenderDomain
+| project TimeGenerated, OperationName, CorrelationID, Size, UniqueRecipientsCount, TrafficSource
 | order by TimeGenerated desc
 | take 10
 ```
 
+A row in `ACSEmailSendMailOperational` proves two things at once: the SDK reached the ACS Email API (the row would not exist otherwise), and the diagnostic setting routed the resulting log to your workspace (the row would not be queryable otherwise). The table does *not* expose a `ResultType`/success column — success vs failure of the *delivery* is tracked in the companion `ACSEmailStatusUpdateOperational` table via `DeliveryStatus`.
+
 | Result | What it means | Next action |
 |---|---|---|
-| One or more rows with `ResultType = Succeeded` | Diagnostic pipeline is wired up. Move to Step 4. | None — proceed |
+| One or more rows returned | Diagnostic pipeline is wired up. The send API was hit and the log routed correctly. Move to Step 4. | None — proceed |
 | Zero rows after 5 minutes, but new rows appear at 10–15 minutes | Slow ingestion. Acceptable on a new workspace. | None — proceed |
-| Zero rows after 15 minutes | Diagnostic setting is not wired up. Most common causes: wrong resource (Email Communication Service instead of ACS resource), wrong workspace, or `--logs` payload missing `enabled: true`. | Re-run Step 2 and re-check the setting in the Portal. |
-| Rows present but `ResultType = Failed` | Send pipeline is failing before delivery. Skip to the [Email Delivery Checklist](../troubleshooting/first-10-minutes/email-delivery.md). | Triage the failure first; revisit alerting after |
+| Zero rows after 15 minutes, send code returned 202 Accepted | Diagnostic setting is not wired up. Most common causes: setting placed on the Email Communication Service resource instead of the ACS resource, wrong workspace, or `--logs` payload missing `enabled: true`. | Re-run Step 2 and re-check the setting in the Portal. |
+| Zero rows after 15 minutes, send code did **not** return 202 | The SendMail request never reached ACS. | Triage the client/auth/network first; the diagnostic pipeline is not at fault. |
 
-The status-update table arrives a few seconds *after* the send-mail table (it tracks the asynchronous post-send lifecycle), so use `ACSEmailSendMailOperational` for the initial sanity check — it confirms the API hit ACS — and `ACSEmailStatusUpdateOperational` for delivery state.
+To check actual delivery success (the lifecycle that runs *after* the API call), query `ACSEmailStatusUpdateOperational` with a `where isnotempty(RecipientId)` filter so you only see per-recipient terminal states (`Delivered`, `Failed`, `Bounced`, etc.) rather than the message-level intermediate states (`Queued`, `OutForDelivery`).
 
 ### Step 4. Create an alert rule
 
@@ -213,22 +222,28 @@ Alerts turn "data exists" into "the on-call gets paged when something is wrong".
 **The KQL the alert evaluates:**
 
 ```kusto
-// Fires when bounce rate exceeds 5% over a 5-minute window with at least 20 attempts
+// Fires when bounce rate exceeds 5% over a 5-minute window with at least 20 recipient-level
+// delivery events. Filters to recipient-level rows only (message-level rows from
+// ACSEmailStatusUpdateOperational have an empty RecipientId and no terminal bounce state).
+// IsHardBounce is a boolean per the documented schema, not a string.
 ACSEmailStatusUpdateOperational
 | where TimeGenerated > ago(5m)
+| where isnotempty(RecipientId)
 | summarize
     Total = count(),
-    Bounced = countif(DeliveryStatus == "Bounced" or IsHardBounce == "True")
+    Bounced = countif(DeliveryStatus == "Bounced" or IsHardBounce == true)
 | extend BounceRate = todouble(Bounced) / todouble(Total)
 | where Total >= 20 and BounceRate > 0.05
 ```
 
-The `Total >= 20` floor prevents the alert from firing on tiny send volumes where a single bounce produces a misleading rate (1 bounce out of 3 sends is 33% but is not actionable signal).
+The `Total >= 20` floor prevents the alert from firing on tiny send volumes where a single bounce produces a misleading rate (1 bounce out of 3 sends is 33% but is not actionable signal). The `isnotempty(RecipientId)` filter is **required** — `ACSEmailStatusUpdateOperational` mixes message-level events (which have a blank `RecipientId` and use `DeliveryStatus` values like `Queued`/`OutForDelivery`) with recipient-level events (which carry the `Bounced`/`Delivered`/`Failed` terminal states). Without the filter, the denominator double-counts and the bounce rate is artificially low.
 
 **CLI equivalent (using a scheduled query rule):**
 
+The `az monitor scheduled-query create --condition` argument uses placeholder syntax — you pass `count 'NAME' > 0` in `--condition`, and the actual KQL in `--condition-query NAME='...'`. The KQL itself already enforces the threshold (`where Total >= 20 and BounceRate > 0.05`), so the alert fires whenever the query returns *any* row.
+
 ```bash
-# Continue with the variables from Steps 1-2
+# Continue with the variables from Steps 1-2 and run `az extension add --name scheduled-query` once first.
 WORKSPACE_ID=$(az monitor log-analytics workspace show \
   --resource-group "$RG" \
   --workspace-name "$LAW" \
@@ -238,7 +253,8 @@ az monitor scheduled-query create \
   --name "acs-email-bounce-rate-high" \
   --resource-group "$RG" \
   --scopes "$WORKSPACE_ID" \
-  --condition "count 'ACSEmailStatusUpdateOperational | where TimeGenerated > ago(5m) | summarize Total=count(), Bounced=countif(DeliveryStatus == \"Bounced\" or IsHardBounce == \"True\") | extend BounceRate = todouble(Bounced)/todouble(Total) | where Total >= 20 and BounceRate > 0.05' > 0" \
+  --condition "count 'BounceAlert' > 0" \
+  --condition-query BounceAlert='ACSEmailStatusUpdateOperational | where TimeGenerated > ago(5m) | where isnotempty(RecipientId) | summarize Total=count(), Bounced=countif(DeliveryStatus == "Bounced" or IsHardBounce == true) | extend BounceRate = todouble(Bounced)/todouble(Total) | where Total >= 20 and BounceRate > 0.05' \
   --description "ACS email bounce rate exceeded 5% over 5 minutes (min 20 sends)" \
   --evaluation-frequency 5m \
   --window-size 5m \
@@ -286,11 +302,13 @@ Action groups are the reusable receiver of notifications. The same action group 
 AG_NAME="ag-acs-oncall"
 EMAIL_ADDR="acs-oncall@example.com"
 
+# `usecommonalertschema` is a single token (no hyphens) — it's the literal
+# trailing flag the --action argument accepts after the email address.
 az monitor action-group create \
   --name "$AG_NAME" \
   --resource-group "$RG" \
   --short-name "ACSOnCall" \
-  --action email oncall-email "$EMAIL_ADDR" use-common-alert-schema
+  --action email oncall-email "$EMAIL_ADDR" usecommonalertschema
 ```
 
 **Attach the action group to the alert rule** (created in Step 4):
@@ -309,7 +327,55 @@ az monitor scheduled-query update \
 
 After this, fire a test by manually triggering a high bounce condition (e.g., send 25 emails to a known-bad address) and confirm the notification arrives within ~5–7 minutes of the burst.
 
-## Viewing Email Metrics in Azure Monitor
+## Verification
+
+A monitoring setup is complete when all of the following are true:
+
+- [ ] LAW workspace exists in the same region/RG as the ACS resource and is reachable from the Portal.
+- [ ] Diagnostic setting on the ACS resource routes `allLogs` + `AllMetrics` to that workspace.
+- [ ] A test email send produces rows in `ACSEmailSendMailOperational` within ~5 minutes ([Step 3](#step-3-verify-logs-are-flowing)).
+- [ ] At least one alert rule is attached to an action group, and a manual trigger confirms the notification path works end to end.
+- [ ] The on-call rotation knows the alert rule exists, the threshold rationale, and the runbook to follow when it fires.
+
+## Rollback / Troubleshooting
+
+If the setup stops working, take down the *least* amount of infrastructure that proves the failure mode, then re-add layer by layer.
+
+| Symptom | Likely cause | Recovery |
+|---|---|---|
+| LAW Logs blade returns zero rows for every ACS table | Diagnostic setting was deleted, moved to the wrong resource, or routes to the wrong workspace | Re-run Step 2. Verify the `--resource` ARM ID points at `Microsoft.Communication/communicationServices/<name>`, not at the Email Communication Service. |
+| KQL returns rows but `DeliveryStatus` is always blank | Query targeted message-level events only | Add `where isnotempty(RecipientId)` to filter to recipient-level rows that carry terminal states |
+| Alert rule fires constantly with `Total = 1, Bounced = 1` | The `Total >= 20` floor is missing from the deployed query | Re-deploy via `az monitor scheduled-query update --condition-query BounceAlert='<full KQL>'`; the floor must live inside the KQL, not in the alert threshold |
+| Alert rule never fires during a real bounce storm | The KQL filter is too narrow (e.g., `IsHardBounce == "true"` as a string against a boolean column) | Compare the deployed `--condition-query` against the canonical KQL in [Step 4](#step-4-create-an-alert-rule) — `IsHardBounce` is a boolean, not a string |
+| Action group notification never arrives | Receiver type / address typo, or `usecommonalertschema` was passed as a separate flag instead of a trailing token of `--action` | Run `az monitor action-group show -n $AG_NAME -g $RG --query 'emailReceivers' -o jsonc` and compare against the example in [Step 5](#step-5-create-an-action-group) |
+| `az monitor scheduled-query create` errors with "command not found" / "extension not installed" | The `scheduled-query` extension is not installed | Run `az extension add --name scheduled-query` (covered in [Prerequisites](#prerequisites)) and retry |
+
+To **roll back** the monitoring setup entirely (e.g., during a cost audit):
+
+```bash
+# Remove alert rule first (depends on action group)
+az monitor scheduled-query delete --name "acs-email-bounce-rate-high" --resource-group "$RG"
+
+# Then the action group
+az monitor action-group delete --name "ag-acs-oncall" --resource-group "$RG"
+
+# Then the diagnostic setting (logs stop flowing; existing log data remains until LAW retention expires)
+az monitor diagnostic-settings delete \
+  --name "acs-diag-all" \
+  --resource "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.Communication/communicationServices/$ACS_NAME"
+
+# Finally the LAW workspace. By default this is a soft-delete: the workspace
+# name is held for 14 days and can be recovered with
+# `az monitor log-analytics workspace recover` during that window. Add --force
+# to skip soft-delete and release the name immediately.
+az monitor log-analytics workspace delete --resource-group "$RG" --workspace-name "$LAW" --yes
+```
+
+Order matters: deleting the LAW first while the diagnostic setting is still pointing at it leaves an orphan setting that errors silently and is easy to forget.
+
+## Advanced Topics
+
+### Viewing Email Metrics in Azure Monitor
 
 Logs answer "what happened to each message"; metrics answer "how much volume and how often". Both flow from the same diagnostic setting above, but metrics appear in the Portal's **Monitoring → Metrics** blade with no KQL required.
 
@@ -336,7 +402,9 @@ The capture above shows a 24-request spike at the right edge of the chart — th
 !!! tip "Pin metric charts to a dashboard"
     Once a chart configuration is useful, click **Save to dashboard** to pin it to a shared Azure Dashboard. SRE on-call runbooks typically pin `Email Service API Requests`, `Email Service Delivery Status Updates`, and the `EmailDeliveryRate` percentage side-by-side so a single glance shows volume, lifecycle, and success rate together.
 
-## Key Metrics for ACS
+### Key Metrics Across ACS Channels
+
+The Procedure above focuses on Email because that is this guide's scope. For completeness, ACS surfaces the following channel-level metrics on the same Monitoring → Metrics blade. Use these as starting points when monitoring scope expands beyond Email.
 
 | Metric | Category | Description |
 | --- | --- | --- |
@@ -345,68 +413,30 @@ The capture above shows a 24-request spike at the right edge of the chart — th
 | `ChatLatency` | Chat | End-to-end latency for chat message delivery. |
 | `CallQuality` | Calling | Mean Opinion Score (MOS) and network jitter. |
 
-## Diagnostic Settings Reference
+### Diagnostic Settings Categories Beyond Email
 
-To capture granular data, enable the following categories in Diagnostic settings — `categoryGroup: allLogs` (recommended in [Step 2](#step-2-add-a-diagnostic-setting-on-the-acs-resource)) opts you into all of them in one click:
+The diagnostic setting created in [Step 2](#step-2-add-a-diagnostic-setting-on-the-acs-resource) uses `categoryGroup: allLogs`, which opts the resource into every current and future ACS log category. The categories surface in the Portal grouped by channel — Email is what this guide validates end-to-end, but the same setting also captures:
 
 - **SMS logs**: Detailed delivery and status information.
-- **Email logs**: Delivery, bounce, and spam report tracking (3 categories — see the table in Step 2).
+- **Email logs**: Delivery, bounce, and spam report tracking (3 categories — see the table in [Step 2](#step-2-add-a-diagnostic-setting-on-the-acs-resource)).
 - **Chat logs**: Message events and participant updates.
 - **Calling logs**: Call summary and call diagnostic details.
 
-## Verification
-
-A monitoring setup is complete when all of the following are true:
-
-- [ ] LAW workspace exists in the same region/RG as the ACS resource and is reachable from the Portal.
-- [ ] Diagnostic setting on the ACS resource routes `allLogs` + `AllMetrics` to that workspace.
-- [ ] A test email send produces rows in `ACSEmailSendMailOperational` within ~5 minutes ([Step 3](#step-3-verify-logs-are-flowing)).
-- [ ] At least one alert rule is attached to an action group, and a manual trigger confirms the notification path works end to end.
-- [ ] The on-call rotation knows the alert rule exists, the threshold rationale, and the runbook to follow when it fires.
-
-## Verified Setup (June 2026)
-
-!!! success "Verified: Real Diagnostic Setup"
-    This configuration was tested with actual ACS resources on April 14, 2026 and re-verified on June 26, 2026 against the same `rg-acs-email-lab` deployment. Logs appeared in Log Analytics within 5 minutes of email transmission on both runs. The Portal capture in [Step 2](#step-2-add-a-diagnostic-setting-on-the-acs-resource) was taken on June 26, 2026, confirming the layout remains current.
-
-The CLI commands shown in the [Log Analytics Workspace Setup](#step-1-create-the-log-analytics-workspace) and [diagnostic settings](#step-2-add-a-diagnostic-setting-on-the-acs-resource) steps above were used to provision the test environment.
-
-**Actual log table discovered: `ACSEmailStatusUpdateOperational`**
-
-Schema:
-
-| Column | Type | Description |
-|---|---|---|
-| TimeGenerated | datetime | Event timestamp |
-| CorrelationId | string | Maps to SDK message ID |
-| DeliveryStatus | string | "", "OutForDelivery", "Delivered", "Bounced", etc. |
-| SmtpStatusCode | string | SMTP response code |
-| EnhancedSmtpStatusCode | string | Extended SMTP code |
-| SenderDomain | string | Verified sender domain |
-| SenderUsername | string | Sender username (e.g., DoNotReply) |
-| RecipientMailServerHostName | string | Target mail server |
-| IsHardBounce | string | "True"/"False" |
-| FailureReason | string | Error category |
-| FailureMessage | string | Detailed error message |
-
-**Verified monitoring results:**
-
-- Log ingestion delay: < 5 minutes from email send to Log Analytics availability
-- Retention: 30 days (default PerGB2018 tier)
-- All 9 test emails appeared in logs with full lifecycle tracking
-- Each email generates 3-4 log events (status transitions: "" → "OutForDelivery" → "Delivered")
+See the per-channel troubleshooting playbooks (linked under [See Also](#see-also)) for KQL examples that exercise these other tables.
 
 ## See Also
 
 - [Email Service Provisioning](email-provisioning.md) — provisions the ACS resource and Email Service that this page monitors
 - [Email Delivery Checklist (First 10 Minutes)](../troubleshooting/first-10-minutes/email-delivery.md) — quick KQL checks for the tables above
 - [Email Delivery Failures Playbook](../troubleshooting/playbooks/email/delivery-failures.md) — uses the alert rule from Step 4 as a starting signal
-- [Monitoring ACS using Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
-- [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/monitor/essentials/diagnostic-settings)
 
 ## Sources
 
+- [Monitoring ACS using Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
 - [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
-- [ACS Email Logs Reference](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs)
+- [ACS Email Logs Reference](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) — authoritative schema for `ACSEmailSendMailOperational`, `ACSEmailStatusUpdateOperational`, and `ACSEmailUserEngagementOperational`
+- [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/monitor/essentials/diagnostic-settings)
 - [Create an Azure Monitor alert rule](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule)
 - [Action groups](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups)
+- [`az monitor scheduled-query` reference](https://learn.microsoft.com/cli/azure/monitor/scheduled-query) (requires the `scheduled-query` extension)
+- [`az monitor action-group` reference](https://learn.microsoft.com/cli/azure/monitor/action-group)
