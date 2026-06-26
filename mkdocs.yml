@@ -202,6 +202,7 @@ nav:
   - Operations:
     - operations/index.md
     - operations/provisioning.md
+    - operations/email-provisioning.md
     - operations/monitoring.md
     - operations/security.md
     - operations/cost-optimization.md

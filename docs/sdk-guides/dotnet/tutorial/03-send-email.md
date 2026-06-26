@@ -19,6 +19,8 @@ This step covers sending transactional emails using the `EmailClient`.
 - An Azure Email Communication Services resource linked to your ACS resource.
 - A verified domain and a "From" email address.
 
+For the full Portal walkthrough that creates these resources (with screenshots of every step including the link-domain-to-ACS blade), see [Email Service Provisioning](../../../operations/email-provisioning.md).
+
 ## 1. Add Email NuGet Package
 
 ```bash

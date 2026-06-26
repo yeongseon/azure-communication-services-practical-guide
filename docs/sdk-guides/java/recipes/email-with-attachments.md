@@ -106,6 +106,7 @@ If you need to attach generated content, write it to disk or bytes first, then w
 
 ## See Also
 
+- [Email Service Provisioning](../../../operations/email-provisioning.md) — required setup before any sender address will accept your messages
 - [Java email quickstart](../index.md)
 - [Managed Identity for Java](./managed-identity.md)
 

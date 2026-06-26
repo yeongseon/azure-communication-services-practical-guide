@@ -12,7 +12,7 @@ This step demonstrates how to use the Azure Communication Services (ACS) JavaScr
 ## 1. Prerequisites
 
 - Complete the [Local Setup](./01-local-setup.md).
-- Have a verified domain in your ACS resource.
+- Have a verified domain linked to your ACS resource. See [Email Service Provisioning](../../../operations/email-provisioning.md) for the end-to-end Portal walkthrough (create Email Service → provision domain → link to ACS → configure MailFrom).
 
 ## 2. EmailClient Setup
 

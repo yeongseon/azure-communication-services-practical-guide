@@ -105,6 +105,7 @@ Common content types include:
 - Consider compression for large documents.
 
 ## See Also
+- [Email Service Provisioning](../../../operations/email-provisioning.md) — required setup before any sender address (including those with custom MailFrom) will accept your messages
 - [ACS Email Concepts](https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment)
 - [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
 

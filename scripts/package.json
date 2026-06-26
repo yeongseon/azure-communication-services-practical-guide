@@ -1,0 +1,13 @@
+{
+  "name": "acs-practical-guide-scripts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tooling for the Azure Communication Services Practical Guide - Playwright-based Portal screenshot capture with PII masking.",
+  "scripts": {
+    "capture:portal": "node capture-portal.js",
+    "install:browsers": "playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.45.0"
+  }
+}

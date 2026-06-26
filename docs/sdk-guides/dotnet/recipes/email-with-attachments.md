@@ -106,6 +106,7 @@ await client.SendAsync(WaitUntil.Completed, message);
 
 ## See Also
 
+- [Email Service Provisioning](../../../operations/email-provisioning.md) — required setup before any sender address will accept your messages
 - [Email quickstart](../index.md)
 - [Email with attachments (Java)](../../java/recipes/email-with-attachments.md)
 

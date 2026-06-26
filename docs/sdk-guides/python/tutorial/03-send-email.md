@@ -12,7 +12,11 @@ This step demonstrates how to use the Azure Communication Services (ACS) Python 
 ## 1. Prerequisites
 
 - Complete the [Local Setup](./01-local-setup.md).
-- Have a verified domain in your ACS resource.
+- Have a verified domain in your ACS resource. The fastest path is an `AzureManagedDomain`; see [Email Service Provisioning](../../../operations/email-provisioning.md) for the full Portal walkthrough with screenshots.
+
+After provisioning, your Email Communication Service Overview should look like this — Essentials populated and a domain attached:
+
+![Email Communication Service Overview blade after creation, with Essentials populated and the two "Add your email domains" call-to-action cards](../../../assets/operations/email-provisioning/01-create-email-service.png){ loading=lazy }
 
 ## 2. EmailClient Setup
 
