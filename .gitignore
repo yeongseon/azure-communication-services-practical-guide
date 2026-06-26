@@ -47,3 +47,7 @@ Thumbs.db
 .env
 .env.local
 *.pem
+
+# Agent/tooling local state
+.playwright-mcp/
+.sisyphus/
