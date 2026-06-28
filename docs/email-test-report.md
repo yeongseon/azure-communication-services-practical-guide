@@ -46,8 +46,8 @@ az monitor diagnostic-settings create \
 ```
 
 ## 3. Domain Verification
-- **Domain**: `fc135b5e-3353-4c89-9edb-55b53b59215f.azurecomm.net`
-- **Sender address**: `DoNotReply@fc135b5e-3353-4c89-9edb-55b53b59215f.azurecomm.net`
+- **Domain**: `<azure-managed-domain>.azurecomm.net`
+- **Sender address**: `DoNotReply@<azure-managed-domain>.azurecomm.net`
 
 !!! success "Azure Managed Domain"
     All verification records (SPF, DKIM, DKIM2, DMARC, Domain) were auto-completed by Azure.
@@ -74,7 +74,7 @@ message = {
     "recipients": {
         "to": [{"address": "recipient@example.com"}]
     },
-    "senderAddress": "DoNotReply@fc135b5e-3353-4c89-9edb-55b53b59215f.azurecomm.net"
+    "senderAddress": "DoNotReply@<azure-managed-domain>.azurecomm.net"
 }
 ```
 
@@ -130,11 +130,13 @@ The `ACSEmailStatusUpdateOperational` table was used to track delivery status.
 
 | Column | Type | Description |
 |---|---|---|
-| CorrelationId | string | Maps to SDK message ID |
-| DeliveryStatus | string | Status progression |
-| RecipientMailServerHostName | string | Target mail server |
-| SenderDomain | string | Verified sender domain |
-| IsHardBounce | string | Bounce classification |
+| CorrelationID | string | Maps to the SDK message ID; used to correlate `ACSEmailSendMailOperational` and `ACSEmailStatusUpdateOperational` events. |
+| RecipientId | string | Per-recipient email address. Empty on message-level rows (e.g., `Dropped`, `OutForDelivery`) and populated on recipient-level rows (e.g., `Delivered`, `Bounced`). |
+| DeliveryStatus | string | Status progression (`Delivered`, `Bounced`, `Failed`, `OutForDelivery`, etc.). |
+| SenderDomain | string | Verified sender domain (part after `@` in the sender address). |
+| SmtpStatusCode | string | SMTP status code returned by the recipient mail server. |
+| EnhancedSmtpStatusCode | string | Enhanced SMTP status code for finer-grained diagnostics. |
+| IsHardBounce | bool | Boolean flag (`true`/`false`); populated for `Bounced` status only. |
 
 !!! info "Observation"
     All 9 test emails reached `Delivered` status. Each email generated 3-4 log events tracking status transitions from submission to final delivery.
@@ -154,7 +156,7 @@ ACSEmailStatusUpdateOperational
 **Query 2 - Per-Message Lifecycle**
 ```kusto
 ACSEmailStatusUpdateOperational
-| summarize StatusChanges = count(), FirstEvent = min(TimeGenerated), LastEvent = max(TimeGenerated) by CorrelationId
+| summarize StatusChanges = count(), FirstEvent = min(TimeGenerated), LastEvent = max(TimeGenerated) by CorrelationID
 | extend DurationSec = datetime_diff("second", LastEvent, FirstEvent)
 | sort by FirstEvent asc
 ```
@@ -164,10 +166,11 @@ ACSEmailStatusUpdateOperational
 ```kusto
 ACSEmailStatusUpdateOperational
 | where DeliveryStatus == "Delivered"
-| project TimeGenerated, CorrelationId, RecipientMailServerHostName, SenderDomain, SenderUsername
+| where isnotempty(RecipientId)
+| project TimeGenerated, CorrelationID, RecipientId, SenderDomain, SenderUsername
 | sort by TimeGenerated asc
 ```
-*Result: All 9 delivered to gmail-smtp-in.l.google.com*
+*Result: All 9 recipient-level `Delivered` rows recorded; `RecipientId` `@`-suffix confirms gmail.com recipients.*
 
 ## 7. Key Findings
 - **Zero Configuration**: Azure Managed Domain required no manual DNS configuration.

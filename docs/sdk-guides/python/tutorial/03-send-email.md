@@ -167,9 +167,9 @@ if __name__ == "__main__":
 ### Test Environment
 - **ACS Resource**: `acs-email-lab` (Korea data location)
 - **Email Service**: `ecs-email-lab`
-- **Domain**: `fc135b5e-3353-4c89-9edb-55b53b59215f.azurecomm.net` (Azure Managed, all verifications passed)
-- **Sender**: `DoNotReply@fc135b5e-3353-4c89-9edb-55b53b59215f.azurecomm.net`
-- **Recipient**: Gmail (`gmail-smtp-in.l.google.com`)
+- **Domain**: `<azure-managed-domain>.azurecomm.net` (Azure Managed, all verifications passed)
+- **Sender**: `DoNotReply@<azure-managed-domain>.azurecomm.net`
+- **Recipient**: Gmail recipient (domain inferred from `RecipientId` `@`-suffix as `gmail.com`)
 - **Python SDK**: `azure-communication-email==1.1.0`
 
 ### Test Results (2026-04-14 11:20 KST)
@@ -185,8 +185,8 @@ if __name__ == "__main__":
 ### Delivery Confirmation (Log Analytics)
 The following insights were verified via Azure Monitor Log Analytics:
 
-- All 9 emails reached `Delivered` status.
-- The recipient mail server `gmail-smtp-in.l.google.com` accepted all messages without bounces or failures.
+- All 9 emails reached `Delivered` status (recipient-level rows where `isnotempty(RecipientId)` and `DeliveryStatus == "Delivered"`).
+- All recipient addresses ended in `@gmail.com`, derived from the `RecipientId` `@`-suffix (the ACS Email schema does not expose the destination mail-server hostname directly).
 - The average message lifecycle (from submission to `OutForDelivery`) was measured between 3 and 6 seconds per message.
 
 ## See Also

@@ -73,11 +73,12 @@ az communication show \
 Run this in Log Analytics to see recent email delivery lifecycle events. Use `ACSEmailStatusUpdateOperational` — this is the actual table name (confirmed on real deployments); older docs may reference `ACSEmailDeliveryReportEvents`.
 
 ```kusto
-// Recent non-delivered emails (last 1 hour)
+// Recent non-delivered emails (last 1 hour) — recipient-level rows only
 ACSEmailStatusUpdateOperational
 | where TimeGenerated > ago(1h)
+| where isnotempty(RecipientId)
 | where DeliveryStatus !in ("Delivered", "OutForDelivery")
-| project TimeGenerated, CorrelationId, DeliveryStatus, SmtpStatusCode, FailureReason, RecipientMailServerHostName
+| project TimeGenerated, CorrelationID, RecipientId, DeliveryStatus, SmtpStatusCode, EnhancedSmtpStatusCode
 | order by TimeGenerated desc
 ```
 
@@ -96,13 +97,16 @@ When the diagnostic pipeline is healthy, the breakdown query above returns one r
 If your breakdown shows only blank or only `OutForDelivery` rows (no `Delivered`), the recipient mail server is not yet ACK'ing — wait 5-10 minutes and re-run. If it shows `Bounced` or `Failed` rows, drill in with the bounce-detail query below.
 
 ```kusto
-// Bounce detail for a specific recipient mail server
+// Hard-bounce detail — recipient-level rows where IsHardBounce is true
 ACSEmailStatusUpdateOperational
 | where TimeGenerated > ago(24h)
-| where IsHardBounce == "True"
-| project TimeGenerated, RecipientMailServerHostName, SmtpStatusCode, FailureMessage
+| where isnotempty(RecipientId)
+| where IsHardBounce == true
+| project TimeGenerated, RecipientId, SmtpStatusCode, EnhancedSmtpStatusCode, SenderDomain
 | order by TimeGenerated desc
 ```
+
+`IsHardBounce` is a boolean per the [documented schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) — compare against `true`, not the string `"True"`. The recipient mail server is not exposed as a column; if you need to group bounces by destination provider, derive it from the `RecipientId` suffix (for example, `extend RecipientDomain = tostring(split(RecipientId, "@")[1])`).
 
 ## Immediate Triage Questions
 
