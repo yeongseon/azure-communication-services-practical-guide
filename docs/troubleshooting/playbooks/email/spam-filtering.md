@@ -20,7 +20,7 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Check for `Reason` codes in Log Analytics mentioning `Spam` or `Junk`.
+Filter `ACSEmailStatusUpdateOperational` for `DeliveryStatus in ("FilteredSpam", "Quarantined")` on recipient-level rows (`isnotempty(RecipientId)`) and inspect `EnhancedSmtpStatusCode` for the provider's reason. See the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) for documented status values.
 
 ### 2. External Tools
 Use `mxtoolbox.com` to check if your domain or IP is on any major blocklists.

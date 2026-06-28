@@ -21,10 +21,10 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Check the `ACSEmailDeliveryReportEvents` table in Log Analytics.
+Query the `ACSEmailStatusUpdateOperational` table in Log Analytics. Filter for recipient-level rows (`isnotempty(RecipientId)`) and inspect `DeliveryStatus`, `SmtpStatusCode`, and `EnhancedSmtpStatusCode`. See the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) for the full column list.
 
 ### 2. Monitor Metrics
-Review `EmailMessagesSent` vs `EmailMessagesDelivered` metrics.
+Review the `Email Service API Requests` and `Email Service Delivery Status Updates` metrics on the ACS resource. See [Monitoring → Email metrics](../../../operations/monitoring.md) for the canonical metric names and how to chart them.
 
 ### 3. SMTP Status Codes
 Look for bounce messages containing standard SMTP status codes (e.g., `550`, `554`).
@@ -38,7 +38,7 @@ Confirm the domain status is `Verified` in the ACS resource. If it's `Pending`, 
 Use a third-party tool (e.g., Mail-Tester) to send a test email and verify that authentication headers are correct and pass verification.
 
 ### [Inferred] Review Spam Logs
-Identify if the `StatusDetails` field in `ACSEmailDeliveryReportEvents` mentions `Spam` or `Filter`.
+Filter `ACSEmailStatusUpdateOperational` for `DeliveryStatus in ("FilteredSpam", "Quarantined")` on recipient-level rows. Inspect `EnhancedSmtpStatusCode` for the carrier's reason code.
 
 ## Mitigation
 

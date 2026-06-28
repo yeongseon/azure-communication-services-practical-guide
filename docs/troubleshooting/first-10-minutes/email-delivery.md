@@ -70,7 +70,7 @@ az communication show \
 
 ## Key KQL Queries
 
-Run this in Log Analytics to see recent email delivery lifecycle events. Use `ACSEmailStatusUpdateOperational` — this is the actual table name (confirmed on real deployments); older docs may reference `ACSEmailDeliveryReportEvents`.
+Run this in Log Analytics to see recent email delivery lifecycle events. The canonical table is `ACSEmailStatusUpdateOperational` per the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs).
 
 ```kusto
 // Recent non-delivered emails (last 1 hour) — recipient-level rows only
