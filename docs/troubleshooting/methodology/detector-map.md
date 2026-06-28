@@ -29,7 +29,7 @@ graph TD
 ### 1. Azure Monitor Metrics
 Metrics provide a high-level view of service health, error rates, and throughput.
 
-* **SmsMessagesSent / SmsMessagesDelivered**: Track SMS delivery success rates.
+* **SMS API Requests**: Tracks SMS API call volume per operation. Split by the `Operation` dimension (`SMSMessageSent`, `SMSDeliveryReportsReceived`, `SMSMessagesReceived`) and filter by `Status Code` (for example `200`, `400`, `429`) or `StatusSubClass` (`2xx`, `4xx`, `5xx`) to monitor delivery success and throttling.
 * **Email Service API Requests / Email Service Delivery Status Updates**: Track email send-side and lifecycle metrics. See [Monitoring → Email metrics](../../operations/monitoring.md) for the canonical metric names.
 * **CallMediaStreamQuality**: Monitor latency, jitter, and packet loss for calls.
 * **ChatMessageReceived / ChatMessageSent**: Track chat message volume and error rates.
@@ -39,7 +39,7 @@ Log Analytics provides transaction-level details, error codes, and request/respo
 
 | Table Name | Description |
 | --- | --- |
-| `ACSSMSDeliveryReportEvents` | Detailed SMS delivery status reports. |
+| `ACSSMSIncomingOperations` | All SMS API operations (sends, delivery reports, inbound receives). Discriminate event types via `OperationName` (`SMSMessagesSent`, `SMSDeliveryReportsReceived`, `SMSMessagesReceived`). |
 | `ACSEmailSendMailOperational` | One row per `SendEmail` API call (send-side metadata: correlation ID, recipient counts, size). |
 | `ACSEmailStatusUpdateOperational` | Per-recipient delivery lifecycle transitions (`DeliveryStatus`, `SmtpStatusCode`, `IsHardBounce`). |
 | `ACSEmailUserEngagementOperational` | Recipient open/click engagement events when tracking is enabled. |

@@ -20,7 +20,7 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Azure Monitor Metrics
-Check for `ThrottledCount` in the `SmsMessagesSent` metric.
+Split the `SMS API Requests` metric by the `Operation` dimension (filter to `SMSMessageSent`) and filter by `Status Code` (`429`) to isolate throttled send requests. Per-row evidence lives in Log Analytics: `ACSSMSIncomingOperations | where OperationName == "SMSMessagesSent" and ResultSignature == 429`.
 
 ### 2. App Logs
 Look for `429 Too Many Requests` in your application logs or HTTP traces.
@@ -35,7 +35,7 @@ az communication sms number list --connection-string "<cs>"
 ## Validation
 
 ### [Measured] Monitor Throughput
-Count the number of `SmsMessagesSent` over a 1-second interval. If the count exceeds the number's MPS limit (e.g., 1 MPS for a standard toll-free number), the service will throttle.
+Count rows in `ACSSMSIncomingOperations` where `OperationName == "SMSMessagesSent"` over a 1-second bin per `PhoneNumber`. If the count exceeds the number's MPS limit (for example 1 MPS for a standard toll-free number), the service will throttle and you will see `ResultSignature == 429` on the affected rows.
 
 ### [Observed] Track Burst Traffic
 Identify if the `429` errors occur only during high-volume events (e.g., promotional campaigns or mass notifications).

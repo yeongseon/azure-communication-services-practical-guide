@@ -21,10 +21,10 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Check the `ACSSMSDeliveryReportEvents` table in Log Analytics.
+Query the `ACSSMSIncomingOperations` table in Log Analytics, filtering for `OperationName == "SMSDeliveryReportsReceived"` and inspecting `ResultType`, `ResultSignature`, and `ResultDescription` per row.
 
 ### 2. Monitor Metrics
-Review the `SmsMessagesSent` vs `SmsMessagesDelivered` metrics in Azure Monitor.
+Review the `SMS API Requests` metric in Azure Monitor and split by the `Operation` dimension (`SMSMessageSent` vs `SMSDeliveryReportsReceived`) to compare send volume against delivery report volume. Filter by the `Status Code` dimension (for example `200`, `400`, `429`) or `StatusSubClass` (`2xx`, `4xx`, `5xx`) to separate successful from failed API calls.
 
 ### 3. CLI Check
 Use the CLI to get the status of a specific message ID.

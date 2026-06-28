@@ -12,7 +12,7 @@ This guide maps failure types to the specific metrics, logs, and configurations 
 
 | Failure Type | Metrics | Log Analytics Tables | Event Grid Events |
 | --- | --- | --- | --- |
-| **SMS Delivery** | `SmsMessagesSent`, `SmsMessagesDelivered` | `ACSIncomingSMSEvents`, `ACSSMSDeliveryReportEvents` | `Microsoft.Communication.SMSReceived`, `Microsoft.Communication.SMSDeliveryReportReceived` |
+| **SMS Delivery** | `SMS API Requests` | `ACSSMSIncomingOperations` | `Microsoft.Communication.SMSReceived`, `Microsoft.Communication.SMSDeliveryReportReceived` |
 | **Email Delivery** | `Email Service API Requests`, `Email Service Delivery Status Updates`, `Email Service User Engagement` | `ACSEmailSendMailOperational`, `ACSEmailStatusUpdateOperational`, `ACSEmailUserEngagementOperational` | `Microsoft.Communication.EmailDeliveryReportReceived` |
 | **Chat Latency** | `ChatMessageReceived`, `ChatMessageSent` | `ACSChatMessageReceivedEvents`, `ACSChatMessageSentEvents` | `Microsoft.Communication.ChatMessageReceived` |
 | **Call Quality** | `CallMediaStreamQuality`, `CallMediaSetup` | `ACSCallSummaryEvents`, `ACSCallDiagnosticsEvents` | `Microsoft.Communication.CallStarted`, `Microsoft.Communication.CallEnded` |

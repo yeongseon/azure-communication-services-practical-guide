@@ -32,10 +32,11 @@ az communication sms get-delivery-report --message-id "<message_id>" --connectio
 Run this in Log Analytics to see recent delivery failures and their reasons:
 
 ```kusto
-ACSSMSDeliveryReportEvents
+ACSSMSIncomingOperations
 | where TimeGenerated > ago(1h)
-| where DeliveryStatus == "Failed"
-| summarize Count=count() by DeliveryStatusDetails, To
+| where OperationName == "SMSDeliveryReportsReceived"
+| where ResultType == "Failed"
+| summarize Count = count() by ResultDescription, ResultSignature, PhoneNumber
 | order by Count desc
 ```
 

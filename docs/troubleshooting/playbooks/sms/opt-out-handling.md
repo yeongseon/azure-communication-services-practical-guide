@@ -20,7 +20,7 @@ content_sources:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Look for `DeliveryStatusDetails` in `ACSSMSDeliveryReportEvents` indicating opt-out or blocked.
+Filter `ACSSMSIncomingOperations` for `OperationName == "SMSDeliveryReportsReceived"` and inspect `ResultType` (expect `Failed`) and `ResultDescription` for opt-out or blocked indicators on outbound messages to the recipient.
 
 ### 2. Event Grid Reports
 Check `Microsoft.Communication.SMSReceived` for incoming `STOP`, `UNSUBSCRIBE`, or `START` keywords.
