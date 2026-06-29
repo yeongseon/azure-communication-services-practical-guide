@@ -3,11 +3,12 @@ content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
   - https://learn.microsoft.com/azure/communication-services/concepts/metrics
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
+  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
   - https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule
   - https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
 content_validation:
   status: verified
-  last_reviewed: 2026-06-26
+  last_reviewed: 2026-06-29
   reviewer: agent
   core_claims:
     - claim: "ACS integrates with Azure Monitor via Diagnostic settings that route logs to a Log Analytics workspace"
@@ -27,6 +28,12 @@ content_validation:
       verified: true
     - claim: "Action groups are the reusable notification + automation target that alert rules invoke when they fire"
       source: https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
+      verified: true
+    - claim: "The ACS Metrics Reference documents channel primitives such as SMS, Chat, Call Automation, Network Traversal, Rooms, Authentication, and Advanced Messaging as request-count metrics with Operation, Status Code, and StatusSubClass dimensions; these metrics do not directly emit delivery rates, latencies, or quality scores"
+      source: https://learn.microsoft.com/azure/communication-services/concepts/metrics
+      verified: true
+    - claim: "Voice and video quality data is emitted through Log Analytics call logs - especially Call Diagnostics logs for objective quality metrics and End of Call Survey logs for subjective ratings - rather than as standalone platform metrics on the Metrics blade"
+      source: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
       verified: true
 ---
 
@@ -403,18 +410,34 @@ The capture above shows a 24-request spike at the right edge of the chart — th
     For send-volume analysis in KQL — daily total, hourly trend, 7-day rollup with recipient fan-out, and per-sender attribution via join — see [Email KQL Overview → Total Send Volume](../troubleshooting/kql/email/index.md#total-send-volume). The KQL view runs against `ACSEmailSendMailOperational`; the table and the Portal metric are different telemetry surfaces, so counts may differ for the same window and should be reconciled loosely.
 
 !!! tip "Pin metric charts to a dashboard"
-    Once a chart configuration is useful, click **Save to dashboard** to pin it to a shared Azure Dashboard. SRE on-call runbooks typically pin `Email Service API Requests`, `Email Service Delivery Status Updates`, and the `EmailDeliveryRate` percentage side-by-side so a single glance shows volume, lifecycle, and success rate together.
+    Once a chart configuration is useful, click **Save to dashboard** to pin it to a shared Azure Dashboard. SRE on-call runbooks typically pin `Email Service API Requests`, `Email Service Delivery Status Updates`, and `Email Service User Engagement` side-by-side so a single glance shows send volume, lifecycle progression, and recipient interaction together. ACS does not expose a built-in "delivery rate" percentage metric — compute it in a KQL view at the recipient level by dividing recipient-level `Delivered` rows in `ACSEmailStatusUpdateOperational` (filter `where isnotempty(RecipientId)`) by the total intended recipients (for example `sum(UniqueRecipientsCount)` from `ACSEmailSendMailOperational`).
 
 ### Key Metrics Across ACS Channels
 
-The Procedure above focuses on Email because that is this guide's scope. For completeness, ACS surfaces the following channel-level metrics on the same Monitoring → Metrics blade. Use these as starting points when monitoring scope expands beyond Email.
+The Procedure above focuses on Email because that is this guide's scope. For completeness, ACS surfaces additional channel-level metrics on the same Monitoring → Metrics blade. Per the [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics), the ACS metric families listed below are request-count metrics dimensioned by `Operation`, `Status Code`, and `StatusSubClass`. They do not directly emit delivery rates, latencies, or quality scores. Use the table below as a starting point when monitoring scope expands beyond Email.
 
-| Metric | Category | Description |
+| Metric (namespace: `Communication Services standard metrics`) | Channel | Selected `Operation` dimension values |
 | --- | --- | --- |
-| `SmsDeliveryRate` | SMS | Percentage of SMS messages successfully delivered. |
-| `EmailDeliveryRate` | Email | Percentage of emails successfully delivered. |
-| `ChatLatency` | Chat | End-to-end latency for chat message delivery. |
-| `CallQuality` | Calling | Mean Opinion Score (MOS) and network jitter. |
+| `SMS API Requests` | SMS | `SMSMessageSent`, `SMSDeliveryReportsReceived`, `SMSMessagesReceived` |
+| `Chat API Requests` | Chat | `SendChatMessage`, `ListChatMessages`, `CreateChatThread`, `AddChatThreadParticipants` (16 operations total) |
+| `Call Automation API Requests` | Voice (server-side) | `Create Call`, `Answer Call`, `Add Participants`, `Play`, `Recognize`, `Transfer Call To Participant` (17 operations total) |
+| `Network Traversal API Requests` | Voice (client-side) | `IssueRelayConfiguration` (TURN/STUN token issuance) |
+| `Rooms API Requests` | Rooms | `CreateRoom`, `AddParticipants`, `PatchRoom`, `ListRooms` (9 operations total) |
+| `Authentication API Requests` | Identity (cross-channel) | `CreateIdentity`, `CreateToken`, `RevokeToken`, `ExchangeTeamsUserAccessToken`, `DeleteIdentity` |
+| `Advanced Messaging API requests` | WhatsApp / Advanced Messaging | `SendMessage`, `ReceiveMessage`, `DownloadMedia`, `ListTemplates`, `SendMessageDeliveryStatus` |
+
+See the canonical [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) for the full per-channel operation enumeration.
+
+!!! note "Where call quality, latency, and per-message delivery values live"
+    Quality, latency, and per-message lifecycle data are emitted as **Log Analytics tables** (KQL surface), not as Metrics-blade values. Examples per the [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) and [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs):
+
+    - **Voice/Video quality (objective)**: MOS, jitter, packet loss → `ACSCallDiagnosticsEvents` and related voice/video quality logs; use `ACSCallSummaryEvents` for call metadata and finalization context
+    - **Voice/Video quality (subjective)**: User rating 1–5 → End of Call Survey logs (per [End of Call Survey](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept))
+    - **SMS delivery outcomes**: per-message `Delivered`/`Failed` rows → `ACSSMSIncomingOperations` filtered to `OperationName == "SMSDeliveryReportsReceived"`
+    - **Chat message events**: per-message send/receive events → `ACSChatMessageSentEvents`, `ACSChatMessageReceivedEvents`
+    - **Email delivery rate**: compute in KQL at the recipient level by comparing `DeliveryStatus == "Delivered"` rows in `ACSEmailStatusUpdateOperational` against the total intended recipients
+
+    Compute rates, latencies, and quality scores in KQL against these tables — they are not exposed as standalone Azure Monitor metrics.
 
 ### Diagnostic Settings Categories Beyond Email
 
@@ -436,8 +459,9 @@ See the per-channel troubleshooting playbooks (linked under [See Also](#see-also
 ## Sources
 
 - [Monitoring ACS using Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
-- [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
+- [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) — authoritative enumeration of API request metrics and operation dimensions across all ACS channels
 - [ACS Email Logs Reference](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) — authoritative schema for `ACSEmailSendMailOperational`, `ACSEmailStatusUpdateOperational`, and `ACSEmailUserEngagementOperational`
+- [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs) — authoritative reference for `ACSCallDiagnosticsEvents`, `ACSCallSummaryEvents`, and other voice/video log tables (where quality/jitter/MOS data lives)
 - [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/monitor/essentials/diagnostic-settings)
 - [Create an Azure Monitor alert rule](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule)
 - [Action groups](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups)
