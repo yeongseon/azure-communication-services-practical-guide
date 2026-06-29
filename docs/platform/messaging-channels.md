@@ -4,6 +4,17 @@ content_sources:
     - id: messaging-channels-architecture
       type: self-generated
       justification: Messaging channels architecture overview
+content_validation:
+  status: verified
+  last_reviewed: 2026-06-29
+  reviewer: agent
+  core_claims:
+    - claim: "ACS Email is documented as an outbound (A2P) sending service; Microsoft Learn does not document an inbound mail-receive capability or any MX target for ACS Email"
+      source: https://learn.microsoft.com/azure/communication-services/concepts/email/email-overview
+      verified: true
+    - claim: "Custom email domain verification in the Portal renders four DNS wizards (Domain TXT, SPF, DKIM, DKIM2); DMARC is configured directly at the DNS provider and is not surfaced as a wizard"
+      source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-custom-verified-domains
+      verified: true
 ---
 
 # Messaging Channels Overview
@@ -32,11 +43,11 @@ ACS allows you to send and receive text messages globally. To use the SMS channe
 
 ## Email Channel
 
-The ACS Email channel provides a high-reliability platform for transactional emails.
+The ACS Email channel provides a high-reliability platform for **outbound (application-to-person) transactional email**. Microsoft Learn documents only sending capabilities for ACS Email — `SendMail` plus delivery and engagement tracking — so if your domain must also receive replies, keep the MX record pointed at your separate inbound mail provider (Microsoft 365, Google Workspace, your own MTA, etc.) and use ACS only for the outbound leg.
 
 ### Key Capabilities
 -   **Azure Managed Domains**: Instant setup using `donotreply@xxxx.azurecomm.net`.
--   **Custom Domains**: Verified domains with SPF, DKIM, and DMARC support for high deliverability.
+-   **Custom Domains**: Verified domains using four Portal DNS wizards (Domain TXT, SPF, DKIM, DKIM2) plus an optional DMARC TXT for high deliverability. No ACS-specific MX record is needed — the documented DNS setup covers only outbound sending. See [Email provisioning](../operations/email-provisioning.md#step-3-verify-a-custom-domain-via-dns) for the full DNS setup.
 -   **Batch Sending**: API-optimized for sending messages to thousands of recipients.
 -   **Tracking**: Support for delivery, bounce, and click tracking.
 

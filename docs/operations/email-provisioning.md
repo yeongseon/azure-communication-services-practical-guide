@@ -6,7 +6,7 @@ content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/email/connect-email-communication-resource
 content_validation:
   status: verified
-  last_reviewed: 2026-06-26
+  last_reviewed: 2026-06-29
   reviewer: agent
   core_claims:
     - claim: "An Email Communication Service is a separate Azure resource from the ACS resource and must be linked explicitly"
@@ -23,6 +23,9 @@ content_validation:
       verified: true
     - claim: "For an AzureManagedDomain, the MailFrom addresses blade renders with the Add command disabled"
       source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-azure-managed-domains
+      verified: true
+    - claim: "ACS Email is documented as an outbound (A2P) sending service; Microsoft Learn does not list MX records among the required DNS entries (Domain TXT, SPF, DKIM, DKIM2) for custom domain verification, and does not document an inbound mail-receive capability"
+      source: https://learn.microsoft.com/azure/communication-services/concepts/email/email-overview
       verified: true
 ---
 
@@ -112,6 +115,13 @@ When you click `Configure` on any of the four status columns (Domain, SPF, DKIM,
 
 !!! warning "Each DNS record is its own wizard"
     Despite what older documentation may suggest, the Portal does **not** render a single consolidated DNS-records table. You must run the wizard four times — once for Domain TXT, once for SPF, once for DKIM, and once for DKIM2. DMARC is not surfaced as a Portal wizard at all; configure it directly in your DNS provider following [RFC 7489](https://datatracker.ietf.org/doc/html/rfc7489).
+
+!!! info "MX records are not required for ACS Email"
+    ACS Email is documented as an outbound (application-to-person) sending service. Microsoft Learn covers only sending capabilities — `SendMail` and `Get Status` — plus the four custom-domain DNS wizards (Domain TXT, SPF, DKIM, DKIM2). It does not document an inbound mail-receive capability or any MX target for ACS Email.
+
+    If your domain must also receive replies, keep the MX record pointed at your separate inbound mail provider (Microsoft 365, Google Workspace, your own MTA, etc.) and use ACS only for the outbound leg. The two responsibilities are independent: SPF/DKIM/DMARC for outbound (ACS signs outgoing mail) and MX for inbound (your separate provider receives incoming mail).
+
+    References: the [Email overview](https://learn.microsoft.com/azure/communication-services/concepts/email/email-overview) (Key features list only outbound operations such as send mail, sender authentication, and engagement tracking) and [Email SDK features](https://learn.microsoft.com/azure/communication-services/concepts/email/sdk-features) (capability table lists only `SendMail` and `Get Status`).
 
 The four wizards must complete in order: Domain TXT first (proves ownership), then SPF (sender policy), then DKIM and DKIM2 (signing keys). Each wizard polls the DNS resolver after you click `Done` — propagation typically completes within minutes but can take up to 30 minutes depending on your DNS provider and TTL.
 
