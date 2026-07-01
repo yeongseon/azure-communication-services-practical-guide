@@ -44,7 +44,7 @@ This guide is built upon the collective experience of developers and engineers w
 
 The following tests were performed with real Azure resources to validate the guidance in this project:
 
-- [Email Communication Service Test Report](email-test-report.md) — End-to-end email sending, delivery confirmation, and monitoring with Python SDK (April 2026)
+- [Email Communication Service Test Report](reference/reports/email-test-report.md) — End-to-end email sending, delivery confirmation, and monitoring with Python SDK (April 2026)
 
 ## See Also
 
