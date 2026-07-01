@@ -236,13 +236,14 @@ Alerts turn "data exists" into "the on-call gets paged when something is wrong".
 // Fires when bounce rate exceeds 5% over a 5-minute window with at least 20 recipient-level
 // delivery events. Filters to recipient-level rows only (message-level rows from
 // ACSEmailStatusUpdateOperational have an empty RecipientId and no terminal bounce state).
-// IsHardBounce is a string per the documented schema — compare against the literal "true".
+// IsHardBounce is a string per the documented schema; use tolower() so the predicate matches
+// regardless of how the value is capitalized (empirical rows in law-acs-email-lab are Pascal-cased).
 ACSEmailStatusUpdateOperational
 | where TimeGenerated > ago(5m)
 | where isnotempty(RecipientId)
 | summarize
     Total = count(),
-    Bounced = countif(DeliveryStatus == "Bounced" or IsHardBounce == "true")
+    Bounced = countif(DeliveryStatus == "Bounced" or tolower(IsHardBounce) == "true")
 | extend BounceRate = todouble(Bounced) / todouble(Total)
 | where Total >= 20 and BounceRate > 0.05
 ```
@@ -265,7 +266,7 @@ az monitor scheduled-query create \
   --resource-group "$RG" \
   --scopes "$WORKSPACE_ID" \
   --condition "count 'BounceAlert' > 0" \
-  --condition-query BounceAlert='ACSEmailStatusUpdateOperational | where TimeGenerated > ago(5m) | where isnotempty(RecipientId) | summarize Total=count(), Bounced=countif(DeliveryStatus == "Bounced" or IsHardBounce == "true") | extend BounceRate = todouble(Bounced)/todouble(Total) | where Total >= 20 and BounceRate > 0.05' \
+  --condition-query BounceAlert='ACSEmailStatusUpdateOperational | where TimeGenerated > ago(5m) | where isnotempty(RecipientId) | summarize Total=count(), Bounced=countif(DeliveryStatus == "Bounced" or tolower(IsHardBounce) == "true") | extend BounceRate = todouble(Bounced)/todouble(Total) | where Total >= 20 and BounceRate > 0.05' \
   --description "ACS email bounce rate exceeded 5% over 5 minutes (min 20 sends)" \
   --evaluation-frequency 5m \
   --window-size 5m \
@@ -357,7 +358,7 @@ If the setup stops working, take down the *least* amount of infrastructure that 
 | LAW Logs blade returns zero rows for every ACS table | Diagnostic setting was deleted, moved to the wrong resource, or routes to the wrong workspace | Re-run Step 2. Verify the `--resource` ARM ID points at `Microsoft.Communication/communicationServices/<name>`, not at the Email Communication Service. |
 | KQL returns rows but `DeliveryStatus` is always blank | Query targeted message-level events only | Add `where isnotempty(RecipientId)` to filter to recipient-level rows that carry terminal states |
 | Alert rule fires constantly with `Total = 1, Bounced = 1` | The `Total >= 20` floor is missing from the deployed query | Re-deploy via `az monitor scheduled-query update --condition-query BounceAlert='<full KQL>'`; the floor must live inside the KQL, not in the alert threshold |
-| Alert rule never fires during a real bounce storm | The KQL filter compares against unquoted `true` on a string column (e.g., `IsHardBounce == true` will not match, because `IsHardBounce` is documented as a string) | Compare the deployed `--condition-query` against the canonical KQL in [Step 4](#step-4-create-an-alert-rule) — `IsHardBounce` is a string; use `IsHardBounce == "true"` |
+| Alert rule never fires during a real bounce storm | The KQL filter uses casing that does not match the workspace's actual `IsHardBounce` value (e.g., `IsHardBounce == "true"` will not match Pascal-cased `"True"` rows, because `IsHardBounce` is documented as a string) | Compare the deployed `--condition-query` against the canonical KQL in [Step 4](#step-4-create-an-alert-rule) — use `tolower(IsHardBounce) == "true"` so the predicate matches regardless of casing |
 | Action group notification never arrives | Receiver type / address typo, or `usecommonalertschema` was passed as a separate flag instead of a trailing token of `--action` | Run `az monitor action-group show -n $AG_NAME -g $RG --query 'emailReceivers' -o jsonc` and compare against the example in [Step 5](#step-5-create-an-action-group) |
 | `az monitor scheduled-query create` errors with "command not found" / "extension not installed" | The `scheduled-query` extension is not installed | Run `az extension add --name scheduled-query` (covered in [Prerequisites](#prerequisites)) and retry |
 

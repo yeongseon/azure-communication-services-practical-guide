@@ -13,7 +13,7 @@ Analyze email delivery performance, error patterns, and throughput.
 ACS Email surfaces three Operational tables (see the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs)):
 
 * **`ACSEmailSendMailOperational`** — One row per `SendEmail` API call. Tracks send-side metadata (correlation ID, recipient counts, attachment counts, size). Does **not** expose delivery status.
-* **`ACSEmailStatusUpdateOperational`** — One row per lifecycle transition. Tracks per-recipient delivery state (`Delivered`, `Bounced`, `Failed`, etc.) via `DeliveryStatus`, plus `SmtpStatusCode`, `EnhancedSmtpStatusCode`, and `IsHardBounce` (boolean).
+* **`ACSEmailStatusUpdateOperational`** — One row per lifecycle transition. Tracks per-recipient delivery state (`Delivered`, `Bounced`, `Failed`, etc.) via `DeliveryStatus`, plus `SmtpStatusCode`, `EnhancedSmtpStatusCode`, and `IsHardBounce` (string per the [documented schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational)).
 * **`ACSEmailUserEngagementOperational`** — One row per recipient interaction (open, click) when engagement tracking is enabled.
 
 ## Key Scenarios
@@ -72,25 +72,25 @@ ACSEmailSendMailOperational
 
 #### Send volume by sender domain (via join)
 
-`ACSEmailSendMailOperational` does **not** expose `SenderDomain` as a documented column per the [Microsoft Learn schema](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational) — only `ACSEmailStatusUpdateOperational` does. To attribute send volume per sender domain, join the two tables on `CorrelationID`:
+`ACSEmailSendMailOperational` does **not** expose `SenderDomain` as a documented column per the [Microsoft Learn schema](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational) — only `ACSEmailStatusUpdateOperational` does. To attribute send volume per sender domain, join the two tables on `CorrelationId`:
 
 ```kusto
 let SendRows =
     ACSEmailSendMailOperational
     | where TimeGenerated > ago(7d)
-    | project CorrelationID, SendTime = TimeGenerated;
+    | project CorrelationId, SendTime = TimeGenerated;
 let StatusRows =
     ACSEmailStatusUpdateOperational
     | where TimeGenerated > ago(7d)
     | where isnotempty(SenderDomain)
-    | summarize arg_min(TimeGenerated, SenderDomain) by CorrelationID;
+    | summarize arg_min(TimeGenerated, SenderDomain) by CorrelationId;
 SendRows
-| join kind=inner StatusRows on CorrelationID
-| summarize Sends = dcount(CorrelationID) by bin(SendTime, 1d), SenderDomain
+| join kind=inner StatusRows on CorrelationId
+| summarize Sends = dcount(CorrelationId) by bin(SendTime, 1d), SenderDomain
 | order by SendTime asc
 ```
 
-`arg_min` picks the first status row per `CorrelationID` to avoid double-counting (each send produces multiple status rows). `dcount(CorrelationID)` then counts each send exactly once even if the join multiplies rows.
+`arg_min` picks the first status row per `CorrelationId` to avoid double-counting (each send produces multiple status rows). `dcount(CorrelationId)` then counts each send exactly once even if the join multiplies rows.
 
 !!! note "Inner join excludes pending sends"
     `kind=inner` excludes very recent sends whose status rows have not yet been written. For near-real-time send totals, use the *Daily total send count* query against `ACSEmailSendMailOperational` directly. Use this join for historical attribution (yesterday and older), not for current-hour dashboards.

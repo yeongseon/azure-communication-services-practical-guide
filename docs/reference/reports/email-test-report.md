@@ -131,13 +131,13 @@ The `ACSEmailStatusUpdateOperational` table was used to track delivery status.
 
 | Column | Type | Description |
 |---|---|---|
-| CorrelationID | string | Maps to the SDK message ID; used to correlate `ACSEmailSendMailOperational` and `ACSEmailStatusUpdateOperational` events. |
+| CorrelationId | string | Maps to the SDK message ID; used to correlate `ACSEmailSendMailOperational` and `ACSEmailStatusUpdateOperational` events. |
 | RecipientId | string | Per-recipient email address. Empty on message-level rows (e.g., `Dropped`, `OutForDelivery`) and populated on recipient-level rows (e.g., `Delivered`, `Bounced`). |
 | DeliveryStatus | string | Status progression (`Delivered`, `Bounced`, `Failed`, `OutForDelivery`, etc.). |
 | SenderDomain | string | Verified sender domain (part after `@` in the sender address). |
 | SmtpStatusCode | string | SMTP status code returned by the recipient mail server. |
 | EnhancedSmtpStatusCode | string | Enhanced SMTP status code for finer-grained diagnostics. |
-| IsHardBounce | bool | Boolean flag (`true`/`false`); populated for `Bounced` status only. |
+| IsHardBounce | string | String flag (documented type per Microsoft Learn); populated for `Bounced` status only. See [Delivery Status KQL](../../troubleshooting/kql/email/delivery-status.md) for how to compare against it in queries. |
 
 !!! info "Observation"
     All 9 test emails reached `Delivered` status. Each email generated 3-4 log events tracking status transitions from submission to final delivery.
@@ -157,7 +157,7 @@ ACSEmailStatusUpdateOperational
 **Query 2 - Per-Message Lifecycle**
 ```kusto
 ACSEmailStatusUpdateOperational
-| summarize StatusChanges = count(), FirstEvent = min(TimeGenerated), LastEvent = max(TimeGenerated) by CorrelationID
+| summarize StatusChanges = count(), FirstEvent = min(TimeGenerated), LastEvent = max(TimeGenerated) by CorrelationId
 | extend DurationSec = datetime_diff("second", LastEvent, FirstEvent)
 | sort by FirstEvent asc
 ```
@@ -168,7 +168,7 @@ ACSEmailStatusUpdateOperational
 ACSEmailStatusUpdateOperational
 | where DeliveryStatus == "Delivered"
 | where isnotempty(RecipientId)
-| project TimeGenerated, CorrelationID, RecipientId, SenderDomain, SenderUsername
+| project TimeGenerated, CorrelationId, RecipientId, SenderDomain, SenderUsername
 | sort by TimeGenerated asc
 ```
 *Result: All 9 recipient-level `Delivered` rows recorded; `RecipientId` `@`-suffix confirms gmail.com recipients.*

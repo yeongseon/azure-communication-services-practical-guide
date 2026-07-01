@@ -78,7 +78,7 @@ ACSEmailStatusUpdateOperational
 | where TimeGenerated > ago(1h)
 | where isnotempty(RecipientId)
 | where DeliveryStatus !in ("Delivered", "OutForDelivery")
-| project TimeGenerated, CorrelationID, RecipientId, DeliveryStatus, SmtpStatusCode, EnhancedSmtpStatusCode
+| project TimeGenerated, CorrelationId, RecipientId, DeliveryStatus, SmtpStatusCode, EnhancedSmtpStatusCode
 | order by TimeGenerated desc
 ```
 
@@ -97,16 +97,16 @@ When the diagnostic pipeline is healthy, the breakdown query above returns one r
 If your breakdown shows only blank or only `OutForDelivery` rows (no `Delivered`), the recipient mail server is not yet ACK'ing — wait 5-10 minutes and re-run. If it shows `Bounced` or `Failed` rows, drill in with the bounce-detail query below.
 
 ```kusto
-// Hard-bounce detail — recipient-level rows where IsHardBounce is true
+// Hard-bounce detail — recipient-level rows where IsHardBounce indicates a permanent bounce
 ACSEmailStatusUpdateOperational
 | where TimeGenerated > ago(24h)
 | where isnotempty(RecipientId)
-| where IsHardBounce == true
+| where tolower(IsHardBounce) == "true"
 | project TimeGenerated, RecipientId, SmtpStatusCode, EnhancedSmtpStatusCode, SenderDomain
 | order by TimeGenerated desc
 ```
 
-`IsHardBounce` is a boolean per the [documented schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) — compare against `true`, not the string `"True"`. The recipient mail server is not exposed as a column; if you need to group bounces by destination provider, derive it from the `RecipientId` suffix (for example, `extend RecipientDomain = tostring(split(RecipientId, "@")[1])`).
+`IsHardBounce` is a string per the [documented schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational) — use `tolower(IsHardBounce) == "true"` so the predicate matches regardless of how the value is capitalized in the workspace (empirical values observed in `law-acs-email-lab` are Pascal-cased). If you need the recipient mail server host, use `RecipientMailServerHostName`; if you need domain-level grouping instead of exact host, derive it from the `RecipientId` suffix (for example, `extend RecipientDomain = tostring(split(RecipientId, "@")[1])`).
 
 ## Immediate Triage Questions
 
