@@ -37,7 +37,7 @@ If the list view shows no diagnostic settings, or the destination is not the Log
 3. **DNS Record Check**: Are SPF, DKIM, and DMARC records correctly propagated?
 4. **Sender Address Validity**: Does the `From` address match the verified domain?
 5. **Spam Signals**: Is the email content triggering spam filters?
-6. **Rate Limits**: Are you exceeding your sending tier (e.g., 100 emails/minute)?
+6. **Rate Limits**: Are you exceeding your Send Email rate limit? Per Microsoft Learn, custom domains allow 30 emails per minute per subscription (100 per hour), and Azure Managed Domains allow 5 per minute (10 per hour, not upgradable). See [Reference — Platform Limits](../../reference/platform-limits.md#email) for the full table.
 
 ## Custom domain DNS verification (visual reference)
 
