@@ -28,7 +28,7 @@ A collection of pre-built KQL queries for analyzing and troubleshooting ACS acti
 ## Best Practices
 
 * **Filter by Time**: Always include `TimeGenerated > ago(1h)` to limit the query scope and improve performance.
-* **Join Tables Carefully**: Use `join` sparingly, especially on large tables like `ACSCallDiagnosticsEvents`.
+* **Join Tables Carefully**: Use `join` sparingly, especially on large per-stream tables like `ACSCallDiagnostics`.
 * **Use Summarize**: Group data by relevant fields (e.g., `ResultSignature`, `Status`) to identify common failure patterns.
 * **Visualize Results**: Use `render barchart` or `render timechart` to visualize trends and anomalies.
 
