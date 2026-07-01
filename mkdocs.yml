@@ -99,7 +99,6 @@ nav:
     - start-here/learning-paths.md
     - start-here/repository-map.md
     - About: about.md
-    - Email Test Report: email-test-report.md
   - Platform:
     - platform/index.md
     - platform/how-acs-works.md
@@ -266,6 +265,9 @@ nav:
     - reference/platform-limits.md
     - reference/kql-queries.md
     - reference/sdk-reference.md
+    - Reports:
+      - reference/reports/index.md
+      - Email Test Report: reference/reports/email-test-report.md
   - Visualization:
     - visualization/index.md
     - visualization/core-knowledge-graph.md

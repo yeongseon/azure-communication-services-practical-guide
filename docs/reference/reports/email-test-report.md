@@ -1,4 +1,5 @@
 ---
+description: Test execution report for the Azure Communication Services Email channel, including setup, execution, observations, and interpretation.
 ---
 
 # Email Communication Service Test Report
@@ -181,6 +182,6 @@ ACSEmailStatusUpdateOperational
 - **SDK Behavior**: Python SDK version 1.1.0 `begin_send()` returns a poller; calling `.result()` blocks until terminal status.
 
 ## 8. See Also
-- [Send Email Tutorial](sdk-guides/python/tutorial/03-send-email.md)
-- [Email Delivery Status KQL](troubleshooting/kql/email/delivery-status.md)
-- [Monitoring](operations/monitoring.md)
+- [Send Email Tutorial](../../sdk-guides/python/tutorial/03-send-email.md)
+- [Email Delivery Status KQL](../../troubleshooting/kql/email/delivery-status.md)
+- [Monitoring](../../operations/monitoring.md)
