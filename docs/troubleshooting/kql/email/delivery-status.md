@@ -43,7 +43,7 @@ ACSEmailStatusUpdateOperational
     StatusChanges = count(),
     FirstEvent = min(TimeGenerated),
     LastEvent = max(TimeGenerated)
-    by CorrelationID
+    by CorrelationId
 | extend DurationSec = datetime_diff("second", LastEvent, FirstEvent)
 | sort by FirstEvent desc
 ```
@@ -54,9 +54,12 @@ ACSEmailStatusUpdateOperational
 | --- | --- |
 | `ACSEmailStatusUpdateOperational` | The operational table for Azure Email status updates. |
 | `DeliveryStatus` | The current state of the email delivery (e.g., `Delivered`, `Bounced`, `Failed`). |
-| `CorrelationID` | Unique identifier for a single email send request, used to track its full lifecycle. |
+| `CorrelationId` | Unique identifier for a single email send request, used to track its full lifecycle. Populated with the MessageID returned by Email send requests. |
 | `RecipientId` | Per-recipient email address. Empty on message-level rows (e.g., `Dropped`, `OutForDelivery`) and populated on recipient-level rows (e.g., `Delivered`, `Bounced`, `Failed`). |
-| `IsHardBounce` | Boolean flag indicating if the failure is a permanent (hard) bounce. Populated for `Bounced` status only. |
+| `IsHardBounce` | String flag (documented type: string) indicating whether the failure is a permanent (hard) bounce. `IsHardBounce == "true"` means a permanent mailbox issue. Populated for `Bounced` status only. |
+| `FailureMessage` | Verbatim error message returned by the recipient mail server for the given SMTP or EnhancedSmtp status code. |
+| `FailureReason` | Failure reason for the given SMTP or EnhancedSmtp status code. |
+| `RecipientMailServerHostName` | The mail server host name of the recipient. |
 | `SmtpStatusCode` | The standard SMTP status code returned by the recipient mail server. |
 | `EnhancedSmtpStatusCode` | Detailed enhanced SMTP status code for more specific error diagnosis. |
 | `SenderDomain` | Sending domain (the part after `@` in the sender address). |
@@ -64,9 +67,9 @@ ACSEmailStatusUpdateOperational
 ## Insights
 
 * **Observed Patterns**: Most emails transition from submission to `Delivered` within 3-6 seconds in optimal conditions.
-* **Hard Bounces vs. Soft Bounces**: Monitor `IsHardBounce` (boolean — compare against `true`, not the string `"True"`) to identify invalid addresses that should be removed from mailing lists.
-* **Spam Filtering**: If `DeliveryStatus` is `FilteredSpam` or `Quarantined`, inspect `EnhancedSmtpStatusCode` and `SmtpStatusCode` for clues about content or reputation issues. The Email schema does not expose a free-form failure-message column — codes are the authoritative signal.
-* **Recipient Provider Patterns**: The schema does not include a recipient-mail-server hostname column. To group failures by destination provider, derive the recipient domain from `RecipientId`: `extend RecipientDomain = tostring(split(RecipientId, "@")[1])`.
+* **Hard Bounces vs. Soft Bounces**: Monitor `IsHardBounce` (string per the documented schema — compare against the literal `"true"`) to identify invalid addresses that should be removed from mailing lists.
+* **Spam Filtering**: If `DeliveryStatus` is `FilteredSpam` or `Quarantined`, inspect `EnhancedSmtpStatusCode` and `SmtpStatusCode` for machine-parseable classification and `FailureMessage` / `FailureReason` for the verbatim error context returned by the recipient server.
+* **Recipient Provider Patterns**: The `RecipientMailServerHostName` column captures the recipient's mail server host when the provider returns one. To group by destination domain (e.g., `gmail.com`) instead of exact host, derive the recipient domain from `RecipientId`: `extend RecipientDomain = tostring(split(RecipientId, "@")[1])`.
 
 ## Verified Results (April 2026)
 
@@ -90,4 +93,4 @@ ACSEmailStatusUpdateOperational
 * [Email Delivery Failures Playbook](../../playbooks/email/delivery-failures.md)
 
 ## Sources
-* Azure Email Delivery Status Codes Reference
+* [ACSEmailStatusUpdateOperational — Azure Monitor Logs reference](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational)

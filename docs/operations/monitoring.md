@@ -4,11 +4,12 @@ content_sources:
   - https://learn.microsoft.com/azure/communication-services/concepts/metrics
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
   - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
   - https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule
   - https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
 content_validation:
   status: verified
-  last_reviewed: 2026-06-29
+  last_reviewed: 2026-07-01
   reviewer: agent
   core_claims:
     - claim: "ACS integrates with Azure Monitor via Diagnostic settings that route logs to a Log Analytics workspace"
@@ -22,6 +23,9 @@ content_validation:
       verified: true
     - claim: "The ACSEmailStatusUpdateOperational table holds delivery lifecycle events for sent emails"
       source: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
+      verified: true
+    - claim: "ACSEmailStatusUpdateOperational.IsHardBounce is documented as a string column, and the schema notes IsHardBounce == true means a permanent mailbox issue"
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
       verified: true
     - claim: "Azure Monitor alert rules can run scheduled KQL queries against a Log Analytics workspace and fire when the result crosses a threshold"
       source: https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule
@@ -184,7 +188,7 @@ The diagnostic setting is a *contract*, not an *acknowledgement*. Until ACS actu
 // Columns are the documented Email Send Mail schema; see Sources.
 ACSEmailSendMailOperational
 | where TimeGenerated > ago(15m)
-| project TimeGenerated, OperationName, CorrelationID, Size, UniqueRecipientsCount, TrafficSource
+| project TimeGenerated, OperationName, CorrelationId, Size, UniqueRecipientsCount, TrafficSource
 | order by TimeGenerated desc
 | take 10
 ```
@@ -202,7 +206,7 @@ To check actual delivery success (the lifecycle that runs *after* the API call),
 
 ### Step 4. Create an alert rule
 
-Alerts turn "data exists" into "the on-call gets paged when something is wrong". An alert rule is a saved KQL query (for log alerts) or metric threshold (for metric alerts) plus the action group it should fire on. This step creates a log alert because the most useful Email signals come from `ACSEmailStatusUpdateOperational` — a metric alert on `EmailDeliveryRate` works too, but the log-based rule is more flexible.
+Alerts turn "data exists" into "the on-call gets paged when something is wrong". An alert rule is a saved KQL query (for log alerts) or metric threshold (for metric alerts) plus the action group it should fire on. This step creates a log alert because the most useful Email signals come from `ACSEmailStatusUpdateOperational`; metric alerts on the built-in Email metrics are possible too, but the log-based rule is more flexible.
 
 **Portal (UI flow):**
 
@@ -232,13 +236,13 @@ Alerts turn "data exists" into "the on-call gets paged when something is wrong".
 // Fires when bounce rate exceeds 5% over a 5-minute window with at least 20 recipient-level
 // delivery events. Filters to recipient-level rows only (message-level rows from
 // ACSEmailStatusUpdateOperational have an empty RecipientId and no terminal bounce state).
-// IsHardBounce is a boolean per the documented schema, not a string.
+// IsHardBounce is a string per the documented schema — compare against the literal "true".
 ACSEmailStatusUpdateOperational
 | where TimeGenerated > ago(5m)
 | where isnotempty(RecipientId)
 | summarize
     Total = count(),
-    Bounced = countif(DeliveryStatus == "Bounced" or IsHardBounce == true)
+    Bounced = countif(DeliveryStatus == "Bounced" or IsHardBounce == "true")
 | extend BounceRate = todouble(Bounced) / todouble(Total)
 | where Total >= 20 and BounceRate > 0.05
 ```
@@ -261,7 +265,7 @@ az monitor scheduled-query create \
   --resource-group "$RG" \
   --scopes "$WORKSPACE_ID" \
   --condition "count 'BounceAlert' > 0" \
-  --condition-query BounceAlert='ACSEmailStatusUpdateOperational | where TimeGenerated > ago(5m) | where isnotempty(RecipientId) | summarize Total=count(), Bounced=countif(DeliveryStatus == "Bounced" or IsHardBounce == true) | extend BounceRate = todouble(Bounced)/todouble(Total) | where Total >= 20 and BounceRate > 0.05' \
+  --condition-query BounceAlert='ACSEmailStatusUpdateOperational | where TimeGenerated > ago(5m) | where isnotempty(RecipientId) | summarize Total=count(), Bounced=countif(DeliveryStatus == "Bounced" or IsHardBounce == "true") | extend BounceRate = todouble(Bounced)/todouble(Total) | where Total >= 20 and BounceRate > 0.05' \
   --description "ACS email bounce rate exceeded 5% over 5 minutes (min 20 sends)" \
   --evaluation-frequency 5m \
   --window-size 5m \
@@ -353,7 +357,7 @@ If the setup stops working, take down the *least* amount of infrastructure that 
 | LAW Logs blade returns zero rows for every ACS table | Diagnostic setting was deleted, moved to the wrong resource, or routes to the wrong workspace | Re-run Step 2. Verify the `--resource` ARM ID points at `Microsoft.Communication/communicationServices/<name>`, not at the Email Communication Service. |
 | KQL returns rows but `DeliveryStatus` is always blank | Query targeted message-level events only | Add `where isnotempty(RecipientId)` to filter to recipient-level rows that carry terminal states |
 | Alert rule fires constantly with `Total = 1, Bounced = 1` | The `Total >= 20` floor is missing from the deployed query | Re-deploy via `az monitor scheduled-query update --condition-query BounceAlert='<full KQL>'`; the floor must live inside the KQL, not in the alert threshold |
-| Alert rule never fires during a real bounce storm | The KQL filter is too narrow (e.g., `IsHardBounce == "true"` as a string against a boolean column) | Compare the deployed `--condition-query` against the canonical KQL in [Step 4](#step-4-create-an-alert-rule) — `IsHardBounce` is a boolean, not a string |
+| Alert rule never fires during a real bounce storm | The KQL filter compares against unquoted `true` on a string column (e.g., `IsHardBounce == true` will not match, because `IsHardBounce` is documented as a string) | Compare the deployed `--condition-query` against the canonical KQL in [Step 4](#step-4-create-an-alert-rule) — `IsHardBounce` is a string; use `IsHardBounce == "true"` |
 | Action group notification never arrives | Receiver type / address typo, or `usecommonalertschema` was passed as a separate flag instead of a trailing token of `--action` | Run `az monitor action-group show -n $AG_NAME -g $RG --query 'emailReceivers' -o jsonc` and compare against the example in [Step 5](#step-5-create-an-action-group) |
 | `az monitor scheduled-query create` errors with "command not found" / "extension not installed" | The `scheduled-query` extension is not installed | Run `az extension add --name scheduled-query` (covered in [Prerequisites](#prerequisites)) and retry |
 
@@ -431,10 +435,10 @@ See the canonical [ACS Metrics Reference](https://learn.microsoft.com/azure/comm
 !!! note "Where call quality, latency, and per-message delivery values live"
     Quality, latency, and per-message lifecycle data are emitted as **Log Analytics tables** (KQL surface), not as Metrics-blade values. Examples per the [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) and [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs):
 
-    - **Voice/Video quality (objective)**: MOS, jitter, packet loss → `ACSCallDiagnosticsEvents` and related voice/video quality logs; use `ACSCallSummaryEvents` for call metadata and finalization context
+    - **Voice/Video quality (objective)**: jitter, packet loss, round-trip time → `ACSCallDiagnostics` (per-media-stream network metrics); use `ACSCallSummary` for call metadata and per-participant finalization context
     - **Voice/Video quality (subjective)**: User rating 1–5 → End of Call Survey logs (per [End of Call Survey](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept))
     - **SMS delivery outcomes**: per-message `Delivered`/`Failed` rows → `ACSSMSIncomingOperations` filtered to `OperationName == "SMSDeliveryReportsReceived"`
-    - **Chat message events**: per-message send/receive events → `ACSChatMessageSentEvents`, `ACSChatMessageReceivedEvents`
+    - **Chat message events**: per-request Chat REST operations (e.g., `SendChatMessage`, `ListChatMessages`, `CreateChatThread`) → `ACSChatIncomingOperations` filtered by `OperationName`
     - **Email delivery rate**: compute in KQL at the recipient level by comparing `DeliveryStatus == "Delivered"` rows in `ACSEmailStatusUpdateOperational` against the total intended recipients
 
     Compute rates, latencies, and quality scores in KQL against these tables — they are not exposed as standalone Azure Monitor metrics.
@@ -461,7 +465,8 @@ See the per-channel troubleshooting playbooks (linked under [See Also](#see-also
 - [Monitoring ACS using Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
 - [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) — authoritative enumeration of API request metrics and operation dimensions across all ACS channels
 - [ACS Email Logs Reference](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) — authoritative schema for `ACSEmailSendMailOperational`, `ACSEmailStatusUpdateOperational`, and `ACSEmailUserEngagementOperational`
-- [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs) — authoritative reference for `ACSCallDiagnosticsEvents`, `ACSCallSummaryEvents`, and other voice/video log tables (where quality/jitter/MOS data lives)
+- [ACSEmailStatusUpdateOperational — Azure Monitor Logs reference](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational) — column-level schema (documented type for `IsHardBounce`, `FailureMessage`, `FailureReason`, `RecipientMailServerHostName`)
+- [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs) — authoritative reference for `ACSCallSummary`, `ACSCallDiagnostics`, `ACSCallSurvey`, and other voice/video log tables (where per-stream network metrics such as `JitterAvg` and `PacketLossRateAvg` live)
 - [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/monitor/essentials/diagnostic-settings)
 - [Create an Azure Monitor alert rule](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule)
 - [Action groups](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups)
