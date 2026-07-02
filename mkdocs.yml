@@ -265,6 +265,7 @@ nav:
     - reference/platform-limits.md
     - reference/kql-queries.md
     - reference/sdk-reference.md
+    - Content Validation Status: reference/content-validation-status.md
     - Reports:
       - reference/reports/index.md
       - Email Test Report: reference/reports/email-test-report.md
