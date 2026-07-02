@@ -112,7 +112,7 @@ Expanding coverage from ~9% to the full in-scope population, and introducing gen
 ## See Also
 
 - [`AGENTS.md` → Content Validation Scope](https://github.com/yeongseon/azure-communication-services-practical-guide/blob/main/AGENTS.md#content-validation-scope) — authoritative scope and schema definition
-- [Platform Limits](platform-limits.md) — example of a verified in-scope reference page (currently carrying an out-of-scope `content_validation` block for historical reasons)
+- [Platform Limits](platform-limits.md) — example of an out-of-scope reference page that still carries historical `content_validation` metadata
 - [Operations → Monitoring](../operations/monitoring.md) — example of an in-scope page with `content_validation`
 
 ## Sources
