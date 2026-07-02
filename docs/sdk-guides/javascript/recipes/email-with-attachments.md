@@ -83,11 +83,11 @@ sendEmailWithAttachments();
 
 ACS has limits on the total size of an email and individual attachments.
 
-- **Total Email Size**: 25 MB (including attachments).
+- **Total Email Request Size**: 10 MB (including attachments), per the current [ACS service limits](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits) page. Higher limits (up to 30 MB) are available via Azure Support request.
 - **Max Attachments**: No strict limit, but bounded by total email size.
 
 !!! warning "Important"
-    Base64 encoding increases the size of attachments by approximately 33%. For large files, consider providing a link to a secure storage location (e.g., Azure Blob Storage) instead.
+    Base64 encoding inflates message size by approximately 33%, so a nominal 10 MB request accommodates roughly 7.5 MB of pre-encoded content. For files above the request-size ceiling, store the file in Azure Blob Storage and include a SAS link in the email body instead. See [`reference/platform-limits.md`](../../../reference/platform-limits.md#size-limits) for the authoritative repository reference.
 
 ## 5. Multiple Attachment Types
 
