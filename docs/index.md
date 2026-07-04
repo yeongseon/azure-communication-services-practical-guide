@@ -57,6 +57,12 @@ This guide is designed for developers, architects, and SREs who need to go beyon
 
 This is not an official Microsoft product. While based on official documentation and real-world experience, always verify critical architecture decisions with the [Official Microsoft Documentation](https://learn.microsoft.com/azure/communication-services/).
 
+## See Also
+
+- [Start Here](start-here/overview.md) — orientation and guide structure
+- [Learning Paths](start-here/learning-paths.md) — role-based reading paths
+- [Scenario Router](start-here/scenario-router.md) — situation-to-destination router
+
 ## Sources
 
 - [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)

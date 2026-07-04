@@ -76,6 +76,7 @@ graph TD
 
 - [Guide Overview](overview.md)
 - [Learning Paths](learning-paths.md)
+- [Scenario Router](scenario-router.md)
 
 ## Sources
 

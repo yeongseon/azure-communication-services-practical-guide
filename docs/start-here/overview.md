@@ -56,6 +56,8 @@ graph TD
 
 ## See Also
 
+- [Learning Paths](learning-paths.md)
+- [Scenario Router](scenario-router.md)
 - [Repository Map](repository-map.md)
 - [About the Project](../about.md)
 
