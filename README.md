@@ -6,17 +6,19 @@ Comprehensive guide for Azure Communication Services — SMS, Voice, Email, Chat
 
 ## What's Inside
 
-| Section | Description |
-|---|---|
-| [Start Here](https://yeongseon.github.io/azure-communication-services-practical-guide/) | Overview, learning paths, repository map, and how to use the guide |
-| [Platform](https://yeongseon.github.io/azure-communication-services-practical-guide/platform/) | How ACS works, resource types, messaging channels, networking, auth, events, and security |
-| [Best Practices](https://yeongseon.github.io/azure-communication-services-practical-guide/best-practices/) | Production baseline, security, networking, reliability, scaling, cost, and anti-patterns |
-| [SDK Guides](https://yeongseon.github.io/azure-communication-services-practical-guide/sdk-guides/) | Step-by-step tutorials and recipes for Python, JavaScript, Java, and .NET |
-| [Operations](https://yeongseon.github.io/azure-communication-services-practical-guide/operations/) | Provisioning, monitoring, deployment, health recovery, security, and cost optimization |
-| [Troubleshooting](https://yeongseon.github.io/azure-communication-services-practical-guide/troubleshooting/) | Decision trees, evidence maps, first-10-minute checks, playbooks, methodology, and KQL packs |
-| [Reference](https://yeongseon.github.io/azure-communication-services-practical-guide/reference/) | CLI cheatsheet, platform limits, KQL queries, and SDK reference |
-| [Visualization](https://yeongseon.github.io/azure-communication-services-practical-guide/visualization/) | Knowledge graphs, troubleshooting maps, and learning path visuals |
-| [Meta](https://yeongseon.github.io/azure-communication-services-practical-guide/meta/taxonomy/) | Repository taxonomy and content model |
+| Section | Description | Status |
+|---|---|---|
+| [Start Here](https://yeongseon.github.io/azure-communication-services-practical-guide/) | Overview, learning paths, repository map, and how to use the guide | Comprehensive |
+| [Platform](https://yeongseon.github.io/azure-communication-services-practical-guide/platform/) | How ACS works, resource types, messaging channels, networking, auth, events, and security | Comprehensive |
+| [Best Practices](https://yeongseon.github.io/azure-communication-services-practical-guide/best-practices/) | Production baseline, security, networking, reliability, scaling, cost, and anti-patterns | Comprehensive |
+| [SDK Guides](https://yeongseon.github.io/azure-communication-services-practical-guide/sdk-guides/) | Step-by-step tutorials and recipes for Python, JavaScript, Java, and .NET | Comprehensive |
+| [Operations](https://yeongseon.github.io/azure-communication-services-practical-guide/operations/) | Provisioning, monitoring, deployment, health recovery, security, and cost optimization | Comprehensive |
+| [Troubleshooting](https://yeongseon.github.io/azure-communication-services-practical-guide/troubleshooting/) | Decision trees, evidence maps, first-10-minute checks, playbooks, methodology, and KQL packs | Comprehensive |
+| [Reference](https://yeongseon.github.io/azure-communication-services-practical-guide/reference/) | CLI cheatsheet, platform limits, KQL queries, and SDK reference | Comprehensive |
+| [Visualization](https://yeongseon.github.io/azure-communication-services-practical-guide/visualization/) | Knowledge graphs, troubleshooting maps, and learning path visuals | Published |
+| [Meta](https://yeongseon.github.io/azure-communication-services-practical-guide/meta/taxonomy/) | Repository taxonomy and content model | Published |
+
+**Status legend**: **Lab-validated** = Comprehensive + reproducible labs prove the guidance · **Comprehensive** = Full section, MSLearn-verified, production-ready · **Published** = Core content in place, still expanding · **In progress** = Partial content, active development · **Planned** = Placeholder, content not yet started
 
 ## SDK Coverage
 
