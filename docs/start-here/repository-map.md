@@ -2,8 +2,9 @@
 content_sources:
   diagrams:
     - id: section-relationships
-      type: Mermaid
+      type: flowchart
       source: self-generated
+      justification: Original diagram illustrating how the guide's sections relate to each other in the reader journey.
 ---
 
 # Repository Map

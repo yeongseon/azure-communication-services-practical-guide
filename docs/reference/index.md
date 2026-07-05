@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/overview
+  diagrams:
+    - id: reference-hub
+      type: flowchart
+      source: self-generated
+      justification: Original navigation diagram for the Reference section (CLI, platform limits, KQL, SDK).
+      based_on: https://learn.microsoft.com/azure/communication-services/overview
 ---
 
 # Reference Hub

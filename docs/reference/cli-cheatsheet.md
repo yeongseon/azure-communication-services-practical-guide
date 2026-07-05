@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/cli/azure/communication
+  diagrams:
+    - id: cli-cheatsheet-diagram
+      type: flowchart
+      source: self-generated
+      justification: Original categorization diagram organizing ACS Azure CLI commands by resource domain.
+      based_on: https://learn.microsoft.com/cli/azure/communication
 ---
 
 # ACS CLI Cheatsheet

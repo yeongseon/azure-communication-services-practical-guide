@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/overview
+  diagrams:
+    - id: visualization-hub
+      type: flowchart
+      source: self-generated
+      justification: Original navigation diagram for the Visualization section (knowledge graph, troubleshooting map, learning paths).
+      based_on: https://learn.microsoft.com/azure/communication-services/overview
 ---
 
 # Visualization Hub

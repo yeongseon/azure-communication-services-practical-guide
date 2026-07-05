@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/overview
+  diagrams:
+    - id: core-knowledge-graph-diagram
+      type: flowchart
+      source: self-generated
+      justification: Original ACS core knowledge graph showing how services (SMS, Email, Chat, Calling) and their sub-resources relate.
+      based_on: https://learn.microsoft.com/azure/communication-services/overview
 ---
 
 # Core Knowledge Graph for ACS

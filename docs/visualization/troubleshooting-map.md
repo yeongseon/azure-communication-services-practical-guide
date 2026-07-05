@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+  diagrams:
+    - id: troubleshooting-map-diagram
+      type: flowchart
+      source: self-generated
+      justification: Original visual troubleshooting decision tree grouped by ACS channel (SMS, Email, Chat, Calling).
+      based_on: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
 ---
 
 # Troubleshooting Map for ACS

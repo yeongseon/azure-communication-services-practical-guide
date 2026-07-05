@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/sdk-overview
+  diagrams:
+    - id: sdk-reference-diagram
+      type: flowchart
+      source: self-generated
+      justification: Original overview diagram organizing SDK reference by language, key classes, and compatibility.
+      based_on: https://learn.microsoft.com/azure/communication-services/concepts/sdk-overview
 ---
 
 # SDK Reference for ACS

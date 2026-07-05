@@ -1,23 +1,20 @@
 ---
 content_sources:
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/sms-logs
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acssmsincomingoperations
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailsendmailoperational
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acschatincomingoperations
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscalldiagnostics
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscallsurvey
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsbillingusage
+  diagrams:
+    - id: kql-queries-diagram
+      type: flowchart
+      source: self-generated
+      justification: Original navigation diagram categorizing ACS KQL query packs by service (SMS, Email, Chat, Calling, Billing).
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/sms-logs
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acssmsincomingoperations
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailsendmailoperational
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acschatincomingoperations
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscalldiagnostics
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscallsurvey
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsbillingusage
 content_validation:
   status: verified
   last_reviewed: 2026-07-01

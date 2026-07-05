@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/overview
+  diagrams:
+    - id: learning-paths-diagram
+      type: flowchart
+      source: self-generated
+      justification: Original visual learning paths grouped by role (Developer, SRE, Solution Architect).
+      based_on: https://learn.microsoft.com/azure/communication-services/overview
 ---
 
 # Learning Paths for ACS Roles

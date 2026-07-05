@@ -1,6 +1,11 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/overview
+  diagrams:
+    - id: taxonomy-diagram
+      type: flowchart
+      source: self-generated
+      justification: Original taxonomy diagram enumerating the document types, sections, and metadata schemas used across the ACS Practical Guide.
+      based_on: https://learn.microsoft.com/azure/communication-services/overview
 ---
 
 # ACS Documentation Taxonomy

@@ -2,8 +2,9 @@
 content_sources:
   diagrams:
     - id: guide-sections-overview
-      type: Mermaid
+      type: flowchart
       source: self-generated
+      justification: Original overview diagram showing the top-level section structure of this practical guide.
 ---
 
 # About
