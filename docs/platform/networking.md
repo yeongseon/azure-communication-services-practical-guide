@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: acs-networking-architecture
-      type: self-generated
+      type: flowchart
+      source: self-generated
       justification: Networking and infrastructure requirements for ACS calling
 ---
 

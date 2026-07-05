@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: messaging-channels-architecture
-      type: self-generated
+      type: flowchart
+      source: self-generated
       justification: Messaging channels architecture overview
 content_validation:
   status: verified

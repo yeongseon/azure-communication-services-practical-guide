@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: acs-event-flow
-      type: self-generated
+      type: flowchart
+      source: self-generated
       justification: Event handling flow via Azure Event Grid
 ---
 

@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: acs-security-layers
-      type: self-generated
+      type: flowchart
+      source: self-generated
       justification: Security layers of ACS from identity to network
 ---
 

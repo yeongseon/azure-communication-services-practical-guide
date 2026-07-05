@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: acs-auth-flow
-      type: mslearn-adapted
+      type: sequenceDiagram
+      source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
       based_on: Typical token-based client auth flow
 ---

@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: acs-sdk-architecture
-      type: self-generated
+      type: flowchart
+      source: self-generated
       justification: Overview of ACS SDK and API architecture
 ---
 

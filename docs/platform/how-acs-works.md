@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: acs-architecture-overview
-      type: mslearn-adapted
+      type: flowchart
+      source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
       based_on: Generic ACS architecture
 ---

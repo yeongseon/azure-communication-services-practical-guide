@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: acs-resource-relationships
-      type: self-generated
+      type: flowchart
+      source: self-generated
       justification: Relationship overview of ACS resource components
 ---
 

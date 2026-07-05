@@ -2,7 +2,8 @@
 content_sources:
   diagrams:
     - id: platform-concept-relationships
-      type: self-generated
+      type: flowchart
+      source: self-generated
       justification: Overview of platform documentation structure and relationships
 ---
 
