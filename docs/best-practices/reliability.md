@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - source: mslearn-adapted
-    mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+  diagrams:
+    - id: reliability-retry-logic
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
 ---
 
 # Reliability Best Practices

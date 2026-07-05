@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - source: mslearn-adapted
-    mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
+  diagrams:
+    - id: cost-sms-optimization
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
 ---
 
 # Cost Optimization

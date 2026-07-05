@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - source: mslearn-adapted
-    mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
+  diagrams:
+    - id: security-token-flow
+      type: sequenceDiagram
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
 ---
 
 # Security Best Practices

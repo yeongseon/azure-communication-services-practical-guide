@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - source: mslearn-adapted
-    mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+  diagrams:
+    - id: anti-pattern-decision
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
 ---
 
 # Common Anti-Patterns
