@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-paas-methodology
-  - troubleshooting-framework
+  diagrams:
+    - id: methodology-flow
+      type: flowchart
+      source: self-generated
+      justification: Original diagram illustrating the hypothesis-driven troubleshooting methodology stages.
 ---
 
 # Troubleshooting Methodology

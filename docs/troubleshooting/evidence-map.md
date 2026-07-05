@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-monitor
-  - acs-diagnostics
+  diagrams:
+    - id: evidence-collection-flow
+      type: flowchart
+      source: self-generated
+      justification: Original evidence-collection flow mapping failure types to required metrics and logs.
 ---
 
 # Evidence Map

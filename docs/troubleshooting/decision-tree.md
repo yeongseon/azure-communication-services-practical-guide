@@ -1,7 +1,18 @@
 ---
 content_sources:
-  - azure-docs
-  - network-troubleshooting
+  diagrams:
+    - id: main-decision-tree
+      type: flowchart
+      source: self-generated
+      justification: Original symptom-routing decision tree that directs ACS communication issues to the appropriate specialized playbook.
+    - id: sms-sub-tree
+      type: flowchart
+      source: self-generated
+      justification: Original decision sub-tree for SMS delivery and provisioning failures.
+    - id: calling-sub-tree
+      type: flowchart
+      source: self-generated
+      justification: Original decision sub-tree for Calling and Video quality and connection failures.
 ---
 
 # Troubleshooting Decision Tree

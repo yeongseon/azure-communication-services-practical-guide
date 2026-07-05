@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - network-architecture
+  diagrams:
+    - id: mental-model-layers
+      type: flowchart
+      source: self-generated
+      justification: Original layered mental model of ACS logical components used for root-cause isolation.
 ---
 
 # Mental Model

@@ -1,7 +1,14 @@
 ---
 content_sources:
-  - azure-docs
-  - communication-services-sdk
+  diagrams:
+    - id: troubleshooting-method-flow
+      type: flowchart
+      source: self-generated
+      justification: Original hypothesis-driven troubleshooting workflow used throughout this guide.
+    - id: troubleshooting-decision-tree
+      type: flowchart
+      source: self-generated
+      justification: Original high-level symptom-to-playbook decision tree overview.
 ---
 
 # Troubleshooting Overview

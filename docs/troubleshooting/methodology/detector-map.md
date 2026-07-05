@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-monitor-acs
-  - log-analytics-acs
+  diagrams:
+    - id: detector-architecture
+      type: flowchart
+      source: self-generated
+      justification: Original diagram of ACS diagnostic and detector capabilities across Azure Monitor and Log Analytics.
 ---
 
 # Detector Map
