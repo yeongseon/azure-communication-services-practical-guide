@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource
+  diagrams:
+    - id: provisioning-workflow
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+      based_on:
+        - https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource
 ---
 
 # Provisioning ACS Resources

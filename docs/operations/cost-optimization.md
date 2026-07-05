@@ -1,6 +1,10 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/pricing
+  diagrams:
+    - id: cost-optimization-workflow
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
 ---
 
 # Cost Optimization for ACS

@@ -1,6 +1,10 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+  diagrams:
+    - id: iac-workflow
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
 ---
 
 # Infrastructure as Code for ACS

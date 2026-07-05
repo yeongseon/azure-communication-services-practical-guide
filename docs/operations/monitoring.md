@@ -1,12 +1,17 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
-  - https://learn.microsoft.com/azure/communication-services/concepts/metrics
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
-  - https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule
-  - https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
+  diagrams:
+    - id: monitoring-architecture
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+      based_on:
+        - https://learn.microsoft.com/azure/communication-services/concepts/metrics
+        - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
+        - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
+        - https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule
+        - https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
 content_validation:
   status: verified
   last_reviewed: 2026-07-01

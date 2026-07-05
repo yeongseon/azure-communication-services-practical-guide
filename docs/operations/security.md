@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/authentication
-  - https://learn.microsoft.com/azure/communication-services/concepts/managed-identity
+  diagrams:
+    - id: security-operations
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
+      based_on:
+        - https://learn.microsoft.com/azure/communication-services/concepts/managed-identity
 ---
 
 # Security Operations for ACS
