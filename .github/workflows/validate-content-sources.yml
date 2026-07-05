@@ -1,14 +1,16 @@
 name: Validate Content Sources
 
-# ACS P3-ACS Wave 0 bootstrap workflow.
+# STRICT mode (post-migration): P3-ACS data migration is complete
+# (Waves 0-6 shipped; all 56 mermaid-bearing pages use the canonical
+# content_sources.diagrams mapping shape).
 #
-# NON-BLOCKING / WARN-ONLY mode: this workflow deliberately runs the
-# validators with `continue-on-error: true` because ACS is mid-migration
-# (121 of 136 content_sources-bearing files use non-canonical legacy
-# shapes as of the P2-1 audit). The validators are here to measure
-# migration progress, not to block PRs. Wave 7 will flip this to strict.
+# The content_sources validator is now BLOCKING on PRs. New pages with
+# non-canonical shapes will fail this check.
 #
-# Reference implementation (strict mode):
+# The MSLearn URL validator remains warn-only to avoid rate-limit-
+# induced false failures (matches the ACA sibling repo pattern).
+#
+# Reference implementation (strict mode source-of-truth):
 #   azure-container-apps-practical-guide/.github/workflows/validate-content-sources.yml
 #
 # Migration plan:
@@ -32,7 +34,7 @@ on:
 
 jobs:
   validate-content-sources:
-    name: Validate Content Source Metadata (warn-only)
+    name: Validate Content Source Metadata
     runs-on: ubuntu-latest
 
     steps:
@@ -54,11 +56,9 @@ jobs:
         run: |
           python -m doctest scripts/lib/content_scope.py -v
 
-      - name: Audit content_sources frontmatter (warn-only during ACS migration)
+      - name: Audit content_sources frontmatter (strict)
         run: |
           python scripts/validate_content_sources.py
-        continue-on-error: true  # Non-blocking during P3-ACS wave migration.
-                                 # Flip to blocking after Wave 7 (see plan §6.3).
 
   validate-mslearn-urls:
     name: Validate MSLearn URLs (warn-only)
