@@ -2,11 +2,12 @@
 title: Java SDK Guide
 description: Build communication features with Azure Communication Services for Java.
 content_sources:
-  - id: java-sdk-overview
-    type: documentation
-    source: self
-    justification: Provides an overview of Java SDK packages and prerequisites.
-    based_on: https://learn.microsoft.com/java/api/overview/azure/communication-services
+  diagrams:
+    - id: java-sdk-architecture
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/java/api/overview/azure/communication-services
+      based_on: Java SDK package architecture (control-plane and data-plane clients)
 ---
 
 # Java SDK Guide

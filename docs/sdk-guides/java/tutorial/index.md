@@ -2,11 +2,12 @@
 title: Java SDK Tutorial
 description: Step-by-step guide to building communication features with Java.
 content_sources:
-  - id: java-tutorial-overview
-    type: documentation
-    source: self
-    justification: Overview of the Java tutorial path.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+  diagrams:
+    - id: java-tutorial-path
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+      based_on: Learning-path progression through ACS Java quickstarts
 ---
 
 # Java SDK Tutorial

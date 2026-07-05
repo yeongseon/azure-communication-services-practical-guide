@@ -2,11 +2,12 @@
 title: .NET SDK Guide
 description: Build communication features with Azure Communication Services for .NET.
 content_sources:
-  - id: dotnet-sdk-overview
-    type: documentation
-    source: self
-    justification: Provides an overview of .NET SDK packages and prerequisites.
-    based_on: https://learn.microsoft.com/dotnet/api/overview/azure/communication-services
+  diagrams:
+    - id: dotnet-sdk-workflow
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/dotnet/api/overview/azure/communication-services
+      based_on: .NET SDK workflow across identity, SMS, email, and chat packages
 ---
 
 # .NET SDK Guide

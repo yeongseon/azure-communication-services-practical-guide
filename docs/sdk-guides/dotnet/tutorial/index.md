@@ -2,11 +2,12 @@
 title: .NET SDK Tutorial
 description: Step-by-step guide to building communication features with .NET.
 content_sources:
-  - id: dotnet-tutorial-overview
-    type: documentation
-    source: self
-    justification: Overview of the .NET tutorial path.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+  diagrams:
+    - id: dotnet-tutorial-path
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+      based_on: Learning-path progression through ACS .NET quickstarts
 ---
 
 # .NET SDK Tutorial

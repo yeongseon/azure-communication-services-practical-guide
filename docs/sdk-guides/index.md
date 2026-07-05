@@ -2,7 +2,12 @@
 title: SDK Guides Overview
 description: Comprehensive documentation for Azure Communication Services SDKs across multiple languages.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/overview
+  diagrams:
+    - id: sdk-architecture
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
+      based_on: High-level ACS SDK architecture across supported languages
 ---
 
 # SDK Guides Overview

@@ -2,10 +2,15 @@
 title: Python SDK Guide
 description: Build communication features with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/python/api/overview/azure/communication-identity-readme
-  - https://learn.microsoft.com/python/api/overview/azure/communication-sms-readme
-  - https://learn.microsoft.com/python/api/overview/azure/communication-email-readme
-  - https://learn.microsoft.com/python/api/overview/azure/communication-chat-readme
+  diagrams:
+    - id: python-sdk-workflow
+      type: flowchart
+      source: mslearn-adapted
+      mslearn_url: https://learn.microsoft.com/python/api/overview/azure/communication-identity-readme
+      based_on:
+        - https://learn.microsoft.com/python/api/overview/azure/communication-sms-readme
+        - https://learn.microsoft.com/python/api/overview/azure/communication-email-readme
+        - https://learn.microsoft.com/python/api/overview/azure/communication-chat-readme
 ---
 
 # Python SDK Guide
