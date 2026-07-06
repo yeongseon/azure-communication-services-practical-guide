@@ -1,5 +1,7 @@
 # Azure Communication Services Practical Guide
 
+📘 **Documentation site:** <https://yeongseon.github.io/azure-communication-services-practical-guide/>
+
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md)
 
 Comprehensive guide for Azure Communication Services — SMS, Voice, Email, Chat, Video Calling, and Teams Interop.
@@ -47,12 +49,10 @@ Visit `http://127.0.0.1:8000` to browse the documentation locally.
 ## Repository Layout
 
 - `docs/` — MkDocs source for platform guidance, SDK tutorials, operations guidance, troubleshooting content, and visualizations
-- `apps/python/` — Python ACS reference app assets
-- `apps/javascript/` — JavaScript ACS reference app assets
-- `apps/java/` — Java ACS reference app assets
-- `apps/dotnet/` — .NET ACS reference app assets
 - `.github/workflows/docs.yml` — GitHub Pages deployment workflow
 - `mkdocs.yml` — site configuration, theme settings, and global navigation
+
+This is an SDK-focused documentation repository. SDK code examples live inline within the tutorials under `docs/sdk-guides/`; there is no separate `apps/` directory.
 
 ## Focus Areas
 
@@ -81,6 +81,7 @@ Contributions welcome! Please see our [Contributing Guide](https://yeongseon.git
 | [azure-storage-practical-guide](https://github.com/yeongseon/azure-storage-practical-guide) | Azure Storage practical guide |
 | [azure-app-service-practical-guide](https://github.com/yeongseon/azure-app-service-practical-guide) | Azure App Service practical guide |
 | [azure-functions-practical-guide](https://github.com/yeongseon/azure-functions-practical-guide) | Azure Functions practical guide |
+| [azure-communication-services-practical-guide](https://github.com/yeongseon/azure-communication-services-practical-guide) | Azure Communication Services practical guide |
 | [azure-container-apps-practical-guide](https://github.com/yeongseon/azure-container-apps-practical-guide) | Azure Container Apps practical guide |
 | [azure-kubernetes-service-practical-guide](https://github.com/yeongseon/azure-kubernetes-service-practical-guide) | Azure Kubernetes Service (AKS) practical guide |
 | [azure-architecture-practical-guide](https://github.com/yeongseon/azure-architecture-practical-guide) | Azure Architecture practical guide |
