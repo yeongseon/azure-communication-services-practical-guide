@@ -270,12 +270,12 @@ nav:
     - Reports:
       - reference/reports/index.md
       - Email Test Report: reference/reports/email-test-report.md
-  - Visualization:
-    - visualization/index.md
-    - visualization/core-knowledge-graph.md
-    - visualization/troubleshooting-map.md
-    - visualization/learning-paths.md
-  - Meta:
-    - meta/taxonomy.md
+    - Visualization:
+      - visualization/index.md
+      - visualization/core-knowledge-graph.md
+      - visualization/troubleshooting-map.md
+      - visualization/learning-paths.md
+    - Meta:
+      - meta/taxonomy.md
   - Contributing:
     - contributing/index.md
