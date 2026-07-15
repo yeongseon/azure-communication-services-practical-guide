@@ -51,6 +51,7 @@ Thumbs.db
 # Agent/tooling local state
 .playwright-mcp/
 .sisyphus/
+.playwright-scripts/
 
 # Root-level debug/scratch screenshots (docs/assets/**/*.png stays legitimate)
 /*.png

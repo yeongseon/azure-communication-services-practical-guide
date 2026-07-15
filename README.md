@@ -4,6 +4,10 @@
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md)
 
+[![Docs](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/docs.yml/badge.svg)](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/docs.yml)
+[![CI](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/validate-content-sources.yml/badge.svg)](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/validate-content-sources.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Comprehensive guide for Azure Communication Services — SMS, Voice, Email, Chat, Video Calling, and Teams Interop.
 
 ## What's Inside
