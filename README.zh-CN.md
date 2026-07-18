@@ -4,21 +4,25 @@
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md)
 
+[![Docs](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/docs.yml/badge.svg)](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/docs.yml)
+[![CI](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/validate-content-sources.yml/badge.svg)](https://github.com/yeongseon/azure-communication-services-practical-guide/actions/workflows/validate-content-sources.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Azure Communication Services 全方位实操指南——SMS、语音、电子邮件、聊天、视频通话和 Teams 互操作。
 
 ## 主要内容
 
 | 章节 | 描述 | 状态 |
 |---|---|---|
-| [从这里开始 (Start Here)](https://yeongseon.github.io/azure-communication-services-practical-guide/) | 概述、学习路径、仓库地图和指南使用方法 | 全面 |
-| [平台 (Platform)](https://yeongseon.github.io/azure-communication-services-practical-guide/platform/) | ACS 工作原理、资源类型、消息通道、网络、身份验证、事件和安全 | 全面 |
-| [最佳实践 (Best Practices)](https://yeongseon.github.io/azure-communication-services-practical-guide/best-practices/) | 生产基线、安全、网络、可靠性、扩展、成本和反模式 | 全面 |
-| [SDK 指南 (SDK Guides)](https://yeongseon.github.io/azure-communication-services-practical-guide/sdk-guides/) | 面向 Python、JavaScript、Java 和 .NET 的分步教程与实用示例 | 全面 |
-| [运营 (Operations)](https://yeongseon.github.io/azure-communication-services-practical-guide/operations/) | 预配、监控、部署、健康恢复、安全和成本优化 | 全面 |
-| [故障排除 (Troubleshooting)](https://yeongseon.github.io/azure-communication-services-practical-guide/troubleshooting/) | 决策树、证据图、前 10 分钟检查、实战手册、方法论和 KQL 包 | 全面 |
-| [参考 (Reference)](https://yeongseon.github.io/azure-communication-services-practical-guide/reference/) | CLI 速查表、平台限制、KQL 查询和 SDK 参考 | 全面 |
-| [可视化 (Visualization)](https://yeongseon.github.io/azure-communication-services-practical-guide/visualization/) | 知识图谱、故障排除地图和学习路径可视化 | 已发布 |
-| [元数据 (Meta)](https://yeongseon.github.io/azure-communication-services-practical-guide/meta/taxonomy/) | 仓库分类和内容模型 | 已发布 |
+| [从这里开始](https://yeongseon.github.io/azure-communication-services-practical-guide/) | 概述、学习路径、仓库地图和指南使用方法 | 全面 |
+| [平台](https://yeongseon.github.io/azure-communication-services-practical-guide/platform/) | ACS 工作原理、资源类型、消息通道、网络、身份验证、事件和安全 | 全面 |
+| [最佳实践](https://yeongseon.github.io/azure-communication-services-practical-guide/best-practices/) | 生产基线、安全、网络、可靠性、扩展、成本和反模式 | 全面 |
+| [SDK 指南](https://yeongseon.github.io/azure-communication-services-practical-guide/sdk-guides/) | 面向 Python、JavaScript、Java 和 .NET 的分步教程与实用示例 | 全面 |
+| [运营](https://yeongseon.github.io/azure-communication-services-practical-guide/operations/) | 预配、监控、部署、健康恢复、安全和成本优化 | 全面 |
+| [故障排除](https://yeongseon.github.io/azure-communication-services-practical-guide/troubleshooting/) | 决策树、证据图、前 10 分钟检查、实战手册、方法论和 KQL 包 | 全面 |
+| [参考](https://yeongseon.github.io/azure-communication-services-practical-guide/reference/) | CLI 速查表、平台限制、KQL 查询和 SDK 参考 | 全面 |
+| [可视化](https://yeongseon.github.io/azure-communication-services-practical-guide/visualization/) | 知识图谱、故障排除地图和学习路径可视化 | 已发布 |
+| [元数据](https://yeongseon.github.io/azure-communication-services-practical-guide/meta/taxonomy/) | 仓库分类和内容模型 | 已发布 |
 
 **状态图例**: **实验室验证** = 全面内容 + 可复现实验室验证 · **全面** = 完整章节、经 MSLearn 验证、可用于生产 · **已发布** = 核心内容就绪，仍在扩展 · **进行中** = 部分内容，积极开发中 · **计划中** = 占位符，内容尚未开始
 
@@ -34,18 +38,13 @@ Azure Communication Services 全方位实操指南——SMS、语音、电子邮
 ## 快速入门
 
 ```bash
-# 克隆仓库
 git clone https://github.com/yeongseon/azure-communication-services-practical-guide.git
 cd azure-communication-services-practical-guide
 
-# 创建并激活虚拟环境
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
-
-# 安装 MkDocs 依赖
 pip install -r requirements-docs.txt
 
-# 启动本地文档服务器
 mkdocs serve
 ```
 
