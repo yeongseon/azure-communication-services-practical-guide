@@ -32,6 +32,9 @@ az communication sms send --sender "<from_number>" --recipient "<to_number>" --m
 | `az communication phonenumber list` | Lists the phone numbers provisioned on the ACS resource. |
 | `--connection-string "<your_connection_string>"` | Authenticates the request using the ACS connection string. |
 | `az communication sms send` | Sends an SMS, optionally requesting a delivery report. |
+| `--sender "<from_number>"` | Sets the provisioned ACS phone number the SMS is sent from. |
+| `--recipient "<to_number>"` | Sets the destination phone number. |
+| `--message "test"` | Sets the SMS body text. |
 | `--deliveryReport` | Enables delivery reporting; the report is delivered via Event Grid, not the CLI. |
 
 ## Key KQL Queries

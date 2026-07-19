@@ -36,6 +36,9 @@ az communication sms send --sender "<from>" --recipient "<to>" --message "test" 
 | Command | Purpose |
 |---------|---------|
 | `az communication sms send` | Sends an SMS, optionally requesting a delivery report. |
+| `--sender "<from>"` | Sets the provisioned ACS phone number the SMS is sent from. |
+| `--recipient "<to>"` | Sets the destination phone number. |
+| `--message "test"` | Sets the SMS body text. |
 | `--deliveryReport` | Enables delivery reporting; the report is delivered via Event Grid, not the CLI. |
 | `--connection-string "<cs>"` | Authenticates the request using the ACS connection string. |
 
