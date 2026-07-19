@@ -30,6 +30,13 @@ You can store the ACS connection string as a secret in Key Vault using the Azure
 az keyvault secret set --vault-name <your-vault-name> --name "AcsConnectionString" --value "<your-acs-connection-string>"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az keyvault secret set` | Stores or updates a secret in Azure Key Vault. |
+| `--vault-name <your-vault-name>` | Names the Key Vault that holds the secret. |
+| `--name "AcsConnectionString"` | Names the secret to store. |
+| `--value "<your-acs-connection-string>"` | Sets the secret value (the ACS connection string). |
+
 ## Access from Python App
 
 The `azure-keyvault-secrets` library provides a client to retrieve secrets from Key Vault.

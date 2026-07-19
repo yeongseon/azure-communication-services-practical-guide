@@ -68,6 +68,17 @@ az communication show \
   --query "linkedDomains" -o tsv
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication email domain list` | Lists email domains under an Email Communication Service (with verification state). |
+| `--resource-group "<rg>"` | Names the resource group that holds the service. |
+| `--email-service-name "<email-service>"` | Identifies the parent Email Communication Service. |
+| `az communication email domain sender-username list` | Lists MailFrom sender usernames for a domain. |
+| `--domain-name "<domain>"` | Identifies the domain whose senders are listed. |
+| `az communication show` | Reads the ACS resource properties to confirm the domain link. |
+| `--name "<acs-resource>"` | Names the ACS resource to inspect. |
+| `--query "linkedDomains" -o tsv` | Projects only the linked-domains list as tab-separated values. |
+
 ## Key KQL Queries
 
 Run this in Log Analytics to see recent email delivery lifecycle events. The canonical table is `ACSEmailStatusUpdateOperational` per the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs).

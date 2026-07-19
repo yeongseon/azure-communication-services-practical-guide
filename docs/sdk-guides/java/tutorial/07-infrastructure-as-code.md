@@ -37,6 +37,12 @@ Deploy using Azure CLI:
 az deployment group create --resource-group MyRG --template-file main.bicep
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az deployment group create` | Deploys an ARM/Bicep template to a resource group. |
+| `--resource-group MyRG` | Names the target resource group for the deployment. |
+| `--template-file main.bicep` | Points to the Bicep template to deploy. |
+
 ## 2. GitHub Actions Workflow
 
 Automate your Maven build and deployment using GitHub Actions. Create `.github/workflows/main.yml`.
@@ -92,6 +98,16 @@ az communication phonenumber search-available \
 az communication phonenumber purchase \
     --search-id "search-id-from-previous-step"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication phonenumber search-available` | Searches for available phone numbers to purchase. |
+| `--area-code "425"` | Filters the search to the given area code. |
+| `--country-code "US"` | Sets the country/region to search in. |
+| `--phone-plan-ids "plan-id"` | Selects the phone plan to search within. |
+| `--quantity 1` | Requests one available number. |
+| `az communication phonenumber purchase` | Purchases a number from a completed search. |
+| `--search-id "search-id-from-previous-step"` | References the reserved search result to purchase. |
 
 ## 4. Maven Plugin for Azure App Service
 

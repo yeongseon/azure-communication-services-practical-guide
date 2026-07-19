@@ -29,6 +29,12 @@ Ensure the token has the `chat` scope when it was generated.
 az communication identity list-tokens --user-id "<user_id>" --connection-string "<your_connection_string>"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication identity list-tokens` | Lists the access tokens issued for an ACS identity. |
+| `--user-id "<user_id>"` | Identifies the ACS user whose tokens are listed. |
+| `--connection-string "<your_connection_string>"` | Authenticates the request using the ACS connection string. |
+
 ### 3. Check Network Traffic
 Look for failed requests to `*.communication.azure.com`. If WebSockets are blocked, chat will fail.
 

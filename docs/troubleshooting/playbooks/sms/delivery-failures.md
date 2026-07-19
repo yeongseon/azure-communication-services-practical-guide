@@ -33,6 +33,12 @@ Use the CLI to get the status of a specific message ID.
 az communication sms get-delivery-report --message-id "<id>" --connection-string "<cs>"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication sms get-delivery-report` | Retrieves the delivery report for a specific SMS message. |
+| `--message-id "<id>"` | Identifies the SMS message to report on. |
+| `--connection-string "<cs>"` | Authenticates the request using the ACS connection string. |
+
 ## Validation
 
 ### [Observed] Validate Phone Format

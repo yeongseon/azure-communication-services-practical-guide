@@ -27,6 +27,13 @@ az communication sms number list --connection-string "<your_connection_string>"
 az communication sms get-delivery-report --message-id "<message_id>" --connection-string "<your_connection_string>"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication sms number list` | Lists the phone numbers provisioned on the ACS resource. |
+| `--connection-string "<your_connection_string>"` | Authenticates the request using the ACS connection string. |
+| `az communication sms get-delivery-report` | Retrieves the delivery report for a specific SMS message. |
+| `--message-id "<message_id>"` | Identifies the SMS message to report on. |
+
 ## Key KQL Queries
 
 Run this in Log Analytics to see recent delivery failures and their reasons:

@@ -33,6 +33,12 @@ Confirm the user's communication identity still exists.
 az communication identity list-tokens --user-id "<user_id>" --connection-string "<cs>"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication identity list-tokens` | Lists the access tokens issued for an ACS identity. |
+| `--user-id "<user_id>"` | Identifies the ACS user whose tokens are listed. |
+| `--connection-string "<cs>"` | Authenticates the request using the ACS connection string. |
+
 ## Validation
 
 ### [Observed] Check Token Expiration

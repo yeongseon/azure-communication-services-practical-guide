@@ -27,6 +27,14 @@ Use the Azure CLI to create a resource:
 az communication create --name "MyACSResource" --location "Global" --data-location "United States" --resource-group "MyResourceGroup"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication create` | Creates an Azure Communication Services resource. |
+| `--name "MyACSResource"` | Names the ACS resource to create. |
+| `--location "Global"` | Sets the resource location (ACS resources are Global). |
+| `--data-location "United States"` | Sets the immutable region where data at rest is stored. |
+| `--resource-group "MyResourceGroup"` | Places the resource in the named resource group. |
+
 Copy the **Connection String** from the output or the Azure Portal.
 
 ## 2. Initialize .NET Console App

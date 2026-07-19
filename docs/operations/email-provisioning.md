@@ -65,6 +65,14 @@ az communication email create \
   --resource-group "rg-acs-email-lab"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication email create` | Creates the Email Communication Service resource that owns verified domains. |
+| `--name "ecs-email-lab"` | Names the Email Communication Service to create. |
+| `--location "Global"` | Sets the resource location (Email Communication Services are Global resources). |
+| `--data-location "Korea"` | Sets the immutable region where message data is stored. |
+| `--resource-group "rg-acs-email-lab"` | Places the resource in the named resource group. |
+
 After creation, the Email Service Overview blade renders with the Essentials section populated and two call-to-action cards prompting domain setup:
 
 ![Email Communication Service Overview blade after creation, showing populated Essentials (resource group, status, location, subscription, data location) and the two "Add your email domains" call-to-action cards](../assets/operations/email-provisioning/01-create-email-service.png){ loading=lazy }
@@ -96,6 +104,15 @@ az communication email domain create \
   --domain-management AzureManaged
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication email domain create` | Creates an email domain under the Email Communication Service. |
+| `--domain-name "AzureManagedDomain"` | Names the domain; `AzureManagedDomain` is the reserved name for the auto-verified managed domain. |
+| `--email-service-name "ecs-email-lab"` | Identifies the parent Email Communication Service. |
+| `--resource-group "rg-acs-email-lab"` | Names the resource group that holds the Email Communication Service. |
+| `--location "Global"` | Sets the resource location (email domains are Global resources). |
+| `--domain-management AzureManaged` | Provisions an Azure-managed, auto-verified domain (no DNS setup required). |
+
 To add a custom domain (verification follows in step 3):
 
 ```bash
@@ -106,6 +123,15 @@ az communication email domain create \
   --location "Global" \
   --domain-management CustomerManaged
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication email domain create` | Creates an email domain under the Email Communication Service. |
+| `--domain-name "contoso-demo.example.com"` | Names the custom domain to register for verification. |
+| `--email-service-name "ecs-email-lab"` | Identifies the parent Email Communication Service. |
+| `--resource-group "rg-acs-email-lab"` | Names the resource group that holds the Email Communication Service. |
+| `--location "Global"` | Sets the resource location (email domains are Global resources). |
+| `--domain-management CustomerManaged` | Provisions a customer-managed domain requiring DNS-based verification. |
 
 ### Step 3. Verify a custom domain via DNS
 
@@ -144,6 +170,13 @@ az communication update \
   --linked-domains "/subscriptions/<subscription-id>/resourceGroups/rg-acs-email-lab/providers/Microsoft.Communication/emailServices/ecs-email-lab/domains/AzureManagedDomain"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication update` | Updates the ACS resource configuration. |
+| `--name "acs-email-lab"` | Names the ACS resource to update. |
+| `--resource-group "rg-acs-email-lab"` | Names the resource group that holds the ACS resource. |
+| `--linked-domains "/subscriptions/.../domains/AzureManagedDomain"` | Grants the ACS resource permission to send from the referenced email domain (full ARM resource ID). |
+
 The `--linked-domains` flag is additive: pass every domain you want the ACS resource to be allowed to send from. Removing a domain from this list immediately revokes the ACS resource's ability to send from it.
 
 ### Step 5. Configure sender usernames (MailFrom)
@@ -168,6 +201,15 @@ az communication email domain sender-username create \
   --display-name "Contoso Support"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication email domain sender-username create` | Creates a MailFrom sender username on a custom verified domain. |
+| `--domain-name "contoso-demo.example.com"` | Identifies the custom verified domain that owns the sender. |
+| `--email-service-name "ecs-email-lab"` | Identifies the parent Email Communication Service. |
+| `--resource-group "rg-acs-email-lab"` | Names the resource group that holds the Email Communication Service. |
+| `--sender-username "support"` | Sets the local-part of the sender address (the text before `@`). |
+| `--display-name "Contoso Support"` | Sets the friendly From display name shown to recipients. |
+
 ## Verification
 
 After completing all five steps, verify the deployment by sending one email through the SDK:
@@ -186,6 +228,17 @@ az communication email domain show \
   --resource-group "rg-acs-email-lab" \
   --query "verificationStates" -o json
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication show` | Reads the ACS resource properties to confirm the domain link. |
+| `--name "acs-email-lab"` | Names the ACS resource to inspect. |
+| `--resource-group "rg-acs-email-lab"` | Names the resource group that holds the ACS resource. |
+| `--query "linkedDomains" -o tsv` | Projects only the linked-domains list and prints it as tab-separated values. |
+| `az communication email domain show` | Reads the email domain properties to confirm verification. |
+| `--domain-name "AzureManagedDomain"` | Identifies the domain to inspect. |
+| `--email-service-name "ecs-email-lab"` | Identifies the parent Email Communication Service. |
+| `--query "verificationStates" -o json` | Projects only the per-record verification states and prints them as JSON. |
 
 Then send a test email using one of the SDK tutorials:
 

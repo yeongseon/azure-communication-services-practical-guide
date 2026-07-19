@@ -32,6 +32,11 @@ Verify current number and its tier.
 az communication sms number list --connection-string "<cs>"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication sms number list` | Lists the phone numbers provisioned on the ACS resource. |
+| `--connection-string "<cs>"` | Authenticates the request using the ACS connection string. |
+
 ## Validation
 
 ### [Measured] Monitor Throughput

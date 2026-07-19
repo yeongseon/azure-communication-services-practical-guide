@@ -32,6 +32,12 @@ ACS follows a consumption-based pricing model, meaning you pay for what you use 
    az consumption usage list --resource-group my-rg --top 10
    ```
 
+| Command | Purpose |
+|---------|---------|
+| `az consumption usage list` | Lists consumption usage details for the subscription. |
+| `--resource-group my-rg` | Scopes the usage query to the named resource group. |
+| `--top 10` | Limits the output to the first 10 usage records. |
+
 ## Usage Analysis Queries
 
 Analyze ACS consumption patterns with Kusto (KQL) in Log Analytics:

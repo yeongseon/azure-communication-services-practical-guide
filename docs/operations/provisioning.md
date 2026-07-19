@@ -37,6 +37,14 @@ az communication create \
     --resource-group my-rg
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication create` | Creates an Azure Communication Services resource. |
+| `--name my-acs-resource` | Names the ACS resource to create. |
+| `--location Global` | Sets the resource location (ACS resources are Global). |
+| `--data-location UnitedStates` | Sets the immutable region where data at rest is stored. |
+| `--resource-group my-rg` | Places the resource in the named resource group. |
+
 ### Bicep
 For Infrastructure as Code, use the `Microsoft.Communication/communicationServices` resource type.
 
@@ -67,6 +75,12 @@ az communication phone-number list-area-codes \
     --location US \
     --number-type TollFree
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication phone-number list-area-codes` | Lists available area codes for phone-number acquisition. |
+| `--location US` | Sets the country/region to search for area codes. |
+| `--number-type TollFree` | Filters results to the toll-free number type. |
 
 ### Email Domain Setup
 1. Create an Email Communication Service resource.
