@@ -25,9 +25,15 @@ Open the developer tools and look for `401 Unauthorized` or `403 Forbidden` erro
 Ensure the token has the `chat` scope when it was generated.
 
 ```bash
-# Verify identity and existing tokens (if using identity service)
-az communication identity list-tokens --user-id "<user_id>" --connection-string "<your_connection_string>"
+# Issue a fresh access token with the chat scope to validate token issuance
+az communication user-identity token issue --scope chat --connection-string "<your_connection_string>"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication user-identity token issue` | Issues a new access token to validate chat token issuance and connectivity. |
+| `--scope chat` | Requests the `chat` scope required for chat operations. |
+| `--connection-string "<your_connection_string>"` | Authenticates the request using the ACS connection string. |
 
 ### 3. Check Network Traffic
 Look for failed requests to `*.communication.azure.com`. If WebSockets are blocked, chat will fail.

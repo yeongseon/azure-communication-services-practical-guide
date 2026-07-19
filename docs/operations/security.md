@@ -46,6 +46,14 @@ To rotate your access keys with zero downtime:
    ```bash
    az communication regenerate-key --name my-acs-resource --resource-group my-rg --key-type Primary
    ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication regenerate-key` | Regenerates an access key for the ACS resource. |
+| `--name my-acs-resource` | Names the ACS resource whose key is regenerated. |
+| `--resource-group my-rg` | Names the resource group that holds the resource. |
+| `--key-type Primary` | Selects which key to regenerate (`Primary` or `Secondary`). |
+
 3. Update your application to use the new Primary key.
 4. Regenerate the Secondary key if desired.
 

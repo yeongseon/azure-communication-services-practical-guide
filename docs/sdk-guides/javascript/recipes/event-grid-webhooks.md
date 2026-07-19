@@ -27,6 +27,15 @@ az eventgrid event-subscription create \
   --included-event-types "Microsoft.Communication.SMSReceived" "Microsoft.Communication.SMSDeliveryReportReceived"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az eventgrid event-subscription create` | Creates an Event Grid subscription that forwards ACS events to an endpoint. |
+| `--name "acs-sms-subscription"` | Names the event subscription. |
+| `--source-resource-id "/subscriptions/.../CommunicationServices/<acs-resource-name>"` | Sets the ACS resource as the event source (full ARM resource ID). |
+| `--endpoint "https://<your-webhook-endpoint>/api/webhooks"` | Sets the webhook URL that receives events. |
+| `--endpoint-type webhook` | Declares the endpoint as an HTTP webhook. |
+| `--included-event-types "Microsoft.Communication.SMSReceived" "..."` | Filters delivery to the listed ACS SMS event types. |
+
 ## 2. Express Webhook Endpoint
 
 Implement an endpoint to receive and process events. You must handle the `SubscriptionValidationEvent` to successfully register the webhook.

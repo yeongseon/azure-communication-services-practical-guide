@@ -37,6 +37,14 @@ az communication create \
     --resource-group my-rg
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication create` | Creates an Azure Communication Services resource. |
+| `--name my-acs-resource` | Names the ACS resource to create. |
+| `--location Global` | Sets the resource location (ACS resources are Global). |
+| `--data-location UnitedStates` | Sets the immutable region where data at rest is stored. |
+| `--resource-group my-rg` | Places the resource in the named resource group. |
+
 ### Bicep
 For Infrastructure as Code, use the `Microsoft.Communication/communicationServices` resource type.
 
@@ -61,12 +69,16 @@ resource acsResource 'Microsoft.Communication/communicationServices@2023-04-01-p
 ## Communication Channels Setup
 
 ### Phone Number Acquisition
-Phone numbers can be acquired via the Azure Portal or via CLI:
+Phone numbers are acquired via the Azure Portal (Communication Service → Phone numbers → Get). The Azure CLI does not search or purchase numbers; use it to inventory numbers already acquired on the resource:
 ```bash
-az communication phone-number list-area-codes \
-    --location US \
-    --number-type TollFree
+az communication phonenumber list \
+    --connection-string "<connection-string>"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication phonenumber list` | Lists the phone numbers already acquired on the ACS resource. |
+| `--connection-string "<connection-string>"` | Authenticates the request using the ACS connection string. |
 
 ### Email Domain Setup
 1. Create an Email Communication Service resource.

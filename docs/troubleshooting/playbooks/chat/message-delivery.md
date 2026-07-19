@@ -30,8 +30,14 @@ Query the `ACSChatMessageSentEvents` and `ACSChatMessageReceivedEvents` tables.
 Confirm the user's communication identity still exists.
 
 ```bash
-az communication identity list-tokens --user-id "<user_id>" --connection-string "<cs>"
+az communication user-identity token issue --scope chat --connection-string "<cs>"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication user-identity token issue` | Issues a new access token to validate chat token issuance and connectivity. |
+| `--scope chat` | Requests the `chat` scope required for chat operations. |
+| `--connection-string "<cs>"` | Authenticates the request using the ACS connection string. |
 
 ## Validation
 

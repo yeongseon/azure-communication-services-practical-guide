@@ -46,6 +46,20 @@ az monitor diagnostic-settings create \
   --metrics '[{"category":"AllMetrics","enabled":true}]'
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az group create` | Creates the resource group that holds all lab resources. |
+| `az communication create` | Creates the ACS resource. |
+| `az communication email create` | Creates the Email Communication Service resource. |
+| `az communication email domain create` | Creates the Azure-managed email domain. |
+| `az rest --method patch` | Links the email domain to the ACS resource via the management REST API. |
+| `--url "https://management.azure.com/.../communicationServices/acs-email-lab?api-version=2023-04-01"` | Targets the ACS resource ARM endpoint to patch. |
+| `--body '{"properties":{"linkedDomains":[...]}}'` | Supplies the `linkedDomains` patch payload. |
+| `az monitor log-analytics workspace create` | Creates the Log Analytics workspace for diagnostics. |
+| `az monitor diagnostic-settings create` | Routes ACS logs and metrics to the workspace. |
+| `--logs '[{"categoryGroup":"allLogs","enabled":true}]'` | Enables all log categories. |
+| `--metrics '[{"category":"AllMetrics","enabled":true}]'` | Enables all platform metrics. |
+
 ## 3. Domain Verification
 - **Domain**: `<azure-managed-domain>.azurecomm.net`
 - **Sender address**: `DoNotReply@<azure-managed-domain>.azurecomm.net`

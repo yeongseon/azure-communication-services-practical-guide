@@ -53,6 +53,18 @@ az communication list-key --name my-acs-resource --resource-group my-rg --query 
 az communication update --name my-acs-resource --resource-group my-rg --tags environment=prod
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication list` | Lists all ACS resources in the subscription. |
+| `--output table` | Formats the output as a readable table. |
+| `az communication list-key` | Retrieves the access keys and connection strings for a resource. |
+| `--name my-acs-resource` | Names the ACS resource to query. |
+| `--resource-group my-rg` | Names the resource group that holds the resource. |
+| `--query primaryConnectionString` | Projects only the primary connection string from the result. |
+| `--output tsv` | Prints the value as tab-separated values (no quotes or table chrome). |
+| `az communication update` | Updates the ACS resource configuration. |
+| `--tags environment=prod` | Sets or replaces the resource tags. |
+
 ## See Also
 - [Azure Communication Services CLI Reference](https://learn.microsoft.com/cli/azure/communication)
 - [Service limits and quotas](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)

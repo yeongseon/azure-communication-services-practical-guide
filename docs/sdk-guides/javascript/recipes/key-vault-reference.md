@@ -28,6 +28,13 @@ npm install @azure/identity @azure/keyvault-secrets
 az keyvault secret set --vault-name <your-vault-name> --name "AcsConnectionString" --value "<your-acs-connection-string>"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az keyvault secret set` | Stores or updates a secret in Azure Key Vault. |
+| `--vault-name <your-vault-name>` | Names the Key Vault that holds the secret. |
+| `--name "AcsConnectionString"` | Names the secret to store. |
+| `--value "<your-acs-connection-string>"` | Sets the secret value (the ACS connection string). |
+
 ## Access from Node.js App
 
 ```javascript

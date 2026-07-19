@@ -29,8 +29,13 @@ Look for `429 Too Many Requests` in your application logs or HTTP traces.
 Verify current number and its tier.
 
 ```bash
-az communication sms number list --connection-string "<cs>"
+az communication phonenumber list --connection-string "<cs>"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication phonenumber list` | Lists the phone numbers provisioned on the ACS resource. |
+| `--connection-string "<cs>"` | Authenticates the request using the ACS connection string. |
 
 ## Validation
 

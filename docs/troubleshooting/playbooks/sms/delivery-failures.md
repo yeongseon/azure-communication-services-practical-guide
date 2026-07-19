@@ -27,11 +27,20 @@ Query the `ACSSMSIncomingOperations` table in Log Analytics, filtering for `Oper
 Review the `SMS API Requests` metric in Azure Monitor and split by the `Operation` dimension (`SMSMessageSent` vs `SMSDeliveryReportsReceived`) to compare send volume against delivery report volume. Filter by the `Status Code` dimension (for example `200`, `400`, `429`) or `StatusSubClass` (`2xx`, `4xx`, `5xx`) to separate successful from failed API calls.
 
 ### 3. CLI Check
-Use the CLI to get the status of a specific message ID.
+Delivery status is not read from the CLI. Request a delivery report when sending the message, then consume the result through Event Grid (SMS Delivery Report event).
 
 ```bash
-az communication sms get-delivery-report --message-id "<id>" --connection-string "<cs>"
+az communication sms send --sender "<from>" --recipient "<to>" --message "test" --deliveryReport --connection-string "<cs>"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication sms send` | Sends an SMS, optionally requesting a delivery report. |
+| `--sender "<from>"` | Sets the provisioned ACS phone number the SMS is sent from. |
+| `--recipient "<to>"` | Sets the destination phone number. |
+| `--message "test"` | Sets the SMS body text. |
+| `--deliveryReport` | Enables delivery reporting; the report is delivered via Event Grid, not the CLI. |
+| `--connection-string "<cs>"` | Authenticates the request using the ACS connection string. |
 
 ## Validation
 

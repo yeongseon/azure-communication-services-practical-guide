@@ -72,6 +72,11 @@ graph TD
     az extension add --name scheduled-query
     ```
 
+    | Command | Purpose |
+    |---------|---------|
+    | `az extension add` | Installs an Azure CLI extension. |
+    | `--name scheduled-query` | Installs the `scheduled-query` extension that provides `az monitor scheduled-query`. |
+
     If you skip this and run `az monitor scheduled-query create` directly, the CLI auto-installs the extension on first invocation, but it prints a one-time warning and prompts on some shells; installing it explicitly avoids that detour.
 - For alert receivers: SMTP email addresses, SMS-capable phone numbers, or webhook endpoints that you control.
 
@@ -121,6 +126,13 @@ az monitor log-analytics workspace create \
   --location "$LOCATION"
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az monitor log-analytics workspace create` | Creates the Log Analytics workspace that diagnostic settings route telemetry into. |
+| `--resource-group "$RG"` | Names the resource group that holds the workspace. |
+| `--workspace-name "$LAW"` | Names the workspace to create. |
+| `--location "$LOCATION"` | Sets the workspace region (match the ACS resource region). |
+
 The command is idempotent: re-running it on an existing workspace updates the SKU and tags but does not destroy data.
 
 ### Step 2. Add a diagnostic setting on the ACS resource
@@ -157,6 +169,15 @@ az monitor diagnostic-settings create \
   --logs '[{"categoryGroup":"allLogs","enabled":true}]' \
   --metrics '[{"category":"AllMetrics","enabled":true}]'
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az monitor diagnostic-settings create` | Creates a diagnostic setting that routes resource telemetry to a destination. |
+| `--name "$DIAG_NAME"` | Names the diagnostic setting. |
+| `--resource "/subscriptions/.../communicationServices/$ACS_NAME"` | Targets the ACS resource (full ARM resource ID) the setting attaches to. |
+| `--workspace "/subscriptions/.../workspaces/$LAW"` | Sets the Log Analytics workspace destination (full ARM resource ID). |
+| `--logs '[{"categoryGroup":"allLogs","enabled":true}]'` | Enables all current and future log categories. |
+| `--metrics '[{"category":"AllMetrics","enabled":true}]'` | Enables all platform metrics. |
 
 After running the CLI commands above (or completing the Portal-driven steps), the ACS resource's **Diagnostic settings** blade shows the configured setting plus the categories it enables:
 
@@ -278,6 +299,21 @@ az monitor scheduled-query create \
   --severity 2
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az monitor log-analytics workspace show` | Reads the workspace properties. |
+| `--query id -o tsv` | Projects only the workspace ARM ID and prints it as a bare tab-separated value. |
+| `az monitor scheduled-query create` | Creates a scheduled log-query alert rule. |
+| `--name "acs-email-bounce-rate-high"` | Names the alert rule. |
+| `--resource-group "$RG"` | Names the resource group that holds the alert rule. |
+| `--scopes "$WORKSPACE_ID"` | Targets the workspace the query runs against. |
+| `--condition "count 'BounceAlert' > 0"` | Fires when the named query returns any row. |
+| `--condition-query BounceAlert='...'` | Supplies the KQL bound to the condition placeholder. |
+| `--description "..."` | Sets the human-readable alert description. |
+| `--evaluation-frequency 5m` | Runs the query every 5 minutes. |
+| `--window-size 5m` | Evaluates over a 5-minute look-back window. |
+| `--severity 2` | Sets the alert severity (`2` = Warning). |
+
 #### Alert Rule Tuning
 
 After the rule has fired (or failed to fire) a few times, adjust:
@@ -328,6 +364,14 @@ az monitor action-group create \
   --action email oncall-email "$EMAIL_ADDR" usecommonalertschema
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az monitor action-group create` | Creates a reusable notification/automation target for alert rules. |
+| `--name "$AG_NAME"` | Names the action group. |
+| `--resource-group "$RG"` | Names the resource group that holds the action group. |
+| `--short-name "ACSOnCall"` | Sets the ≤12-char prefix used in SMS/email subjects. |
+| `--action email oncall-email "$EMAIL_ADDR" usecommonalertschema` | Adds an email receiver named `oncall-email` at the given address using the common alert schema. |
+
 **Attach the action group to the alert rule** (created in Step 4):
 
 ```bash
@@ -341,6 +385,15 @@ az monitor scheduled-query update \
   --resource-group "$RG" \
   --action-groups "$ACTION_GROUP_ID"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az monitor action-group show` | Reads the action group properties. |
+| `--name "$AG_NAME"` | Names the action group to inspect. |
+| `--query id -o tsv` | Projects only the action group ARM ID and prints it as a bare tab-separated value. |
+| `az monitor scheduled-query update` | Updates an existing scheduled-query alert rule. |
+| `--name "acs-email-bounce-rate-high"` | Names the alert rule to update. |
+| `--action-groups "$ACTION_GROUP_ID"` | Attaches the action group so the rule fires notifications. |
 
 After this, fire a test by manually triggering a high bounce condition (e.g., send 25 emails to a known-bad address) and confirm the notification arrives within ~5–7 minutes of the burst.
 
@@ -387,6 +440,15 @@ az monitor diagnostic-settings delete \
 # to skip soft-delete and release the name immediately.
 az monitor log-analytics workspace delete --resource-group "$RG" --workspace-name "$LAW" --yes
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az monitor scheduled-query delete` | Deletes the alert rule (remove first — it depends on the action group). |
+| `az monitor action-group delete` | Deletes the action group. |
+| `az monitor diagnostic-settings delete` | Deletes the diagnostic setting so telemetry stops flowing. |
+| `--resource "/subscriptions/.../communicationServices/$ACS_NAME"` | Targets the ACS resource the diagnostic setting is attached to. |
+| `az monitor log-analytics workspace delete` | Deletes the workspace (soft-delete by default; recoverable for 14 days). |
+| `--yes` | Skips the interactive delete confirmation prompt. |
 
 Order matters: deleting the LAW first while the diagnostic setting is still pointing at it leaves an orphan setting that errors silently and is easy to forget.
 

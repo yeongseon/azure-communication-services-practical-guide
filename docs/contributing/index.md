@@ -178,6 +178,14 @@ az communication sms send --sender "<sender-phone>" --recipient "<recipient-phon
 az communication sms send -s "<sender>" -r "<recipient>"  # ❌ Don't do this
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az communication sms send` | Sends an SMS message through the ACS resource. |
+| `--sender "<sender-phone>"` | Sets the ACS-provisioned phone number the SMS is sent from. |
+| `--recipient "<recipient-phone>"` | Sets the destination phone number. |
+| `--message "Hello"` | Sets the message body. |
+| `--connection-string "$ACS_CONNECTION_STRING"` | Authenticates the request using the ACS connection string. |
+
 ### Variables
 
 | Variable | Description | Example |

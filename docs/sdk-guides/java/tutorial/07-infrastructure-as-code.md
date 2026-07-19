@@ -37,6 +37,12 @@ Deploy using Azure CLI:
 az deployment group create --resource-group MyRG --template-file main.bicep
 ```
 
+| Command | Purpose |
+|---------|---------|
+| `az deployment group create` | Deploys an ARM/Bicep template to a resource group. |
+| `--resource-group MyRG` | Names the target resource group for the deployment. |
+| `--template-file main.bicep` | Points to the Bicep template to deploy. |
+
 ## 2. GitHub Actions Workflow
 
 Automate your Maven build and deployment using GitHub Actions. Create `.github/workflows/main.yml`.
@@ -76,22 +82,24 @@ jobs:
           --template-file ./main.bicep
 ```
 
-## 3. Provisioning Phone Numbers via CLI
+## 3. Managing Phone Numbers via CLI
 
-You can automate phone number acquisition (where supported) using the Azure CLI.
+Phone number **acquisition** is performed in the Azure Portal (Communication Service → Phone numbers → Get). The Azure CLI does not support searching or purchasing numbers; it supports inventorying and inspecting numbers already acquired on the resource.
 
 ```bash
-# Search for available numbers
-az communication phonenumber search-available \
-    --area-code "425" \
-    --country-code "US" \
-    --phone-plan-ids "plan-id" \
-    --quantity 1
+# List phone numbers already acquired on the resource
+az communication phonenumber list --connection-string "<connection-string>"
 
-# Purchase a number
-az communication phonenumber purchase \
-    --search-id "search-id-from-previous-step"
+# Show details for a specific acquired number
+az communication phonenumber show --phonenumber "<+1425XXXXXXX>" --connection-string "<connection-string>"
 ```
+
+| Command | Purpose |
+|---------|---------|
+| `az communication phonenumber list` | Lists the phone numbers already acquired on the ACS resource. |
+| `--connection-string "<connection-string>"` | Authenticates the request using the ACS connection string. |
+| `az communication phonenumber show` | Shows details for a specific acquired phone number. |
+| `--phonenumber "<+1425XXXXXXX>"` | Identifies the acquired phone number to inspect. |
 
 ## 4. Maven Plugin for Azure App Service
 

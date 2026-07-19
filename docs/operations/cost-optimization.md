@@ -29,8 +29,13 @@ ACS follows a consumption-based pricing model, meaning you pay for what you use 
 2. Configure budget alerts at 50%, 75%, and 90% of your budget.
 3. Use the Azure CLI to list your current usage and costs:
    ```bash
-   az consumption usage list --resource-group my-rg --top 10
+   az consumption usage list --top 10
    ```
+
+| Command | Purpose |
+|---------|---------|
+| `az consumption usage list` | Lists consumption usage details for the subscription. |
+| `--top 10` | Limits the output to the first 10 usage records. |
 
 ## Usage Analysis Queries
 
