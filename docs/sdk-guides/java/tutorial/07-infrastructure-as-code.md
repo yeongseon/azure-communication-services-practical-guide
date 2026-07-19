@@ -82,32 +82,24 @@ jobs:
           --template-file ./main.bicep
 ```
 
-## 3. Provisioning Phone Numbers via CLI
+## 3. Managing Phone Numbers via CLI
 
-You can automate phone number acquisition (where supported) using the Azure CLI.
+Phone number **acquisition** is performed in the Azure Portal (Communication Service → Phone numbers → Get). The Azure CLI does not support searching or purchasing numbers; it supports inventorying and inspecting numbers already acquired on the resource.
 
 ```bash
-# Search for available numbers
-az communication phonenumber search-available \
-    --area-code "425" \
-    --country-code "US" \
-    --phone-plan-ids "plan-id" \
-    --quantity 1
+# List phone numbers already acquired on the resource
+az communication phonenumber list --connection-string "<connection-string>"
 
-# Purchase a number
-az communication phonenumber purchase \
-    --search-id "search-id-from-previous-step"
+# Show details for a specific acquired number
+az communication phonenumber show --phonenumber "<+1425XXXXXXX>" --connection-string "<connection-string>"
 ```
 
 | Command | Purpose |
 |---------|---------|
-| `az communication phonenumber search-available` | Searches for available phone numbers to purchase. |
-| `--area-code "425"` | Filters the search to the given area code. |
-| `--country-code "US"` | Sets the country/region to search in. |
-| `--phone-plan-ids "plan-id"` | Selects the phone plan to search within. |
-| `--quantity 1` | Requests one available number. |
-| `az communication phonenumber purchase` | Purchases a number from a completed search. |
-| `--search-id "search-id-from-previous-step"` | References the reserved search result to purchase. |
+| `az communication phonenumber list` | Lists the phone numbers already acquired on the ACS resource. |
+| `--connection-string "<connection-string>"` | Authenticates the request using the ACS connection string. |
+| `az communication phonenumber show` | Shows details for a specific acquired phone number. |
+| `--phonenumber "<+1425XXXXXXX>"` | Identifies the acquired phone number to inspect. |
 
 ## 4. Maven Plugin for Azure App Service
 

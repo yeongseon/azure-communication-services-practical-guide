@@ -19,20 +19,20 @@ When SMS delivery failures occur, follow this checklist to quickly isolate the c
 ## Essential CLI Commands
 
 ```bash
-# Check phone number status
-az communication sms number list --connection-string "<your_connection_string>"
+# List the phone numbers provisioned on the ACS resource
+az communication phonenumber list --connection-string "<your_connection_string>"
 
-# Get the latest delivery reports for a specific message
-# Replace message-id with the actual ID from your logs
-az communication sms get-delivery-report --message-id "<message_id>" --connection-string "<your_connection_string>"
+# Delivery status is not read from the CLI. Request a delivery report when sending,
+# then consume the result through Event Grid (SMS Delivery Report event).
+az communication sms send --sender "<from_number>" --recipient "<to_number>" --message "test" --deliveryReport --connection-string "<your_connection_string>"
 ```
 
 | Command | Purpose |
 |---------|---------|
-| `az communication sms number list` | Lists the phone numbers provisioned on the ACS resource. |
+| `az communication phonenumber list` | Lists the phone numbers provisioned on the ACS resource. |
 | `--connection-string "<your_connection_string>"` | Authenticates the request using the ACS connection string. |
-| `az communication sms get-delivery-report` | Retrieves the delivery report for a specific SMS message. |
-| `--message-id "<message_id>"` | Identifies the SMS message to report on. |
+| `az communication sms send` | Sends an SMS, optionally requesting a delivery report. |
+| `--deliveryReport` | Enables delivery reporting; the report is delivered via Event Grid, not the CLI. |
 
 ## Key KQL Queries
 
