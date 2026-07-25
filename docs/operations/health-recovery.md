@@ -4,14 +4,14 @@ content_sources:
     - id: health-recovery-diagram
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/high-availability
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
   reviewer: agent
   core_claims:
-    - claim: "ACS documents service high-availability and disaster-recovery behavior, so health-and-recovery runbooks can distinguish platform guarantees from app-level mitigations"
-      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/high-availability
+    - claim: "ACS troubleshooting guidance explicitly recommends learning how to implement a disaster recovery plan and high availability strategy for Azure applications"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info
       verified: true
     - claim: "Azure Service Health can emit service notifications and alerts, which is the documented Azure mechanism for tracking platform incidents that may affect ACS"
       source: https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal
@@ -69,8 +69,8 @@ To ensure high availability, consider the following strategies:
 | Calling | PSTN or Chat |
 
 ## See Also
-- [High availability and disaster recovery](https://learn.microsoft.com/azure/communication-services/concepts/high-availability)
+- [High availability and disaster recovery](https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info)
 - [How to: Set up Service Health alerts](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
 
 ## Sources
-- [ACS High Availability Overview](https://learn.microsoft.com/azure/communication-services/concepts/high-availability)
+- [ACS High Availability Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info)

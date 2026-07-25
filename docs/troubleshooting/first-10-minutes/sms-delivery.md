@@ -7,8 +7,8 @@ content_validation:
   last_reviewed: 2026-07-25
   reviewer: agent
   core_claims:
-    - claim: "ACS SMS supports delivery reporting, which is why SMS delivery triage can use delivery-report evidence instead of guessing from client-side send success alone"
-      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/overview
+    - claim: "ACS SMS supports reliable delivery with real-time delivery reports, which is why SMS delivery triage can use delivery-report evidence instead of guessing from client-side send success alone"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts
       verified: true
     - claim: "ACS publishes SMS service limits and throughput guidance, so early SMS triage should check for documented rate or number-type constraints"
       source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits

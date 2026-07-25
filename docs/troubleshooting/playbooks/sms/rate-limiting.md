@@ -11,7 +11,7 @@ content_validation:
       source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq
       verified: true
     - claim: "SMS segmentation and encoding affect how ACS counts and bills SMS payloads, which is relevant when rate-limiting symptoms correlate with long or non-GSM messages"
-      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/sms-concepts
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq
       verified: true
 ---
 

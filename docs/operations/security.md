@@ -6,17 +6,17 @@ content_sources:
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
       based_on:
-        - https://learn.microsoft.com/azure/communication-services/concepts/managed-identity
+        - https://learn.microsoft.com/en-us/azure/communication-services/how-tos/managed-identity
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
   reviewer: agent
   core_claims:
-    - claim: "ACS supports Microsoft Entra ID and managed identities for Azure-hosted workloads, which is why operational security guidance can avoid distributing connection strings to every runtime"
-      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/managed-identity
+    - claim: "ACS supports managed identity for Communication Services resources, which lets Azure-hosted workloads authenticate without distributing connection strings to every runtime"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/how-tos/managed-identity
       verified: true
-    - claim: "The managed-identity quickstart documents how Azure workloads authenticate to ACS without embedding secret keys in application configuration"
-      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/managed-identity
+    - claim: "The Microsoft Entra ID quickstart documents how Azure workloads can authenticate to ACS by using Azure Identity credentials instead of embedding secret keys in application configuration"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/service-principal
       verified: true
 ---
 

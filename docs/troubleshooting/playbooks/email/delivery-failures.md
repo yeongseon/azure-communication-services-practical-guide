@@ -10,8 +10,8 @@ content_validation:
     - claim: "ACS Email delivery lifecycle events are documented in the email log tables, which makes Log Analytics the primary evidence source for delivery-failure investigations"
       source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
       verified: true
-    - claim: "ACS Email troubleshooting guidance documents common send and delivery failure patterns, so email playbooks can distinguish service-side bounce evidence from client-side send attempts"
-      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting
+    - claim: "Diagnostic settings on the ACS resource can route Email logs to Azure Monitor destinations, which makes service-side delivery evidence available for email-failure investigations"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging
       verified: true
 ---
 

@@ -14,7 +14,7 @@ content_validation:
       source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/pricing
       verified: true
     - claim: "SMS billing depends on message segmentation and encoding, so long or non-GSM payloads can increase the number of billable message parts"
-      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/sms-concepts
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq
       verified: true
 ---
 
