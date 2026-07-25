@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original categorization diagram organizing ACS Azure CLI commands by resource domain.
-      based_on: https://learn.microsoft.com/cli/azure/communication
+      based_on: https://learn.microsoft.com/en-us/cli/azure/communication
 ---
 
 # ACS CLI Cheatsheet
@@ -34,31 +34,30 @@ graph TD
 
 | Command | Description | Example |
 | --- | --- | --- |
-| `az communication identity create` | Create a new communication identity. | `az communication identity create --name my-acs-resource --resource-group my-rg` |
-| `az communication phone-number list` | List acquired phone numbers. | `az communication phone-number list --name my-acs-resource --resource-group my-rg` |
-| `az communication phone-number list-area-codes` | List available area codes. | `az communication phone-number list-area-codes --location US --number-type TollFree` |
+| `az communication user-identity user create` | Create a new communication user identity. | `az communication user-identity user create --connection-string "<yourConnectionString>"` |
+| `az communication phonenumber list` | List purchased phone numbers for a Communication Services resource. | `az communication phonenumber list --connection-string "<yourConnectionString>"` |
 
 ## SMS Management
 
 | Command | Description | Example |
 | --- | --- | --- |
-| `az communication sms send` | Send an SMS message. | `az communication sms send --sender-number "+18001234567" --recipient-numbers "+18007654321" --message "Hello from ACS!"` |
+| `az communication sms send` | Send an SMS message. | `az communication sms send --sender "+18001234567" --recipient "+18007654321" --message "Hello from ACS!" --connection-string "<yourConnectionString>"` |
 
 ## Email Management
 
 | Command | Description | Example |
 | --- | --- | --- |
-| `az communication email send` | Send an email message. | `az communication email send --sender-address "do-not-reply@example.com" --recipient-address "user@example.com" --subject "Welcome" --text "Hello!"` |
+| `az communication email send` | Send an email message. | `az communication email send --sender "do-not-reply@example.com" --to "user@example.com" --subject "Welcome" --text "Hello!" --connection-string "<yourConnectionString>"` |
 
 ## Chat Management
 
 | Command | Description | Example |
 | --- | --- | --- |
-| `az communication chat thread list` | List chat threads. | `az communication chat thread list --name my-acs-resource --resource-group my-rg` |
+| `az communication chat thread list` | List chat threads for the authenticated user. | `az communication chat thread list --endpoint "https://<resource-name>.communication.azure.com" --access-token "<access-token>"` |
 
 ## See Also
-- [Azure Communication Services CLI Reference](https://learn.microsoft.com/cli/azure/communication)
-- [How to: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+- [Azure Communication Services CLI Reference](https://learn.microsoft.com/en-us/cli/azure/communication)
+- [How to: Create and manage Communication Services resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
 
 ## Sources
-- [ACS CLI Documentation](https://learn.microsoft.com/cli/azure/communication)
+- [ACS CLI Documentation](https://learn.microsoft.com/en-us/cli/azure/communication)
