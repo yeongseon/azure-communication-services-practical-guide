@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Relationship overview of ACS resource components
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "A Communication Services resource is the core ACS resource type that applications provision in Azure before they send messages or create identities"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
+      verified: true
+    - claim: "ACS Email uses a separate Email Communication Service resource that can later be connected to a Communication Services resource for outbound email scenarios"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource
+      verified: true
 ---
 
 # Resource Types and Relationships

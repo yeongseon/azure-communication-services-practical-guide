@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - calling-quality-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "The ACS calling SDK surfaces User Facing Diagnostics events that help identify network, device, browser, and microphone or camera issues during call triage"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
+    - claim: "Voice and video diagnostics are also available through Azure Monitor logs, so first-10-minute call investigations can correlate client symptoms with backend call data"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+      verified: true
 ---
 
 # Calling Quality Checklist (First 10 Minutes)

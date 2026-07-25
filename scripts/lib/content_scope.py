@@ -6,19 +6,19 @@ that are out of scope (navigation indexes, KQL packs, SDK guides, reference
 look-ups, visualization pages, meta, contributing, start-here, and other
 non-claim content).
 
-**Wave 0 status (ACS)**: this module is ported but not yet imported by any
-consumer script. ACS has not adopted the ``content_validation`` frontmatter
-block yet. The module is present for future compatibility and to document
-the policy contract for ACS.
+**Current status (ACS)**: ACS now uses ``content_validation`` frontmatter on
+in-scope documentation pages. This module remains the shared scope-policy
+helper, but the repository still lacks the sibling generator/check scripts
+that would make it the single imported source of truth for dashboard and CI
+enforcement.
 
-Imported by (future):
+Imported by (future tooling parity work):
 
-- ``scripts/generate_content_validation_status.py`` (if ACS adopts it)
-- ``scripts/remove_tautological_validation.py`` (if ACS adopts it)
+- ``scripts/generate_content_validation_status.py``
+- ``scripts/remove_tautological_validation.py``
 
-The policy MUST stay in sync with ``AGENTS.md`` §Text Content Validation
-(when ACS's ``AGENTS.md`` adopts one). If you change the rules here, update
-``AGENTS.md`` in the same commit.
+The policy MUST stay in sync with ``AGENTS.md`` §Text Content Validation. If
+you change the rules here, update ``AGENTS.md`` in the same commit.
 
 **Adaptations from the azure-container-apps-practical-guide reference:**
 

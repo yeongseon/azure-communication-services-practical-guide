@@ -6,6 +6,17 @@ content_sources:
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
       based_on: Typical token-based client auth flow
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS supports key-based authentication for trusted server applications through access keys and connection strings"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication
+      verified: true
+    - claim: "Client applications use Communication Identities and issued access tokens rather than raw resource keys when they connect to ACS data-plane experiences such as chat or calling"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model
+      verified: true
 ---
 
 # Authentication and Identity

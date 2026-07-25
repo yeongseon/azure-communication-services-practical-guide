@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - chat-troubleshooting
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS chat sessions use Communication Identity access tokens, so message-delivery investigations must check whether the token is valid for the user session"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model
+      verified: true
+    - claim: "ACS Chat provides real-time messaging capabilities, which is why delivery investigations must consider thread membership and the real-time notification path instead of treating chat like store-and-forward email"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts
+      verified: true
 ---
 
 # Chat Message Delivery Playbook

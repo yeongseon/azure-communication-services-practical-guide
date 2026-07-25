@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original layered mental model of ACS logical components used for root-cause isolation.
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS spans multiple communication channels and feature families, so troubleshooting requires a mental model that separates identity, channel, client, and observability layers"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/overview
+      verified: true
+    - claim: "Calling and video investigations can combine backend logs with User Facing Diagnostics, while messaging scenarios rely more heavily on channel-specific logs and delivery events"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
 ---
 
 # Mental Model

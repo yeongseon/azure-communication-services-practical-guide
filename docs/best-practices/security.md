@@ -5,6 +5,17 @@ content_sources:
       type: sequenceDiagram
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS supports key-based authentication and user access tokens, so production security guidance can separate server-side secrets from client-side delegated tokens"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication
+      verified: true
+    - claim: "ACS privacy documentation covers how communication data is handled and which privacy and residency considerations apply to workloads built on the service"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/privacy
+      verified: true
 ---
 
 # Security Best Practices

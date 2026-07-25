@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - teams-interop-permissions
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "Teams interop scenarios have documented feature-support boundaries, so permission investigations must first confirm the requested feature is supported in the interop path"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/teams-interop#feature-support
+      verified: true
+    - claim: "ACS Teams interop is a documented capability rather than a generic SIP bridge, so tenant policy and supported-scenario checks are part of permission troubleshooting"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop
+      verified: true
 ---
 
 # Teams Permission Issues Playbook

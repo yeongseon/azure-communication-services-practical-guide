@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS costs are driven by channel-specific usage and purchased resources, so day-2 optimization starts with the service pricing model"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/pricing
+      verified: true
+    - claim: "Azure Cost Management budgets can alert on spending thresholds, which makes them a valid operational control for ACS cost governance"
+      source: https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets
+      verified: true
 ---
 
 # Cost Optimization for ACS

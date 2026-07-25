@@ -13,6 +13,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original decision sub-tree for Calling and Video quality and connection failures.
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS channel troubleshooting relies on different evidence sources because email, SMS, chat, and calling each surface different logs, metrics, or client diagnostics"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+      verified: true
+    - claim: "Calling and video scenarios can use User Facing Diagnostics from the ACS calling SDK as a first-class evidence source for connection and quality issues"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
 ---
 
 # Troubleshooting Decision Tree

@@ -2,6 +2,17 @@
 content_sources:
   - azure-docs
   - email-domain-verification
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS custom email domains require DNS-based verification records before they can be used for sending"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains
+      verified: true
+    - claim: "ACS sender authentication guidance documents the outbound-domain verification model, including records such as SPF and DKIM, for custom-domain email sending"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-domain-and-sender-authentication
+      verified: true
 ---
 
 # Domain Verification Playbook

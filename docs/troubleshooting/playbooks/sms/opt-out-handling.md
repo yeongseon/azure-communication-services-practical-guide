@@ -2,6 +2,17 @@
 content_sources:
   - azure-docs
   - sms-opt-out-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS SMS supports two-way conversations, which is why SMS operational playbooks must account for user replies and carrier-driven state changes"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts
+      verified: true
+    - claim: "ACS publishes SMS service guidance and limits by scenario, so opt-out handling has to be designed with channel-specific operational rules rather than generic email assumptions"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits
+      verified: true
 ---
 
 # SMS Opt-out Handling Playbook

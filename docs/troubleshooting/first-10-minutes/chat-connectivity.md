@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - chat-troubleshooting
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS chat clients authenticate with Communication Identity access tokens rather than the raw Communication Services resource key"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model
+      verified: true
+    - claim: "ACS chat is designed for real-time messaging features such as message delivery, read receipts, and typing notifications, so chat connectivity triage must include the real-time channel path"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts
+      verified: true
 ---
 
 # Chat Connectivity Checklist (First 10 Minutes)

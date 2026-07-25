@@ -2,6 +2,17 @@
 content_sources:
   - azure-docs
   - sms-troubleshooting
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS SMS provides reliable delivery with real-time delivery reports, which makes delivery reports and related telemetry a primary evidence source for SMS failure investigations"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/concepts
+      verified: true
+    - claim: "ACS publishes SMS service limits and throughput constraints, so delivery investigations should check for documented rate and number-type limitations"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits
+      verified: true
 ---
 
 # SMS Delivery Failures Playbook

@@ -3,6 +3,15 @@ title: Local Setup
 description: Setting up your JavaScript environment for Azure Communication Services.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-javascript
+validation:
+  az_cli:
+    last_tested: null
+    cli_version: null
+    sdk_version: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Local Setup

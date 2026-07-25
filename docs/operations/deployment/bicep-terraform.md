@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "Azure Communication Services resources can be deployed declaratively because Microsoft publishes the ARM and Bicep resource type for Microsoft.Communication/communicationServices"
+      source: https://learn.microsoft.com/en-us/azure/templates/microsoft.communication/communicationservices
+      verified: true
+    - claim: "The Communication Services quickstart documents automated resource creation, which makes ACS suitable for infrastructure-as-code deployment pipelines"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
+      verified: true
 ---
 
 # Infrastructure as Code for ACS

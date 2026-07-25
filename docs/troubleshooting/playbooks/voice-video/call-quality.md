@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - calling-quality-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "User Facing Diagnostics is a documented ACS calling feature for surfacing microphone, camera, speaker, and network quality issues to the client"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
+    - claim: "ACS publishes voice and video diagnostic logs, which gives call-quality investigations a backend evidence source beyond user reports alone"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+      verified: true
 ---
 
 # Call Quality Playbook

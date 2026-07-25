@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "Voice and video scenarios require clients to reach the documented Azure Communication Services network endpoints and ports for signaling and media"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements
+      verified: true
+    - claim: "ACS calling guidance documents the firewall, proxy, port, and endpoint requirements that client networks must allow for real-time media workloads"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements
+      verified: true
 ---
 
 # Networking Best Practices

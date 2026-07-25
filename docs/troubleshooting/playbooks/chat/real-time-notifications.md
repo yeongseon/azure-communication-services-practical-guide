@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - chat-notifications-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS Chat includes real-time messaging capabilities, so notification failures can occur even when the underlying thread and identity objects still exist"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts
+      verified: true
+    - claim: "Communication Identity access tokens are required for chat clients, which makes token issuance and refresh part of the notification troubleshooting surface"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model
+      verified: true
 ---
 
 # Real-time Notifications Playbook

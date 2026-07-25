@@ -7,6 +7,17 @@ content_sources:
       mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
       based_on:
         - https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "A Communication Services resource is the primary Azure resource used to enable ACS capabilities in a subscription and resource group"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
+      verified: true
+    - claim: "ACS Email provisioning uses a separate Email Communication Service resource before a domain is connected to a Communication Services resource"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
+      verified: true
 ---
 
 # Provisioning ACS Resources

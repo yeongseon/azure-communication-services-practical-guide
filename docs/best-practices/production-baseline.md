@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS best-practices guidance recommends establishing a production baseline that covers authentication, observability, and resource configuration before go-live"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
+      verified: true
+    - claim: "ACS integrates with Azure Monitor through diagnostic settings, so a production baseline can route logs to Log Analytics for day-2 operations"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+      verified: true
 ---
 
 # Production Baseline

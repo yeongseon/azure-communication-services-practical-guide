@@ -8,6 +8,15 @@ content_sources:
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
       based_on: Learning-path progression through ACS Java quickstarts
+validation:
+  az_cli:
+    last_tested: null
+    cli_version: null
+    sdk_version: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Java SDK Tutorial

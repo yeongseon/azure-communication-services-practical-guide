@@ -2,6 +2,17 @@
 content_sources:
   - azure-docs
   - email-reputation-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS sender authentication guidance documents domain-authentication requirements that affect how receiving systems evaluate email trust signals"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-domain-and-sender-authentication
+      verified: true
+    - claim: "ACS Email delivery and engagement logs provide evidence for message disposition and post-send behavior, which helps separate spam-placement symptoms from outright send failures"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
+      verified: true
 ---
 
 # Spam Filtering Playbook
