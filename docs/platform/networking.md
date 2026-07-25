@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Networking and infrastructure requirements for ACS calling
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS documents network requirements for communication workloads, including the client connectivity expectations needed for signaling and media flows"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/network-requirements
+      verified: true
+    - claim: "Voice and video workloads have dedicated calling network requirements because media traffic has stricter endpoint and transport expectations than basic control-plane requests"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements
+      verified: true
 ---
 
 # Networking

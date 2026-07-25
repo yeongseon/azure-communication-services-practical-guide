@@ -10,6 +10,17 @@ content_sources:
       based_on:
         - https://docs.github.com/actions
         - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "Bicep is the Azure-native IaC language for ARM deployments, which is why GitHub Actions workflows can deploy ACS resources through standard Azure deployment steps"
+      source: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/
+      verified: true
+    - claim: "ACS resources can be created through automated Azure deployment flows rather than only through the portal, which makes CI/CD provisioning practical"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
+      verified: true
 ---
 
 # GitHub Actions Deployment

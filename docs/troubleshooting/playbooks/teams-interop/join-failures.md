@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - teams-interop-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS supports Teams interoperability so ACS users can join Teams meetings through the documented interop model"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop
+      verified: true
+    - claim: "Teams interop support is feature-specific, which is why join troubleshooting must check the documented supported scenarios instead of assuming full Teams parity"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/teams-interop#feature-support
+      verified: true
 ---
 
 # Teams Join Failures Playbook

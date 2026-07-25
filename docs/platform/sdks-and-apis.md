@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Overview of ACS SDK and API architecture
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS publishes client SDK options for multiple languages, including JavaScript, .NET, Java, and Python"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options
+      verified: true
+    - claim: "ACS also publishes REST APIs, so teams can choose between the official SDKs and direct HTTP integration patterns"
+      source: https://learn.microsoft.com/en-us/rest/api/communication/
+      verified: true
 ---
 
 # SDKs and REST APIs

@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - calling-drops-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "The ACS calling SDK exposes User Facing Diagnostics that can surface network-loss and device-health symptoms during dropped-call investigations"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
+    - claim: "ACS voice and video diagnostics are available in Azure Monitor logs, so dropped-call investigations can correlate client symptoms with backend call evidence"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+      verified: true
 ---
 
 # Call Drops Playbook

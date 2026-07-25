@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original diagram illustrating the hypothesis-driven troubleshooting methodology stages.
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS troubleshooting is strongest when service logs are routed through diagnostic settings to Azure Monitor destinations such as Log Analytics"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+      verified: true
+    - claim: "Calling and video investigations can use User Facing Diagnostics as documented client-side evidence alongside backend call logs"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
 ---
 
 # Troubleshooting Methodology

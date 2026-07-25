@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Security layers of ACS from identity to network
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS privacy guidance documents how the service protects and processes communication data, which is a core input to security architecture decisions"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/privacy
+      verified: true
+    - claim: "ACS data-residency guidance explains that workload architects must consider which communication features and regions store or process data in which locations"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/data-residency
+      verified: true
 ---
 
 # Security Architecture

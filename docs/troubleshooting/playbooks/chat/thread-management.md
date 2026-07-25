@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - chat-thread-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS Chat stores conversations in threads with documented service limits, so thread-management issues should be investigated with those limits in mind"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits
+      verified: true
+    - claim: "ACS chat clients connect with Communication Identity access tokens, so permission and membership checks are part of thread troubleshooting"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model
+      verified: true
 ---
 
 # Thread Management Playbook

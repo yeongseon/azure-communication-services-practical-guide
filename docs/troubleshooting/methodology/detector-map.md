@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original diagram of ACS diagnostic and detector capabilities across Azure Monitor and Log Analytics.
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS diagnostic settings define which service logs flow into Azure Monitor destinations, making them the starting point for any detector or evidence map"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+      verified: true
+    - claim: "User Facing Diagnostics gives calling scenarios a client-side detector path that complements Azure Monitor logs for backend evidence collection"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
 ---
 
 # Detector Map

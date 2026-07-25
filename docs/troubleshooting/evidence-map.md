@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original evidence-collection flow mapping failure types to required metrics and logs.
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS diagnostic settings can route service logs to Azure Monitor destinations such as Log Analytics, which is the foundation for evidence-driven troubleshooting"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+      verified: true
+    - claim: "The ACS calling SDK exposes User Facing Diagnostics so troubleshooting can combine backend telemetry with client-side device and network evidence"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
 ---
 
 # Evidence Map

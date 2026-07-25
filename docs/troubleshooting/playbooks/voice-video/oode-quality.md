@@ -2,6 +2,17 @@
 content_sources:
   - communication-services-sdk
   - calling-connectivity-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "Voice and video workloads depend on the documented ACS calling network requirements, so connection-failure troubleshooting starts with required endpoints, transports, and firewall allowances"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements
+      verified: true
+    - claim: "User Facing Diagnostics can surface client-side connection and device issues, which makes it a first-line evidence source for call-setup failures"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+      verified: true
 ---
 
 # Connection Failures Playbook

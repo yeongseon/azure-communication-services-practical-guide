@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS SDK guidance documents retry and error-handling options that applications can use when they call Communication Services APIs"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options
+      verified: true
+    - claim: "ACS documents high-availability and disaster-recovery guidance so reliability planning can distinguish platform resilience from application failover design"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/high-availability
+      verified: true
 ---
 
 # Reliability Best Practices

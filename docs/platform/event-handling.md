@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Event handling flow via Azure Event Grid
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS integrates with Azure Event Grid so applications can react to service events through subscriptions and event handlers"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-handling
+      verified: true
+    - claim: "Communication Services events use the Event Grid schema, including standard envelope fields such as eventType and data"
+      source: https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services
+      verified: true
 ---
 
 # Event Handling

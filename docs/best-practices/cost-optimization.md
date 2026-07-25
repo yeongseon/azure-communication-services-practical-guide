@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS pricing is consumption-based and differs by channel, number type, and feature, so cost optimization starts with understanding the service pricing model"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/pricing
+      verified: true
+    - claim: "SMS billing depends on message segmentation and encoding, so long or non-GSM payloads can increase the number of billable message parts"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/sms-concepts
+      verified: true
 ---
 
 # Cost Optimization

@@ -2,6 +2,17 @@
 content_sources:
   - azure-docs
   - sms-rate-limiting-guide
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS documents SMS rate and service limits, so 429 or throughput-related symptoms should be evaluated against the published limits for the number type and scenario"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq
+      verified: true
+    - claim: "SMS segmentation and encoding affect how ACS counts and bills SMS payloads, which is relevant when rate-limiting symptoms correlate with long or non-GSM messages"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/sms-concepts
+      verified: true
 ---
 
 # SMS Rate Limiting Playbook

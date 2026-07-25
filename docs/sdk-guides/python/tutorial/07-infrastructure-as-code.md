@@ -3,6 +3,15 @@ title: Infrastructure as Code
 description: Deploying Azure Communication Services with Bicep and Python scripts.
 content_sources:
   - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+validation:
+  az_cli:
+    last_tested: null
+    cli_version: null
+    sdk_version: null
+    result: not_tested
+  bicep:
+    last_tested: null
+    result: not_tested
 ---
 
 # Infrastructure as Code

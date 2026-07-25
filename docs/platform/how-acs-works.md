@@ -6,6 +6,17 @@ content_sources:
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
       based_on: Generic ACS architecture
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "Azure Communication Services exposes communication capabilities through an Azure Communication Services resource that applications call via SDKs and APIs"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/overview
+      verified: true
+    - claim: "ACS client experiences use Communication Identities plus access tokens, which separates end-user session authorization from the resource access keys used by trusted services"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model
+      verified: true
 ---
 
 # How Azure Communication Services Works

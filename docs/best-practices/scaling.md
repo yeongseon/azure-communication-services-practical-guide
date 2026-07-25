@@ -5,6 +5,17 @@ content_sources:
       type: flowchart
       source: mslearn-adapted
       mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+content_validation:
+  status: verified
+  last_reviewed: 2026-07-25
+  reviewer: agent
+  core_claims:
+    - claim: "ACS publishes service limits by feature, which makes scaling guidance channel-specific instead of one global throughput number for every workload"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits
+      verified: true
+    - claim: "Chat has documented service limits such as participant caps, so thread and room design must account for those limits during scale planning"
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits
+      verified: true
 ---
 
 # Scaling Best Practices
