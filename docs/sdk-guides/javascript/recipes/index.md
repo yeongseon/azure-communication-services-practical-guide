@@ -19,6 +19,7 @@ This section contains focused code recipes for specific Azure Communication Serv
 | **[Phone Number Management](./phone-number-management.md)** | Searching, purchasing, and releasing ACS phone numbers. |
 | **[Email with Attachments](./email-with-attachments.md)** | Sending emails with multiple file attachments and handling size limits. |
 | **[Calling UI Composite](./calling-ui-composite.md)** | Adding comprehensive video calling UI with minimal code using the ACS UI Library. |
+| **[Group Calling](./group-calling.md)** | Joining and managing multi-participant group calls with the raw Calling SDK and a shared `groupId`. |
 | **[Teams Interop](./teams-interop.md)** | Joining Microsoft Teams meetings from a browser application. |
 
 ## Quick Link: Managed Identity
