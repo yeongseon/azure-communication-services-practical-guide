@@ -169,6 +169,7 @@ nav:
         - sdk-guides/javascript/recipes/phone-number-management.md
         - sdk-guides/javascript/recipes/email-with-attachments.md
         - sdk-guides/javascript/recipes/calling-ui-composite.md
+        - sdk-guides/javascript/recipes/group-calling.md
         - sdk-guides/javascript/recipes/teams-interop.md
     - Java:
       - sdk-guides/java/index.md
