@@ -56,6 +56,14 @@ jobs:
         run: |
           python -m doctest scripts/lib/content_scope.py -v
 
+      - name: Validate mermaid format
+        run: |
+          python scripts/validate_mermaid_format.py
+
+      - name: Validate mermaid syntax
+        run: |
+          python scripts/validate_mermaid_syntax.py
+
       - name: Audit content_sources frontmatter (strict)
         run: |
           python scripts/validate_content_sources.py
