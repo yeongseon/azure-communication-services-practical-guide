@@ -1,0 +1,33 @@
+# PII allowlist for scripts/validate_pii.py
+#
+# One confirmed-safe value per line. Lines starting with '#' and blank lines
+# are ignored. Allowlisted values are skipped for every PII check (UUIDs,
+# email addresses, and private IPs).
+#
+# Only add a value here after confirming it is a synthetic example and NOT a
+# real Azure subscription/tenant/object ID, real email address, or real host.
+#
+# Examples:
+#   00000000-0000-0000-0000-000000000000
+#   svc-account@acme.example
+
+# --- Documented public Microsoft ACS contact address ---
+# Published capacity/throughput-increase contact in the ACS docs
+# (docs/reference/platform-limits.md). A public support alias, not personal PII.
+acs-ccap@microsoft.com
+
+# --- ACS Email Message IDs from a recorded send test ---
+# Opaque operation identifiers returned by begin_send() and shown in the email
+# test report (docs/reference/reports/email-test-report.md) and the Python
+# send-email tutorial (docs/sdk-guides/python/tutorial/03-send-email.md).
+# A Message ID tracks a single send operation and carries no account data; it
+# is useless without the resource connection string. NOT subscription IDs.
+ec61511c-95a3-4587-8697-fc4663f396c4
+950742ee-ea1e-4ee5-bb19-6fc19e3cb87b
+f83d14a1-4293-460f-b066-c084370f30a5
+bfa11d8b-9f5d-480a-912b-16dbbe05d0da
+
+# --- Group-call locator GUID (synthetic example) ---
+# A groupId call locator the reader generates and shares out of band
+# (docs/sdk-guides/javascript/recipes/group-calling.md). Not an Azure account ID.
+29228d3e-040e-4656-a70e-890ab4e173e5
