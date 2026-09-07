@@ -2,7 +2,7 @@
 title: Event Grid Webhooks
 description: Handling Azure Communication Services events with Python webhooks.
 content_sources:
-  - https://learn.microsoft.com/azure/event-grid/receive-events?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/event-grid/receive-events?pivots=programming-language-python
 ---
 
 # Event Grid Webhooks
@@ -11,8 +11,8 @@ This recipe demonstrates how to set up an Azure Event Grid subscription for Azur
 
 ## Prerequisites
 
-- [ACS Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- [Event Grid Subscription](https://learn.microsoft.com/azure/event-grid/overview).
+- [ACS Resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
+- [Event Grid Subscription](https://learn.microsoft.com/en-us/azure/event-grid/overview).
 - [Python Web Server](https://flask.palletsprojects.com/) (e.g., Flask, FastAPI).
 
 ## 1. Set Up Event Grid Subscription
@@ -106,8 +106,8 @@ ACS provides several event types you can subscribe to:
 | `Microsoft.Communication.ChatMessageReceived` | Triggered when a new message is sent to a chat thread. |
 
 ## See Also
-- [ACS Event Schema](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services)
-- [Event Grid Webhook Validation](https://learn.microsoft.com/azure/event-grid/webhook-event-delivery)
+- [ACS Event Schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services)
+- [Event Grid Webhook Validation](https://learn.microsoft.com/en-us/azure/event-grid/webhook-event-delivery)
 
 ## Sources
-- [Handle events in Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/event-grid/handle-events)
+- [Handle events in Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-grid/handle-events)

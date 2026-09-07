@@ -31,7 +31,7 @@ content_validation:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Filter `ACSEmailStatusUpdateOperational` for `DeliveryStatus in ("FilteredSpam", "Quarantined")` on recipient-level rows (`isnotempty(RecipientId)`) and inspect `EnhancedSmtpStatusCode` for the provider's reason. See the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) for documented status values.
+Filter `ACSEmailStatusUpdateOperational` for `DeliveryStatus in ("FilteredSpam", "Quarantined")` on recipient-level rows (`isnotempty(RecipientId)`) and inspect `EnhancedSmtpStatusCode` for the provider's reason. See the [ACS Email Logs schema](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs) for documented status values.
 
 ### 2. External Tools
 Use `mxtoolbox.com` to check if your domain or IP is on any major blocklists.

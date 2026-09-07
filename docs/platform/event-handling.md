@@ -87,5 +87,5 @@ graph TD
 
 ## Sources
 
-- [Event Handling Concepts](https://learn.microsoft.com/azure/communication-services/concepts/event-handling)
-- [System Event Types for ACS](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services)
+- [Event Handling Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-handling)
+- [System Event Types for ACS](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services)

@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original navigation diagram for the Visualization section (knowledge graph, troubleshooting map, learning paths).
-      based_on: https://learn.microsoft.com/azure/communication-services/overview
+      based_on: https://learn.microsoft.com/en-us/azure/communication-services/overview
 ---
 
 # Visualization Hub
@@ -29,7 +29,7 @@ graph TD
 | [Learning Paths](learning-paths.md) | Visual learning journeys tailored for different user roles. |
 
 ## See Also
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
 
 ## Sources
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

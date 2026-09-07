@@ -4,45 +4,45 @@ content_sources:
     - id: monitoring-architecture
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
       based_on:
-        - https://learn.microsoft.com/azure/communication-services/concepts/metrics
-        - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
-        - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
         - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
-        - https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule
-        - https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule
+        - https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups
 content_validation:
   status: verified
   last_reviewed: 2026-07-01
   reviewer: agent
   core_claims:
     - claim: "ACS integrates with Azure Monitor via Diagnostic settings that route logs to a Log Analytics workspace"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
       verified: true
     - claim: "The categoryGroup 'allLogs' enables all available log categories in a single diagnostic setting"
-      source: https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings
       verified: true
     - claim: "ACS Email surfaces three log categories: Email Service Send Mail Logs, Email Service Delivery Status Update Logs, and Email Service User Engagement Logs"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
       verified: true
     - claim: "The ACSEmailStatusUpdateOperational table holds delivery lifecycle events for sent emails"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
       verified: true
     - claim: "ACSEmailStatusUpdateOperational.IsHardBounce is documented as a string column, and the schema notes IsHardBounce == true means a permanent mailbox issue"
       source: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational
       verified: true
     - claim: "Azure Monitor alert rules can run scheduled KQL queries against a Log Analytics workspace and fire when the result crosses a threshold"
-      source: https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule
       verified: true
     - claim: "Action groups are the reusable notification + automation target that alert rules invoke when they fire"
-      source: https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups
+      source: https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups
       verified: true
     - claim: "The ACS Metrics Reference documents channel primitives such as SMS, Chat, Call Automation, Network Traversal, Rooms, Authentication, and Advanced Messaging as request-count metrics with Operation, Status Code, and StatusSubClass dimensions; these metrics do not directly emit delivery rates, latencies, or quality scores"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/metrics
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics
       verified: true
     - claim: "Voice and video quality data is emitted through Log Analytics call logs - especially Call Diagnostics logs for objective quality metrics and End of Call Survey logs for subjective ratings - rather than as standalone platform metrics on the Metrics blade"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
       verified: true
 ---
 
@@ -486,7 +486,7 @@ The capture above shows a 24-request spike at the right edge of the chart — th
 
 ### Key Metrics Across ACS Channels
 
-The Procedure above focuses on Email because that is this guide's scope. For completeness, ACS surfaces additional channel-level metrics on the same Monitoring → Metrics blade. Per the [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics), the ACS metric families listed below are request-count metrics dimensioned by `Operation`, `Status Code`, and `StatusSubClass`. They do not directly emit delivery rates, latencies, or quality scores. Use the table below as a starting point when monitoring scope expands beyond Email.
+The Procedure above focuses on Email because that is this guide's scope. For completeness, ACS surfaces additional channel-level metrics on the same Monitoring → Metrics blade. Per the [ACS Metrics Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics), the ACS metric families listed below are request-count metrics dimensioned by `Operation`, `Status Code`, and `StatusSubClass`. They do not directly emit delivery rates, latencies, or quality scores. Use the table below as a starting point when monitoring scope expands beyond Email.
 
 | Metric (namespace: `Communication Services standard metrics`) | Channel | Selected `Operation` dimension values |
 | --- | --- | --- |
@@ -498,13 +498,13 @@ The Procedure above focuses on Email because that is this guide's scope. For com
 | `Authentication API Requests` | Identity (cross-channel) | `CreateIdentity`, `CreateToken`, `RevokeToken`, `ExchangeTeamsUserAccessToken`, `DeleteIdentity` |
 | `Advanced Messaging API requests` | WhatsApp / Advanced Messaging | `SendMessage`, `ReceiveMessage`, `DownloadMedia`, `ListTemplates`, `SendMessageDeliveryStatus` |
 
-See the canonical [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) for the full per-channel operation enumeration.
+See the canonical [ACS Metrics Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics) for the full per-channel operation enumeration.
 
 !!! note "Where call quality, latency, and per-message delivery values live"
-    Quality, latency, and per-message lifecycle data are emitted as **Log Analytics tables** (KQL surface), not as Metrics-blade values. Examples per the [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) and [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs):
+    Quality, latency, and per-message lifecycle data are emitted as **Log Analytics tables** (KQL surface), not as Metrics-blade values. Examples per the [ACS Metrics Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics) and [Voice and video call logs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs):
 
     - **Voice/Video quality (objective)**: jitter, packet loss, round-trip time → `ACSCallDiagnostics` (per-media-stream network metrics); use `ACSCallSummary` for call metadata and per-participant finalization context
-    - **Voice/Video quality (subjective)**: User rating 1–5 → End of Call Survey logs (per [End of Call Survey](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept))
+    - **Voice/Video quality (subjective)**: User rating 1–5 → End of Call Survey logs (per [End of Call Survey](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept))
     - **SMS delivery outcomes**: per-message `Delivered`/`Failed` rows → `ACSSMSIncomingOperations` filtered to `OperationName == "SMSDeliveryReportsReceived"`
     - **Chat message events**: per-request Chat REST operations (e.g., `SendChatMessage`, `ListChatMessages`, `CreateChatThread`) → `ACSChatIncomingOperations` filtered by `OperationName`
     - **Email delivery rate**: compute in KQL at the recipient level by comparing `DeliveryStatus == "Delivered"` rows in `ACSEmailStatusUpdateOperational` against the total intended recipients
@@ -530,13 +530,13 @@ See the per-channel troubleshooting playbooks (linked under [See Also](#see-also
 
 ## Sources
 
-- [Monitoring ACS using Azure Monitor](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
-- [ACS Metrics Reference](https://learn.microsoft.com/azure/communication-services/concepts/metrics) — authoritative enumeration of API request metrics and operation dimensions across all ACS channels
-- [ACS Email Logs Reference](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) — authoritative schema for `ACSEmailSendMailOperational`, `ACSEmailStatusUpdateOperational`, and `ACSEmailUserEngagementOperational`
+- [Monitoring ACS using Azure Monitor](https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics)
+- [ACS Metrics Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics) — authoritative enumeration of API request metrics and operation dimensions across all ACS channels
+- [ACS Email Logs Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs) — authoritative schema for `ACSEmailSendMailOperational`, `ACSEmailStatusUpdateOperational`, and `ACSEmailUserEngagementOperational`
 - [ACSEmailStatusUpdateOperational — Azure Monitor Logs reference](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational) — column-level schema (documented type for `IsHardBounce`, `FailureMessage`, `FailureReason`, `RecipientMailServerHostName`)
-- [Voice and video call logs](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/voice-and-video-logs) — authoritative reference for `ACSCallSummary`, `ACSCallDiagnostics`, `ACSCallSurvey`, and other voice/video log tables (where per-stream network metrics such as `JitterAvg` and `PacketLossRateAvg` live)
-- [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/monitor/essentials/diagnostic-settings)
-- [Create an Azure Monitor alert rule](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule)
-- [Action groups](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups)
-- [`az monitor scheduled-query` reference](https://learn.microsoft.com/cli/azure/monitor/scheduled-query) (requires the `scheduled-query` extension)
-- [`az monitor action-group` reference](https://learn.microsoft.com/cli/azure/monitor/action-group)
+- [Voice and video call logs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs) — authoritative reference for `ACSCallSummary`, `ACSCallDiagnostics`, `ACSCallSurvey`, and other voice/video log tables (where per-stream network metrics such as `JitterAvg` and `PacketLossRateAvg` live)
+- [How to: Create diagnostic settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/monitor/essentials/diagnostic-settings)
+- [Create an Azure Monitor alert rule](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule)
+- [Action groups](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups)
+- [`az monitor scheduled-query` reference](https://learn.microsoft.com/en-us/cli/azure/monitor/scheduled-query) (requires the `scheduled-query` extension)
+- [`az monitor action-group` reference](https://learn.microsoft.com/en-us/cli/azure/monitor/action-group)

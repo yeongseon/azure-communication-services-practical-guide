@@ -70,5 +70,5 @@ If you are new to Azure Communication Services, it's recommended to follow this 
 
 ## Sources
 
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
-- [ACS Documentation Hub](https://learn.microsoft.com/azure/communication-services/)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
+- [ACS Documentation Hub](https://learn.microsoft.com/en-us/azure/communication-services/)

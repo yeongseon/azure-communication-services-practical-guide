@@ -2,7 +2,7 @@
 title: Send SMS
 description: Sending SMS with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send?tabs=windows&pivots=programming-language-python
 validation:
   az_cli:
     last_tested: null
@@ -136,8 +136,8 @@ if __name__ == "__main__":
 ```
 
 ## See Also
-- [SMS Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/sms/troubleshooting)
-- [SMS Delivery Reports](https://learn.microsoft.com/azure/communication-services/concepts/sms/delivery-reports)
+- [SMS Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/troubleshooting)
+- [SMS Delivery Reports](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/delivery-reports)
 
 ## Sources
-- [Azure Communication SMS client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-sms-readme)
+- [Azure Communication SMS client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-sms-readme)

@@ -2,7 +2,7 @@
 title: Real-time Chat
 description: Building real-time chat features with Azure Communication Services for JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-javascript
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-javascript
 validation:
   az_cli:
     last_tested: null
@@ -156,8 +156,8 @@ main();
 ```
 
 ## See Also
-- [Chat Concepts](https://learn.microsoft.com/azure/communication-services/concepts/chat/concepts)
-- [Chat SDK Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/chat/troubleshooting)
+- [Chat Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts)
+- [Chat SDK Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/troubleshooting)
 
 ## Sources
-- [Azure Communication Chat client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-chat-readme)
+- [Azure Communication Chat client library for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-chat-readme)

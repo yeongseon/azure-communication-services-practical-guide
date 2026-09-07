@@ -2,7 +2,7 @@
 title: Logging and Monitoring
 description: Configuring logging and monitoring for Azure Communication Services with JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
 validation:
   az_cli:
     last_tested: null
@@ -111,8 +111,8 @@ ACSEmailOperational
 ```
 
 ## See Also
-- [ACS Metrics](https://learn.microsoft.com/azure/communication-services/concepts/metrics)
-- [ACS Logs](https://learn.microsoft.com/azure/communication-services/concepts/logs)
+- [ACS Metrics](https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics)
+- [ACS Logs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/logs)
 
 ## Sources
-- [Azure Monitor for Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
+- [Azure Monitor for Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics)

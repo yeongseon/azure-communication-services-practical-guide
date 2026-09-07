@@ -1,31 +1,31 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-azure-managed-domains
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-custom-verified-domains
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/connect-email-communication-resource
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource
 content_validation:
   status: verified
   last_reviewed: 2026-06-29
   reviewer: agent
   core_claims:
     - claim: "An Email Communication Service is a separate Azure resource from the ACS resource and must be linked explicitly"
-      source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
       verified: true
     - claim: "AzureManagedDomain is auto-verified and surfaces all domain/SPF/DKIM/DKIM2 columns as 'Verified' in the Provision domains grid"
-      source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-azure-managed-domains
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains
       verified: true
     - claim: "Custom domain verification renders one wizard per DNS record (Domain TXT, SPF, DKIM, DKIM2) — not a single consolidated table"
-      source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-custom-verified-domains
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains
       verified: true
     - claim: "Linking a domain to an ACS resource is required before the ACS connection string can send from that domain"
-      source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/connect-email-communication-resource
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource
       verified: true
     - claim: "For an AzureManagedDomain, the MailFrom addresses blade renders with the Add command disabled"
-      source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-azure-managed-domains
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains
       verified: true
     - claim: "ACS Email is documented as an outbound (A2P) sending service; Microsoft Learn does not list MX records among the required DNS entries (Domain TXT, SPF, DKIM, DKIM2) for custom domain verification, and does not document an inbound mail-receive capability"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/email/email-overview
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview
       verified: true
 ---
 
@@ -147,7 +147,7 @@ When you click `Configure` on any of the four status columns (Domain, SPF, DKIM,
 
     If your domain must also receive replies, keep the MX record pointed at your separate inbound mail provider (Microsoft 365, Google Workspace, your own MTA, etc.) and use ACS only for the outbound leg. The two responsibilities are independent: SPF/DKIM/DMARC for outbound (ACS signs outgoing mail) and MX for inbound (your separate provider receives incoming mail).
 
-    References: the [Email overview](https://learn.microsoft.com/azure/communication-services/concepts/email/email-overview) (Key features list only outbound operations such as send mail, sender authentication, and engagement tracking) and [Email SDK features](https://learn.microsoft.com/azure/communication-services/concepts/email/sdk-features) (capability table lists only `SendMail` and `Get Status`).
+    References: the [Email overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview) (Key features list only outbound operations such as send mail, sender authentication, and engagement tracking) and [Email SDK features](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/sdk-features) (capability table lists only `SendMail` and `Get Status`).
 
 The four wizards must complete in order: Domain TXT first (proves ownership), then SPF (sender policy), then DKIM and DKIM2 (signing keys). Each wizard polls the DNS resolver after you click `Done` — propagation typically completes within minutes but can take up to 30 minutes depending on your DNS provider and TTL.
 
@@ -274,7 +274,7 @@ For deeper troubleshooting (delivery failures, bounce analysis, DMARC interactio
 
 ## Sources
 
-- [Quickstart: Create an Email Communication Service resource](https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource)
-- [Quickstart: How to add Azure Managed Domains to Email Communication Service](https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-azure-managed-domains)
-- [Quickstart: How to add custom verified domains to Email Communication Service](https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-custom-verified-domains)
-- [Quickstart: How to connect a verified email domain](https://learn.microsoft.com/azure/communication-services/quickstarts/email/connect-email-communication-resource)
+- [Quickstart: Create an Email Communication Service resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource)
+- [Quickstart: How to add Azure Managed Domains to Email Communication Service](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains)
+- [Quickstart: How to add custom verified domains to Email Communication Service](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains)
+- [Quickstart: How to connect a verified email domain](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource)

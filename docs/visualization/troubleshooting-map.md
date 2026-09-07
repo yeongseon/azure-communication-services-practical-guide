@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original visual troubleshooting decision tree grouped by ACS channel (SMS, Email, Chat, Calling).
-      based_on: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+      based_on: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
 ---
 
 # Troubleshooting Map for ACS
@@ -46,8 +46,8 @@ The following section will host an interactive troubleshooting map for a step-by
 </div>
 
 ## See Also
-- [Log Analytics and Kusto queries](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial)
-- [How to: Use KQL for ACS troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
+- [Log Analytics and Kusto queries](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial)
+- [How to: Use KQL for ACS troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics)
 
 ## Sources
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

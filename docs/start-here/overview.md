@@ -4,8 +4,8 @@ content_sources:
     - id: guide-navigation
       type: Mermaid
       source: self-generated
-      justification: "https://learn.microsoft.com/azure/communication-services/overview"
-      based_on: "https://learn.microsoft.com/azure/communication-services/overview"
+      justification: "https://learn.microsoft.com/en-us/azure/communication-services/overview"
+      based_on: "https://learn.microsoft.com/en-us/azure/communication-services/overview"
 ---
 
 # Azure Communication Services Practical Guide
@@ -63,5 +63,5 @@ graph TD
 
 ## Sources
 
-- [Azure Communication Services Official Documentation](https://learn.microsoft.com/azure/communication-services/)
-- [ACS Service Concepts](https://learn.microsoft.com/azure/communication-services/concepts/client-and-server-architecture)
+- [Azure Communication Services Official Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)
+- [ACS Service Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/client-and-server-architecture)

@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original overview diagram organizing SDK reference by language, key classes, and compatibility.
-      based_on: https://learn.microsoft.com/azure/communication-services/concepts/sdk-overview
+      based_on: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-overview
 ---
 
 # SDK Reference for ACS
@@ -54,8 +54,8 @@ graph TD
 | Call Automation | ✅ | ✅ | ✅ | ✅ |
 
 ## See Also
-- [Azure Communication Services SDK Overview](https://learn.microsoft.com/azure/communication-services/concepts/sdk-overview)
-- [How to: Install ACS SDKs](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+- [Azure Communication Services SDK Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-overview)
+- [How to: Install ACS SDKs](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
 
 ## Sources
-- [ACS SDK Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [ACS SDK Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

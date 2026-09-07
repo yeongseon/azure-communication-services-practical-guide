@@ -6,7 +6,7 @@ content_sources:
     - id: sdk-architecture
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/overview
       based_on: High-level ACS SDK architecture across supported languages
 ---
 
@@ -61,8 +61,8 @@ Choose your preferred language to get started with tutorials and code recipes.
 - **[JavaScript SDK Guide](./javascript/index.md)**: Web-based client applications and server-side logic.
 
 ## See Also
-- [Azure Communication Services SDK Overview](https://learn.microsoft.com/azure/communication-services/concepts/sdk-options)
-- [SDK Release Notes](https://learn.microsoft.com/azure/communication-services/concepts/release-notes)
+- [Azure Communication Services SDK Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options)
+- [SDK Release Notes](https://learn.microsoft.com/en-us/azure/communication-services/concepts/release-notes)
 
 ## Sources
-- [Azure Communication Services Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [Azure Communication Services Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

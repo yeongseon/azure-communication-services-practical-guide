@@ -4,7 +4,7 @@ content_sources:
     - id: acs-auth-flow
       type: sequenceDiagram
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication
       based_on: Typical token-based client auth flow
 content_validation:
   status: verified
@@ -86,5 +86,5 @@ The `CommunicationIdentityClient` is the core server-side component for managing
 
 ## Sources
 
-- [Authentication Concepts](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
-- [Communication Identity Model](https://learn.microsoft.com/azure/communication-services/concepts/identity-model)
+- [Authentication Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+- [Communication Identity Model](https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model)

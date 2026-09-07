@@ -2,7 +2,7 @@
 title: Real-time Chat
 description: Building real-time chat features with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
 validation:
   az_cli:
     last_tested: null
@@ -154,8 +154,8 @@ if __name__ == "__main__":
 ```
 
 ## See Also
-- [Chat Concepts](https://learn.microsoft.com/azure/communication-services/concepts/chat/concepts)
-- [Chat SDK Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/chat/troubleshooting)
+- [Chat Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts)
+- [Chat SDK Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/troubleshooting)
 
 ## Sources
-- [Azure Communication Chat client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-chat-readme)
+- [Azure Communication Chat client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-chat-readme)

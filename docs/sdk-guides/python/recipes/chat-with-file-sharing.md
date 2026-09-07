@@ -2,7 +2,7 @@
 title: Chat with File Sharing
 description: Implementing file sharing in Azure Communication Services chat with Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
 ---
 
 # Chat with File Sharing
@@ -96,8 +96,8 @@ for message in messages:
 - Group multiple files in a single message if relevant.
 
 ## See Also
-- [Azure Blob Storage Documentation](https://learn.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
-- [SAS Tokens](https://learn.microsoft.com/azure/storage/common/storage-sas-overview)
+- [Azure Blob Storage Documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
+- [SAS Tokens](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
 
 ## Sources
-- [Azure Communication Chat client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-chat-readme)
+- [Azure Communication Chat client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-chat-readme)

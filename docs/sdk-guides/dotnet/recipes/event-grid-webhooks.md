@@ -2,8 +2,8 @@
 title: Event Grid Webhooks (.NET)
 description: Handle Azure Communication Services events in ASP.NET Core using Event Grid webhooks.
 content_sources:
-  - https://learn.microsoft.com/azure/event-grid/receive-events-webhook
-  - https://learn.microsoft.com/azure/communication-services/concepts/event-grid-events
+  - https://learn.microsoft.com/en-us/azure/event-grid/receive-events-webhook
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-grid-events
 ---
 
 # Event Grid Webhooks (.NET)
@@ -100,5 +100,5 @@ For production, place the webhook behind Azure Front Door, APIM, or an authentic
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/concepts/event-grid-events
-- https://learn.microsoft.com/azure/event-grid/receive-events-webhook
+- https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-grid-events
+- https://learn.microsoft.com/en-us/azure/event-grid/receive-events-webhook

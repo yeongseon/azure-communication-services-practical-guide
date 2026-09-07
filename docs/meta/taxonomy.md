@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original taxonomy diagram enumerating the document types, sections, and metadata schemas used across the ACS Practical Guide.
-      based_on: https://learn.microsoft.com/azure/communication-services/overview
+      based_on: https://learn.microsoft.com/en-us/azure/communication-services/overview
 ---
 
 # ACS Documentation Taxonomy
@@ -82,7 +82,7 @@ Follow these rules when naming documentation files (slugs):
 3. Keep slugs short, descriptive, and consistent with the document title.
 
 ## See Also
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
 
 ## Sources
-- [ACS Documentation Overview](https://learn.microsoft.com/azure/communication-services/overview)
+- [ACS Documentation Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)

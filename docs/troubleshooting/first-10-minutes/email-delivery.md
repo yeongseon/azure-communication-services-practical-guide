@@ -1,20 +1,20 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
-  - https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting
 content_validation:
   status: verified
   last_reviewed: 2026-06-26
   reviewer: agent
   core_claims:
     - claim: "The ACSEmailStatusUpdateOperational table records the delivery lifecycle for emails sent via ACS"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
       verified: true
     - claim: "Diagnostic settings must be configured on the ACS resource (not the Email Communication Service) to route email logs to Log Analytics"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
       verified: true
     - claim: "Sending from non-verified domains (e.g., @outlook.com, @gmail.com) is not supported"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-domain-and-sender-authentication
       verified: true
 ---
 
@@ -45,7 +45,7 @@ For checklist items 2 and 3 above: when a custom domain row in the Provision dom
 
 ![Custom domain DNS verification wizard for the Domain TXT record, showing the host name and TXT value the user must add to their DNS zone, plus the Done button that triggers re-verification](../../assets/operations/email-provisioning/03-custom-domain-verification.png){ loading=lazy }
 
-Add the host name and value shown to your DNS zone as the matching record type. After DNS propagation (typically 1–5 minutes for low-TTL records, longer for high-TTL), click **Done** in the wizard to re-check. The Provision domains grid status flips from `Configure` to `Verified` once Azure can resolve the record. Each record type (Domain TXT, SPF, DKIM, DKIM2) opens its own separate wizard — DMARC is not surfaced in a wizard and must be configured directly in your DNS zone per the [Email Domain and Sender Authentication](https://learn.microsoft.com/azure/communication-services/concepts/email/email-domain-and-sender-authentication) guide.
+Add the host name and value shown to your DNS zone as the matching record type. After DNS propagation (typically 1–5 minutes for low-TTL records, longer for high-TTL), click **Done** in the wizard to re-check. The Provision domains grid status flips from `Configure` to `Verified` once Azure can resolve the record. Each record type (Domain TXT, SPF, DKIM, DKIM2) opens its own separate wizard — DMARC is not surfaced in a wizard and must be configured directly in your DNS zone per the [Email Domain and Sender Authentication](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-domain-and-sender-authentication) guide.
 
 ## Essential CLI Commands
 
@@ -81,7 +81,7 @@ az communication show \
 
 ## Key KQL Queries
 
-Run this in Log Analytics to see recent email delivery lifecycle events. The canonical table is `ACSEmailStatusUpdateOperational` per the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs).
+Run this in Log Analytics to see recent email delivery lifecycle events. The canonical table is `ACSEmailStatusUpdateOperational` per the [ACS Email Logs schema](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs).
 
 ```kusto
 // Recent non-delivered emails (last 1 hour) — recipient-level rows only
@@ -135,5 +135,5 @@ ACSEmailStatusUpdateOperational
 
 ## Sources
 
-- [ACS Email Logs Reference](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs)
-- [Azure Communication Services Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
+- [ACS Email Logs Reference](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs)
+- [Azure Communication Services Email Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting)

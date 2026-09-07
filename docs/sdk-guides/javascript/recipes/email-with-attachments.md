@@ -2,7 +2,7 @@
 title: Email with Attachments
 description: Sending emails with multiple file attachments using ACS and JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
 ---
 
 # Email with Attachments
@@ -106,8 +106,8 @@ Common content types include:
 
 ## See Also
 - [Email Service Provisioning](../../../operations/email-provisioning.md) — required setup before any sender address (including those with custom MailFrom) will accept your messages
-- [ACS Email Concepts](https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment)
-- [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
+- [ACS Email Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-attachment)
+- [Email Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting)
 
 ## Sources
-- [Azure Communication Email client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-email-readme)
+- [Azure Communication Email client library for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-email-readme)

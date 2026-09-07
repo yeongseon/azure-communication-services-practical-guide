@@ -2,7 +2,7 @@
 title: Local Setup
 description: Setting up your Python environment for Azure Communication Services.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-python
 validation:
   az_cli:
     last_tested: null
@@ -113,8 +113,8 @@ python identity_token.py
 ```
 
 ## See Also
-- [Create and manage ACS resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
-- [Manage user access tokens](https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens)
+- [Create and manage ACS resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
+- [Manage user access tokens](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens)
 
 ## Sources
-- [Azure Communication Identity client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-identity-readme)
+- [Azure Communication Identity client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-identity-readme)

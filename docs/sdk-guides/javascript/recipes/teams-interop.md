@@ -2,7 +2,7 @@
 title: Teams Interop
 description: Joining Microsoft Teams meetings from a browser with ACS.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/teams-interop?pivots=programming-language-javascript
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop?pivots=programming-language-javascript
 ---
 
 # Teams Interop
@@ -11,9 +11,9 @@ This recipe demonstrates how to join Microsoft Teams meetings from a web browser
 
 ## Prerequisites
 
-- [ACS Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- [Microsoft Teams Meeting](https://learn.microsoft.com/microsoftteams/teams-meetings).
-- [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
+- [ACS Resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
+- [Microsoft Teams Meeting](https://learn.microsoft.com/en-us/microsoftteams/teams-meetings).
+- [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
 - ACS access token with 'voip' scope.
 
 ## 1. SDK Installation
@@ -94,8 +94,8 @@ const call = callAgent.join({ meetingLink: meetingUrl });
 - Monitor your ACS and Teams usage for any unexpected issues.
 
 ## See Also
-- [Teams Interoperability Concepts](https://learn.microsoft.com/azure/communication-services/concepts/teams-interop)
+- [Teams Interoperability Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop)
 - [Calling UI Composite Recipe](./calling-ui-composite.md)
 
 ## Sources
-- [Azure Communication Calling client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-calling-readme)
+- [Azure Communication Calling client library for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-calling-readme)

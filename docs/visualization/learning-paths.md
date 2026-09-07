@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original visual learning paths grouped by role (Developer, SRE, Solution Architect).
-      based_on: https://learn.microsoft.com/azure/communication-services/overview
+      based_on: https://learn.microsoft.com/en-us/azure/communication-services/overview
 ---
 
 # Learning Paths for ACS Roles
@@ -57,8 +57,8 @@ For architects designing communication solutions:
 3. **Compliance and Governance**: Ensure your communication solution meets regulatory requirements.
 
 ## See Also
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
-- [How to: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
+- [How to: Create and manage Communication Services resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
 
 ## Sources
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

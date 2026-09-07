@@ -2,7 +2,7 @@
 title: Email with Attachments (.NET)
 description: Send Azure Communication Services email messages with file attachments using the .NET SDK.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
 ---
 
 # Email with Attachments (.NET)
@@ -112,5 +112,5 @@ await client.SendAsync(WaitUntil.Completed, message);
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
-- https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+- https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-attachment

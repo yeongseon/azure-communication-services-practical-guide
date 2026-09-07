@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original ACS core knowledge graph showing how services (SMS, Email, Chat, Calling) and their sub-resources relate.
-      based_on: https://learn.microsoft.com/azure/communication-services/overview
+      based_on: https://learn.microsoft.com/en-us/azure/communication-services/overview
 ---
 
 # Core Knowledge Graph for ACS
@@ -44,8 +44,8 @@ The following section will host an interactive Cytoscape graph for a more granul
 </div>
 
 ## See Also
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
-- [How to: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
+- [How to: Create and manage Communication Services resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
 
 ## Sources
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

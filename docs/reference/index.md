@@ -5,7 +5,7 @@ content_sources:
       type: flowchart
       source: self-generated
       justification: Original navigation diagram for the Reference section (CLI, platform limits, KQL, SDK).
-      based_on: https://learn.microsoft.com/azure/communication-services/overview
+      based_on: https://learn.microsoft.com/en-us/azure/communication-services/overview
 ---
 
 # Reference Hub
@@ -32,9 +32,9 @@ graph TD
 
 ## Quick Links
 
-- [Azure Communication Services CLI Reference](https://learn.microsoft.com/cli/azure/communication)
-- [REST API Reference](https://learn.microsoft.com/rest/api/communication/)
-- [Service limits and quotas](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
+- [Azure Communication Services CLI Reference](https://learn.microsoft.com/en-us/cli/azure/communication)
+- [REST API Reference](https://learn.microsoft.com/en-us/rest/api/communication/)
+- [Service limits and quotas](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits)
 
 ## Common Variables Table
 
@@ -46,7 +46,7 @@ graph TD
 | `RESOURCE_GROUP` | The Azure Resource Group containing your ACS resource. |
 
 ## See Also
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
 
 ## Sources
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

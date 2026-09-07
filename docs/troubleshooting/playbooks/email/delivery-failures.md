@@ -32,7 +32,7 @@ content_validation:
 ## Evidence Collection
 
 ### 1. Delivery Reports
-Query the `ACSEmailStatusUpdateOperational` table in Log Analytics. Filter for recipient-level rows (`isnotempty(RecipientId)`) and inspect `DeliveryStatus`, `SmtpStatusCode`, and `EnhancedSmtpStatusCode`. See the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs) for the full column list.
+Query the `ACSEmailStatusUpdateOperational` table in Log Analytics. Filter for recipient-level rows (`isnotempty(RecipientId)`) and inspect `DeliveryStatus`, `SmtpStatusCode`, and `EnhancedSmtpStatusCode`. See the [ACS Email Logs schema](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs) for the full column list.
 
 ### 2. Monitor Metrics
 Review the `Email Service API Requests` and `Email Service Delivery Status Updates` metrics on the ACS resource. See [Monitoring → Email metrics](../../../operations/monitoring.md) for the canonical metric names and how to chart them.
