@@ -71,4 +71,4 @@ graph TD
 - [SDK Guides Hub](../../index.md)
 
 ## Sources
-- [ACS Python SDK Documentation](https://learn.microsoft.com/python/api/overview/azure/communication-services)
+- [ACS Python SDK Documentation](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-services)

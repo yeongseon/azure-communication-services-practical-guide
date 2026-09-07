@@ -71,4 +71,4 @@ graph TD
 - [SDK Guides Hub](../../index.md)
 
 ## Sources
-- [ACS JavaScript SDK Documentation](https://learn.microsoft.com/javascript/api/overview/azure/communication-services)
+- [ACS JavaScript SDK Documentation](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-services)
