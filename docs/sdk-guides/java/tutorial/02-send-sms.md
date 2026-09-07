@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Code examples for sending SMS with Java.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send
 validation:
   az_cli:
     last_tested: null
@@ -138,5 +138,11 @@ public class SmsApp {
 
 Learn how to [Send Email](./03-send-email.md).
 
+## See Also
+- [01. Local Setup](./01-local-setup.md)
+- [03. Send Email](./03-send-email.md)
+- [Tutorial Index](./index.md)
+- [Java Recipes](../recipes/index.md)
+
 ## Sources
-- [Quickstart: Send an SMS message](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send)
+- [Quickstart: Send an SMS message](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send)

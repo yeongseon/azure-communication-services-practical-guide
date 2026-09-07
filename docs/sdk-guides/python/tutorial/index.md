@@ -6,7 +6,7 @@ content_sources:
     - id: python-tutorial-path
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
       based_on: Learning-path progression through ACS Python quickstarts
 validation:
   az_cli:
@@ -65,5 +65,10 @@ graph TD
 | **06** | [Monitoring](./06-logging-monitoring.md) | Configure logging and use KQL queries to monitor your ACS resource. |
 | **07** | [Infrastructure as Code](./07-infrastructure-as-code.md) | Deploy ACS resources using Bicep templates and Python scripts. |
 
+## See Also
+- [Python SDK Guide](../index.md)
+- [Recipes](../recipes/index.md)
+- [SDK Guides Hub](../../index.md)
+
 ## Sources
-- [ACS Python SDK Documentation](https://learn.microsoft.com/python/api/overview/azure/communication-services)
+- [ACS Python SDK Documentation](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-services)

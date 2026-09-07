@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Explains IaC and CI/CD for .NET ACS projects.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/resource-manager-template
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/resource-manager-template
 validation:
   az_cli:
     last_tested: null
@@ -108,6 +108,11 @@ resource emailService 'Microsoft.Communication/EmailServices@2023-03-31' = {
 
 Congratulations! You have built a complete communication application with .NET, covering identity, messaging, real-time communication, and automated deployment.
 
+## See Also
+- [06. Logging & Monitoring](./06-logging-monitoring.md)
+- [Tutorial Index](./index.md)
+- [.NET Recipes](../recipes/index.md)
+
 ## Sources
-- [Bicep documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
-- [Azure SDK for .NET Management Libraries](https://learn.microsoft.com/dotnet/azure/sdk/management)
+- [Bicep documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/)
+- [Azure SDK for .NET Management Libraries](https://learn.microsoft.com/en-us/dotnet/azure/sdk/management)

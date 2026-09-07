@@ -62,5 +62,9 @@ Set the app setting value to:
 Your Java app can then read it like a normal environment variable:
 `System.getenv("ACS_CONNECTION_STRING")`
 
+## See Also
+- [Java Recipes](./index.md)
+- [Java SDK Guide](../index.md)
+
 ## Sources
-- [Azure Key Vault Secret client library for Java](https://learn.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme)
+- [Azure Key Vault Secret client library for Java](https://learn.microsoft.com/en-us/java/api/overview/azure/security-keyvault-secrets-readme)

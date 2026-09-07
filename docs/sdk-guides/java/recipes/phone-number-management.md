@@ -70,5 +70,9 @@ public void listNumbers() {
 }
 ```
 
+## See Also
+- [Java Recipes](./index.md)
+- [Java SDK Guide](../index.md)
+
 ## Sources
-- [Quickstart: Search and purchase phone numbers](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number)
+- [Quickstart: Search and purchase phone numbers](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number)

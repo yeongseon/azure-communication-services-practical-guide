@@ -4,7 +4,7 @@ content_sources:
     - id: reliability-retry-logic
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -76,8 +76,42 @@ Implement robust monitoring and alerting to identify and resolve reliability iss
 *   **Success Rate Alerting**: Set up alerts when the success rate for SMS or email drops below your target SLA.
 *   **Latency Monitoring**: Monitor the latency of your API calls to identify potential performance bottlenecks.
 
+## Why This Matters
+
+Reliability is about keeping communication possible when — not if — errors occur. Transient failures, rate limits, and platform incidents are normal at scale; applications that assume the happy path drop messages and calls under exactly the conditions where communication matters most. Building in retries, degradation, and monitoring is what turns those events into non-incidents.
+
+## Recommended Practices
+
+- Retry transient errors (500, 503, 429) with **exponential backoff**, and never retry non-transient errors (400, 401).
+- Use idempotency keys where supported so retries do not create duplicate messages.
+- Apply a **circuit breaker** for high-volume SMS/email to prevent cascading failures.
+- Provide graceful degradation: fall back to an alternate channel, or downgrade video to audio-only on poor networks.
+- Implement heartbeats, automatic reconnect, and state recovery for chat and calling.
+- Monitor availability, success rate against SLA, and latency, with alerts on regressions.
+
+## Common Mistakes / Anti-Patterns
+
+- Retrying non-transient (4xx) errors, amplifying load without ever succeeding.
+- Omitting idempotency keys and sending duplicate messages on retry.
+- No circuit breaker, so one degraded dependency cascades into total failure.
+- No reconnect or state recovery, leaving chat clients silently stale after a network blip.
+
+## Validation Checklist
+
+- [ ] Transient vs non-transient errors are handled distinctly, with backoff on transient.
+- [ ] Idempotency keys are used where the API supports them.
+- [ ] A circuit breaker guards high-volume send paths.
+- [ ] Fallback channels and quality degradation are implemented.
+- [ ] Reconnect and missed-message recovery exist for chat/calling.
+- [ ] Availability, success-rate, and latency alerts are configured.
+
+## See Also
+
+- [Operations: Health and Recovery](../operations/health-recovery.md)
+- [Scaling Best Practices](scaling.md)
+
 ## Sources
 
-*   [ACS SDK Error Handling](https://learn.microsoft.com/azure/communication-services/concepts/sdk-options#error-handling)
-*   [Azure Well-Architected Framework: Reliability](https://learn.microsoft.com/azure/architecture/framework/resiliency/principles)
-*   [Circuit Breaker Pattern (Microsoft Learn)](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker)
+*   [ACS SDK Error Handling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options#error-handling)
+*   [Azure Well-Architected Framework: Reliability](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/principles)
+*   [Circuit Breaker Pattern (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker)

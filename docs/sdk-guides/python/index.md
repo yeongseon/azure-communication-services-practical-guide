@@ -6,11 +6,11 @@ content_sources:
     - id: python-sdk-workflow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/python/api/overview/azure/communication-identity-readme
+      mslearn_url: https://learn.microsoft.com/en-us/python/api/overview/azure/communication-identity-readme
       based_on:
-        - https://learn.microsoft.com/python/api/overview/azure/communication-sms-readme
-        - https://learn.microsoft.com/python/api/overview/azure/communication-email-readme
-        - https://learn.microsoft.com/python/api/overview/azure/communication-chat-readme
+        - https://learn.microsoft.com/en-us/python/api/overview/azure/communication-sms-readme
+        - https://learn.microsoft.com/en-us/python/api/overview/azure/communication-email-readme
+        - https://learn.microsoft.com/en-us/python/api/overview/azure/communication-chat-readme
 ---
 
 # Python SDK Guide
@@ -70,5 +70,10 @@ graph TD
 - **[Tutorials](./tutorial/index.md)**: Step-by-step guides for common scenarios.
 - **[Recipes](./recipes/index.md)**: Focused code snippets for specific tasks.
 
+## See Also
+- [Tutorial](./tutorial/index.md)
+- [Recipes](./recipes/index.md)
+- [SDK Guides Hub](../index.md)
+
 ## Sources
-- [Python SDK Reference](https://learn.microsoft.com/python/api/overview/azure/communication-services)
+- [Python SDK Reference](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-services)

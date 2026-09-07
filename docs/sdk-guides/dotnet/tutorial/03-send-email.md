@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Explains email sending capabilities in .NET.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email
 validation:
   az_cli:
     last_tested: null
@@ -131,5 +131,11 @@ class Program
 
 Build real-time features with [Chat](./04-chat.md).
 
+## See Also
+- [02. Send SMS](./02-send-sms.md)
+- [04. Chat](./04-chat.md)
+- [Tutorial Index](./index.md)
+- [.NET Recipes](../recipes/index.md)
+
 ## Sources
-- [Quickstart: How to send an email using Azure Communication Services](https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email)
+- [Quickstart: How to send an email using Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email)

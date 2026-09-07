@@ -51,5 +51,9 @@ For Managed Identity to work, you must assign the appropriate role to your appli
 
 Navigate to your ACS resource > **IAM (Access Control)** > **Add role assignment**.
 
+## See Also
+- [Java Recipes](./index.md)
+- [Java SDK Guide](../index.md)
+
 ## Sources
-- [Authenticate with Microsoft Entra ID](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
+- [Authenticate with Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)

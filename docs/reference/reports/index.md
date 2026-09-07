@@ -15,3 +15,7 @@ Evidence-driven test reports for scenarios covered in this guide. Each report in
 ## See Also
 
 - [Reference Hub](../index.md)
+
+## Sources
+- [Azure Communication Services documentation](https://learn.microsoft.com/en-us/azure/communication-services/)
+- [Logs and metrics - Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging)

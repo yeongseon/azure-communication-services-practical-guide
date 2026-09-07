@@ -4,7 +4,7 @@ content_sources:
     - id: cost-sms-optimization
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/pricing
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -79,8 +79,40 @@ Use Azure Cost Management to track and analyze your ACS spending.
 *   **Tags**: Apply tags (e.g., `Environment`, `Department`, `Project`) to your ACS resources to breakdown costs by business unit or environment.
 *   **Cost Analysis**: Use the Azure Portal's cost analysis tools to identify which channels (e.g., SMS vs. Calling) are driving the most spend.
 
+## Why This Matters
+
+Because ACS billing is consumption-based, cost scales directly with how you send. Small design choices — Unicode SMS, idle participants left connected, or unused rented numbers — compound into avoidable monthly spend. Understanding the per-channel pricing model is the prerequisite for controlling it.
+
+## Recommended Practices
+
+- Audit and release unused phone numbers, and consolidate traffic onto fewer numbers where regulations allow.
+- Keep SMS within GSM-7 characters to maximize characters per segment, and honor opt-out to avoid wasted sends.
+- Choose the email tier that matches expected monthly volume rather than over-provisioning.
+- Disconnect idle call and chat participants automatically to stop accidental participant-minute charges.
+- Set Cost Management budgets with alerts, tag resources by environment and department, and review channel-level cost analysis regularly.
+
+## Common Mistakes / Anti-Patterns
+
+- Sending Unicode SMS when GSM-7 would suffice, silently doubling segment counts.
+- Leaving unused toll-free or international numbers rented, incurring fixed monthly charges.
+- Running production without budgets or alerts, so overspend is discovered only on the invoice.
+- Never disconnecting idle participants on long-lived calls or threads.
+
+## Validation Checklist
+
+- [ ] Unused phone numbers are audited and released on a schedule.
+- [ ] SMS payloads avoid unnecessary Unicode and respect opt-out.
+- [ ] The selected email tier matches actual volume.
+- [ ] Idle participants are disconnected automatically.
+- [ ] Budgets, cost alerts, and resource tags are configured.
+
+## See Also
+
+- [Operations: Cost Optimization](../operations/cost-optimization.md)
+- [Scaling Best Practices](scaling.md)
+
 ## Sources
 
 *   [ACS Pricing Details](https://azure.microsoft.com/en-us/pricing/details/communication-services/)
-*   [Azure Cost Management](https://learn.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
-*   [SMS Message Segmentation](https://learn.microsoft.com/azure/communication-services/concepts/telephony/sms-concepts#message-segmentation)
+*   [Azure Cost Management](https://learn.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview)
+*   [SMS Message Segmentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/sms-concepts#message-segmentation)

@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Explains Call Automation features in Java.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
 validation:
   az_cli:
     last_tested: null
@@ -123,5 +123,11 @@ public class VoiceApp {
 
 Implement [Logging & Monitoring](./06-logging-monitoring.md) for your application.
 
+## See Also
+- [04. Chat](./04-chat.md)
+- [06. Logging & Monitoring](./06-logging-monitoring.md)
+- [Tutorial Index](./index.md)
+- [Java Recipes](../recipes/index.md)
+
 ## Sources
-- [Quickstart: Make an outbound call using Call Automation](https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call)
+- [Quickstart: Make an outbound call using Call Automation](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call)
