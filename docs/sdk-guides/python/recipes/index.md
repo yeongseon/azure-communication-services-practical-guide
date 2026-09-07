@@ -2,7 +2,7 @@
 title: Python SDK Recipes
 description: Focused code recipes for Azure Communication Services with Python.
 content_sources:
-  - https://learn.microsoft.com/python/api/overview/azure/communication-services
+  - https://learn.microsoft.com/en-us/python/api/overview/azure/communication-services
 ---
 
 # Python SDK Recipes
@@ -32,8 +32,8 @@ client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
 ```
 
 ## See Also
-- [Python SDK Reference](https://learn.microsoft.com/python/api/overview/azure/communication-services)
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [Python SDK Reference](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-services)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)
 
 ## Sources
 - [Azure Communication Services SDK Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/communication)

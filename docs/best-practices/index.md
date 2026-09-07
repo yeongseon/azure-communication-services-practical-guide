@@ -4,7 +4,7 @@ content_sources:
     - id: best-practices-flow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
 ---
 
 # Best Practices Overview
@@ -76,8 +76,8 @@ Before deploying your ACS solution to production, verify the following:
 
 ## See Also
 
-*   [ACS Conceptual Documentation](https://learn.microsoft.com/azure/communication-services/concepts/best-practices)
-*   [Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework/)
+*   [ACS Conceptual Documentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices)
+*   [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework/)
 
 ## Sources
 

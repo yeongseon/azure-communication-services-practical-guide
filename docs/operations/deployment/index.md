@@ -4,7 +4,7 @@ content_sources:
     - id: deployment-methods
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
 ---
 
 # Deployment Methods Overview
@@ -43,8 +43,8 @@ graph TD
 | Integration | Deeply integrated with ARM | Broad integration with many providers | Cross-platform |
 
 ## See Also
-- [Deployment options for ACS](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
-- [Bicep vs Terraform for Azure deployments](https://learn.microsoft.com/azure/azure-resource-manager/bicep/compare-terraform)
+- [Deployment options for ACS](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
+- [Bicep vs Terraform for Azure deployments](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/compare-terraform)
 
 ## Sources
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

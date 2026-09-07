@@ -2,8 +2,8 @@
 title: Teams Interop (.NET)
 description: Join Microsoft Teams meetings from a .NET app using Azure Communication Services.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/meeting-interop
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/meeting-interop
 ---
 
 # Teams Interop (.NET)
@@ -76,5 +76,5 @@ if (!Uri.TryCreate(teamsMeetingUrl, UriKind.Absolute, out var uri) || uri.Host i
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/meeting-interop
-- https://learn.microsoft.com/azure/communication-services/quickstarts/identity/access-tokens
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/meeting-interop
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens

@@ -2,7 +2,7 @@
 title: Calling UI Composite
 description: Adding video calling UI with ACS UI Library composite components.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-overview
 ---
 
 # Calling UI Composite
@@ -107,8 +107,8 @@ import { LocalizationProvider, COMPONENT_LOCALE_EN_US } from "@azure/communicati
 - Monitor the adapter state to provide feedback to the user (e.g., loading, error).
 
 ## See Also
-- [UI Library Composite Components](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-composites)
-- [UI Library Architecture](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-architecture)
+- [UI Library Composite Components](https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-composites)
+- [UI Library Architecture](https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-architecture)
 
 ## Sources
-- [Azure Communication Services UI Library](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview)
+- [Azure Communication Services UI Library](https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-overview)

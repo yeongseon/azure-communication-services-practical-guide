@@ -2,7 +2,7 @@
 title: Key Vault Reference
 description: Securing Azure Communication Services connection strings with Key Vault and JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/key-vault/general/quick-create-node?tabs=azure-cli
+  - https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-node?tabs=azure-cli
 ---
 
 # Key Vault Reference
@@ -11,9 +11,9 @@ This recipe shows how to securely store and retrieve Azure Communication Service
 
 ## Prerequisites
 
-- [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview) resource.
-- [ACS Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) enabled and configured with access to Key Vault secrets.
+- [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) resource.
+- [ACS Resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
+- [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) enabled and configured with access to Key Vault secrets.
 
 ## SDK Installation
 
@@ -81,8 +81,8 @@ Regularly rotating your secrets is a security best practice. ACS connection stri
     Key Vault supports versioning, allowing you to easily roll back if a new key fails.
 
 ## See Also
-- [Azure Key Vault Secrets JavaScript Client](https://learn.microsoft.com/javascript/api/overview/azure/keyvault-secrets-readme)
-- [Key Vault Authentication](https://learn.microsoft.com/azure/key-vault/general/authentication)
+- [Azure Key Vault Secrets JavaScript Client](https://learn.microsoft.com/en-us/javascript/api/overview/azure/keyvault-secrets-readme)
+- [Key Vault Authentication](https://learn.microsoft.com/en-us/azure/key-vault/general/authentication)
 
 ## Sources
-- [Use Azure Key Vault from a Node.js application](https://learn.microsoft.com/azure/key-vault/general/quick-create-node?tabs=azure-cli)
+- [Use Azure Key Vault from a Node.js application](https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-node?tabs=azure-cli)

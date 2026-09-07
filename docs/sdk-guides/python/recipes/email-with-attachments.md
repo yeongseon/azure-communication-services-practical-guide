@@ -2,7 +2,7 @@
 title: Email with Attachments
 description: Sending emails with multiple file attachments using ACS and Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
 ---
 
 # Email with Attachments
@@ -102,8 +102,8 @@ Common content types include:
 
 ## See Also
 - [Email Service Provisioning](../../../operations/email-provisioning.md) — required setup before any sender address (including those with custom MailFrom) will accept your messages
-- [ACS Email Concepts](https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment)
-- [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
+- [ACS Email Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-attachment)
+- [Email Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting)
 
 ## Sources
-- [Azure Communication Email client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-email-readme)
+- [Azure Communication Email client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-email-readme)

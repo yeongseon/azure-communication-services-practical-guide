@@ -2,7 +2,7 @@
 title: Phone Number Management
 description: Managing ACS phone numbers with Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
 ---
 
 # Phone Number Management
@@ -11,8 +11,8 @@ This recipe shows how to search, purchase, and release Azure Communication Servi
 
 ## Prerequisites
 
-- [ACS Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
+- [ACS Resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
+- [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
 
 ## SDK Installation
 
@@ -97,8 +97,8 @@ for number in purchased_numbers:
 ```
 
 ## See Also
-- [ACS Phone Number Concepts](https://learn.microsoft.com/azure/communication-services/concepts/telephony/phone-number-types)
+- [ACS Phone Number Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/phone-number-types)
 - [ACS Telephony Pricing](https://azure.microsoft.com/pricing/details/communication-services/)
 
 ## Sources
-- [Azure Communication Phone Numbers client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-phonenumbers-readme)
+- [Azure Communication Phone Numbers client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-phonenumbers-readme)

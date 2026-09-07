@@ -2,7 +2,7 @@
 title: JavaScript SDK Recipes
 description: Focused code recipes for Azure Communication Services with JavaScript.
 content_sources:
-  - https://learn.microsoft.com/javascript/api/overview/azure/communication-services
+  - https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-services
 ---
 
 # JavaScript SDK Recipes
@@ -32,8 +32,8 @@ const client = new CommunicationIdentityClient(endpoint, new DefaultAzureCredent
 ```
 
 ## See Also
-- [JavaScript SDK Reference](https://learn.microsoft.com/javascript/api/overview/azure/communication-services)
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [JavaScript SDK Reference](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-services)
+- [ACS Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)
 
 ## Sources
 - [Azure Communication Services SDK Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication)

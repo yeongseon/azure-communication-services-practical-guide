@@ -2,7 +2,7 @@
 title: Send Email
 description: Sending emails with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?tabs=windows&pivots=programming-language-python
 validation:
   az_cli:
     last_tested: null
@@ -199,8 +199,8 @@ The following insights were verified via Azure Monitor Log Analytics:
 - The average message lifecycle (from submission to `OutForDelivery`) was measured between 3 and 6 seconds per message.
 
 ## See Also
-- [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
-- [Email Delivery Reports](https://learn.microsoft.com/azure/communication-services/concepts/email/delivery-reports)
+- [Email Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting)
+- [Email Delivery Reports](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/delivery-reports)
 
 ## Sources
-- [Azure Communication Email client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-email-readme)
+- [Azure Communication Email client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-email-readme)

@@ -2,7 +2,7 @@
 title: Teams Interop
 description: Joining Microsoft Teams meetings with ACS and Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
 ---
 
 # Teams Interop
@@ -11,9 +11,9 @@ This recipe demonstrates how to join Microsoft Teams meetings and map identities
 
 ## Prerequisites
 
-- [ACS Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- [Microsoft Teams Meeting](https://learn.microsoft.com/microsoftteams/teams-meetings).
-- [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
+- [ACS Resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
+- [Microsoft Teams Meeting](https://learn.microsoft.com/en-us/microsoftteams/teams-meetings).
+- [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
 
 ## 1. SDK Installation
 
@@ -85,8 +85,8 @@ meeting_url = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_MT...%40th
 - Monitor your ACS and Teams usage for any unexpected issues.
 
 ## See Also
-- [Teams Interoperability Concepts](https://learn.microsoft.com/azure/communication-services/concepts/teams-interop)
+- [Teams Interoperability Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop)
 - [Calling SDK for JavaScript (Client-side)](../../javascript/tutorial/05-video-calling.md)
 
 ## Sources
-- [Azure Communication Identity client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-identity-readme)
+- [Azure Communication Identity client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-identity-readme)

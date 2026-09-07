@@ -2,7 +2,7 @@
 title: Email with Attachments (Java)
 description: Send Azure Communication Services email messages with one or more file attachments using the Java SDK.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
 ---
 
 # Email with Attachments (Java)
@@ -112,5 +112,5 @@ If you need to attach generated content, write it to disk or bytes first, then w
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
-- https://learn.microsoft.com/azure/communication-services/concepts/email/email-attachment
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+- https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-attachment

@@ -4,7 +4,7 @@ content_sources:
     - id: operations-nav
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/overview
 ---
 
 # Operations Overview
@@ -66,8 +66,8 @@ az communication update --name my-acs-resource --resource-group my-rg --tags env
 | `--tags environment=prod` | Sets or replaces the resource tags. |
 
 ## See Also
-- [Azure Communication Services CLI Reference](https://learn.microsoft.com/cli/azure/communication)
-- [Service limits and quotas](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
+- [Azure Communication Services CLI Reference](https://learn.microsoft.com/en-us/cli/azure/communication)
+- [Service limits and quotas](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits)
 
 ## Sources
-- [ACS Documentation Overview](https://learn.microsoft.com/azure/communication-services/overview)
+- [ACS Documentation Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)

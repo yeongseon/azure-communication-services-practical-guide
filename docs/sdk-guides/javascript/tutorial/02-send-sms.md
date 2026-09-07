@@ -2,7 +2,7 @@
 title: Send SMS
 description: Sending SMS with Azure Communication Services for JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?pivots=programming-language-javascript
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send?pivots=programming-language-javascript
 validation:
   az_cli:
     last_tested: null
@@ -151,8 +151,8 @@ main();
 ```
 
 ## See Also
-- [SMS Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/sms/troubleshooting)
-- [SMS Delivery Reports](https://learn.microsoft.com/azure/communication-services/concepts/sms/delivery-reports)
+- [SMS Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/troubleshooting)
+- [SMS Delivery Reports](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/delivery-reports)
 
 ## Sources
-- [Azure Communication SMS client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-sms-readme)
+- [Azure Communication SMS client library for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-sms-readme)

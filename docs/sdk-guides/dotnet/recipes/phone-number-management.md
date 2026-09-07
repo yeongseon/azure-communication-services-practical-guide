@@ -2,7 +2,7 @@
 title: Phone Number Management (.NET)
 description: Search, purchase, list, and release Azure Communication Services phone numbers from .NET.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/phone-number-management
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/phone-number-management
 ---
 
 # Phone Number Management (.NET)
@@ -98,5 +98,5 @@ await foreach (var phone in client.GetPurchasedPhoneNumbersAsync())
 
 ## Sources
 
-- https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/phone-number-management
-- https://learn.microsoft.com/azure/communication-services/concepts/telephony/phone-numbers
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/phone-number-management
+- https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/phone-numbers

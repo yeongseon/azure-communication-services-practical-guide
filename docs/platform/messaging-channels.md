@@ -11,10 +11,10 @@ content_validation:
   reviewer: agent
   core_claims:
     - claim: "ACS Email is documented as an outbound (A2P) sending service; Microsoft Learn does not document an inbound mail-receive capability or any MX target for ACS Email"
-      source: https://learn.microsoft.com/azure/communication-services/concepts/email/email-overview
+      source: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview
       verified: true
     - claim: "Custom email domain verification in the Portal renders four DNS wizards (Domain TXT, SPF, DKIM, DKIM2); DMARC is configured directly at the DNS provider and is not surfaced as a wizard"
-      source: https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-custom-verified-domains
+      source: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains
       verified: true
 ---
 
@@ -93,6 +93,6 @@ graph TD
 
 ## Sources
 
-- [SMS Overview](https://learn.microsoft.com/azure/communication-services/concepts/sms/overview)
-- [Email Overview](https://learn.microsoft.com/azure/communication-services/concepts/email/overview)
-- [Chat Concepts](https://learn.microsoft.com/azure/communication-services/concepts/chat/concepts)
+- [SMS Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/overview)
+- [Email Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/overview)
+- [Chat Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts)

@@ -54,5 +54,5 @@ The following tests were performed with real Azure resources to validate the gui
 
 ## Sources
 
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
-- [ACS Documentation Hub](https://learn.microsoft.com/azure/communication-services/)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
+- [ACS Documentation Hub](https://learn.microsoft.com/en-us/azure/communication-services/)

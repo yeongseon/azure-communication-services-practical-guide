@@ -2,7 +2,7 @@
 title: Local Setup
 description: Setting up your JavaScript environment for Azure Communication Services.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-javascript
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-javascript
 validation:
   az_cli:
     last_tested: null
@@ -118,8 +118,8 @@ node identity_token.js
 ```
 
 ## See Also
-- [Create and manage ACS resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
-- [Manage user access tokens](https://learn.microsoft.com/azure/communication-services/quickstarts/identity/get-tokens)
+- [Create and manage ACS resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
+- [Manage user access tokens](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens)
 
 ## Sources
-- [Azure Communication Identity client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-identity-readme)
+- [Azure Communication Identity client library for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-identity-readme)

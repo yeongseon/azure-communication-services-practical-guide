@@ -4,7 +4,7 @@ content_sources:
     - id: acs-architecture-overview
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/overview
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/overview
       based_on: Generic ACS architecture
 content_validation:
   status: verified
@@ -82,5 +82,5 @@ For asynchronous tasks (like receiving an SMS), ACS publishes events to Azure Ev
 
 ## Sources
 
-- [What is Azure Communication Services?](https://learn.microsoft.com/azure/communication-services/overview)
-- [Communication Identity Model](https://learn.microsoft.com/azure/communication-services/concepts/identity-model)
+- [What is Azure Communication Services?](https://learn.microsoft.com/en-us/azure/communication-services/overview)
+- [Communication Identity Model](https://learn.microsoft.com/en-us/azure/communication-services/concepts/identity-model)

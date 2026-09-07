@@ -2,7 +2,7 @@
 title: Send Email
 description: Sending emails with Azure Communication Services for JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
 validation:
   az_cli:
     last_tested: null
@@ -179,8 +179,8 @@ main();
 ```
 
 ## See Also
-- [Email Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/email/troubleshooting)
-- [Email Delivery Reports](https://learn.microsoft.com/azure/communication-services/concepts/email/delivery-reports)
+- [Email Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting)
+- [Email Delivery Reports](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/delivery-reports)
 
 ## Sources
-- [Azure Communication Email client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-email-readme)
+- [Azure Communication Email client library for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-email-readme)

@@ -10,7 +10,7 @@ Analyze email delivery performance, error patterns, and throughput.
 
 ## Log Analytics Tables
 
-ACS Email surfaces three Operational tables (see the [ACS Email Logs schema](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs)):
+ACS Email surfaces three Operational tables (see the [ACS Email Logs schema](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs)):
 
 * **`ACSEmailSendMailOperational`** — One row per `SendEmail` API call. Tracks send-side metadata (correlation ID, recipient counts, attachment counts, size). Does **not** expose delivery status.
 * **`ACSEmailStatusUpdateOperational`** — One row per lifecycle transition. Tracks per-recipient delivery state (`Delivered`, `Bounced`, `Failed`, etc.) via `DeliveryStatus`, plus `SmtpStatusCode`, `EnhancedSmtpStatusCode`, and `IsHardBounce` (string per the [documented schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailstatusupdateoperational)).
@@ -68,11 +68,11 @@ ACSEmailSendMailOperational
 | order by Day asc
 ```
 
-`UniqueRecipientsCount` counts every distinct recipient on a single `SendEmail` call (across To, Cc, Bcc). `Size` is the email size in megabytes per the [documented schema](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational).
+`UniqueRecipientsCount` counts every distinct recipient on a single `SendEmail` call (across To, Cc, Bcc). `Size` is the email size in megabytes per the [documented schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailsendmailoperational).
 
 #### Send volume by sender domain (via join)
 
-`ACSEmailSendMailOperational` does **not** expose `SenderDomain` as a documented column per the [Microsoft Learn schema](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational) — only `ACSEmailStatusUpdateOperational` does. To attribute send volume per sender domain, join the two tables on `CorrelationId`:
+`ACSEmailSendMailOperational` does **not** expose `SenderDomain` as a documented column per the [Microsoft Learn schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailsendmailoperational) — only `ACSEmailStatusUpdateOperational` does. To attribute send volume per sender domain, join the two tables on `CorrelationId`:
 
 ```kusto
 let SendRows =
@@ -101,8 +101,8 @@ You will see two slightly different numbers for the same time window:
 
 | Source | What it represents |
 |---|---|
-| `ACSEmailSendMailOperational` (this table) | Log row per `SendEmail` operation (send-side operational record per the [documented schema](https://learn.microsoft.com/azure/azure-monitor/reference/tables/acsemailsendmailoperational)) |
-| `Email Service API Requests` metric (Portal → Metrics) | Aggregated API request count surfaced on the [Communication Services standard metrics](https://learn.microsoft.com/azure/communication-services/concepts/metrics) blade |
+| `ACSEmailSendMailOperational` (this table) | Log row per `SendEmail` operation (send-side operational record per the [documented schema](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acsemailsendmailoperational)) |
+| `Email Service API Requests` metric (Portal → Metrics) | Aggregated API request count surfaced on the [Communication Services standard metrics](https://learn.microsoft.com/en-us/azure/communication-services/concepts/metrics) blade |
 
 The two are different telemetry surfaces — one is operational logs, the other is platform metrics — so counts may differ for the same time window and should be reconciled loosely. For "how many emails did our application attempt to deliver", trust `ACSEmailSendMailOperational`. For "how is the API endpoint trending in Portal alerts and dashboards", trust the metric. See [Monitoring → Viewing Email Metrics in Azure Monitor](../../../operations/monitoring.md#viewing-email-metrics-in-azure-monitor) for the Portal-side view of this same data.
 
@@ -166,4 +166,4 @@ If you need finer-grained signals, group by `SenderDomain, SenderUsername` and i
 * [Monitoring Azure Communication Services](../../../operations/monitoring.md) — full Log Analytics + alert setup
 
 ## Sources
-* [ACS Email Logs Reference (Microsoft Learn)](https://learn.microsoft.com/azure/communication-services/concepts/analytics/logs/email-logs)
+* [ACS Email Logs Reference (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs)

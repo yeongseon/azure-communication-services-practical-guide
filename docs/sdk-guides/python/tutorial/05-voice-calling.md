@@ -2,7 +2,7 @@
 title: Voice Calling
 description: Automating voice calls with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-call-automation?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-with-call-automation?pivots=programming-language-python
 validation:
   az_cli:
     last_tested: null
@@ -144,8 +144,8 @@ if __name__ == "__main__":
 ```
 
 ## See Also
-- [Call Automation Concepts](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/call-automation)
-- [Call Automation Troubleshooting](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/troubleshooting)
+- [Call Automation Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation)
+- [Call Automation Troubleshooting](https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/troubleshooting)
 
 ## Sources
-- [Azure Communication Call Automation client library for Python](https://learn.microsoft.com/python/api/overview/azure/communication-callautomation-readme)
+- [Azure Communication Call Automation client library for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/communication-callautomation-readme)

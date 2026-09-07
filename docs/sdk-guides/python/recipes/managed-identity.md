@@ -2,7 +2,7 @@
 title: Managed Identity Authentication
 description: Authenticating Azure Communication Services with Python using Managed Identities.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/concepts/authentication?pivots=programming-language-python
+  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication?pivots=programming-language-python
 ---
 
 # Managed Identity Authentication
@@ -11,7 +11,7 @@ This recipe demonstrates how to authenticate with Azure Communication Services (
 
 ## Prerequisites
 
-- [Azure Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) enabled on your application's compute resource (e.g., Azure App Service, Azure Function, Azure VM).
+- [Azure Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) enabled on your application's compute resource (e.g., Azure App Service, Azure Function, Azure VM).
 - Appropriate role-based access control (RBAC) assigned to the managed identity for your ACS resource (e.g., **Cognitive Services User**).
 
 ## DefaultAzureCredential with ACS
@@ -95,8 +95,8 @@ phone_numbers_client = PhoneNumbersClient(endpoint, DefaultAzureCredential())
 ```
 
 ## See Also
-- [RBAC for ACS](https://learn.microsoft.com/azure/communication-services/concepts/authentication#role-based-access-control)
-- [Managed Identities for Azure Resources](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- [RBAC for ACS](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication#role-based-access-control)
+- [Managed Identities for Azure Resources](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## Sources
-- [Authenticate to Azure Communication Services with Managed Identities](https://learn.microsoft.com/azure/communication-services/concepts/authentication?pivots=programming-language-python)
+- [Authenticate to Azure Communication Services with Managed Identities](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication?pivots=programming-language-python)

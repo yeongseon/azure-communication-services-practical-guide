@@ -93,5 +93,5 @@ ACS SDKs follow **Semantic Versioning (SemVer)**. It is essential to keep your S
 
 ## Sources
 
-- [SDK Options and Tools](https://learn.microsoft.com/azure/communication-services/concepts/sdk-options)
-- [REST API Reference](https://learn.microsoft.com/rest/api/communication/)
+- [SDK Options and Tools](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options)
+- [REST API Reference](https://learn.microsoft.com/en-us/rest/api/communication/)

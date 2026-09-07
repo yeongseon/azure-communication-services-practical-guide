@@ -2,7 +2,7 @@
 title: Phone Number Management
 description: Managing ACS phone numbers with JavaScript.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-javascript
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-javascript
 ---
 
 # Phone Number Management
@@ -11,8 +11,8 @@ This recipe shows how to search, purchase, and release Azure Communication Servi
 
 ## Prerequisites
 
-- [ACS Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
+- [ACS Resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
+- [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) or connection string.
 
 ## SDK Installation
 
@@ -100,8 +100,8 @@ listPhoneNumbers();
 ```
 
 ## See Also
-- [ACS Phone Number Concepts](https://learn.microsoft.com/azure/communication-services/concepts/telephony/phone-number-types)
+- [ACS Phone Number Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/phone-number-types)
 - [ACS Telephony Pricing](https://azure.microsoft.com/pricing/details/communication-services/)
 
 ## Sources
-- [Azure Communication Phone Numbers client library for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/communication-phone-numbers-readme)
+- [Azure Communication Phone Numbers client library for JavaScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-phone-numbers-readme)

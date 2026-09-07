@@ -4,8 +4,8 @@ content_sources:
     - id: learning-flow
       type: Mermaid
       source: self-generated
-      justification: "https://learn.microsoft.com/azure/communication-services/overview"
-      based_on: "https://learn.microsoft.com/azure/communication-services/overview"
+      justification: "https://learn.microsoft.com/en-us/azure/communication-services/overview"
+      based_on: "https://learn.microsoft.com/en-us/azure/communication-services/overview"
 ---
 
 # Azure Communication Services Practical Guide
@@ -55,7 +55,7 @@ graph TD
 
 This guide is designed for developers, architects, and SREs who need to go beyond the basics. It focuses on practical implementation, operational stability, and rapid troubleshooting. 
 
-This is not an official Microsoft product. While based on official documentation and real-world experience, always verify critical architecture decisions with the [Official Microsoft Documentation](https://learn.microsoft.com/azure/communication-services/).
+This is not an official Microsoft product. While based on official documentation and real-world experience, always verify critical architecture decisions with the [Official Microsoft Documentation](https://learn.microsoft.com/en-us/azure/communication-services/).
 
 ## See Also
 
@@ -65,5 +65,5 @@ This is not an official Microsoft product. While based on official documentation
 
 ## Sources
 
-- [Azure Communication Services Overview](https://learn.microsoft.com/azure/communication-services/overview)
-- [ACS Documentation Architecture](https://learn.microsoft.com/azure/communication-services/)
+- [Azure Communication Services Overview](https://learn.microsoft.com/en-us/azure/communication-services/overview)
+- [ACS Documentation Architecture](https://learn.microsoft.com/en-us/azure/communication-services/)
