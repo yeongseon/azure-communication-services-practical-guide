@@ -31,3 +31,7 @@ A collection of guided troubleshooting procedures for common ACS failures.
 * [First 10 Minutes](../first-10-minutes/index.md)
 * [Decision Tree](../decision-tree.md)
 * [Evidence Map](../evidence-map.md)
+
+## Sources
+- [Azure Communication Services documentation](https://learn.microsoft.com/en-us/azure/communication-services/)
+- [Logs and metrics - Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging)

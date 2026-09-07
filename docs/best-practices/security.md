@@ -81,6 +81,39 @@ If you use Event Grid to receive webhooks from ACS:
 2.  **HTTPS Only**: Your webhook endpoint must be reachable only over HTTPS.
 3.  **Authentication**: Use a secret key or Azure AD authentication for your webhook endpoint to prevent unauthorized access.
 
+## Why This Matters
+
+ACS security rests on least privilege and defense in depth. The connection string is effectively a master key, and user access tokens are the client's credential — mishandling either exposes your resource or your users' sessions. Because communication workloads often carry regulated data, privacy and consent controls are part of the security baseline, not an afterthought.
+
+## Recommended Practices
+
+- Generate user access tokens on a secure backend, transmit over HTTPS only, use short TTLs, and refresh before expiry.
+- Never hardcode connection strings; prefer **managed identity**, and store any required secret in **Azure Key Vault**.
+- Assign the narrowest RBAC role that meets each principal's need (Owner, Contributor, Reader, or User).
+- Obtain explicit recording consent, set data residency for compliance, and moderate chat content (for example, with Azure AI Content Safety).
+- Validate Event Grid webhook calls, require HTTPS, and authenticate the endpoint.
+
+## Common Mistakes / Anti-Patterns
+
+- Generating or storing access tokens on the client instead of the backend.
+- Embedding connection strings in code, config, or plaintext environment variables.
+- Granting broad Owner/Contributor access where Reader or User would suffice.
+- Exposing an unauthenticated, non-validated webhook endpoint to the internet.
+
+## Validation Checklist
+
+- [ ] Tokens are backend-generated, short-lived, HTTPS-only, and refreshed proactively.
+- [ ] No connection strings in source, config, or client; secrets live in Key Vault.
+- [ ] RBAC assignments follow least privilege.
+- [ ] Recording consent, data residency, and content moderation are addressed.
+- [ ] Webhook endpoints validate Event Grid calls, require HTTPS, and are authenticated.
+
+## See Also
+
+- [Production Baseline](production-baseline.md)
+- [Common Anti-Patterns](common-anti-patterns.md)
+- [Operations: Security](../operations/security.md)
+
 ## Sources
 
 *   [ACS Authentication Concepts](https://learn.microsoft.com/azure/communication-services/concepts/authentication)

@@ -51,5 +51,9 @@ Use the `@Microsoft.KeyVault` syntax in your Application Settings to automatical
 
 In C#, read it via `Environment.GetEnvironmentVariable("ACS_CONNECTION_STRING")`.
 
+## See Also
+- [.NET Recipes](./index.md)
+- [.NET SDK Guide](../index.md)
+
 ## Sources
 - [Azure Key Vault Secret client library for .NET](https://learn.microsoft.com/dotnet/api/overview/azure/security-keyvault-secrets-readme)

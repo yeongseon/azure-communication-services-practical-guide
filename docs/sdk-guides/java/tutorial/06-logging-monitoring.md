@@ -99,6 +99,12 @@ Enable diagnostic settings in the Azure Portal for your ACS resource to send log
 
 Finalize your solution with [Infrastructure as Code](./07-infrastructure-as-code.md).
 
+## See Also
+- [05. Voice Calling](./05-voice-calling.md)
+- [07. Infrastructure as Code](./07-infrastructure-as-code.md)
+- [Tutorial Index](./index.md)
+- [Java Recipes](../recipes/index.md)
+
 ## Sources
 - [Azure Communication Services Logs](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
 - [Configure Azure SDK for Java logging](https://learn.microsoft.com/java/api/overview/azure/core-logging)

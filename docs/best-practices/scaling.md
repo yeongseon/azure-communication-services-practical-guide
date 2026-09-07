@@ -68,6 +68,38 @@ All ACS APIs have rate limits to ensure service stability.
 *   **429 Errors**: When you receive a 429 (Too Many Requests) response, use the `Retry-After` header to determine how long to wait before retrying the request.
 *   **Exponential Backoff**: If the `Retry-After` header is not present, use an exponential backoff strategy with jitter to avoid synchronized retries from multiple clients.
 
+## Why This Matters
+
+ACS enforces service limits per channel, not as a single global throughput number. Scaling a workload means designing each channel — SMS throughput, email warm-up, chat participant caps, concurrent call quotas — against its own documented limit. Ignoring those limits surfaces as 429 errors and dropped traffic exactly when volume peaks.
+
+## Recommended Practices
+
+- Match the SMS number type (long code, toll-free, short code) to required throughput, and queue traffic that exceeds the number's limit.
+- Warm up email domains gradually and request limit increases from Azure Support ahead of peak.
+- Design chat around the 250-participant thread cap, using broadcasting or sub-threads for larger audiences.
+- Review concurrent-call and RPS quotas, and use Rooms or Teams Interop for large group calls.
+- On 429, honor `Retry-After`; when absent, use exponential backoff with jitter.
+
+## Common Mistakes / Anti-Patterns
+
+- Sending SMS faster than the number's throughput with no queue, triggering 429 storms.
+- Blasting full email volume from a cold domain and cratering deliverability.
+- Designing chat threads without accounting for the participant cap.
+- Synchronized client retries with no jitter, amplifying rate-limit pressure.
+
+## Validation Checklist
+
+- [ ] SMS number type matches required throughput, with queuing for overflow.
+- [ ] Email warm-up plan and any needed limit increases are in place.
+- [ ] Chat design respects the participant cap.
+- [ ] Concurrent-call and RPS quotas are reviewed against peak demand.
+- [ ] Rate-limit handling honors `Retry-After` and uses backoff with jitter.
+
+## See Also
+
+- [Reliability Best Practices](reliability.md)
+- [Cost Optimization](cost-optimization.md)
+
 ## Sources
 
 *   [ACS Service Limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)

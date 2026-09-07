@@ -137,6 +137,11 @@ If you are deploying a web application, use the Maven plugin for Azure App Servi
 
 Congratulations! You have built a complete communication application with Java, from local setup to automated deployment.
 
+## See Also
+- [06. Logging & Monitoring](./06-logging-monitoring.md)
+- [Tutorial Index](./index.md)
+- [Java Recipes](../recipes/index.md)
+
 ## Sources
 - [Bicep documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
 - [GitHub Actions for Azure](https://github.com/Azure/actions)

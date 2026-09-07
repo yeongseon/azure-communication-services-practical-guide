@@ -121,5 +121,10 @@ mvn compile exec:java -Dexec.mainClass="com.communication.quickstart.App"
 
 Now that your environment is ready, let's [Send an SMS](./02-send-sms.md).
 
+## See Also
+- [02. Send SMS](./02-send-sms.md)
+- [Tutorial Index](./index.md)
+- [Java Recipes](../recipes/index.md)
+
 ## Sources
 - [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)

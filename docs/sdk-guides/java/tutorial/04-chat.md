@@ -136,5 +136,11 @@ public class ChatApp {
 
 Implement voice features with [Voice Calling](./05-voice-calling.md).
 
+## See Also
+- [03. Send Email](./03-send-email.md)
+- [05. Voice Calling](./05-voice-calling.md)
+- [Tutorial Index](./index.md)
+- [Java Recipes](../recipes/index.md)
+
 ## Sources
 - [Quickstart: Join a chat thread](https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started)

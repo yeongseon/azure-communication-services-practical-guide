@@ -81,6 +81,40 @@ Hardcoding phone numbers in your application code or configuration files can mak
 *   **Risk**: Changing a phone number requires a code deployment, and managing multiple numbers for different campaigns becomes cumbersome.
 *   **Fix**: Store and manage phone numbers in a database or external configuration service, allowing your application to dynamically retrieve the correct number based on the use case.
 
+## Why This Matters
+
+Each anti-pattern above maps to a concrete production risk: a leaked connection string hands over full control of your resource, missing token refresh drops live sessions, and ignoring opt-out rules gets your numbers blocked by carriers. Avoiding these patterns is cheaper than remediating the incident they cause.
+
+## Recommended Practices
+
+- Store connection strings in **Azure Key Vault** and authenticate backend services with **managed identity** instead of embedding secrets.
+- Proactively refresh user access tokens from the backend before they expire.
+- Implement and honor SMS opt-out ("Reply STOP"), and keep a suppression list.
+- Verify custom email domains and configure **SPF** and **DKIM** for deliverability.
+- Subscribe to **Azure Event Grid** for status changes instead of polling the API.
+- Apply **exponential backoff** and respect `Retry-After` on 429 responses.
+- Externalize phone numbers into configuration or a database rather than hardcoding them.
+
+## Common Mistakes / Anti-Patterns
+
+The sections above enumerate the seven anti-patterns this guide flags most often: hardcoded connection strings, missing token refresh, ignored SMS opt-out, unverified email domains, polling instead of Event Grid, ungraceful rate-limit handling, and hardcoded phone numbers. Treat each as a review checkpoint before go-live.
+
+## Validation Checklist
+
+- [ ] No connection strings or access keys appear in source, config, or client code.
+- [ ] Client apps refresh access tokens before expiry.
+- [ ] SMS opt-out handling and a suppression list are in place.
+- [ ] Email domains are verified with SPF and DKIM configured.
+- [ ] Status changes are consumed via Event Grid, not polling.
+- [ ] API callers apply exponential backoff and honor `Retry-After`.
+- [ ] Phone numbers are managed through configuration, not hardcoded.
+
+## See Also
+
+- [Security Best Practices](security.md)
+- [Reliability Best Practices](reliability.md)
+- [Production Baseline](production-baseline.md)
+
 ## Sources
 
 *   [ACS Service Limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)

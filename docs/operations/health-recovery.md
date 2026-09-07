@@ -68,6 +68,37 @@ To ensure high availability, consider the following strategies:
 | Chat | SMS or Voice Call |
 | Calling | PSTN or Chat |
 
+## Prerequisites
+
+- At least one ACS resource, and ideally a second resource in a different region if you plan to test regional failover.
+- Access to **Azure Service Health** and **Resource Health** for the subscription hosting the ACS resource.
+- Diagnostic settings sending ACS logs to Log Analytics so delivery failures are observable.
+
+## When to Use
+
+- When designing the availability and disaster-recovery posture for a communication workload.
+- During an active incident affecting a channel (SMS, Email, Chat, or Calling).
+- When rehearsing failover as part of a scheduled resiliency exercise.
+
+## Procedure
+
+1. **Monitor health** — watch the signals in [Service Health Monitoring](#service-health-monitoring): Service Health for platform outages, Resource Health for resource-specific issues, and diagnostic logs for delivery failures.
+2. **Respond to incidents** — follow the [Incident Response Procedures](#incident-response-procedures) to identify the impacted channel and confirm whether the cause is a platform outage or an application issue.
+3. **Fail over** — apply the [Failover Strategies](#failover-strategies): shift to a redundant regional resource or an alternate channel from [Backup Communication Channels](#backup-communication-channels).
+4. **Communicate** — notify stakeholders and track the incident to resolution.
+
+## Verification
+
+- Confirm Service Health and Resource Health alerts are configured and deliver to a monitored action group.
+- After a failover test, confirm messages send successfully through the backup resource or channel.
+- Confirm diagnostic logs show recovery — delivery success rates return to baseline — once the primary path is restored.
+
+## Rollback / Troubleshooting
+
+- **Failover did not restore service** — the backup channel or region may share the same dependency; verify the backup path is genuinely independent before relying on it.
+- **False health alerts** — tune Resource Health alert conditions so transient blips that self-recover do not page the on-call.
+- **Returning to primary too early** — confirm the platform incident is fully resolved on Service Health before shifting traffic back, to avoid a second outage.
+
 ## See Also
 - [High availability and disaster recovery](https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info)
 - [How to: Set up Service Health alerts](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)

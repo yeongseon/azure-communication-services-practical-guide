@@ -103,6 +103,18 @@ jobs:
           APP_NAME: ${{ secrets.APP_NAME }}
 ```
 
+The workflow runs these Azure CLI commands:
+
+| Command | Purpose |
+| --- | --- |
+| `az deployment group create` | Deploys the Bicep template to the target resource group. |
+| `--resource-group` | Names the resource group that receives the deployment. |
+| `--template-file` | Path to the Bicep template to deploy. |
+| `--parameters` | Passes environment parameters to the template. |
+| `az webapp config appsettings set` | Writes runtime app settings on the target web app. |
+| `--name` | Names the web app whose settings are updated. |
+| `--settings` | Key-value app settings to apply, such as the ACS connection string. |
+
 ## Bicep deployment step
 
 Keep the template focused on core resources:
@@ -124,6 +136,37 @@ Run at least one post-deploy check:
 
 !!! tip "Deploy infra first"
     Separate infrastructure and application deployment so you can fail fast on template issues.
+
+## Prerequisites
+
+- A GitHub repository containing the ACS Bicep template and application code.
+- An Azure service principal (or OIDC federated credential) with **Contributor** on the target resource group, stored as the `AZURE_CREDENTIALS` secret.
+- The runtime secrets listed in [Secret management](#secret-management) configured as GitHub Actions secrets.
+
+## When to Use
+
+- When you want every push to `main` to provision or update ACS infrastructure automatically.
+- When you need an auditable, repeatable deployment trail instead of manual CLI runs.
+- When coordinating infrastructure and application deployment through a single pipeline.
+
+## Procedure
+
+1. **Store secrets** — add the values from [Secret management](#secret-management) to the repository's Actions secrets.
+2. **Define the workflow** — commit the pipeline in [Workflow example](#workflow-example), which logs in with `azure/login`, deploys the Bicep template, and applies app settings.
+3. **Deploy infrastructure first** — keep the [Bicep deployment step](#bicep-deployment-step) focused on core resources so template errors fail fast.
+4. **Smoke test** — run the checks in [Validation and smoke tests](#validation-and-smoke-tests) after each deployment.
+
+## Verification
+
+- Confirm the workflow run completes green with no masked-secret leaks in the logs.
+- Confirm the ACS resource and target app exist after the run (`az resource show`).
+- Confirm the post-deploy `/healthz` smoke test returns success.
+
+## Rollback / Troubleshooting
+
+- **`az login` fails** — verify the `AZURE_CREDENTIALS` secret is valid JSON and the principal still has access to the resource group.
+- **Deployment succeeds but the app is unhealthy** — re-run only the application step, or roll back by redeploying the previous known-good commit.
+- **Secret accidentally printed** — rotate the exposed secret immediately and confirm the workflow never echoes secrets into logs.
 
 ## See Also
 

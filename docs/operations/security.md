@@ -86,6 +86,37 @@ Enable audit logs to track changes to your ACS resources:
 - **Access Logs**: Track who accessed your communication endpoints.
 - **Compliance**: Use Azure Policy to enforce data residency and security standards.
 
+## Prerequisites
+
+- An ACS resource and permission to view and regenerate its access keys (**Owner**, **Contributor**, or a custom role granting `Microsoft.Communication/communicationServices/regenerateKey/action`).
+- **User Access Administrator** or **Owner** on the resource scope to assign the ACS RBAC roles.
+- Diagnostic settings configured to send ACS logs to Log Analytics if you intend to audit access.
+
+## When to Use
+
+- On a recurring key-rotation schedule, or immediately after a suspected key exposure.
+- When migrating an application from connection-string authentication to managed identity.
+- During access reviews, to confirm role assignments still follow least privilege.
+
+## Procedure
+
+1. **Choose an authentication model** — prefer managed identity over access keys for Azure-hosted workloads, as described in [Authentication and Key Management](#authentication-and-key-management).
+2. **Rotate keys safely** — follow the zero-downtime steps in [Key Rotation Procedures](#key-rotation-procedures): move traffic to the secondary key, regenerate the primary, then cut back.
+3. **Apply least-privilege access** — assign the narrowest role from [RBAC Role Assignments](#rbac-role-assignments) that still lets each principal do its job.
+4. **Enable auditing** — turn on the diagnostic and access logs described in [Audit Logging and Compliance](#audit-logging-and-compliance).
+
+## Verification
+
+- After rotation, confirm the application continues to authenticate and send messages with no errors in diagnostic logs.
+- Confirm each principal holds exactly one ACS role and that no broad `Administrator` grants remain where `User` or `Reader` suffices.
+- Confirm resource-operation and access logs are flowing to the workspace.
+
+## Rollback / Troubleshooting
+
+- **Application fails after key regeneration** — the app was still using the regenerated key; repoint it to the current valid key (the secondary during rotation), restart, then complete the rotation.
+- **Managed identity returns 401/403** — verify the identity has the correct ACS role assignment and that the assignment has propagated, which can take several minutes.
+- **Unexpected access in audit logs** — treat as a potential compromise: rotate both keys immediately and review recent role assignments.
+
 ## See Also
 - [Authentication and authorization](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
 - [How to: Use Managed Identities with ACS](https://learn.microsoft.com/azure/communication-services/quickstarts/managed-identity)

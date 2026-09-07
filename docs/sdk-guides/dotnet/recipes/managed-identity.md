@@ -52,6 +52,10 @@ Ensure your application's identity has the correct roles assigned:
 - **Communication User**: Access to identity and messaging.
 - **Communication Service Contributor**: Full management access.
 
+## See Also
+- [.NET Recipes](./index.md)
+- [.NET SDK Guide](../index.md)
+
 ## Sources
 - [Authenticate with Microsoft Entra ID](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
 - [Azure Identity client library for .NET](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme)

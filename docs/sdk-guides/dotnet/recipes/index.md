@@ -14,3 +14,11 @@ A collection of focused code snippets for specific Azure Communication Services 
 | [Event Grid Webhooks](./event-grid-webhooks.md) | Handle ACS events with ASP.NET Core. |
 | [Phone Number Management](./phone-number-management.md) | Search and purchase numbers programmatically. |
 | [Teams Interop](./teams-interop.md) | Integrate with Microsoft Teams meetings. |
+
+## See Also
+- [.NET SDK Guide](../index.md)
+- [Tutorial](../tutorial/index.md)
+- [SDK Guides Hub](../../index.md)
+
+## Sources
+- [Azure Communication Services documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

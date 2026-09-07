@@ -55,5 +55,9 @@ public void transferToTeamsUser(String callConnectionId, String teamsUserId) {
 }
 ```
 
+## See Also
+- [Java Recipes](./index.md)
+- [Java SDK Guide](../index.md)
+
 ## Sources
 - [Teams Interoperability Guide](https://learn.microsoft.com/azure/communication-services/concepts/teams-interop)

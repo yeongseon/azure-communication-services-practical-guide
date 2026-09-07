@@ -108,6 +108,11 @@ resource emailService 'Microsoft.Communication/EmailServices@2023-03-31' = {
 
 Congratulations! You have built a complete communication application with .NET, covering identity, messaging, real-time communication, and automated deployment.
 
+## See Also
+- [06. Logging & Monitoring](./06-logging-monitoring.md)
+- [Tutorial Index](./index.md)
+- [.NET Recipes](../recipes/index.md)
+
 ## Sources
 - [Bicep documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
 - [Azure SDK for .NET Management Libraries](https://learn.microsoft.com/dotnet/azure/sdk/management)

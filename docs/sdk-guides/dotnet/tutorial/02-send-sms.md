@@ -124,5 +124,11 @@ class Program
 
 Learn how to [Send Email](./03-send-email.md).
 
+## See Also
+- [01. Local Setup](./01-local-setup.md)
+- [03. Send Email](./03-send-email.md)
+- [Tutorial Index](./index.md)
+- [.NET Recipes](../recipes/index.md)
+
 ## Sources
 - [Quickstart: Send an SMS message](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send)

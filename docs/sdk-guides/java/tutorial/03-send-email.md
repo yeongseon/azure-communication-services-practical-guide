@@ -146,5 +146,11 @@ public class EmailApp {
 
 Build real-time features with [Chat](./04-chat.md).
 
+## See Also
+- [02. Send SMS](./02-send-sms.md)
+- [04. Chat](./04-chat.md)
+- [Tutorial Index](./index.md)
+- [Java Recipes](../recipes/index.md)
+
 ## Sources
 - [Quickstart: How to send an email using Azure Communication Services](https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email)

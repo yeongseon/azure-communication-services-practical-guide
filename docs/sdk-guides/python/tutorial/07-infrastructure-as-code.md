@@ -154,9 +154,15 @@ steps:
     az deployment group create --resource-group acs-tutorial-rg --template-file acs-resource.bicep
 ```
 
+| Command | Purpose |
+| --- | --- |
+| `az deployment group create` | Deploy a Bicep/ARM template to a resource group. |
+| `--resource-group` | Target resource group that receives the deployment. |
+| `--template-file` | Path to the Bicep template describing the ACS resources. |
+
 ## See Also
-- [Bicep Documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview)
-- [ACS ARM Templates](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=arm-template)
+- [Bicep Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
+- [ACS ARM Templates](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=arm-template)
 
 ## Sources
-- [Infrastructure as Code with Azure Bicep](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep)
+- [Infrastructure as Code with Azure Bicep](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep)

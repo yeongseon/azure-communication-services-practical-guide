@@ -96,6 +96,36 @@ az communication phonenumber list \
 2. Add and verify a custom domain or use an Azure Managed Domain.
 3. Link the verified domain to your ACS resource.
 
+## Prerequisites
+
+- An Azure subscription and a resource group to hold the ACS resource.
+- Azure CLI (with the `communication` extension) or a Bicep/IaC toolchain configured.
+- Permission to create `Microsoft.Communication/communicationServices` resources (for example Contributor on the resource group).
+- A decided data residency region, since `dataLocation` is immutable after creation.
+
+## When to Use
+
+Follow this procedure when standing up ACS for a new project, adding a new environment (dev, staging, production), or enabling a new channel such as SMS or Email on an existing resource. Data residency and domain decisions should be settled before provisioning, because the data location cannot be changed later.
+
+## Procedure
+
+1. Create the core ACS resource with the CLI or Bicep, setting `dataLocation` to the required residency region.
+2. Configure resource options — `linkedDomains`, `tags` — for organization and billing.
+3. Acquire phone numbers through the Azure Portal for SMS/voice channels, then inventory them with the CLI.
+4. For Email, create an Email Communication Service resource, verify a custom or Azure Managed Domain, and link it to the ACS resource.
+
+## Verification
+
+- The ACS resource exists in the target resource group and reports the expected `dataLocation`.
+- Acquired phone numbers appear in `az communication phonenumber list`.
+- Any linked email domain shows a verified status before it is used to send.
+
+## Rollback / Troubleshooting
+
+- To roll back a bad provisioning run, delete the ACS (and any Email Communication Service) resource and recreate it with corrected settings — remember `dataLocation` cannot be edited in place.
+- If domain linking fails, confirm DNS verification records are in place before retrying the link.
+- If phone-number acquisition is unavailable, verify the country/subtype eligibility and that the resource's data location supports the number type.
+
 ## See Also
 - [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
 - [How to: Create an Email Communication Service](https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource)

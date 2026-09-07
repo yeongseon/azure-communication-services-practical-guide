@@ -120,3 +120,7 @@ Some situations straddle two phases — the channel design choice you make while
 - [SDK Guides Hub](../sdk-guides/index.md) — Python, JavaScript, Java, .NET
 - [Decision Tree](../troubleshooting/decision-tree.md) — symptom-first troubleshooting router
 - [Evidence Map](../troubleshooting/evidence-map.md) — evidence-collection index
+
+## Sources
+- [What is Azure Communication Services?](https://learn.microsoft.com/en-us/azure/communication-services/overview)
+- [Azure Communication Services documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

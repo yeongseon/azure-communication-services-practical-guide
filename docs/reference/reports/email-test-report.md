@@ -195,7 +195,11 @@ ACSEmailStatusUpdateOperational
 - **Latency**: The end-to-end email lifecycle (submit to Delivered) took 3-6 seconds.
 - **SDK Behavior**: Python SDK version 1.1.0 `begin_send()` returns a poller; calling `.result()` blocks until terminal status.
 
-## 8. See Also
+## See Also
 - [Send Email Tutorial](../../sdk-guides/python/tutorial/03-send-email.md)
 - [Email Delivery Status KQL](../../troubleshooting/kql/email/delivery-status.md)
 - [Monitoring](../../operations/monitoring.md)
+
+## Sources
+- [Email overview - Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-overview)
+- [Email logs - Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs)

@@ -65,5 +65,10 @@ graph TD
 | **06** | [Monitoring](./06-logging-monitoring.md) | Configure logging and use KQL queries to monitor your ACS resource. |
 | **07** | [Infrastructure as Code](./07-infrastructure-as-code.md) | Deploy ACS resources using Bicep templates and Python scripts. |
 
+## See Also
+- [JavaScript SDK Guide](../index.md)
+- [Recipes](../recipes/index.md)
+- [SDK Guides Hub](../../index.md)
+
 ## Sources
 - [ACS JavaScript SDK Documentation](https://learn.microsoft.com/javascript/api/overview/azure/communication-services)

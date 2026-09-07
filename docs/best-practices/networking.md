@@ -80,6 +80,38 @@ For backend services communicating with ACS, you can use **Azure Private Link** 
 *   **Endpoint Support**: ACS supports Private Link for data-plane operations (e.g., sending SMS or Email).
 *   **Virtual Network (VNet) Integration**: Connect your ACS resource to your VNet to secure your backend communication.
 
+## Why This Matters
+
+Real-time voice and video quality depends almost entirely on the client network. Blocking UDP, forcing media through a proxy, or under-provisioning bandwidth degrades calls in ways that are hard to diagnose after the fact. Getting the network baseline right prevents the majority of "the call sounds bad" support cases.
+
+## Recommended Practices
+
+- Allow the documented outbound ports: TCP 443 for signaling, and UDP 3478-3481 and 49152-65535 for media.
+- Never block UDP — TCP fallback significantly increases latency and degrades media quality.
+- Configure proxy bypass or PAC files so ACS media traffic avoids proxies that cannot carry UDP.
+- Plan bandwidth against the minimums per feature (for example, 1.5 Mbps for 720p video).
+- Use **Azure Private Link** and VNet integration to keep backend data-plane traffic on the Azure backbone.
+
+## Common Mistakes / Anti-Patterns
+
+- Blocking or rate-limiting UDP, forcing all media over TCP.
+- Routing media through an HTTP proxy that only supports signaling.
+- Provisioning bandwidth for average load while ignoring peak concurrent calls.
+- Exposing backend ACS calls to the public internet when Private Link is available.
+
+## Validation Checklist
+
+- [ ] Required TCP 443 and UDP media port ranges are allowed outbound.
+- [ ] UDP is not blocked anywhere on the client path.
+- [ ] Proxy bypass or PAC rules exist for ACS endpoints.
+- [ ] Bandwidth plan meets the minimum for the highest-quality feature in use.
+- [ ] Private Link / VNet integration is used for backend connectivity where required.
+
+## See Also
+
+- [Reliability Best Practices](reliability.md)
+- [Production Baseline](production-baseline.md)
+
 ## Sources
 
 *   [ACS Networking Requirements](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)

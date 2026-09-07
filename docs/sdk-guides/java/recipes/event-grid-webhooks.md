@@ -61,6 +61,10 @@ ngrok http 8080
 
 Update your Event Subscription to use the ngrok URL.
 
+## See Also
+- [Java Recipes](./index.md)
+- [Java SDK Guide](../index.md)
+
 ## Sources
 - [Handle Azure Communication Services events](https://learn.microsoft.com/azure/communication-services/concepts/event-handling)
 - [Event Grid library for Java](https://learn.microsoft.com/java/api/overview/azure/messaging-eventgrid-readme)
