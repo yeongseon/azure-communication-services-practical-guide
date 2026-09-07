@@ -4,7 +4,7 @@ content_sources:
     - id: scaling-sms-queuing
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -102,6 +102,6 @@ ACS enforces service limits per channel, not as a single global throughput numbe
 
 ## Sources
 
-*   [ACS Service Limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
-*   [ACS SMS Concepts](https://learn.microsoft.com/azure/communication-services/concepts/telephony/sms-concepts)
-*   [ACS Email Concepts](https://learn.microsoft.com/azure/communication-services/concepts/email/email-concepts)
+*   [ACS Service Limits](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits)
+*   [ACS SMS Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/sms-concepts)
+*   [ACS Email Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-concepts)

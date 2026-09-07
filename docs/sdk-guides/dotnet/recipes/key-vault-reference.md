@@ -56,4 +56,4 @@ In C#, read it via `Environment.GetEnvironmentVariable("ACS_CONNECTION_STRING")`
 - [.NET SDK Guide](../index.md)
 
 ## Sources
-- [Azure Key Vault Secret client library for .NET](https://learn.microsoft.com/dotnet/api/overview/azure/security-keyvault-secrets-readme)
+- [Azure Key Vault Secret client library for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/security-keyvault-secrets-readme)

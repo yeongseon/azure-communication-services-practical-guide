@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Explains how to set up a Java project with ACS dependencies.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
 validation:
   az_cli:
     last_tested: null
@@ -127,4 +127,4 @@ Now that your environment is ready, let's [Send an SMS](./02-send-sms.md).
 - [Java Recipes](../recipes/index.md)
 
 ## Sources
-- [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+- [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)

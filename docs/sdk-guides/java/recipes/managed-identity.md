@@ -56,4 +56,4 @@ Navigate to your ACS resource > **IAM (Access Control)** > **Add role assignment
 - [Java SDK Guide](../index.md)
 
 ## Sources
-- [Authenticate with Microsoft Entra ID](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
+- [Authenticate with Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)

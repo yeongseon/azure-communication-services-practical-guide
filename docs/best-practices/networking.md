@@ -4,7 +4,7 @@ content_sources:
     - id: networking-media-flow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -114,6 +114,6 @@ Real-time voice and video quality depends almost entirely on the client network.
 
 ## Sources
 
-*   [ACS Networking Requirements](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)
-*   [ACS Private Link Support](https://learn.microsoft.com/azure/communication-services/concepts/private-link)
+*   [ACS Networking Requirements](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements)
+*   [ACS Private Link Support](https://learn.microsoft.com/en-us/azure/communication-services/concepts/private-link)
 *   [WebRTC Protocol Overview](https://webrtc.org/)

@@ -4,7 +4,7 @@ content_sources:
     - id: cost-optimization-workflow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/pricing
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -101,8 +101,9 @@ Run this cost-optimization loop as a recurring day-2 activity rather than a one-
 - **A right-sizing change hurts deliverability or quality** — revert the channel change (for example, move back from 10DLC to the previous sender) and re-evaluate; cost optimization must never override reliability requirements.
 
 ## See Also
-- [Pricing details for ACS](https://azure.microsoft.com/pricing/details/communication-services/)
-- [How to: Create and manage Azure budgets](https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
+- [Cost Optimization Best Practices](../best-practices/cost-optimization.md)
+- [Monitoring](./monitoring.md)
 
 ## Sources
-- [ACS Pricing Page](https://azure.microsoft.com/pricing/details/communication-services/)
+- [Pricing details for Azure Communication Services](https://azure.microsoft.com/pricing/details/communication-services/)
+- [Tutorial: Create and manage Azure budgets](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets)

@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Explains observability for Java ACS apps.
-    based_on: https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
 validation:
   az_cli:
     last_tested: null
@@ -106,5 +106,5 @@ Finalize your solution with [Infrastructure as Code](./07-infrastructure-as-code
 - [Java Recipes](../recipes/index.md)
 
 ## Sources
-- [Azure Communication Services Logs](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
-- [Configure Azure SDK for Java logging](https://learn.microsoft.com/java/api/overview/azure/core-logging)
+- [Azure Communication Services Logs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics)
+- [Configure Azure SDK for Java logging](https://learn.microsoft.com/en-us/java/api/overview/azure/core-logging)

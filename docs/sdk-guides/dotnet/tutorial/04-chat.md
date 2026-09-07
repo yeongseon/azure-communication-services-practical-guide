@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Code examples for chat functionality in .NET.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started
 validation:
   az_cli:
     last_tested: null
@@ -121,4 +121,4 @@ Implement voice features with [Voice Calling](./05-voice-calling.md).
 - [.NET Recipes](../recipes/index.md)
 
 ## Sources
-- [Quickstart: Join a chat thread](https://learn.microsoft.com/azure/communication-services/quickstarts/chat/get-started)
+- [Quickstart: Join a chat thread](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started)

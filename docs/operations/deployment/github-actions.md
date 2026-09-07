@@ -6,10 +6,10 @@ content_sources:
     - id: acs-github-actions-cicd
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/azure-resource-manager/bicep/
+      mslearn_url: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/
       based_on:
         - https://docs.github.com/actions
-        - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -176,5 +176,5 @@ Run at least one post-deploy check:
 ## Sources
 
 - https://docs.github.com/actions
-- https://learn.microsoft.com/azure/azure-resource-manager/bicep/
-- https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+- https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/
+- https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource

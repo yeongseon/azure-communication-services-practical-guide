@@ -2,7 +2,7 @@
 title: Infrastructure as Code
 description: Deploying Azure Communication Services with Bicep and Python scripts.
 content_sources:
-  - https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
 validation:
   az_cli:
     last_tested: null
@@ -161,8 +161,11 @@ steps:
 | `--template-file` | Path to the Bicep template describing the ACS resources. |
 
 ## See Also
-- [Bicep Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
-- [ACS ARM Templates](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=arm-template)
+- [06. Logging & Monitoring](./06-logging-monitoring.md)
+- [Tutorial Index](./index.md)
+- [Python Recipes](../recipes/index.md)
 
 ## Sources
+- [Bicep documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
+- [Quickstart: Create ACS resources with ARM templates](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=arm-template)
 - [Infrastructure as Code with Azure Bicep](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep)

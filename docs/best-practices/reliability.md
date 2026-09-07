@@ -4,7 +4,7 @@ content_sources:
     - id: reliability-retry-logic
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -112,6 +112,6 @@ Reliability is about keeping communication possible when — not if — errors o
 
 ## Sources
 
-*   [ACS SDK Error Handling](https://learn.microsoft.com/azure/communication-services/concepts/sdk-options#error-handling)
-*   [Azure Well-Architected Framework: Reliability](https://learn.microsoft.com/azure/architecture/framework/resiliency/principles)
-*   [Circuit Breaker Pattern (Microsoft Learn)](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker)
+*   [ACS SDK Error Handling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options#error-handling)
+*   [Azure Well-Architected Framework: Reliability](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/principles)
+*   [Circuit Breaker Pattern (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker)

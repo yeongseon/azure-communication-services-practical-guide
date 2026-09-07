@@ -6,7 +6,7 @@ content_sources:
     - id: java-sdk-architecture
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/java/api/overview/azure/communication-services
+      mslearn_url: https://learn.microsoft.com/en-us/java/api/overview/azure/communication-services
       based_on: Java SDK package architecture (control-plane and data-plane clients)
 ---
 
@@ -84,5 +84,5 @@ graph TD
 - [SDK Guides Hub](../index.md)
 
 ## Sources
-- [Azure Communication Services Java SDK Reference](https://learn.microsoft.com/java/api/overview/azure/communication-services)
+- [Azure Communication Services Java SDK Reference](https://learn.microsoft.com/en-us/java/api/overview/azure/communication-services)
 - [Maven Central Repository](https://search.maven.org/)

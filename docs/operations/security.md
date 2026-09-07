@@ -4,7 +4,7 @@ content_sources:
     - id: security-operations
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication
       based_on:
         - https://learn.microsoft.com/en-us/azure/communication-services/how-tos/managed-identity
 content_validation:
@@ -118,8 +118,10 @@ Enable audit logs to track changes to your ACS resources:
 - **Unexpected access in audit logs** — treat as a potential compromise: rotate both keys immediately and review recent role assignments.
 
 ## See Also
-- [Authentication and authorization](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
-- [How to: Use Managed Identities with ACS](https://learn.microsoft.com/azure/communication-services/quickstarts/managed-identity)
+- [Authentication](../platform/authentication.md)
+- [Security Architecture](../platform/security-architecture.md)
+- [Security Best Practices](../best-practices/security.md)
 
 ## Sources
-- [ACS Security Overview](https://learn.microsoft.com/azure/communication-services/concepts/security)
+- [Authentication and authorization](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+- [Use Managed Identities with ACS](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/managed-identity)

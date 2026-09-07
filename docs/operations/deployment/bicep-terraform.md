@@ -4,7 +4,7 @@ content_sources:
     - id: iac-workflow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -120,8 +120,11 @@ Terraform automatically handles dependencies between resources. However, you can
 - **Need to roll back** — redeploy the previous known-good template version from source control rather than editing resources by hand.
 
 ## See Also
-- [Bicep documentation for ACS](https://learn.microsoft.com/azure/templates/microsoft.communication/communicationservices)
-- [Terraform documentation for ACS](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/communication_service)
+- [GitHub Actions Deployment](./github-actions.md)
+- [Deployment Overview](./index.md)
+- [Provisioning](../provisioning.md)
 
 ## Sources
-- [ACS Bicep Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
+- [Bicep reference for Microsoft.Communication](https://learn.microsoft.com/en-us/azure/templates/microsoft.communication/communicationservices)
+- [Terraform azurerm_communication_service resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/communication_service)
+- [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)

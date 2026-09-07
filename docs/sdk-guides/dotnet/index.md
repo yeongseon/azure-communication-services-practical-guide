@@ -6,7 +6,7 @@ content_sources:
     - id: dotnet-sdk-workflow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/dotnet/api/overview/azure/communication-services
+      mslearn_url: https://learn.microsoft.com/en-us/dotnet/api/overview/azure/communication-services
       based_on: .NET SDK workflow across identity, SMS, email, and chat packages
 ---
 
@@ -73,5 +73,5 @@ graph TD
 - [SDK Guides Hub](../index.md)
 
 ## Sources
-- [Azure Communication Services .NET SDK Reference](https://learn.microsoft.com/dotnet/api/overview/azure/communication-services)
+- [Azure Communication Services .NET SDK Reference](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/communication-services)
 - [NuGet Gallery](https://www.nuget.org/)

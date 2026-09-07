@@ -6,7 +6,7 @@ content_sources:
     - id: javascript-tutorial-path
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=azure-portal&pivots=platform-azp
       based_on: Learning-path progression through ACS JavaScript quickstarts
 validation:
   az_cli:

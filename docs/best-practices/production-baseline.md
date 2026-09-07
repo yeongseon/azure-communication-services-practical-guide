@@ -4,7 +4,7 @@ content_sources:
     - id: monitoring-baseline-flow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -118,6 +118,6 @@ The gap between a proof-of-concept and a production ACS deployment is a set of f
 
 ## Sources
 
-*   [ACS Authentication Concepts](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
-*   [ACS Logging and Diagnostics](https://learn.microsoft.com/azure/communication-services/concepts/logging-and-diagnostics)
+*   [ACS Authentication Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+*   [ACS Logging and Diagnostics](https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics)
 *   Azure Communication Services Production Readiness Guide (Internal/Microsoft Learn)

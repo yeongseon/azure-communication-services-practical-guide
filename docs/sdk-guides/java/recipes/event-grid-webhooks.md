@@ -66,5 +66,5 @@ Update your Event Subscription to use the ngrok URL.
 - [Java SDK Guide](../index.md)
 
 ## Sources
-- [Handle Azure Communication Services events](https://learn.microsoft.com/azure/communication-services/concepts/event-handling)
-- [Event Grid library for Java](https://learn.microsoft.com/java/api/overview/azure/messaging-eventgrid-readme)
+- [Handle Azure Communication Services events](https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-handling)
+- [Event Grid library for Java](https://learn.microsoft.com/en-us/java/api/overview/azure/messaging-eventgrid-readme)

@@ -67,4 +67,4 @@ Your Java app can then read it like a normal environment variable:
 - [Java SDK Guide](../index.md)
 
 ## Sources
-- [Azure Key Vault Secret client library for Java](https://learn.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme)
+- [Azure Key Vault Secret client library for Java](https://learn.microsoft.com/en-us/java/api/overview/azure/security-keyvault-secrets-readme)

@@ -4,7 +4,7 @@ content_sources:
     - id: cost-sms-optimization
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/pricing
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/pricing
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -114,5 +114,5 @@ Because ACS billing is consumption-based, cost scales directly with how you send
 ## Sources
 
 *   [ACS Pricing Details](https://azure.microsoft.com/en-us/pricing/details/communication-services/)
-*   [Azure Cost Management](https://learn.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
-*   [SMS Message Segmentation](https://learn.microsoft.com/azure/communication-services/concepts/telephony/sms-concepts#message-segmentation)
+*   [Azure Cost Management](https://learn.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview)
+*   [SMS Message Segmentation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/sms-concepts#message-segmentation)

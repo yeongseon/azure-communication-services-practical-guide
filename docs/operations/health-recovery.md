@@ -100,8 +100,9 @@ To ensure high availability, consider the following strategies:
 - **Returning to primary too early** — confirm the platform incident is fully resolved on Service Health before shifting traffic back, to avoid a second outage.
 
 ## See Also
-- [High availability and disaster recovery](https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info)
-- [How to: Set up Service Health alerts](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
+- [Monitoring](./monitoring.md)
+- [Reliability Best Practices](../best-practices/reliability.md)
 
 ## Sources
-- [ACS High Availability Overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info)
+- [Troubleshooting in Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/troubleshooting-info)
+- [Set up Service Health alerts](https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal)

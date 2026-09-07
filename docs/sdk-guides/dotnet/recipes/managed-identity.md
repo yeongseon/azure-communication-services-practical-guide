@@ -57,5 +57,5 @@ Ensure your application's identity has the correct roles assigned:
 - [.NET SDK Guide](../index.md)
 
 ## Sources
-- [Authenticate with Microsoft Entra ID](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
-- [Azure Identity client library for .NET](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme)
+- [Authenticate with Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+- [Azure Identity client library for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme)

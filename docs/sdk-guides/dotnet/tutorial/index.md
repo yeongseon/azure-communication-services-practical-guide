@@ -6,7 +6,7 @@ content_sources:
     - id: dotnet-tutorial-path
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
       based_on: Learning-path progression through ACS .NET quickstarts
 validation:
   az_cli:
@@ -66,4 +66,4 @@ graph TD
 - [SDK Guides Hub](../../index.md)
 
 ## Sources
-- [Azure Communication Services Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [Azure Communication Services Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)

@@ -6,7 +6,7 @@ content_sources:
     type: documentation
     source: self
     justification: Code examples for sending SMS with .NET.
-    based_on: https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send
+    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send
 validation:
   az_cli:
     last_tested: null
@@ -131,4 +131,4 @@ Learn how to [Send Email](./03-send-email.md).
 - [.NET Recipes](../recipes/index.md)
 
 ## Sources
-- [Quickstart: Send an SMS message](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send)
+- [Quickstart: Send an SMS message](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send)

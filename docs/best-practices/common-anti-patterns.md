@@ -4,7 +4,7 @@ content_sources:
     - id: anti-pattern-decision
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/best-practices
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/best-practices
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -117,6 +117,6 @@ The sections above enumerate the seven anti-patterns this guide flags most often
 
 ## Sources
 
-*   [ACS Service Limits](https://learn.microsoft.com/azure/communication-services/concepts/service-limits)
-*   [ACS Authentication Concepts](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
-*   [Azure Well-Architected Framework: Anti-Patterns](https://learn.microsoft.com/azure/architecture/antipatterns/)
+*   [ACS Service Limits](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits)
+*   [ACS Authentication Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+*   [Azure Well-Architected Framework: Anti-Patterns](https://learn.microsoft.com/en-us/azure/architecture/antipatterns/)

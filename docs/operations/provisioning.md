@@ -4,9 +4,9 @@ content_sources:
     - id: provisioning-workflow
       type: flowchart
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
       based_on:
-        - https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -127,8 +127,11 @@ Follow this procedure when standing up ACS for a new project, adding a new envir
 - If phone-number acquisition is unavailable, verify the country/subtype eligibility and that the resource's data location supports the number type.
 
 ## See Also
-- [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
-- [How to: Create an Email Communication Service](https://learn.microsoft.com/azure/communication-services/quickstarts/email/create-email-communication-resource)
+- [Email Provisioning](./email-provisioning.md)
+- [Bicep & Terraform Deployment](./deployment/bicep-terraform.md)
+- [Resource Types](../platform/resource-types.md)
 
 ## Sources
-- [ACS Documentation](https://learn.microsoft.com/azure/communication-services/)
+- [Azure Communication Services documentation](https://learn.microsoft.com/en-us/azure/communication-services/)
+- [Quickstart: Create and manage Communication Services resources](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
+- [How to: Create an Email Communication Service](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource)

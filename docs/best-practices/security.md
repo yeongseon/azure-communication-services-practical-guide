@@ -4,7 +4,7 @@ content_sources:
     - id: security-token-flow
       type: sequenceDiagram
       source: mslearn-adapted
-      mslearn_url: https://learn.microsoft.com/azure/communication-services/concepts/authentication
+      mslearn_url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -116,6 +116,6 @@ ACS security rests on least privilege and defense in depth. The connection strin
 
 ## Sources
 
-*   [ACS Authentication Concepts](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
-*   [ACS Data Privacy](https://learn.microsoft.com/azure/communication-services/concepts/privacy)
-*   [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/overview)
+*   [ACS Authentication Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+*   [ACS Data Privacy](https://learn.microsoft.com/en-us/azure/communication-services/concepts/privacy)
+*   [Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview)
