@@ -705,6 +705,7 @@ All nested list items MUST use **4-space indent** (Python-Markdown standard).
 
 ```markdown
 # CORRECT (4-space)
+9. **Visual Content Gate (advisory)**: Run `python scripts/validate_visual_content.py --all` to report factual-claim pages carrying **no visual aid** (no Mermaid fence, no `shot()` capture reference, no Markdown image). Scope reuses `scripts/lib/content_scope.is_in_scope` - the same factual-claim page set as the `content_validation` policy. The gate is **WARN-only**: it prints per-page warnings plus a coverage summary and always exits 0, making visual coverage a tracked CI metric without blocking on historical debt (verified series baseline: diagrams on 79-99% of pages, portal screenshots on App Service 95 / AKS 8 / elsewhere 0). In CI the `Validate Visual Content (advisory)` job runs the gate doctests and the full-repo report. Escalation to a blocking gate is a per-repo decision tracked in [azure-container-apps-practical-guide#391](https://github.com/yeongseon/azure-container-apps-practical-guide/issues/391); vendored per repository like the other shared-core gates.
 1. **Item**
     - Sub item
     - Another sub item
