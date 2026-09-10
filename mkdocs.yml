@@ -111,14 +111,17 @@ nav:
     - About: about.md
   - Platform:
     - platform/index.md
-    - platform/how-acs-works.md
-    - platform/resource-types.md
-    - platform/messaging-channels.md
-    - platform/authentication.md
-    - platform/networking.md
-    - platform/sdks-and-apis.md
-    - platform/event-handling.md
-    - platform/security-architecture.md
+    - Core:
+      - How ACS Works: platform/how-acs-works.md
+      - Resource Types: platform/resource-types.md
+      - Messaging Channels: platform/messaging-channels.md
+    - Integration:
+      - SDKs and APIs: platform/sdks-and-apis.md
+      - Event Handling: platform/event-handling.md
+    - Security and Identity:
+      - Authentication: platform/authentication.md
+      - Security Architecture: platform/security-architecture.md
+    - Networking: platform/networking.md
   - Best Practices:
     - best-practices/index.md
     - best-practices/production-baseline.md
@@ -271,10 +274,11 @@ nav:
         - troubleshooting/kql/voice-video/call-quality-metrics.md
   - Reference:
     - reference/index.md
-    - reference/cli-cheatsheet.md
-    - reference/platform-limits.md
-    - reference/kql-queries.md
-    - reference/sdk-reference.md
+    - CLI and Queries:
+      - CLI Cheatsheet: reference/cli-cheatsheet.md
+      - Platform Limits: reference/platform-limits.md
+      - KQL Queries: reference/kql-queries.md
+    - SDK Reference: reference/sdk-reference.md
     - Content Validation Status: reference/content-validation-status.md
     - Reports:
       - reference/reports/index.md
