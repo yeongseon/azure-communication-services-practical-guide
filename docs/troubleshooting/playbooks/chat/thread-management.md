@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-thread-guide
+  diagrams:
+    - id: chat-thread-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -27,6 +30,19 @@ content_validation:
 | Permission issues | The user's token does not have the required `chat` scope | [Observed] |
 | Resource limits | Exceeded the maximum number of chat threads per ACS resource | [Correlated] |
 | Concurrency conflict | Multiple requests to update the thread were sent simultaneously | [Inferred] |
+
+<!-- diagram-id: chat-thread-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Thread create or update fails"] --> H1{"Participant count at limit?"}
+    H1 -- yes --> R1["Reduce participants below service limit"]
+    H1 -- no --> H2{"Token lacks thread permission?"}
+    H2 -- yes --> R2["Reissue token with correct thread scopes"]
+    H2 -- no --> H3{"Resource cap or concurrency conflict?"}
+    H3 -- yes --> R3["Retry with backoff and audit quota"]
+    H3 -- no --> EV["Collect evidence: browser console, service limits, Log Analytics"]
+    EV --> M["Apply mitigation and re-run the operation"]
+```
 
 ## Evidence Collection
 

@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-quality-guide
+  diagrams:
+    - id: call-quality-hypothesis-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +33,21 @@ content_validation:
 | Codec mismatch | The client or receiver is using an inefficient or unsupported codec | [Correlated] |
 | Network jitter | High variability in packet delivery times causing audio artifacts | [Measured] |
 | Device overload | High CPU or memory usage on the client's device | [Inferred] |
+
+<!-- diagram-id: call-quality-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Poor audio or video quality"] --> H1{"Bandwidth insufficient?"}
+    H1 -- yes --> R1["Reduce bitrate or upgrade link"]
+    H1 -- no --> H2{"TURN or STUN blocked?"}
+    H2 -- yes --> R2["Open firewall for TURN or STUN"]
+    H2 -- no --> H3{"Codec mismatch or jitter?"}
+    H3 -- yes --> R3["Pin compatible codecs and stabilize network"]
+    H3 -- no --> H4{"Local device overload?"}
+    H4 -- yes --> R4["Close load or switch device"]
+    H4 -- no --> EV["Collect evidence: UFD, Monitor metrics, Log Analytics"]
+    EV --> M["Apply mitigation and re-score quality"]
+```
 
 ## Evidence Collection
 

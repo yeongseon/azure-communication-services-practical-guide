@@ -1,7 +1,13 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-rate-limiting-guide
+  diagrams:
+    - id: sms-ratelimit-hypothesis-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits#sms
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq#character-and-rate-limits
+
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -27,6 +33,21 @@ content_validation:
 | Burst traffic | A sudden spike in sending volume beyond the burst capacity | [Observed] |
 | Wrong tier | Using a free or basic tier with lower throughput than required | [Correlated] |
 | Concurrent connections | Too many parallel requests to the ACS endpoint from the client app | [Inferred] |
+
+<!-- diagram-id: sms-ratelimit-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["SMS throttled with 429s"] --> H1{"Sustained throughput over limit?"}
+    H1 -- yes --> R1["Lower send rate below the tier limit"]
+    H1 -- no --> H2{"Burst traffic spikes?"}
+    H2 -- yes --> R2["Queue and smooth bursts"]
+    H2 -- no --> H3{"Wrong number tier for volume?"}
+    H3 -- yes --> R3["Match tier to planned volume"]
+    H3 -- no --> H4["Too many concurrent connections?"]
+    H4 -- yes --> R4["Reuse connections and reduce concurrency"]
+    H4 -- no --> EV["Collect evidence: Monitor metrics, app logs, CLI tier check"]
+    EV --> M["Apply mitigation and confirm no 429s"]
+```
 
 ## Evidence Collection
 

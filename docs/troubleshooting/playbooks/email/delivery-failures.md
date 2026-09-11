@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-docs
-  - email-delivery-troubleshooting
+  diagrams:
+    - id: email-delivery-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +31,21 @@ content_validation:
 | Recipient invalid | The destination email address does not exist or has a full mailbox | [Observed] |
 | Content filtered | Email was blocked due to suspicious content or attachments | [Inferred] |
 | Rate limiting | Sending more emails than allowed by the current sender tier | [Correlated] |
+
+<!-- diagram-id: email-delivery-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Email not delivered"] --> H1{"Sender domain verified?"}
+    H1 -- no --> R1["Complete domain verification in ACS"]
+    H1 -- yes --> H2{"SPF or DKIM failing?"}
+    H2 -- yes --> R2["Fix DNS auth records"]
+    H2 -- no --> H3{"Recipient invalid or content filtered?"}
+    H3 -- yes --> R3["Suppress invalid recipients and revise content"]
+    H3 -- no --> H4{"Hitting rate limits?"}
+    H4 -- yes --> R4["Throttle sending within limits"]
+    H4 -- no --> EV["Collect evidence: delivery reports, metrics, SMTP status"]
+    EV --> M["Apply mitigation and confirm next send"]
+```
 
 ## Evidence Collection
 

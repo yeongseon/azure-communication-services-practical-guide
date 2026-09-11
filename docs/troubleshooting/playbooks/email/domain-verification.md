@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - azure-docs
-  - email-domain-verification
+  diagrams:
+    - id: email-domain-verification-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/domain-verification
+
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -27,6 +32,21 @@ content_validation:
 | Wrong TXT record | The TXT record value was copied incorrectly from the Azure portal | [Measured] |
 | CNAME conflicts | Existing records at the same domain level are conflicting with the verification records | [Correlated] |
 | Multiple TXT records | Multiple SPF TXT records are present at the domain root | [Inferred] |
+
+<!-- diagram-id: email-domain-verification-flow -->
+```mermaid
+flowchart TD
+    S["Custom domain stuck unverified"] --> H1{"DNS records propagated?"}
+    H1 -- no --> R1["Wait for TTL then re-verify"]
+    H1 -- yes --> H2{"TXT record value exact?"}
+    H2 -- no --> R2["Correct the TXT record value"]
+    H2 -- yes --> H3{"CNAME conflicts present?"}
+    H3 -- yes --> R3["Remove conflicting CNAME entries"]
+    H3 -- no --> H4{"Multiple TXT records confusing validation?"}
+    H4 -- yes --> R4["Keep only the ACS verification record"]
+    H4 -- no --> EV["Collect evidence: portal verification state, dig output"]
+    EV --> M["Re-run verification and confirm Verified state"]
+```
 
 ## Evidence Collection
 

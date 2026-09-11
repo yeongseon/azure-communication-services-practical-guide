@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-troubleshooting
+  diagrams:
+    - id: chat-delivery-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +31,20 @@ content_validation:
 | Thread deleted | The entire chat thread was deleted by an admin or another participant | [Observed] |
 | Network issue | Firewall or local proxy is blocking the WebSocket connection | [Correlated] |
 | Missing notifications | The app is not correctly listening for real-time notification events | [Inferred] |
+
+<!-- diagram-id: chat-delivery-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Chat message not delivered"] --> H1{"Token expired?"}
+    H1 -- yes --> R1["Refresh token with Chat scope"]
+    H1 -- no --> H2{"Participant removed or thread deleted?"}
+    H2 -- yes --> R2["Re-add participant or recreate thread"]
+    H2 -- no --> H3{"WebSocket blocked or notifications missed?"}
+    H3 -- yes --> R3["Verify network egress and re-register listener"]
+    H3 -- no --> EV["Collect evidence: browser console, ACSChatIncomingOperations, identity check"]
+    EV --> V["Confirm hypothesis with matched log pattern"]
+    V --> M["Apply mitigation from playbook and re-send"]
+```
 
 ## Evidence Collection
 

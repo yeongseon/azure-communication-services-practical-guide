@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-delivery-guide
+  diagrams:
+    - id: f10m-sms-delivery-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -26,6 +29,18 @@ When SMS delivery failures occur, follow this checklist to quickly isolate the c
 3. **Analyze Message Content**: Does it contain spam keywords or suspicious URLs?
 4. **Check Rate Limits**: Are you exceeding your throughput (MPS) limits?
 5. **Verify Number Format**: Is the recipient number in correct E.164 format?
+
+<!-- diagram-id: f10m-sms-delivery-flow -->
+```mermaid
+flowchart TD
+    S["SMS send or delivery failing"] --> C1{"Send API returns non-2xx?"}
+    C1 -- yes --> A1["Fix request: format, sender, connection string"]
+    C1 -- no --> C2{"Delivery report shows failure?"}
+    C2 -- yes --> A2["Act on the report reason: opt-out, throttle, invalid"]
+    C2 -- no --> C3{"No delivery report event arriving?"}
+    C3 -- yes --> A3["Check Event Grid subscription wiring"]
+    C3 -- no --> ESC["Escalate to the SMS Delivery Failures playbook"]
+```
 
 ## Essential CLI Commands
 

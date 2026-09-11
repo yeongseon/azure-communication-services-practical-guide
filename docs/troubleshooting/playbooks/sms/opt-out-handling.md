@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-opt-out-guide
+  diagrams:
+    - id: sms-optout-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -27,6 +30,21 @@ content_validation:
 | STOP keyword processing | Carrier-level blocking is active for the recipient | [Measured] |
 | Number reassignment | Recipient's phone number was reassigned to a new user | [Inferred] |
 | Opt-in logic failure | The user's `START` or `JOIN` keyword was not processed correctly | [Observed] |
+
+<!-- diagram-id: sms-optout-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Opt-out handling misbehaving"] --> H1{"Opt-out list stale?"}
+    H1 -- yes --> R1["Sync suppression state from delivery reports"]
+    H1 -- no --> H2{"STOP keyword processing failing?"}
+    H2 -- yes --> R2["Fix incoming keyword handling"]
+    H2 -- no --> H3{"Number reassigned by carrier?"}
+    H3 -- yes --> R3["Treat recipient as new opt-in required"]
+    H3 -- no --> H4{"App opt-in logic wrong?"]
+    H4 -- yes --> R4["Fix consent capture in app"]
+    H4 -- no --> EV["Collect evidence: delivery reports, Event Grid, app logs"]
+    EV --> M["Apply mitigation and verify keyword round-trip"]
+```
 
 ## Evidence Collection
 

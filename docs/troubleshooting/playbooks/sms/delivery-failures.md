@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-troubleshooting
+  diagrams:
+    - id: sms-delivery-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +31,21 @@ content_validation:
 | Carrier blocking | Content triggered spam filters or suspicious pattern detection | [Correlated] |
 | Rate limiting | Exceeding the messages per second (MPS) limit for the number | [Measured] |
 | Invalid number | Destination number is disconnected or does not exist | [Observed] |
+
+<!-- diagram-id: sms-delivery-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["SMS not delivered"] --> H1{"Number in E.164 format?"}
+    H1 -- no --> R1["Correct phone format"]
+    H1 -- yes --> H2{"Recipient opted out?"}
+    H2 -- yes --> R2["Respect opt-out and re-consent flow"]
+    H2 -- no --> H3{"Throttled at MPS limit?"}
+    H3 -- yes --> R3["Throttle sends within MPS"]
+    H3 -- no --> H4{"Carrier blocking or invalid number?"}
+    H4 -- yes --> R4["Adjust content or drop invalid number"]
+    H4 -- no --> EV["Collect evidence: delivery reports, SMS metrics, CLI send"]
+    EV --> M["Apply mitigation and confirm delivery report"]
+```
 
 ## Evidence Collection
 

@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - teams-interop-guide
+  diagrams:
+    - id: teams-join-hypothesis-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop
+
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +33,21 @@ content_validation:
 | Token scope wrong | The user's access token is missing the required scopes | [Observed] |
 | Join before start | The user is attempting to join a meeting that has not yet started or has no lobby enabled | [Inferred] |
 | Cross-tenant issue | The ACS resource and Teams meeting are in different tenants with no trust established | [Correlated] |
+
+<!-- diagram-id: teams-join-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Cannot join Teams meeting"] --> H1{"Meeting URL valid?"}
+    H1 -- no --> R1["Use the correct Teams meeting join URL"]
+    H1 -- yes --> H2{"Admin policy blocks external join?"]
+    H2 -- yes --> R2["Adjust Teams admin policy"]
+    H2 -- no --> H3{"Token scope wrong?"]
+    H3 -- yes --> R3["Reissue token with Teams meeting scope"]
+    H3 -- no --> H4{"Join attempted before start or cross-tenant?"]
+    H4 -- yes --> R4["Wait for lobby rules or fix tenant config"]
+    H4 -- no --> EV["Collect evidence: console, Log Analytics, Teams admin"]
+    EV --> M["Apply mitigation and rejoin"]
+```
 
 ## Evidence Collection
 

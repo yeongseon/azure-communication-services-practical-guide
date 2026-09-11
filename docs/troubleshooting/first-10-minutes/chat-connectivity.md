@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-troubleshooting
+  diagrams:
+    - id: f10m-chat-connectivity-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +31,18 @@ When chat messages are delayed or connectivity fails, follow this initial checkl
 5. **Real-time Event Subscription**: Is the app listening for incoming messages correctly?
 
 ## Essential Diagnostic Steps
+
+<!-- diagram-id: f10m-chat-connectivity-flow -->
+```mermaid
+flowchart TD
+    S["Chat client cannot connect"] --> C1{"Console shows SDK errors?"}
+    C1 -- yes --> A1["Resolve the reported SDK error"]
+    C1 -- no --> C2{"Token has chat scope?"}
+    C2 -- no --> A2["Reissue token with chat scope"]
+    C2 -- yes --> C3{"Network requests blocked?"}
+    C3 -- yes --> A3["Open egress to ACS chat endpoints"]
+    C3 -- no --> ESC["Escalate to the Chat playbooks"]
+```
 
 ### 1. Check Browser Console
 Open the developer tools and look for `401 Unauthorized` or `403 Forbidden` errors.

@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-quality-guide
+  diagrams:
+    - id: f10m-calling-quality-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/user-facing-diagnostics
+
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +33,18 @@ When audio or video quality suffers or calls drop, follow this initial checklist
 5. **Local Device Health**: Are CPU or memory levels extremely high on the client device?
 
 ## Essential Diagnostic Steps
+
+<!-- diagram-id: f10m-calling-quality-flow -->
+```mermaid
+flowchart TD
+    S["Caller reports poor quality"] --> C1{"UFD shows network flags?"}
+    C1 -- yes --> A1["Address network issues flagged by UFD"]
+    C1 -- no --> C2{"TURN or STUN reachable?"}
+    C2 -- no --> A2["Open firewall for TURN or STUN"]
+    C2 -- yes --> C3{"Media stream stats degraded?"}
+    C3 -- yes --> A3["Reduce bitrate or switch network"]
+    C3 -- no --> ESC["Escalate to the Calling Quality playbook"]
+```
 
 ### 1. Browser Console (User Facing Diagnostics)
 Enable User Facing Diagnostics (UFD) in your app to capture network issues.

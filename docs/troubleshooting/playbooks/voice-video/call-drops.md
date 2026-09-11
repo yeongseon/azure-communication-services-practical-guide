@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-drops-guide
+  diagrams:
+    - id: call-drops-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +31,21 @@ content_validation:
 | SRTP timeout | Secure Real-time Transport Protocol session timed out | [Correlated] |
 | Signaling failure | The WebSocket signaling connection was lost and could not be recovered | [Inferred] |
 | Participant removed | An admin or another participant disconnected the user | [Observed] |
+
+<!-- diagram-id: call-drops-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Calls disconnect mid-session"] --> H1{"Network instability?"}
+    H1 -- yes --> R1["Stabilize network path and retest"]
+    H1 -- no --> H2{"Token expired during call?"}
+    H2 -- yes --> R2["Extend token lifetime or refresh pre-call"]
+    H2 -- no --> H3{"SRTP timeout or signaling failure?"}
+    H3 -- yes --> R3["Check media relays and retry logic"]
+    H3 -- no --> H4{"Participant removed by server?"}
+    H4 -- yes --> R4["Audit participant removal events"]
+    H4 -- no --> EV["Collect evidence: UFD, Log Analytics, app logs"]
+    EV --> M["Apply mitigation and verify call duration"]
+```
 
 ## Evidence Collection
 
