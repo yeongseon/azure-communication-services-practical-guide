@@ -28,7 +28,7 @@ This tutorial walks these steps in order:
 <!-- diagram-id: dotnet-tutorial-logging-monitoring-flow -->
 ```mermaid
 flowchart TD
-    START[""Step 6: Logging & Monitoring""]
+    START["Step 6: Logging & Monitoring"]
     N1["1. SDK Logging with ILogger"]
     N2["2. Application Insights Integration"]
     N3["3. Client Diagnostics"]

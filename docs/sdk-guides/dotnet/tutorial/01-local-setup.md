@@ -28,7 +28,7 @@ This tutorial walks these steps in order:
 <!-- diagram-id: dotnet-tutorial-local-setup-flow -->
 ```mermaid
 flowchart TD
-    START[""Step 1: Local Setup""]
+    START["Step 1: Local Setup"]
     N1["Prerequisites"]
     N2["1. Create ACS Resource"]
     N3["2. Initialize .NET Console App"]

@@ -28,7 +28,7 @@ This tutorial walks these steps in order:
 <!-- diagram-id: dotnet-tutorial-send-email-flow -->
 ```mermaid
 flowchart TD
-    START[""Step 3: Send Email""]
+    START["Step 3: Send Email"]
     N1["Prerequisites"]
     N2["1. Add Email NuGet Package"]
     N3["2. Initialize EmailClient"]

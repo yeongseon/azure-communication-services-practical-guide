@@ -28,7 +28,7 @@ This tutorial walks these steps in order:
 <!-- diagram-id: dotnet-tutorial-chat-flow -->
 ```mermaid
 flowchart TD
-    START[""Step 4: Chat""]
+    START["Step 4: Chat"]
     N1["1. Add Chat NuGet Package"]
     N2["2. Initialize ChatClient"]
     N3["3. Create a Chat Thread"]

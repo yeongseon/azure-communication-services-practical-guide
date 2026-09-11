@@ -28,7 +28,7 @@ This tutorial walks these steps in order:
 <!-- diagram-id: dotnet-tutorial-infrastructure-as-code-flow -->
 ```mermaid
 flowchart TD
-    START[""Step 7: Infrastructure as Code""]
+    START["Step 7: Infrastructure as Code"]
     N1["1. Bicep Template for ACS"]
     N2["2. Management SDK (Azure.ResourceManager.Communication)"]
     N3["3. GitHub Actions Workflow"]

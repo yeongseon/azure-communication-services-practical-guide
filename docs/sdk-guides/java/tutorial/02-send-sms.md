@@ -28,7 +28,7 @@ This tutorial walks these steps in order:
 <!-- diagram-id: java-tutorial-send-sms-flow -->
 ```mermaid
 flowchart TD
-    START[""Step 2: Send SMS""]
+    START["Step 2: Send SMS"]
     N1["1. Add SMS Dependency"]
     N2["2. Initialize SmsClient"]
     N3["3. Send a Single SMS"]

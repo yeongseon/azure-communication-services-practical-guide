@@ -28,7 +28,7 @@ This tutorial walks these steps in order:
 <!-- diagram-id: java-tutorial-voice-calling-flow -->
 ```mermaid
 flowchart TD
-    START[""Step 5: Voice Calling""]
+    START["Step 5: Voice Calling"]
     N1["1. Add Call Automation Dependency"]
     N2["2. Initialize CallAutomationClient"]
     N3["3. Make an Outbound PSTN Call"]
