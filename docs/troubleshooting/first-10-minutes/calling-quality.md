@@ -37,13 +37,17 @@ When audio or video quality suffers or calls drop, follow this initial checklist
 <!-- diagram-id: f10m-calling-quality-flow -->
 ```mermaid
 flowchart TD
-    S["Caller reports poor quality"] --> C1{"UFD shows network flags?"}
-    C1 -- yes --> A1["Address network issues flagged by UFD"]
-    C1 -- no --> C2{"TURN or STUN reachable?"}
-    C2 -- no --> A2["Open firewall for TURN or STUN"]
-    C2 -- yes --> C3{"Media stream stats degraded?"}
-    C3 -- yes --> A3["Reduce bitrate or switch network"]
-    C3 -- no --> ESC["Escalate to the Calling Quality playbook"]
+    S["Caller reports poor quality"] --> C1{"Stable Wi-Fi or cellular network?"}
+    C1 -- no --> A1["Move to a stable network"]
+    C1 -- yes --> C2{"TURN or STUN ports open?"}
+    C2 -- no --> A2["Open the required UDP or TCP ports"]
+    C2 -- yes --> C3{"Sufficient bandwidth for resolution?"}
+    C3 -- no --> A3["Lower the video resolution"]
+    C3 -- yes --> C4{"Supported codec in use?"}
+    C4 -- no --> A4["Switch to a supported codec such as H.264 or VP8"]
+    C4 -- yes --> C5{"CPU or memory extremely high?"}
+    C5 -- yes --> A5["Reduce local device load"]
+    C5 -- no --> ESC["Escalate to the Calling Quality playbook"]
 ```
 
 ### 1. Browser Console (User Facing Diagnostics)

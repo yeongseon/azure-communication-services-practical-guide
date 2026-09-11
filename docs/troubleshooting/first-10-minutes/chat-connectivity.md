@@ -35,13 +35,17 @@ When chat messages are delayed or connectivity fails, follow this initial checkl
 <!-- diagram-id: f10m-chat-connectivity-flow -->
 ```mermaid
 flowchart TD
-    S["Chat client cannot connect"] --> C1{"Console shows SDK errors?"}
-    C1 -- yes --> A1["Resolve the reported SDK error"]
-    C1 -- no --> C2{"Token has chat scope?"}
-    C2 -- no --> A2["Reissue token with chat scope"]
-    C2 -- yes --> C3{"Network requests blocked?"}
-    C3 -- yes --> A3["Open egress to ACS chat endpoints"]
-    C3 -- no --> ESC["Escalate to the Chat playbooks"]
+    S["Chat client cannot connect"] --> C1{"Access token still valid?"}
+    C1 -- no --> A1["Refresh the access token"]
+    C1 -- yes --> C2{"Thread exists and user is a participant?"}
+    C2 -- no --> A2["Rejoin or recreate the thread"]
+    C2 -- yes --> C3{"Participant has the required role?"}
+    C3 -- no --> A3["Grant the member role"]
+    C3 -- yes --> C4{"WebSocket blocked by firewall?"}
+    C4 -- yes --> A4["Open egress for the WebSocket"]
+    C4 -- no --> C5{"App listening for incoming messages?"}
+    C5 -- no --> A5["Fix real-time event subscription"]
+    C5 -- yes --> ESC["Escalate to the Chat playbooks"]
 ```
 
 ### 1. Check Browser Console

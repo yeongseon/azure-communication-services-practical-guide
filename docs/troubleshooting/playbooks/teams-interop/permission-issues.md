@@ -38,11 +38,11 @@ content_validation:
 flowchart TD
     S["Teams feature unavailable"] --> H1{"External access policy restrictive?"}
     H1 -- yes --> R1["Allow external access per tenant policy"]
-    H1 -- no --> H2{"Guest permissions insufficient?"]
+    H1 -- no --> H2{"Guest permissions insufficient?"}
     H2 -- yes --> R2["Elevate guest role permissions"]
-    H2 -- no --> H3{"Feature not enabled for interop?"]
+    H2 -- no --> H3{"Feature not enabled for interop?"}
     H3 -- yes --> R3["Enable the feature in Teams admin"]
-    H3 -- no --> H4{"Tenant mismatch?"]
+    H3 -- no --> H4{"Tenant mismatch?"}
     H4 -- yes --> R4["Align tenant identity configuration"]
     H4 -- no --> EV["Collect evidence: console, Teams admin, Log Analytics"]
     EV --> M["Apply mitigation and retest feature"]

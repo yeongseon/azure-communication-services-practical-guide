@@ -39,11 +39,11 @@ content_validation:
 flowchart TD
     S["Cannot join Teams meeting"] --> H1{"Meeting URL valid?"}
     H1 -- no --> R1["Use the correct Teams meeting join URL"]
-    H1 -- yes --> H2{"Admin policy blocks external join?"]
+    H1 -- yes --> H2{"Admin policy blocks external join?"}
     H2 -- yes --> R2["Adjust Teams admin policy"]
-    H2 -- no --> H3{"Token scope wrong?"]
+    H2 -- no --> H3{"Token scope wrong?"}
     H3 -- yes --> R3["Reissue token with Teams meeting scope"]
-    H3 -- no --> H4{"Join attempted before start or cross-tenant?"]
+    H3 -- no --> H4{"Join attempted before start or cross-tenant?"}
     H4 -- yes --> R4["Wait for lobby rules or fix tenant config"]
     H4 -- no --> EV["Collect evidence: console, Log Analytics, Teams admin"]
     EV --> M["Apply mitigation and rejoin"]

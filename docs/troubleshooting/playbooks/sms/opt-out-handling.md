@@ -40,7 +40,7 @@ flowchart TD
     H2 -- yes --> R2["Fix incoming keyword handling"]
     H2 -- no --> H3{"Number reassigned by carrier?"}
     H3 -- yes --> R3["Treat recipient as new opt-in required"]
-    H3 -- no --> H4{"App opt-in logic wrong?"]
+    H3 -- no --> H4{"App opt-in logic wrong?"}
     H4 -- yes --> R4["Fix consent capture in app"]
     H4 -- no --> EV["Collect evidence: delivery reports, Event Grid, app logs"]
     EV --> M["Apply mitigation and verify keyword round-trip"]
