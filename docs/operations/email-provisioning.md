@@ -1,9 +1,10 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource
+  references:
+    - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/create-email-communication-resource
+    - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-azure-managed-domains
+    - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/add-custom-verified-domains
+    - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/connect-email-communication-resource
 content_validation:
   status: verified
   last_reviewed: 2026-06-29

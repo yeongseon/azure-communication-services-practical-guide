@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-docs
-  - emergency-response
+  references:
+    - azure-docs
+    - emergency-response
 ---
 
 # First 10 Minutes

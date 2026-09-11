@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-docs
-  - communication-services-playbooks
+  references:
+    - azure-docs
+    - communication-services-playbooks
 ---
 
 # Playbook Catalog

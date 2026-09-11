@@ -2,7 +2,8 @@
 title: Python SDK Recipes
 description: Focused code recipes for Azure Communication Services with Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/python/api/overview/azure/communication-services
+  references:
+    - https://learn.microsoft.com/en-us/python/api/overview/azure/communication-services
 ---
 
 # Python SDK Recipes

@@ -1,9 +1,10 @@
 ---
 content_sources:
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/chat-logs
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acschatincomingoperations
+  references:
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/chat-logs
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acschatincomingoperations
 content_validation:
   status: verified
   last_reviewed: 2026-07-01

@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-log-analytics
-  - acs-kql-library
+  references:
+    - azure-log-analytics
+    - acs-kql-library
 ---
 
 # KQL Query Library

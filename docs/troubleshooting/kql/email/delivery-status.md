@@ -1,7 +1,8 @@
 ---
 content_sources:
-  - azure-docs
-  - email-log-analytics
+  references:
+    - azure-docs
+    - email-log-analytics
 ---
 
 # Email Delivery Status KQL

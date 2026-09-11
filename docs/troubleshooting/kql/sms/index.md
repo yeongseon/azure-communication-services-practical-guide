@@ -1,9 +1,10 @@
 ---
 content_sources:
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/sms-logs
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acssmsincomingoperations
+  references:
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/sms-logs
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acssmsincomingoperations
 content_validation:
   status: verified
   last_reviewed: 2026-06-29
