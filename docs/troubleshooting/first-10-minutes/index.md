@@ -3,7 +3,7 @@ content_sources:
   references:
     - azure-docs
     - emergency-response
-  ---
+---
 
 # First 10 Minutes
 

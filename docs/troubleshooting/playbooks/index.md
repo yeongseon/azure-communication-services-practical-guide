@@ -3,7 +3,7 @@ content_sources:
   references:
     - azure-docs
     - communication-services-playbooks
-  ---
+---
 
 # Playbook Catalog
 

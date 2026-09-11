@@ -7,7 +7,7 @@ content_sources:
       url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscalldiagnostics
     - type: mslearn
       url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscallsurvey
-  content_validation:
+content_validation:
   status: verified
   last_reviewed: 2026-07-01
   reviewer: agent

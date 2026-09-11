@@ -4,7 +4,7 @@ description: Focused code recipes for Azure Communication Services with JavaScri
 content_sources:
   references:
     - https://learn.microsoft.com/en-us/javascript/api/overview/azure/communication-services
-  ---
+---
 
 # JavaScript SDK Recipes
 
