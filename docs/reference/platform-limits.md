@@ -1,12 +1,13 @@
 ---
 content_sources:
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-quota-increase
-content_validation:
+  references:
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-quota-increase
+  content_validation:
   status: verified
   last_reviewed: 2026-07-01
   reviewer: agent

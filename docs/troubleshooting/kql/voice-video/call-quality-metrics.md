@@ -1,12 +1,13 @@
 ---
 content_sources:
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscalldiagnostics
-  - type: mslearn
-    url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscallsurvey
-content_validation:
+  references:
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/voice-and-video-logs
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscalldiagnostics
+    - type: mslearn
+      url: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/acscallsurvey
+  content_validation:
   status: verified
   last_reviewed: 2026-07-01
   reviewer: agent

@@ -1,8 +1,9 @@
 ---
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting
-content_validation:
+  references:
+    - https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/logs/email-logs
+    - https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/troubleshooting
+  content_validation:
   status: verified
   last_reviewed: 2026-06-26
   reviewer: agent
