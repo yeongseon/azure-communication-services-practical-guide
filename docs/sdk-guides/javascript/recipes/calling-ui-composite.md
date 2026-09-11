@@ -2,12 +2,40 @@
 title: Calling UI Composite
 description: Adding video calling UI with ACS UI Library composite components.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-overview
+  diagrams:
+    - id: javascript-recipe-calling-ui-composite-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/ui-library/ui-library-overview
+
 ---
 
 # Calling UI Composite
 
 This recipe shows how to add a comprehensive video calling UI to your web application with minimal code using the Azure Communication Services (ACS) UI Library composite components.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: javascript-recipe-calling-ui-composite-flow -->
+```mermaid
+flowchart TD
+    START["Calling UI Composite"]
+    N1["Prerequisites"]
+    N2["1. SDK Installation"]
+    N3["2. Using CallComposite"]
+    N4["3. Customizing the UI"]
+    N5["4. Handling Call Events"]
+    N6["5. UI Library Localization"]
+    N7["6. Best Practices"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Prerequisites
 

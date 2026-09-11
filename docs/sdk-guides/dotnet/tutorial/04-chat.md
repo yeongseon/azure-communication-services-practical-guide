@@ -2,11 +2,12 @@
 title: "Step 4: Chat"
 description: Implement real-time chat with the Azure Communication Services .NET SDK.
 content_sources:
-  - id: dotnet-chat
-    type: documentation
-    source: self
-    justification: Code examples for chat functionality in .NET.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started
+  diagrams:
+    - id: dotnet-tutorial-chat-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,26 @@ validation:
 # Step 4: Chat
 
 Learn how to create chat threads, add participants, and send messages using the `ChatClient`.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: dotnet-tutorial-chat-flow -->
+```mermaid
+flowchart TD
+    START[""Step 4: Chat""]
+    N1["1. Add Chat NuGet Package"]
+    N2["2. Initialize ChatClient"]
+    N3["3. Create a Chat Thread"]
+    N4["4. Send and Receive Messages"]
+    N5["5. Real-time Notifications"]
+    N6["Full Code Example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
 
 ## 1. Add Chat NuGet Package
 

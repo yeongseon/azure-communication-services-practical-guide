@@ -2,12 +2,36 @@
 title: Event Grid Webhooks
 description: Handling Azure Communication Services events with JavaScript webhooks.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/event-grid/receive-events?pivots=programming-language-javascript
+  diagrams:
+    - id: javascript-recipe-event-grid-webhooks-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/event-grid/receive-events?pivots=programming-language-javascript
+
 ---
 
 # Event Grid Webhooks
 
 This recipe demonstrates how to set up an Azure Event Grid subscription for Azure Communication Services (ACS) and handle events using a JavaScript web framework like Express.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: javascript-recipe-event-grid-webhooks-flow -->
+```mermaid
+flowchart TD
+    START["Event Grid Webhooks"]
+    N1["Prerequisites"]
+    N2["1. Set Up Event Grid Subscription"]
+    N3["2. Express Webhook Endpoint"]
+    N4["3. Validate CloudEvents"]
+    N5["4. Handle Common ACS Events"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
 ## Prerequisites
 

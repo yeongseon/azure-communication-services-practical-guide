@@ -2,7 +2,13 @@
 title: Local Setup
 description: Setting up your Python environment for Azure Communication Services.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-python
+  diagrams:
+    - id: python-tutorial-local-setup-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-python
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,26 @@ validation:
 # Local Setup
 
 In this step, we'll configure your local development environment to use the Azure Communication Services (ACS) Python SDK.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: python-tutorial-local-setup-flow -->
+```mermaid
+flowchart TD
+    START["Local Setup"]
+    N1["1. Install Python and Create a Virtual Environment"]
+    N2["2. Install ACS SDK Packages"]
+    N3["3. Create ACS Resource in Azure"]
+    N4["4. Get Connection String"]
+    N5["5. Set Up Environment Variables"]
+    N6["6. Verify with Simple Identity Token Creation"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
 
 ## 1. Install Python and Create a Virtual Environment
 

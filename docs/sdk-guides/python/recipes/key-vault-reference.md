@@ -2,12 +2,36 @@
 title: Key Vault Reference
 description: Securing Azure Communication Services connection strings with Key Vault and Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-python?tabs=azure-cli
+  diagrams:
+    - id: python-recipe-key-vault-reference-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-python?tabs=azure-cli
+
 ---
 
 # Key Vault Reference
 
 This recipe shows how to securely store and retrieve Azure Communication Services (ACS) connection strings from Azure Key Vault using Python.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: python-recipe-key-vault-reference-flow -->
+```mermaid
+flowchart TD
+    START["Key Vault Reference"]
+    N1["Prerequisites"]
+    N2["SDK Installation"]
+    N3["Store Connection String in Key Vault"]
+    N4["Access from Python App"]
+    N5["Rotation Strategy"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
 ## Prerequisites
 

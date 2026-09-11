@@ -2,7 +2,13 @@
 title: Email with Attachments (.NET)
 description: Send Azure Communication Services email messages with file attachments using the .NET SDK.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  diagrams:
+    - id: dotnet-recipe-email-with-attachments-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+
 ---
 
 # Email with Attachments (.NET)
@@ -11,6 +17,28 @@ Use ACS Email when you need to send reports, invoices, or diagnostic bundles fro
 
 !!! note "Attachment limits"
     Keep each attachment under **10 MB** and send no more than **10 attachments** per email.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: dotnet-recipe-email-with-attachments-flow -->
+```mermaid
+flowchart TD
+    START["Email with Attachments (.NET)"]
+    N1["Setup"]
+    N2["Create attachments from file bytes"]
+    N3["Send the message"]
+    N4["Base64 and BinaryData"]
+    N5["Multiple attachment types"]
+    N6["Practical guidance"]
+    N7["Full example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Setup
 

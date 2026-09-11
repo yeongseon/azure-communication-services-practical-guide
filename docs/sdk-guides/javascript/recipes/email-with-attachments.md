@@ -2,12 +2,40 @@
 title: Email with Attachments
 description: Sending emails with multiple file attachments using ACS and JavaScript.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
+  diagrams:
+    - id: javascript-recipe-email-with-attachments-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
+
 ---
 
 # Email with Attachments
 
 This recipe shows how to send emails with file attachments using Azure Communication Services (ACS) and JavaScript.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: javascript-recipe-email-with-attachments-flow -->
+```mermaid
+flowchart TD
+    START["Email with Attachments"]
+    N1["Prerequisites"]
+    N2["1. SDK Installation"]
+    N3["2. Prepare Attachments"]
+    N4["3. Send Email with Multiple Attachments"]
+    N5["4. Attachment Size Limits"]
+    N6["5. Multiple Attachment Types"]
+    N7["6. Best Practices"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Prerequisites
 

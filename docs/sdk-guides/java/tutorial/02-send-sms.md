@@ -2,11 +2,12 @@
 title: "Step 2: Send SMS"
 description: Learn how to send SMS messages using the Azure Communication Services Java SDK.
 content_sources:
-  - id: java-send-sms
-    type: documentation
-    source: self
-    justification: Code examples for sending SMS with Java.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send
+  diagrams:
+    - id: java-tutorial-send-sms-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/send
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,26 @@ validation:
 # Step 2: Send SMS
 
 In this step, you will use the `SmsClient` to send text messages.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: java-tutorial-send-sms-flow -->
+```mermaid
+flowchart TD
+    START[""Step 2: Send SMS""]
+    N1["1. Add SMS Dependency"]
+    N2["2. Initialize SmsClient"]
+    N3["3. Send a Single SMS"]
+    N4["4. Send with Options (Delivery Reports)"]
+    N5["5. Error Handling"]
+    N6["Full Code Example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
 
 ## 1. Add SMS Dependency
 

@@ -2,13 +2,37 @@
 title: Teams Interop (.NET)
 description: Join Microsoft Teams meetings from a .NET app using Azure Communication Services.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/meeting-interop
+  diagrams:
+    - id: dotnet-recipe-teams-interop-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/access-tokens
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/meeting-interop
+
 ---
 
 # Teams Interop (.NET)
 
 Teams interop lets your ACS application join a Microsoft Teams meeting as a participant.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: dotnet-recipe-teams-interop-flow -->
+```mermaid
+flowchart TD
+    START["Teams Interop (.NET)"]
+    N1["Key pieces"]
+    N2["Permissions"]
+    N3["Full example"]
+    N4["Meeting URL parsing"]
+    N5["Operational notes"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
 ## Key pieces
 

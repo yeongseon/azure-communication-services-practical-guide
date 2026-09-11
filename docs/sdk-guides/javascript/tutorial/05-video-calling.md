@@ -2,7 +2,13 @@
 title: Video Calling
 description: Building browser-based video calling with Azure Communication Services for JavaScript.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=programming-language-javascript
+  diagrams:
+    - id: javascript-tutorial-video-calling-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=programming-language-javascript
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,28 @@ validation:
 # Video Calling
 
 This step demonstrates how to build a browser-based video calling experience using the Azure Communication Services (ACS) JavaScript SDK.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: javascript-tutorial-video-calling-flow -->
+```mermaid
+flowchart TD
+    START["Video Calling"]
+    N1["1. Prerequisites"]
+    N2["2. CallClient Setup"]
+    N3["3. Start/Join Video Call"]
+    N4["4. Manage Local/Remote Video Streams"]
+    N5["5. Mute/Unmute and Screen Sharing"]
+    N6["6. UI Calling Composite Component"]
+    N7["Full Code Example (Browser)"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## 1. Prerequisites
 

@@ -2,12 +2,40 @@
 title: Teams Interop
 description: Joining Microsoft Teams meetings with ACS and Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
+  diagrams:
+    - id: python-recipe-teams-interop-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop?pivots=programming-language-python
+
 ---
 
 # Teams Interop
 
 This recipe demonstrates how to join Microsoft Teams meetings and map identities between Azure Communication Services (ACS) and Teams using Python.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: python-recipe-teams-interop-flow -->
+```mermaid
+flowchart TD
+    START["Teams Interop"]
+    N1["Prerequisites"]
+    N2["1. SDK Installation"]
+    N3["2. Join Teams Meeting from Python App"]
+    N4["3. Teams User Identity Mapping"]
+    N5["4. Meeting URL Handling"]
+    N6["5. Security and Compliance"]
+    N7["6. Best Practices"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Prerequisites
 

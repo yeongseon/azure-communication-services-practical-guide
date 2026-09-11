@@ -2,7 +2,13 @@
 title: Voice Calling
 description: Automating voice calls with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-with-call-automation?pivots=programming-language-python
+  diagrams:
+    - id: python-tutorial-voice-calling-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-with-call-automation?pivots=programming-language-python
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,28 @@ validation:
 # Voice Calling
 
 This step demonstrates how to automate voice calls using the Azure Communication Services (ACS) Python SDK.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: python-tutorial-voice-calling-flow -->
+```mermaid
+flowchart TD
+    START["Voice Calling"]
+    N1["1. Prerequisites"]
+    N2["2. Call Automation Client Setup"]
+    N3["3. Create Outbound Call"]
+    N4["4. Play Audio Prompts"]
+    N5["5. Handle Call Events"]
+    N6["6. Transfer Calls"]
+    N7["Full Code Example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## 1. Prerequisites
 

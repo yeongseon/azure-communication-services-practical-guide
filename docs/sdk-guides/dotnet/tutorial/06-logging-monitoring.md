@@ -2,11 +2,12 @@
 title: "Step 6: Logging & Monitoring"
 description: Monitor your .NET communication application with Azure Monitor and Application Insights.
 content_sources:
-  - id: dotnet-logging-monitoring
-    type: documentation
-    source: self
-    justification: Explains observability for .NET ACS apps.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+  diagrams:
+    - id: dotnet-tutorial-logging-monitoring-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,24 @@ validation:
 # Step 6: Logging & Monitoring
 
 Track the health and performance of your .NET communication features using standard .NET logging patterns and Azure Monitor.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: dotnet-tutorial-logging-monitoring-flow -->
+```mermaid
+flowchart TD
+    START[""Step 6: Logging & Monitoring""]
+    N1["1. SDK Logging with ILogger"]
+    N2["2. Application Insights Integration"]
+    N3["3. Client Diagnostics"]
+    N4["4. Custom Telemetry"]
+    N5["5. Diagnostic Settings in Azure"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
 ## 1. SDK Logging with ILogger
 

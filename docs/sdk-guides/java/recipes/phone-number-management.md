@@ -1,4 +1,11 @@
 ---
+content_sources:
+  diagrams:
+    - id: java-recipe-phone-number-management-flow
+      type: flowchart
+      source: self-generated
+      justification: Sequential walkthrough of this page's own step structure.
+
 title: Phone Number Management with Java
 description: Programmatically search and purchase phone numbers using the Java SDK.
 ---
@@ -6,6 +13,22 @@ description: Programmatically search and purchase phone numbers using the Java S
 # Phone Number Management with Java
 
 Manage your ACS phone numbers directly from your Java application using the `PhoneNumbersClient`.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: java-recipe-phone-number-management-flow -->
+```mermaid
+flowchart TD
+    START["Phone Number Management with Java"]
+    N1["1. Add Phone Numbers Dependency"]
+    N2["2. Initialize PhoneNumbersClient"]
+    N3["3. Search and Purchase a Number"]
+    N4["4. List Purchased Numbers"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
 ## 1. Add Phone Numbers Dependency
 

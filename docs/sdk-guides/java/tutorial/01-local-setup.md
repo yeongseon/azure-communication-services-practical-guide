@@ -2,11 +2,12 @@
 title: "Step 1: Local Setup"
 description: Configure your Java environment for Azure Communication Services.
 content_sources:
-  - id: java-local-setup
-    type: documentation
-    source: self
-    justification: Explains how to set up a Java project with ACS dependencies.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
+  diagrams:
+    - id: java-tutorial-local-setup-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,26 @@ validation:
 # Step 1: Local Setup
 
 Before writing code, you need to prepare your development environment and Azure resources.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: java-tutorial-local-setup-flow -->
+```mermaid
+flowchart TD
+    START[""Step 1: Local Setup""]
+    N1["Prerequisites"]
+    N2["1. Create ACS Resource"]
+    N3["2. Initialize Maven Project"]
+    N4["3. Add Dependencies"]
+    N5["4. Set Environment Variables"]
+    N6["5. Verify Setup"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
 
 ## Prerequisites
 

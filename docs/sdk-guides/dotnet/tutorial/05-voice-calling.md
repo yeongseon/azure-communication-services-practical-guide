@@ -2,11 +2,12 @@
 title: "Step 5: Voice Calling"
 description: Build telephony applications with Call Automation and the .NET SDK.
 content_sources:
-  - id: dotnet-voice-calling
-    type: documentation
-    source: self
-    justification: Explains Call Automation features in .NET.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
+  diagrams:
+    - id: dotnet-tutorial-voice-calling-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,26 @@ validation:
 # Step 5: Voice Calling
 
 Use the `CallAutomationClient` to make outbound calls and handle telephony events.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: dotnet-tutorial-voice-calling-flow -->
+```mermaid
+flowchart TD
+    START[""Step 5: Voice Calling""]
+    N1["1. Add Call Automation NuGet Package"]
+    N2["2. Initialize CallAutomationClient"]
+    N3["3. Make an Outbound Call"]
+    N4["4. Play Audio Prompts"]
+    N5["5. DTMF Recognition"]
+    N6["Full Code Example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
 
 ## 1. Add Call Automation NuGet Package
 

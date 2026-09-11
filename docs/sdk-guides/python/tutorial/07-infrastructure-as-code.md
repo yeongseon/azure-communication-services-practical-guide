@@ -2,7 +2,13 @@
 title: Infrastructure as Code
 description: Deploying Azure Communication Services with Bicep and Python scripts.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+  diagrams:
+    - id: python-tutorial-infrastructure-as-code-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=bicep&pivots=platform-azp
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,24 @@ validation:
 # Infrastructure as Code
 
 This step shows how to use Bicep and Python scripts to deploy and manage Azure Communication Services (ACS) resources.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: python-tutorial-infrastructure-as-code-flow -->
+```mermaid
+flowchart TD
+    START["Infrastructure as Code"]
+    N1["1. Bicep Template for ACS Resource"]
+    N2["2. Python Deployment Script"]
+    N3["3. Phone Number Provisioning"]
+    N4["4. Email Domain Configuration via IaC"]
+    N5["5. CI/CD Integration"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
 ## 1. Bicep Template for ACS Resource
 

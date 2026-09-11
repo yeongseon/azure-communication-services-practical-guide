@@ -2,11 +2,12 @@
 title: "Step 6: Logging & Monitoring"
 description: Monitor your Java communication application with Azure Monitor and Application Insights.
 content_sources:
-  - id: java-logging-monitoring
-    type: documentation
-    source: self
-    justification: Explains observability for Java ACS apps.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+  diagrams:
+    - id: java-tutorial-logging-monitoring-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,22 @@ validation:
 # Step 6: Logging & Monitoring
 
 Observability is crucial for production communication apps. This step covers SDK logging and Azure Monitor integration.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: java-tutorial-logging-monitoring-flow -->
+```mermaid
+flowchart TD
+    START[""Step 6: Logging & Monitoring""]
+    N1["1. SDK Logging with SLF4J"]
+    N2["2. Application Insights Integration"]
+    N3["3. Custom Telemetry"]
+    N4["4. Azure Monitor Diagnostic Settings"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
 ## 1. SDK Logging with SLF4J
 

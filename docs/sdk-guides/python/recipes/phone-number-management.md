@@ -2,12 +2,40 @@
 title: Phone Number Management
 description: Managing ACS phone numbers with Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
+  diagrams:
+    - id: python-recipe-phone-number-management-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?pivots=programming-language-python
+
 ---
 
 # Phone Number Management
 
 This recipe shows how to search, purchase, and release Azure Communication Services (ACS) phone numbers using the Python SDK.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: python-recipe-phone-number-management-flow -->
+```mermaid
+flowchart TD
+    START["Phone Number Management"]
+    N1["Prerequisites"]
+    N2["SDK Installation"]
+    N3["Search Available Phone Numbers"]
+    N4["Purchase Phone Numbers"]
+    N5["Configure Capabilities"]
+    N6["Release Phone Numbers"]
+    N7["List Purchased Phone Numbers"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Prerequisites
 

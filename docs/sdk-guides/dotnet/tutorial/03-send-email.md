@@ -2,11 +2,12 @@
 title: "Step 3: Send Email"
 description: Learn how to send emails with the Azure Communication Services .NET SDK.
 content_sources:
-  - id: dotnet-send-email
-    type: documentation
-    source: self
-    justification: Explains email sending capabilities in .NET.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email
+  diagrams:
+    - id: dotnet-tutorial-send-email-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,28 @@ validation:
 # Step 3: Send Email
 
 This step covers sending transactional emails using the `EmailClient`.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: dotnet-tutorial-send-email-flow -->
+```mermaid
+flowchart TD
+    START[""Step 3: Send Email""]
+    N1["Prerequisites"]
+    N2["1. Add Email NuGet Package"]
+    N3["2. Initialize EmailClient"]
+    N4["3. Send a Simple Email"]
+    N5["4. Send with Attachments"]
+    N6["5. Polling for Status"]
+    N7["Full Code Example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Prerequisites
 
