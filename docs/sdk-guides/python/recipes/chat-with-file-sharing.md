@@ -2,12 +2,40 @@
 title: Chat with File Sharing
 description: Implementing file sharing in Azure Communication Services chat with Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+  diagrams:
+    - id: python-recipe-chat-with-file-sharing-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+
 ---
 
 # Chat with File Sharing
 
 This recipe shows how to share files in Azure Communication Services (ACS) chat threads using Python.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: python-recipe-chat-with-file-sharing-flow -->
+```mermaid
+flowchart TD
+    START["Chat with File Sharing"]
+    N1["Prerequisites"]
+    N2["1. SDK Installation"]
+    N3["2. File Metadata Handling"]
+    N4["3. Custom Message Types"]
+    N5["4. Download Patterns"]
+    N6["5. Security Considerations"]
+    N7["6. Best Practices"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Prerequisites
 

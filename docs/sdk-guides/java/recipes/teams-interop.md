@@ -1,4 +1,11 @@
 ---
+content_sources:
+  diagrams:
+    - id: java-recipe-teams-interop-flow
+      type: flowchart
+      source: self-generated
+      justification: Sequential walkthrough of this page's own step structure.
+
 title: Teams Interoperability with Java
 description: Integrate Azure Communication Services users into Microsoft Teams meetings using Java.
 ---
@@ -6,6 +13,20 @@ description: Integrate Azure Communication Services users into Microsoft Teams m
 # Teams Interoperability with Java
 
 Azure Communication Services allows your custom application users to join Microsoft Teams meetings.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: java-recipe-teams-interop-flow -->
+```mermaid
+flowchart TD
+    START["Teams Interoperability with Java"]
+    N1["1. Prerequisites"]
+    N2["2. Join a Teams Meeting"]
+    N3["3. Call Automation and Teams"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+```
 
 ## 1. Prerequisites
 

@@ -2,12 +2,40 @@
 title: Phone Number Management (.NET)
 description: Search, purchase, list, and release Azure Communication Services phone numbers from .NET.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/phone-number-management
+  diagrams:
+    - id: dotnet-recipe-phone-number-management-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/phone-number-management
+
 ---
 
 # Phone Number Management (.NET)
 
 The Phone Numbers SDK is useful when you need to provision numbers for SMS, voice, or call automation.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: dotnet-recipe-phone-number-management-flow -->
+```mermaid
+flowchart TD
+    START["Phone Number Management (.NET)"]
+    N1["Setup"]
+    N2["Search for available numbers"]
+    N3["Purchase numbers"]
+    N4["List owned numbers"]
+    N5["Release numbers"]
+    N6["Full example"]
+    N7["Operational tips"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Setup
 

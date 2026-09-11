@@ -2,7 +2,13 @@
 title: Email with Attachments (Java)
 description: Send Azure Communication Services email messages with one or more file attachments using the Java SDK.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+  diagrams:
+    - id: java-recipe-email-with-attachments-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-advanced/send-email-with-attachments
+
 ---
 
 # Email with Attachments (Java)
@@ -11,6 +17,22 @@ Use the ACS Email SDK when you need to send receipts, reports, or screenshots.
 
 !!! note "Attachment limits"
     ACS email supports up to **10 attachments per message** and **10 MB per attachment**.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: java-recipe-email-with-attachments-flow -->
+```mermaid
+flowchart TD
+    START["Email with Attachments (Java)"]
+    N1["Setup"]
+    N2["Build the message"]
+    N3["Multiple attachment types"]
+    N4["Practical notes"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
 ## Setup
 

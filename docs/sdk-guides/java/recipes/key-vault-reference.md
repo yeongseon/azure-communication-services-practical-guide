@@ -1,4 +1,11 @@
 ---
+content_sources:
+  diagrams:
+    - id: java-recipe-key-vault-reference-flow
+      type: flowchart
+      source: self-generated
+      justification: Sequential walkthrough of this page's own step structure.
+
 title: Key Vault Reference with Java
 description: Securely retrieve Azure Communication Services connection strings using Azure Key Vault.
 ---
@@ -6,6 +13,20 @@ description: Securely retrieve Azure Communication Services connection strings u
 # Key Vault Reference with Java
 
 Storing secrets in Azure Key Vault is a best practice for securing your communication resource credentials.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: java-recipe-key-vault-reference-flow -->
+```mermaid
+flowchart TD
+    START["Key Vault Reference with Java"]
+    N1["1. Add Key Vault Dependency"]
+    N2["2. Retrieve Secret from Key Vault"]
+    N3["3. App Service / Azure Functions Integration"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+```
 
 ## 1. Add Key Vault Dependency
 

@@ -2,13 +2,37 @@
 title: Event Grid Webhooks (.NET)
 description: Handle Azure Communication Services events in ASP.NET Core using Event Grid webhooks.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/event-grid/receive-events-webhook
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-grid-events
+  diagrams:
+    - id: dotnet-recipe-event-grid-webhooks-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/event-grid/receive-events-webhook
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/event-grid-events
+
 ---
 
 # Event Grid Webhooks (.NET)
 
 Use an ASP.NET Core endpoint when ACS needs to publish SMS, email, chat, or call events to your app.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: dotnet-recipe-event-grid-webhooks-flow -->
+```mermaid
+flowchart TD
+    START["Event Grid Webhooks (.NET)"]
+    N1["What the webhook must do"]
+    N2["Minimal API example"]
+    N3["CloudEvent validation"]
+    N4["Permissions and security"]
+    N5["Handling common events"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
 ## What the webhook must do
 

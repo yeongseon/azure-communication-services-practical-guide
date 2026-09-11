@@ -2,12 +2,40 @@
 title: Teams Interop
 description: Joining Microsoft Teams meetings from a browser with ACS.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop?pivots=programming-language-javascript
+  diagrams:
+    - id: javascript-recipe-teams-interop-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/teams-interop?pivots=programming-language-javascript
+
 ---
 
 # Teams Interop
 
 This recipe demonstrates how to join Microsoft Teams meetings from a web browser application using the Azure Communication Services (ACS) Calling SDK.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: javascript-recipe-teams-interop-flow -->
+```mermaid
+flowchart TD
+    START["Teams Interop"]
+    N1["Prerequisites"]
+    N2["1. SDK Installation"]
+    N3["2. Join Teams Meeting from Browser"]
+    N4["3. Rendering Teams Meeting Video"]
+    N5["4. Teams User Identity Mapping"]
+    N6["5. Security and Compliance"]
+    N7["6. Best Practices"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## Prerequisites
 

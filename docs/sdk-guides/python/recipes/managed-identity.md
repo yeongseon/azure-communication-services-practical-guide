@@ -2,12 +2,32 @@
 title: Managed Identity Authentication
 description: Authenticating Azure Communication Services with Python using Managed Identities.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication?pivots=programming-language-python
+  diagrams:
+    - id: python-recipe-managed-identity-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication?pivots=programming-language-python
+
 ---
 
 # Managed Identity Authentication
 
 This recipe demonstrates how to authenticate with Azure Communication Services (ACS) using Azure Managed Identities, which provides a more secure approach than using connection strings.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: python-recipe-managed-identity-flow -->
+```mermaid
+flowchart TD
+    START["Managed Identity Authentication"]
+    N1["Prerequisites"]
+    N2["DefaultAzureCredential with ACS"]
+    N3["Client Examples"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+```
 
 ## Prerequisites
 

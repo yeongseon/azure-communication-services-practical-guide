@@ -1,4 +1,11 @@
 ---
+content_sources:
+  diagrams:
+    - id: java-recipe-event-grid-webhooks-flow
+      type: flowchart
+      source: self-generated
+      justification: Sequential walkthrough of this page's own step structure.
+
 title: Event Grid Webhooks with Spring Boot
 description: Handle Azure Communication Services events using a Spring Boot webhook.
 ---
@@ -6,6 +13,20 @@ description: Handle Azure Communication Services events using a Spring Boot webh
 # Event Grid Webhooks with Spring Boot
 
 Azure Communication Services publishes events (like SMS received or call ended) to Azure Event Grid. You can handle these events using a webhhok.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: java-recipe-event-grid-webhooks-flow -->
+```mermaid
+flowchart TD
+    START["Event Grid Webhooks with Spring Boot"]
+    N1["1. Create Spring Boot Controller"]
+    N2["2. Configure Event Grid Subscription"]
+    N3["3. Local Testing"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+```
 
 ## 1. Create Spring Boot Controller
 

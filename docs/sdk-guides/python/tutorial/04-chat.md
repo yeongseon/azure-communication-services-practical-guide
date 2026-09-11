@@ -2,7 +2,13 @@
 title: Real-time Chat
 description: Building real-time chat features with Azure Communication Services for Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+  diagrams:
+    - id: python-tutorial-chat-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-python
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,30 @@ validation:
 # Real-time Chat
 
 This step demonstrates how to build real-time chat features using the Azure Communication Services (ACS) Python SDK.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: python-tutorial-chat-flow -->
+```mermaid
+flowchart TD
+    START["Real-time Chat"]
+    N1["1. Prerequisites"]
+    N2["2. ChatClient Setup"]
+    N3["3. Create a Chat Thread"]
+    N4["4. Add/Remove Participants"]
+    N5["5. Send Messages"]
+    N6["6. Receive Messages"]
+    N7["7. Real-time Notifications Setup"]
+    N8["Full Code Example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+    N7 --> N8
+```
 
 ## 1. Prerequisites
 

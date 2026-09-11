@@ -1,4 +1,11 @@
 ---
+content_sources:
+  diagrams:
+    - id: dotnet-recipe-key-vault-reference-flow
+      type: flowchart
+      source: self-generated
+      justification: Sequential walkthrough of this page's own step structure.
+
 title: Key Vault Reference with .NET
 description: Securely retrieve Azure Communication Services connection strings using Azure Key Vault.
 ---
@@ -6,6 +13,22 @@ description: Securely retrieve Azure Communication Services connection strings u
 # Key Vault Reference with .NET
 
 Store your ACS credentials securely in Azure Key Vault and retrieve them using the .NET SDK.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: dotnet-recipe-key-vault-reference-flow -->
+```mermaid
+flowchart TD
+    START["Key Vault Reference with .NET"]
+    N1["1. Add NuGet Packages"]
+    N2["2. Retrieve Secret"]
+    N3["3. ASP.NET Core Configuration Integration"]
+    N4["4. Azure App Service / Functions Reference"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
 ## 1. Add NuGet Packages
 

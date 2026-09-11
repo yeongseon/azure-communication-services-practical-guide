@@ -2,11 +2,12 @@
 title: "Step 1: Local Setup"
 description: Configure your .NET environment for Azure Communication Services.
 content_sources:
-  - id: dotnet-local-setup
-    type: documentation
-    source: self
-    justification: Explains how to set up a .NET project with ACS dependencies.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
+  diagrams:
+    - id: dotnet-tutorial-local-setup-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,26 @@ validation:
 # Step 1: Local Setup
 
 Prepare your development environment and Azure resources for .NET development.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: dotnet-tutorial-local-setup-flow -->
+```mermaid
+flowchart TD
+    START["Step 1: Local Setup"]
+    N1["Prerequisites"]
+    N2["1. Create ACS Resource"]
+    N3["2. Initialize .NET Console App"]
+    N4["3. Add NuGet Packages"]
+    N5["4. Set Up User Secrets"]
+    N6["5. Verify Setup"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
 
 ## Prerequisites
 

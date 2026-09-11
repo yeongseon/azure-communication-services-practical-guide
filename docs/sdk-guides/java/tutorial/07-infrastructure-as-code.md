@@ -2,11 +2,12 @@
 title: "Step 7: Infrastructure as Code"
 description: Automate the deployment of your Java ACS application with Bicep and GitHub Actions.
 content_sources:
-  - id: java-iac
-    type: documentation
-    source: self
-    justification: Explains IaC and CI/CD for Java ACS projects.
-    based_on: https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/resource-manager-template
+  diagrams:
+    - id: java-tutorial-infrastructure-as-code-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/resource-manager-template
 validation:
   az_cli:
     last_tested: null
@@ -21,6 +22,24 @@ validation:
 # Step 7: Infrastructure as Code
 
 Automating resource provisioning ensures consistency across environments. This step covers Bicep templates and CI/CD integration.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: java-tutorial-infrastructure-as-code-flow -->
+```mermaid
+flowchart TD
+    START["Step 7: Infrastructure as Code"]
+    N1["1. Bicep Template for ACS"]
+    N2["2. GitHub Actions Workflow"]
+    N3["3. Managing Phone Numbers via CLI"]
+    N4["4. Maven Plugin for Azure App Service"]
+    N5["Summary"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+```
 
 ## 1. Bicep Template for ACS
 

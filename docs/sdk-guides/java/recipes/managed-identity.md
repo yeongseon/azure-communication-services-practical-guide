@@ -1,4 +1,11 @@
 ---
+content_sources:
+  diagrams:
+    - id: java-recipe-managed-identity-flow
+      type: flowchart
+      source: self-generated
+      justification: Sequential walkthrough of this page's own step structure.
+
 title: Managed Identity with Java
 description: Use DefaultAzureCredential to authenticate the Azure Communication Services Java SDK.
 ---
@@ -6,6 +13,20 @@ description: Use DefaultAzureCredential to authenticate the Azure Communication 
 # Managed Identity with Java
 
 Using Managed Identity avoids the need to manage connection strings in your application code or configuration.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: java-recipe-managed-identity-flow -->
+```mermaid
+flowchart TD
+    START["Managed Identity with Java"]
+    N1["1. Add Identity Dependency"]
+    N2["2. Initialize Client with DefaultAzureCredential"]
+    N3["3. Assign RBAC Roles"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+```
 
 ## 1. Add Identity Dependency
 

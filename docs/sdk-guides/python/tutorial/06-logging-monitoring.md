@@ -2,7 +2,13 @@
 title: Logging and Monitoring
 description: Configuring logging and monitoring for Azure Communication Services with Python.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+  diagrams:
+    - id: python-tutorial-logging-monitoring-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/logging-and-diagnostics
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,26 @@ validation:
 # Logging and Monitoring
 
 This step covers how to monitor your Azure Communication Services (ACS) resource and configure SDK logging in Python.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: python-tutorial-logging-monitoring-flow -->
+```mermaid
+flowchart TD
+    START["Logging and Monitoring"]
+    N1["1. SDK Logging Configuration"]
+    N2["2. Azure Monitor Integration"]
+    N3["3. Application Insights Setup"]
+    N4["4. Custom Telemetry for ACS Operations"]
+    N5["5. Diagnostic Settings"]
+    N6["6. KQL Queries for Monitoring"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+```
 
 ## 1. SDK Logging Configuration
 

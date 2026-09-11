@@ -2,7 +2,13 @@
 title: Send Email
 description: Sending emails with Azure Communication Services for JavaScript.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
+  diagrams:
+    - id: javascript-tutorial-send-email-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-javascript
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,28 @@ validation:
 # Send Email
 
 This step demonstrates how to use the Azure Communication Services (ACS) JavaScript SDK to send emails.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: javascript-tutorial-send-email-flow -->
+```mermaid
+flowchart TD
+    START["Send Email"]
+    N1["1. Prerequisites"]
+    N2["2. EmailClient Setup"]
+    N3["3. Send a Simple Email"]
+    N4["4. Send Email with HTML Body"]
+    N5["5. Send with Attachments"]
+    N6["6. Poll for Delivery Status"]
+    N7["Full Code Example"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## 1. Prerequisites
 

@@ -1,4 +1,11 @@
 ---
+content_sources:
+  diagrams:
+    - id: dotnet-recipe-managed-identity-flow
+      type: flowchart
+      source: self-generated
+      justification: Sequential walkthrough of this page's own step structure.
+
 title: Managed Identity with .NET
 description: Use DefaultAzureCredential to authenticate the Azure Communication Services .NET SDK.
 ---
@@ -6,6 +13,22 @@ description: Use DefaultAzureCredential to authenticate the Azure Communication 
 # Managed Identity with .NET
 
 Managed Identity provides a secure way to authenticate your .NET application without managing connection strings.
+
+This recipe walks these steps in order:
+
+<!-- diagram-id: dotnet-recipe-managed-identity-flow -->
+```mermaid
+flowchart TD
+    START["Managed Identity with .NET"]
+    N1["1. Add Azure.Identity NuGet Package"]
+    N2["2. Initialize Client with DefaultAzureCredential"]
+    N3["3. Dependency Injection Integration"]
+    N4["4. RBAC Roles"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
 
 ## 1. Add Azure.Identity NuGet Package
 

@@ -2,7 +2,13 @@
 title: Local Setup
 description: Setting up your JavaScript environment for Azure Communication Services.
 content_sources:
-  - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-javascript
+  diagrams:
+    - id: javascript-tutorial-local-setup-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/identity/get-tokens?pivots=programming-language-javascript
+
 validation:
   az_cli:
     last_tested: null
@@ -17,6 +23,28 @@ validation:
 # Local Setup
 
 In this step, we'll configure your local development environment to use the Azure Communication Services (ACS) JavaScript SDK.
+
+This tutorial walks these steps in order:
+
+<!-- diagram-id: javascript-tutorial-local-setup-flow -->
+```mermaid
+flowchart TD
+    START["Local Setup"]
+    N1["1. Install Node.js and npm"]
+    N2["2. Initialize Node.js Project"]
+    N3["3. Install ACS SDK Packages"]
+    N4["4. Create ACS Resource in Azure"]
+    N5["5. Get Connection String"]
+    N6["6. Set Up Environment Variables"]
+    N7["7. Verify with Simple Identity Token Creation"]
+    START --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    N5 --> N6
+    N6 --> N7
+```
 
 ## 1. Install Node.js and npm
 
