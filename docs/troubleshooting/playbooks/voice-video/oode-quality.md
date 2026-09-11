@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - calling-connectivity-guide
+  diagrams:
+    - id: oode-connection-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +31,21 @@ content_validation:
 | ICE negotiation failure | Interactive Connectivity Establishment (ICE) failed to find a valid media path | [Correlated] |
 | Invalid token | The user's access token is invalid or does not have the `voip` scope | [Observed] |
 | Signaling connection lost | The WebSocket connection for call signaling could not be established | [Inferred] |
+
+<!-- diagram-id: oode-connection-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Call cannot connect at all"] --> H1{"Firewall blocking UDP?"}
+    H1 -- yes --> R1["Open UDP egress per ACS network rules"]
+    H1 -- no --> H2{"TURN server unreachable?"}
+    H2 -- yes --> R2["Allow TURN traffic"]
+    H2 -- no --> H3{"ICE negotiation failing?"}
+    H3 -- yes --> R3["Inspect ICE candidates in console"]
+    H3 -- no --> H4{"Token invalid or signaling lost?"}
+    H4 -- yes --> R4["Reissue token and reconnect signaling"]
+    H4 -- no --> EV["Collect evidence: UFD, browser console, Log Analytics"]
+    EV --> M["Apply mitigation and confirm connect"]
+```
 
 ## Evidence Collection
 

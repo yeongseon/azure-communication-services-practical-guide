@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-notifications-guide
+  diagrams:
+    - id: chat-notifications-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -27,6 +30,21 @@ content_validation:
 | Token scope missing | The user's token does not have the `chat` scope | [Observed] |
 | Notification hub misconfigured | The Azure Notification Hub or Firebase configuration is incorrect | [Correlated] |
 | SDK not listening | The app has not correctly registered for the `chatMessageReceived` event | [Inferred] |
+
+<!-- diagram-id: chat-notifications-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Real-time notifications not arriving"] --> H1{"WebSocket blocked?"}
+    H1 -- yes --> R1["Open egress for ACS WebSocket endpoints"]
+    H1 -- no --> H2{"Token scope missing Chat?"}
+    H2 -- yes --> R2["Issue token with chat scope"]
+    H2 -- no --> H3{"Notification hub misconfigured?"}
+    H3 -- yes --> R3["Re-register Event Grid or push binding"]
+    H3 -- no --> H4["SDK listener not attached?"]
+    H4 -- yes --> R4["Call startRealtimeNotifications and handle events"]
+    H4 -- no --> EV["Collect evidence: console, service events, Log Analytics"]
+    EV --> M["Apply mitigation and verify a live message"]
+```
 
 ## Evidence Collection
 

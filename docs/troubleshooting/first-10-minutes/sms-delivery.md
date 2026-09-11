@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-docs
-  - sms-delivery-guide
+  diagrams:
+    - id: f10m-sms-delivery-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -26,6 +29,22 @@ When SMS delivery failures occur, follow this checklist to quickly isolate the c
 3. **Analyze Message Content**: Does it contain spam keywords or suspicious URLs?
 4. **Check Rate Limits**: Are you exceeding your throughput (MPS) limits?
 5. **Verify Number Format**: Is the recipient number in correct E.164 format?
+
+<!-- diagram-id: f10m-sms-delivery-flow -->
+```mermaid
+flowchart TD
+    S["SMS send or delivery failing"] --> C1{"Sender phone number active?"}
+    C1 -- no --> A1["Reprovision or replace the number"]
+    C1 -- yes --> C2{"Recipient on a suppression or STOP list?"}
+    C2 -- yes --> A2["Remove only via proper opt-in flow"]
+    C2 -- no --> C3{"Content has spam keywords or suspicious URLs?"}
+    C3 -- yes --> A3["Revise message content"]
+    C3 -- no --> C4{"Exceeding MPS throughput limits?"}
+    C4 -- yes --> A4["Throttle to the number's MPS limit"]
+    C4 -- no --> C5{"Recipient number in E.164 format?"}
+    C5 -- no --> A5["Correct the number format"]
+    C5 -- yes --> ESC["Escalate to the SMS Delivery Failures playbook"]
+```
 
 ## Essential CLI Commands
 

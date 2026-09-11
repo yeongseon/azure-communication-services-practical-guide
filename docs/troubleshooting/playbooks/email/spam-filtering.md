@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - azure-docs
-  - email-reputation-guide
+  diagrams:
+    - id: email-spam-hypothesis-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -27,6 +30,19 @@ content_validation:
 | Content triggers | Subject lines or body text contain common spam keywords | [Inferred] |
 | IP reputation | The ACS outbound IP address is on a blocklist | [Correlated] |
 | Warm-up needed | Sudden high volume from a new domain triggers spam filters | [Observed] |
+
+<!-- diagram-id: email-spam-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Emails landing in spam"] --> H1{"DMARC published?"}
+    H1 -- no --> R1["Publish DMARC with aligned policy"]
+    H1 -- yes --> H2{"Content triggers filters?"}
+    H2 -- yes --> R2["Simplify content and avoid spam keywords"]
+    H2 -- no --> H3{"IP reputation or warm-up lacking?"}
+    H3 -- yes --> R3["Warm up sending volume gradually"]
+    H3 -- no --> EV["Collect evidence: delivery reports, mail-tester score"]
+    EV --> M["Apply mitigation and re-test inbox placement"]
+```
 
 ## Evidence Collection
 

@@ -1,7 +1,12 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - teams-interop-permissions
+  diagrams:
+    - id: teams-permissions-hypothesis-flow
+      type: flowchart
+      source: mslearn-adapted
+      based_on:
+        - https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/teams-interop#feature-support
+
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -27,6 +32,21 @@ content_validation:
 | Guest permissions | The user's role in the meeting (e.g., attendee) has restricted permissions | [Observed] |
 | Feature not enabled | The ACS application does not have the required feature enabled for Teams interop | [Correlated] |
 | Tenant mismatch | The user's identity is from a different tenant than the Teams meeting | [Inferred] |
+
+<!-- diagram-id: teams-permissions-hypothesis-flow -->
+```mermaid
+flowchart TD
+    S["Teams feature unavailable"] --> H1{"External access policy restrictive?"}
+    H1 -- yes --> R1["Allow external access per tenant policy"]
+    H1 -- no --> H2{"Guest permissions insufficient?"}
+    H2 -- yes --> R2["Elevate guest role permissions"]
+    H2 -- no --> H3{"Feature not enabled for interop?"}
+    H3 -- yes --> R3["Enable the feature in Teams admin"]
+    H3 -- no --> H4{"Tenant mismatch?"}
+    H4 -- yes --> R4["Align tenant identity configuration"]
+    H4 -- no --> EV["Collect evidence: console, Teams admin, Log Analytics"]
+    EV --> M["Apply mitigation and retest feature"]
+```
 
 ## Evidence Collection
 

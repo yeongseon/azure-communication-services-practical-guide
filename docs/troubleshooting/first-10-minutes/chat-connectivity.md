@@ -1,7 +1,10 @@
 ---
 content_sources:
-  - communication-services-sdk
-  - chat-troubleshooting
+  diagrams:
+    - id: f10m-chat-connectivity-flow
+      type: flowchart
+      source: self-generated
+      justification: Visualizes this playbook's hypothesis triage and evidence-collection sequence, synthesized from the playbook content below.
 content_validation:
   status: verified
   last_reviewed: 2026-07-25
@@ -28,6 +31,22 @@ When chat messages are delayed or connectivity fails, follow this initial checkl
 5. **Real-time Event Subscription**: Is the app listening for incoming messages correctly?
 
 ## Essential Diagnostic Steps
+
+<!-- diagram-id: f10m-chat-connectivity-flow -->
+```mermaid
+flowchart TD
+    S["Chat client cannot connect"] --> C1{"Access token still valid?"}
+    C1 -- no --> A1["Refresh the access token"]
+    C1 -- yes --> C2{"Thread exists and user is a participant?"}
+    C2 -- no --> A2["Rejoin or recreate the thread"]
+    C2 -- yes --> C3{"Participant has the required role?"}
+    C3 -- no --> A3["Grant the member role"]
+    C3 -- yes --> C4{"WebSocket blocked by firewall?"}
+    C4 -- yes --> A4["Open egress for the WebSocket"]
+    C4 -- no --> C5{"App listening for incoming messages?"}
+    C5 -- no --> A5["Fix real-time event subscription"]
+    C5 -- yes --> ESC["Escalate to the Chat playbooks"]
+```
 
 ### 1. Check Browser Console
 Open the developer tools and look for `401 Unauthorized` or `403 Forbidden` errors.
